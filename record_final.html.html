@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fit21 飲食紀錄表</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- 全局設定 --- */
+        :root {
+            --primary-color: #2C5F2D; /* 品牌綠 */
+            --light-green: #E8F5E9;
+            --accent-orange: #FF8C42;
+            --text-dark: #333;
+            --border-color: #ddd;
+        }
+
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background-color: #F4F7F4;
+            margin: 0;
+            padding: 20px 10px;
+            color: var(--text-dark);
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            border-top: 5px solid var(--primary-color);
+            padding-bottom: 20px;
+        }
+
+        /* --- 標題區 --- */
+        header {
+            padding: 20px;
+            background-color: var(--light-green);
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        header h2 {
+            margin: 0;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        header p {
+            font-size: 0.9rem;
+            margin-top: 5px;
+            color: #666;
+        }
+
+        .form-content {
+            padding: 20px;
+        }
+
+        /* --- 基本資訊 (日期/餐別) --- */
+        .basic-info {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .basic-info select, .basic-info input {
+            flex: 1;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 1rem;
+            background: #fff;
+        }
+
+        /* --- 分類區塊樣式 --- */
+        .category-block {
+            border: 1px solid #eee;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+        }
+
+        .cat-title {
+            padding: 12px 15px;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        /* --- 分類小抄 (教學) --- */
+        .cat-guide {
+            padding: 10px 15px;
+            background-color: #fafafa;
+            border-bottom: 1px solid #eee;
+            font-size: 0.85rem;
+            color: #555;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+
+        .cat-guide span {
+            color: var(--accent-orange);
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .cat-body {
+            padding: 15px;
+            background-color: #fff;
+        }
+
+        /* --- 各類別顏色設定 --- */
+        .protein .cat-title { background-color: #ffebee; color: #c62828; }
+        .carbs .cat-title { background-color: #fff3e0; color: #ef6c00; }
+        .vege .cat-title { background-color: #e8f5e9; color: #2e7d32; }
+        .fruit .cat-title { background-color: #fffde7; color: #f9a825; }
+        .beverage .cat-title { background-color: #e3f2fd; color: #1565c0; }
+        .message .cat-title { background-color: #f3e5f5; color: #7b1fa2; } 
+
+        /* --- 輸入欄位排版 --- */
+        .field-row {
+            margin-bottom: 12px;
+        }
+
+        label {
+            display: block;
+            font-size: 0.9rem;
+            color: #333;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        input[type="text"], select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            box-sizing: border-box;
+            background-color: #fff;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            border-color: var(--primary-color);
+            background-color: #fff;
+            outline: none;
+        }
+
+        .flex-row {
+            display: flex;
+            gap: 10px;
+        }
+        .flex-col {
+            flex: 1;
+        }
+
+        /* --- 提交按鈕 --- */
+        .submit-btn {
+            display: block;
+            width: 90%;
+            margin: 20px auto 0;
+            padding: 15px;
+            background-color: var(--accent-orange);
+            color: white;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(255, 140, 66, 0.4);
+            transition: 0.2s;
+        }
+
+        .submit-btn:hover {
+            background-color: #e67e3a;
+            transform: scale(1.02);
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h2>Fit21 飲食紀錄表</h2>
+            <p>無法拍照時專用・請對照說明填寫</p>
+        </header>
+
+        <div class="form-content">
+            
+            <div class="basic-info">
+                <input type="date" id="dateInput">
+                <select>
+                    <option>☀️ 早餐</option>
+                    <option>🍱 午餐</option>
+                    <option>🌙 晚餐</option>
+                    <option>🍷 聚餐/應酬</option>
+                    <option>🍪 下午茶/宵夜</option>
+                </select>
+            </div>
+
+            <div class="category-block protein">
+                <div class="cat-title">🍗 1. 蛋白質 (肉/魚/豆/蛋)</div>
+                <div class="cat-guide">
+                    <span>💡 包含：</span>
+                    雞鴨牛羊豬肉、魚蝦貝類、雞蛋、豆腐、豆漿、毛豆、黑豆。
+                </div>
+                <div class="cat-body">
+                    <div class="field-row">
+                        <label>食物名稱</label>
+                        <input type="text" placeholder="例：烤鯖魚">
+                    </div>
+                    <div class="flex-row field-row">
+                        <div class="flex-col">
+                            <label>🔥 烹調方式</label>
+                            <select>
+                                <option value="" disabled selected>請選擇</option>
+                                <option>清蒸/水煮</option>
+                                <option>乾煎/烤</option>
+                                <option>滷/紅燒</option>
+                                <option>快炒/爆炒</option>
+                                <option>油炸/裹粉</option>
+                                <option>加工(丸子/香腸)</option>
+                            </select>
+                        </div>
+                        <div class="flex-col">
+                            <label>📏 攝取份量</label>
+                            <select>
+                                <option value="" disabled selected>請選擇</option>
+                                <option>0.5 份 (半掌心)</option>
+                                <option>1 份 (一掌心)</option>
+                                <option>1.5 份 (大掌心)</option>
+                                <option>2 份 (兩掌心)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="field-row">
+                        <label>📝 備註 (其他)</label>
+                        <input type="text" placeholder="例：去皮、只吃一半...">
+                    </div>
+                </div>
+            </div>
+
+            <div class="category-block carbs">
+                <div class="cat-title">🍚 2. 碳水 (澱粉/根莖)</div>
+                <div class="cat-guide">
+                    <span>💡 包含：</span>
+                    米飯、麵條、麵包、地瓜、馬鈴薯、南瓜、玉米、芋頭、紅豆、綠豆。
+                </div>
+                <div class="cat-body">
+                    <div class="field-row">
+                        <label>食物名稱</label>
+                        <input type="text" placeholder="例：白飯、地瓜">
+                    </div>
+                    <div class="flex-row field-row">
+                        <div class="flex-col">
+                            <label>🔥 烹調方式</label>
+                            <select>
+                                <option value="" disabled selected>請選擇</option>
+                                <option>清蒸/水煮</option>
+                                <option>烤 (地瓜)</option>
+                                <option>淋醬 (滷肉飯)</option>
+                                <option>炒 (炒飯/麵)</option>
+                                <option>勾芡 (羹/燴飯)</option>
+                                <option>油炸 (銀絲卷)</option>
+                                <option>烘焙 (麵包)</option>
+                            </select>
+                        </div>
+                        <div class="flex-col">
+                            <label>📏 攝取份量</label>
+                            <select>
+                                <option value="" disabled selected>請選擇</option>
+                                <option>少許 (1-2口)</option>
+                                <option>0.5 份 (半拳頭)</option>
+                                <option>1 份 (一拳頭/碗)</option>
+                                <option>1.5 份 (大碗)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="field-row">
+                        <label>📝 備註 (其他)</label>
+                        <input type="text" placeholder="例：飯吃一半...">
+                    </div>
+                </div>
+            </div>
+
+            <div class="category-block vege">
+                <div class="cat-title">🥦 3. 蔬菜 (菜/菇/藻)</div>
+                <div class="cat-guide">
+                    <span>💡 包含：</span>
+                    葉菜、高麗菜、花椰菜、菇類、木耳、海帶、大番茄、小黃瓜、豆芽菜。
+                </div>
+                <div class="cat-body">
+                    <div class="field-row">
+                        <label>食物名稱</label>
+                        <input type="text" placeholder="例：燙青菜">
+                    </div>
+                    <div class="flex-row field-row">
+                        <div class="flex-col">
+                            <label>🔥 烹調方式</label>
+                            <select>
+                                <option value="" disabled selected>請選擇</option>
+                                <option>生菜沙拉</option>
+                                <option>川燙 (無油)</option>
+                                <option>燙青菜 (加滷汁)</option>
+                                <option>清炒 (少油)</option>
+                                <option>大火炒 (多油)</option>
+                                <option>滷味蔬菜</option>
+                            </select>
+                        </div>
+                        <div class="flex-col">
+                            <label>📏 攝取份量</label>
+                            <select>
+                                <option value="" disabled selected>請選擇</option>
+                                <option>半碗</option>
+                                <option>一碗</option>
+                                <option>一個手掌</option>
+                                <option>雙手掌 (大量)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="field-row">
+                        <label>📝 備註 (其他)</label>
+                        <input type="text" placeholder="例：有過水...">
+                    </div>
+                </div>
+            </div>
+
+            <div class="category-block fruit">
+                <div class="cat-title">🍎 4. 水果</div>
+                <div class="cat-guide">
+                    <span>💡 注意：</span>
+                    請盡量選擇原型水果，避免果汁、果乾。
+                </div>
+                <div class="cat-body">
+                    <div class="field-row">
+                        <label>食物名稱</label>
+                        <input type="text" placeholder="例：芭樂">
+                    </div>
+                    <div class="flex-row field-row">
+                        <div class="flex-col">
+                            <label>🔥 狀態</label>
+                            <select>
+                                <option>新鮮切塊</option>
+                                <option>整顆食用</option>
+                                <option>現打果汁</option>
+                                <option>果乾/醃漬</option>
+                            </select>
+                        </div>
+                        <div class="flex-col">
+                            <label>📏 攝取份量</label>
+                            <select>
+                                <option value="" disabled selected>請選擇</option>
+                                <option>半個拳頭</option>
+                                <option>一個拳頭</option>
+                                <option>兩個拳頭</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="field-row">
+                        <label>📝 備註 (其他)</label>
+                        <input type="text" placeholder="例：很甜...">
+                    </div>
+                </div>
+            </div>
+
+            <div class="category-block beverage">
+                <div class="cat-title">🥤 5. 飲料/湯品/甜點</div>
+                <div class="cat-guide">
+                    <span>💡 包含：</span>
+                    含糖飲料、酒、湯、蛋糕、餅乾 (隱形熱量)。
+                </div>
+                <div class="cat-body">
+                    <div class="field-row">
+                        <label>名稱</label>
+                        <input type="text" placeholder="例：拿鐵、蛋糕">
+                    </div>
+                    <div class="flex-row field-row">
+                        <div class="flex-col">
+                            <label>🔥 甜度/濃度</label>
+                            <select>
+                                <option>無糖/清湯</option>
+                                <option>微糖/微甜</option>
+                                <option>半糖</option>
+                                <option>全糖/濃湯</option>
+                            </select>
+                        </div>
+                        <div class="flex-col">
+                            <label>📏 攝取份量</label>
+                            <select>
+                                <option>幾口</option>
+                                <option>半杯/半碗</option>
+                                <option>1 杯/1 碗</option>
+                                <option>續杯</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="field-row">
+                        <label>📝 備註 (其他)</label>
+                        <input type="text" placeholder="例：料吃掉湯沒喝...">
+                    </div>
+                </div>
+            </div>
+
+            <div class="category-block message">
+                <div class="cat-title">💬 6. 給 Rachel 教練的話</div>
+                <div class="cat-body">
+                    <textarea rows="4" placeholder="這裡可以寫下您的心情、懺悔、或是不確定的地方..." style="width:100%; border:1px solid #ddd; border-radius:8px; padding:10px; font-size:1rem;"></textarea>
+                </div>
+            </div>
+
+            <button class="submit-btn" onclick="alert('紀錄已保存！\n請截圖傳給 Rachel 教練分析！')">提交紀錄</button>
+
+        </div>
+    </div>
+
+    <script>
+        // 自動填入今天日期
+        document.getElementById('dateInput').valueAsDate = new Date();
+    </script>
+</body>
+</html>

@@ -419,16 +419,55 @@
                 </div>
             </div>
 
-            <button class="submit-btn" onclick="alert('紀錄已保存！\n請截圖傳給教練分析！')">提交紀錄</button>
+       <div class="form-group" style="text-align: center; margin-top: 20px;">
+            <button type="button" class="submit-btn" onclick="generateImage()">
+                📸 生成圖片 & 傳 Line
+            </button>
+        </div>
 
         </div>
     </div>
 
+  <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+
+    <script>
+        function generateImage() {
+            // 1. 隱藏按鈕 (才不會被拍進去)
+            const btn = document.querySelector('.submit-btn');
+            btn.style.display = 'none';
+
+            // 2. 開始截圖
+            const element = document.body; 
+            html2canvas(element, {
+                useCORS: true,
+                scale: 2, // 清晰度
+                backgroundColor: "#ffffff", // 白底
+                windowWidth: element.scrollWidth,
+                windowHeight: element.scrollHeight
+            }).then(canvas => {
+                // 3. 截圖完成，把按鈕顯示回來
+                btn.style.display = 'block';
+
+                // 4. 轉成圖片
+                const image = canvas.toDataURL("image/png");
+
+                // 5. 建立下載連結
+                const link = document.createElement('a');
+                link.download = 'Fit21-飲食紀錄.png';
+                link.href = image;
+                link.click();
+
+                // 6. 提示用戶
+                alert("圖片已下載！\n請打開 Line 傳送給教練 ❤️");
+            });
+        }
+    </script>
     <script>
         // 自動填入今天日期
         document.getElementById('dateInput').valueAsDate = new Date();
     </script>
 </body>
 </html>
+
 
 

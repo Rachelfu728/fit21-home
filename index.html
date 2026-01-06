@@ -419,55 +419,113 @@
                 </div>
             </div>
 
-       <div class="form-group" style="text-align: center; margin-top: 20px;">
-            <button type="button" class="submit-btn" onclick="generateImage()">
-                📸 生成圖片 & 傳 Line
-            </button>
-        </div>
+       <div class="form-group" style="text-align: center; margin-top: 30px; display: flex; flex-direction: column; gap: 15px;">
+        
+        <button type="button" class="submit-btn" style="background-color: #555;" onclick="generateImage(true)">
+            👁️ 1. 預覽圖片 (先檢查)
+        </button>
 
-        </div>
+        <button type="button" class="submit-btn" style="background-color: #2C5F2D;" onclick="generateImage(false)">
+            📸 2. 生成並儲存 (長按存圖)
+        </button>
+
+        <button type="button" class="submit-btn" style="background-color: #06C755;" onclick="openLine()">
+            💬 3. 開啟 Line 傳給教練
+        </button>
+
     </div>
 
-  <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
 
     <script>
-        function generateImage() {
-            // 1. 隱藏按鈕 (才不會被拍進去)
-            const btn = document.querySelector('.submit-btn');
-            btn.style.display = 'none';
+        // 自動填入日期
+        window.onload = function() {
+            const dateInput = document.getElementById('dateInput');
+            if(dateInput) dateInput.valueAsDate = new Date();
+        };
 
-            // 2. 開始截圖
+        // 功能：開啟 Line
+        function openLine() {
+            window.location.href = 'https://line.me/R/nv/chat'; 
+        }
+
+        // 功能：生成圖片
+        function generateImage(isPreview) {
+            // 隱藏按鈕
+            const btns = document.querySelectorAll('.submit-btn');
+            btns.forEach(btn => btn.style.display = 'none');
+            
+            // 顯示等待訊息
+            const loading = document.createElement('div');
+            loading.innerText = isPreview ? "正在預覽..." : "圖片生成中...";
+            loading.style.textAlign = 'center';
+            loading.id = 'loading-text';
+            loading.style.padding = '20px';
+            document.querySelector('.form-group').appendChild(loading);
+
             const element = document.body; 
+
             html2canvas(element, {
                 useCORS: true,
-                scale: 2, // 清晰度
-                backgroundColor: "#ffffff", // 白底
+                scale: 2, 
+                backgroundColor: "#ffffff",
                 windowWidth: element.scrollWidth,
                 windowHeight: element.scrollHeight
             }).then(canvas => {
-                // 3. 截圖完成，把按鈕顯示回來
-                btn.style.display = 'block';
+                // 恢復按鈕
+                btns.forEach(btn => btn.style.display = 'block');
+                document.getElementById('loading-text').remove();
 
-                // 4. 轉成圖片
-                const image = canvas.toDataURL("image/png");
+                const imageURL = canvas.toDataURL("image/png");
 
-                // 5. 建立下載連結
-                const link = document.createElement('a');
-                link.download = 'Fit21-飲食紀錄.png';
-                link.href = image;
-                link.click();
+                // --- 彈出視窗 ---
+                const overlay = document.createElement('div');
+                overlay.style.position = 'fixed';
+                overlay.style.top = '0';
+                overlay.style.left = '0';
+                overlay.style.width = '100%';
+                overlay.style.height = '100%';
+                overlay.style.backgroundColor = 'rgba(0,0,0,0.9)';
+                overlay.style.zIndex = '9999';
+                overlay.style.display = 'flex';
+                overlay.style.flexDirection = 'column';
+                overlay.style.alignItems = 'center';
+                overlay.style.justifyContent = 'center';
+                overlay.style.padding = '20px';
 
-                // 6. 提示用戶
-                alert("圖片已下載！\n請打開 Line 傳送給教練 ❤️");
+                // 標題文字
+                const tip = document.createElement('h2');
+                tip.innerText = isPreview ? "👀 這是預覽畫面 (點擊關閉)" : "👇 請長按圖片 -> 儲存到相簿";
+                tip.style.color = '#fff';
+                tip.style.marginBottom = '15px';
+                tip.style.fontSize = '18px';
+
+                // 圖片
+                const img = document.createElement('img');
+                img.src = imageURL;
+                img.style.maxWidth = '100%';
+                img.style.maxHeight = '75%';
+                img.style.border = '2px solid #fff';
+                img.style.borderRadius = '8px';
+
+                // 關閉鈕
+                const closeBtn = document.createElement('button');
+                closeBtn.innerText = isPreview ? "關閉預覽" : "我存好了，關閉視窗";
+                closeBtn.style.marginTop = '20px';
+                closeBtn.style.padding = '10px 20px';
+                closeBtn.style.fontSize = '16px';
+                closeBtn.style.backgroundColor = '#f44336';
+                closeBtn.style.color = '#fff';
+                closeBtn.style.border = 'none';
+                closeBtn.style.borderRadius = '50px';
+                closeBtn.onclick = function() { overlay.remove(); };
+
+                overlay.appendChild(tip);
+                overlay.appendChild(img);
+                overlay.appendChild(closeBtn);
+                document.body.appendChild(overlay);
             });
         }
     </script>
-    <script>
-        // 自動填入今天日期
-        document.getElementById('dateInput').valueAsDate = new Date();
-    </script>
-</body>
-</html>
-
 
 

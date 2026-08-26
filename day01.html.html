@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>減重陪伴・Day 1</title>
+<style>
+  :root{
+    --gold:#C9A24B; --gold-soft:#E4CE9A;
+    --beige:#FBF6EC; --beige-deep:#F3EAD6;
+    --green:#A9C6A0; --green-deep:#7FA574;
+    --ink:#4A4438; --ink-soft:#6E6656; --white:#FFFDF8;
+    --wrong:#C97B6B;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:"PingFang TC","Microsoft JhengHei","Noto Sans TC",sans-serif;
+    background:var(--beige);color:var(--ink);line-height:1.9;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:640px;margin:0 auto;padding:0 18px 60px;}
+
+  header{text-align:center;padding:44px 20px 26px;}
+  header .kicker{font-size:13px;letter-spacing:1.5px;color:var(--green-deep);margin-bottom:10px;}
+  header h1{font-size:24px;font-weight:700;letter-spacing:1px;}
+  header .day-no{display:inline-block;background:var(--gold);color:var(--white);
+    font-size:14px;padding:4px 16px;border-radius:20px;margin-bottom:14px;letter-spacing:1px;}
+  header .line{width:52px;height:3px;background:var(--gold);margin:18px auto 0;border-radius:2px;}
+
+  .card{background:var(--white);border-radius:16px;padding:26px 24px;margin-bottom:20px;
+    box-shadow:0 2px 12px rgba(160,140,90,.08);border:1px solid var(--beige-deep);}
+  .card h2{font-size:19px;color:var(--ink);margin-bottom:6px;}
+  .card .topic-tag{display:inline-block;font-size:12px;padding:3px 12px;border-radius:20px;
+    background:var(--gold);color:var(--white);margin-bottom:14px;}
+  .card p{font-size:15.5px;margin-bottom:12px;}
+  .card p:last-child{margin-bottom:0;}
+  .key{background:var(--beige);border-left:4px solid var(--green);border-radius:8px;
+    padding:12px 16px;margin-top:14px;font-size:14.5px;color:var(--ink-soft);}
+  .key b{color:var(--green-deep);}
+  .comic-img{width:100%;border-radius:12px;margin:16px 0 4px;display:block;
+    box-shadow:0 2px 10px rgba(160,140,90,.15);}
+  .qa{background:#F5F0E4;border-radius:10px;padding:14px 16px;margin-top:14px;font-size:14.5px;}
+  .qa .qq{font-weight:700;color:var(--gold);margin-bottom:4px;}
+
+  .quiz-intro{text-align:center;margin:36px 0 18px;}
+  .quiz-intro .t{font-size:20px;font-weight:700;color:var(--green-deep);}
+  .quiz-intro .s{font-size:14px;color:var(--ink-soft);margin-top:6px;}
+
+  .namebox{background:var(--white);border-radius:14px;padding:18px 20px;margin-bottom:16px;
+    border:1px solid var(--beige-deep);}
+  .namebox label{font-size:14px;color:var(--ink-soft);display:block;margin-bottom:8px;}
+  .namebox input{width:100%;padding:12px 14px;border:2px solid var(--beige-deep);border-radius:10px;
+    font-size:16px;font-family:inherit;color:var(--ink);}
+  .namebox input:focus{outline:none;border-color:var(--gold);}
+
+  .q{background:var(--white);border-radius:14px;padding:22px 20px;margin-bottom:16px;
+    border:1px solid var(--beige-deep);}
+  .q .qnum{font-size:13px;color:var(--gold);font-weight:700;margin-bottom:6px;}
+  .q .qtext{font-size:16px;font-weight:600;margin-bottom:14px;}
+  .opt{display:block;background:var(--beige);border:2px solid transparent;border-radius:10px;
+    padding:12px 15px;margin-bottom:10px;font-size:15px;cursor:pointer;transition:.15s;}
+  .opt:hover{border-color:var(--gold-soft);}
+  .opt.selected{border-color:var(--gold);background:var(--beige-deep);}
+  .opt.correct{border-color:var(--green-deep);background:#EAF3E6;}
+  .opt.wrong{border-color:var(--wrong);background:#F7E9E5;}
+  .explain{font-size:14px;color:var(--ink-soft);margin-top:8px;padding:10px 14px;
+    background:var(--beige);border-radius:8px;display:none;}
+  .explain.show{display:block;}
+  .explain b{color:var(--green-deep);}
+
+  .btn{display:block;width:100%;background:var(--green-deep);color:var(--white);border:none;
+    font-size:17px;font-weight:700;padding:16px;border-radius:12px;cursor:pointer;margin-top:8px;
+    font-family:inherit;letter-spacing:1px;}
+  .btn:hover{background:#6f9265;}
+  .btn.gold{background:var(--gold);}
+  .btn.gold:hover{background:#b8923f;}
+
+  .result{display:none;background:var(--white);border-radius:16px;padding:28px 24px;margin-top:24px;
+    border:2px solid var(--gold);text-align:center;}
+  .result.show{display:block;}
+  .result .score-big{font-size:44px;font-weight:800;color:var(--gold);line-height:1;}
+  .result .score-sub{font-size:15px;color:var(--ink-soft);margin-top:8px;}
+  .result .comment{font-size:16px;margin-top:16px;color:var(--ink);}
+  .copybox{background:var(--beige);border:1px dashed var(--gold-soft);border-radius:10px;
+    padding:14px;margin-top:18px;font-size:14px;text-align:left;white-space:pre-line;color:var(--ink);}
+  .hint{font-size:13px;color:var(--ink-soft);margin-top:10px;}
+
+  footer{text-align:center;margin-top:30px;color:var(--ink-soft);font-size:14px;}
+  footer .sign{color:var(--green-deep);font-weight:700;margin-top:6px;font-size:16px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="kicker">FIT21 減重陪伴・第一階段・正確觀念</div>
+    <div class="day-no">Day 1 / 21</div>
+    <h1>今天，先搞懂兩件事</h1>
+    <div class="line"></div>
+  </header>
+
+  <!-- 衛教一:菜肉飯 -->
+  <!-- ★漫畫提示(給ChatGPT生圖用,客戶看不到):餐盤上蔬菜、肉、飯排隊,蔬菜舉牌「我先!」肉接著「換我~」飯在最後乖乖等。女生和小貓咪在旁邊看著笑。金米綠配色、圓潤可愛畫風。 -->
+  <div class="card">
+    <span class="topic-tag">觀念一・吃的順序</span>
+    <h2>為什麼要「菜、肉、飯」這樣吃</h2>
+    <img class="comic-img" src="day01-a.png" alt="菜肉飯排隊插畫">
+    <p>同樣的一餐，只是換個順序吃，身體的反應差很多。我教你的順序是：<b>先吃菜、再吃肉、最後才吃飯</b>。</p>
+    <p>先吃菜，纖維會先進到肚子，讓你先有一點飽足感，也幫忙墊胃；接著吃肉（蛋白質），飽足感更持久、也讓你有體力有精神；最後才吃飯（澱粉）。這樣一路吃下來，等你吃到飯的時候其實已經半飽了，飯自然就吃得少，血糖也上升得比較平緩，不會一下衝高又掉下來、讓你很快又餓。</p>
+    <p>重點是——你<b>不用刻意少吃、不用餓肚子</b>，只是把吃的順序調一下，身體就會幫你把飯的份量降下來。這是最不痛苦、又能天天做的一件事。</p>
+    <div class="key"><b>記住：</b>菜 → 肉 → 飯。菜墊底、肉撐飽、飯最後，飯自然吃得少。</div>
+  </div>
+
+  <!-- 衛教二:下午四點後不吃水果 -->
+  <!-- ★漫畫提示(給ChatGPT生圖用,客戶看不到):一顆可愛時鐘指著下午四點,一顆水果角色揮手說「我先下班囉~明天上午見!」女生點頭微笑。溫馨逗趣、暖色調、金米綠色系。 -->
+  <div class="card">
+    <span class="topic-tag">觀念二・水果的時間</span>
+    <h2>為什麼下午四點以後不建議吃水果</h2>
+    <img class="comic-img" src="day01-b.png" alt="下午四點後不吃水果插畫">
+    <p>水果很健康，但它有一個容易被忽略的重點——<b>水果的甜來自單醣（果糖、葡萄糖），糖分其實不低</b>。很多人以為水果是「瘦身食物」，可以放心多吃、隨時吃，這是個常見的誤會。</p>
+    <p>我們的身體有一個規律：<b>過了下午、傍晚以後，對胰島素會變得比較不敏感</b>。胰島素是幫忙把糖送去利用、控制血糖的關鍵。研究發現，比起早上，晚上身體對胰島素的敏感度會下降三成左右。也就是說，同樣一份水果的糖，晚上吃，身體就是比較處理不掉，這些單醣就容易直接被存起來、變成脂肪。</p>
+    <p>所以我會建議你：<b>把水果放在白天、下午四點以前吃</b>。白天身體處理糖的能力最好，這時候吃水果，當作正餐之間的點心剛剛好。過了四點，就讓身體慢慢進入休息，別再給它額外的糖。</p>
+    <div class="key"><b>記住：</b>水果不是不能吃，是要「吃對時間」——四點前吃，四點後停。</div>
+
+    <div class="qa">
+      <div class="qq">Q：我常常忙到很晚、凌晨才睡，那我的「四點」是不是可以往後延？</div>
+      <div>不行喔，這條線不用改，一樣抓四點。因為身體對胰島素的這個變化，是跟著「天黑、生理時鐘」走的，不是跟著你幾點睡走。就算你晚睡，一到傍晚天黑，身體處理糖的能力一樣會下降。而且晚睡的人清醒的夜晚特別長，最容易在深夜嘴饞吃水果、吃宵夜——那正好是身體最處理不了糖的時段。所以你如果會晚睡，這條線對你反而<b>更重要</b>。</div>
+    </div>
+  </div>
+
+  <!-- 測驗 -->
+  <div class="quiz-intro">
+    <div class="t">來做個小測驗 ✏️</div>
+    <div class="s">看完上面兩個觀念，試試看你懂了多少<br>共 6 題，全部選擇題</div>
+  </div>
+
+  <div class="namebox">
+    <label>先填上你的名字（讓教練知道是誰交的功課）</label>
+    <input type="text" id="studentName" placeholder="請輸入你的名字">
+  </div>
+
+  <div id="quiz"></div>
+
+  <button class="btn gold" id="submitBtn" onclick="grade()">交卷看分數</button>
+
+  <div class="result" id="result">
+    <div class="score-big" id="scoreBig">0 分</div>
+    <div class="score-sub" id="scoreSub"></div>
+    <div class="comment" id="comment"></div>
+    <div class="copybox" id="copybox"></div>
+    <button class="btn" style="margin-top:16px;" onclick="copyResult()">📋 複製成績</button>
+    <div class="hint">複製後，貼到 LINE 傳給教練就完成囉！</div>
+  </div>
+
+  <footer>
+    Day 1・菜肉飯順序 & 水果時間<br>
+    <span class="sign">OK，我們一起努力！</span>
+  </footer>
+
+</div>
+
+<script>
+const questions = [
+  {
+    q: "吃一餐時，教練建議的順序是？",
+    opts: ["飯 → 肉 → 菜", "菜 → 肉 → 飯", "肉 → 飯 → 菜", "想吃什麼先吃什麼"],
+    ans: 1,
+    exp: "正確順序是「菜 → 肉 → 飯」。先吃菜墊底、再吃肉撐飽，最後吃飯，飯自然就吃得少。"
+  },
+  {
+    q: "先吃菜再吃飯，主要的好處是？",
+    opts: ["讓飯變得更好吃", "先有飽足感、血糖上升較平緩，飯自然吃得少", "可以完全不用吃飯", "讓吃飯速度變快"],
+    ans: 1,
+    exp: "纖維先進肚子會先有飽足感，血糖上升也較平緩，等吃到飯時已半飽，飯量自然下降。"
+  },
+  {
+    q: "關於「菜肉飯」的順序，下列何者正確？",
+    opts: ["一定要餓肚子、吃很少才有效", "不用刻意少吃，只要調整順序即可", "只有瘦的人才適合", "順序不重要，吃飽最重要"],
+    ans: 1,
+    exp: "重點就是不用餓肚子、不用刻意少吃，只要把順序調一下，身體就會幫你降低飯量。"
+  },
+  {
+    q: "為什麼水果不能「隨時吃、放心多吃」？",
+    opts: ["水果沒有營養", "水果的甜來自單醣，糖分其實不低", "水果會讓人過敏", "水果只能配飯吃"],
+    ans: 1,
+    exp: "水果的甜來自單醣（果糖、葡萄糖），糖分其實不低，所以不能因為它是水果就無限量、隨時吃。"
+  },
+  {
+    q: "為什麼建議下午四點以後不要吃水果？",
+    opts: ["水果四點後會壞掉", "傍晚後身體對胰島素較不敏感，糖分較難處理、容易變脂肪", "水果晚上沒有營養", "四點後吃水果會睡不著"],
+    ans: 1,
+    exp: "傍晚後身體對胰島素變得比較不敏感（比早上低約三成），這時吃水果的糖較難被利用，容易存成脂肪，所以建議白天吃、四點後停。"
+  },
+  {
+    q: "如果我常常忙到凌晨才睡，「四點後不吃水果」這條線要不要往後延？",
+    opts: ["要，晚睡就可以延到晚上再停", "不用延，一樣抓四點，因為這是跟著天黑、生理時鐘走的", "晚睡的人不用管水果時間", "改成想吃就吃"],
+    ans: 1,
+    exp: "這個變化是跟著天黑、生理時鐘走，不是跟著你幾點睡。晚睡的人深夜更容易嘴饞，這條線反而更重要，一樣抓四點。"
+  }
+];
+
+let selected = Array(questions.length).fill(null);
+let graded = false;
+
+const quizEl = document.getElementById('quiz');
+questions.forEach((item, qi) => {
+  const qDiv = document.createElement('div');
+  qDiv.className = 'q';
+  let html = `<div class="qnum">第 ${qi+1} 題</div><div class="qtext">${item.q}</div>`;
+  item.opts.forEach((opt, oi) => {
+    html += `<label class="opt" id="opt-${qi}-${oi}" onclick="pick(${qi},${oi})">${opt}</label>`;
+  });
+  html += `<div class="explain" id="exp-${qi}"></div>`;
+  qDiv.innerHTML = html;
+  quizEl.appendChild(qDiv);
+});
+
+function pick(qi, oi){
+  if(graded) return;
+  selected[qi] = oi;
+  for(let o=0;o<questions[qi].opts.length;o++){
+    document.getElementById(`opt-${qi}-${o}`).classList.remove('selected');
+  }
+  document.getElementById(`opt-${qi}-${oi}`).classList.add('selected');
+}
+
+function grade(){
+  const name = document.getElementById('studentName').value.trim();
+  if(!name){
+    alert("請先填上你的名字喔！");
+    document.getElementById('studentName').focus();
+    return;
+  }
+  for(let i=0;i<questions.length;i++){
+    if(selected[i]===null){
+      alert(`第 ${i+1} 題還沒作答喔！`);
+      document.getElementById(`opt-${i}-0`).scrollIntoView({behavior:'smooth',block:'center'});
+      return;
+    }
+  }
+  graded = true;
+  let correct = 0;
+  questions.forEach((item, qi) => {
+    const chosen = selected[qi];
+    if(chosen === item.ans){ correct++;
+      document.getElementById(`opt-${qi}-${chosen}`).classList.add('correct');
+    } else {
+      document.getElementById(`opt-${qi}-${chosen}`).classList.add('wrong');
+      document.getElementById(`opt-${qi}-${item.ans}`).classList.add('correct');
+    }
+    const exp = document.getElementById(`exp-${qi}`);
+    exp.innerHTML = `<b>解說：</b>${item.exp}`;
+    exp.classList.add('show');
+  });
+
+  const studentScore = Math.round(correct / questions.length * 100);
+  document.getElementById('submitBtn').style.display = 'none';
+
+  document.getElementById('scoreBig').textContent = studentScore + " 分";
+  document.getElementById('scoreSub').textContent = `答對 ${correct} / ${questions.length} 題`;
+
+  let comment = "";
+  if(studentScore === 100) comment = "太棒了！完全理解，這兩個觀念你已經記住了 👏";
+  else if(studentScore >= 80) comment = "很好！大部分都懂了，錯的地方看一下解說就更完整囉。";
+  else if(studentScore >= 60) comment = "不錯的開始～有幾題再回去看看，觀念會更清楚。";
+  else comment = "沒關係，第一天而已！把上面的解說再看一次，教練會陪你一起弄懂。";
+  document.getElementById('comment').textContent = comment;
+
+  const today = new Date();
+  const dateStr = `${today.getFullYear()}/${today.getMonth()+1}/${today.getDate()}`;
+  const copyText =
+`【FIT21 減重陪伴・Day 1 測驗成績】
+姓名：${name}
+日期：${dateStr}
+主題：菜肉飯順序 & 水果時間
+分數：${studentScore} 分（答對 ${correct}/${questions.length} 題）
+—— 我完成今天的功課囉！`;
+  document.getElementById('copybox').textContent = copyText;
+  window._copyText = copyText;
+
+  document.getElementById('result').classList.add('show');
+  document.getElementById('result').scrollIntoView({behavior:'smooth', block:'start'});
+}
+
+function copyResult(){
+  const text = window._copyText || "";
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(()=>{
+      alert("成績已複製！貼到 LINE 傳給教練就完成囉 😊");
+    }).catch(()=>fallbackCopy(text));
+  } else { fallbackCopy(text); }
+}
+function fallbackCopy(text){
+  const ta = document.createElement('textarea');
+  ta.value = text; document.body.appendChild(ta); ta.select();
+  try{ document.execCommand('copy'); alert("成績已複製！貼到 LINE 傳給教練就完成囉 😊"); }
+  catch(e){ alert("請長按上方成績文字手動複製~"); }
+  document.body.removeChild(ta);
+}
+</script>
+</body>
+</html>

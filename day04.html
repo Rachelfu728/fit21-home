@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>減重陪伴・Day 4</title>
+<style>
+  :root{
+    --gold:#C9A24B; --gold-soft:#E4CE9A;
+    --beige:#FBF6EC; --beige-deep:#F3EAD6;
+    --green:#A9C6A0; --green-deep:#7FA574;
+    --ink:#4A4438; --ink-soft:#6E6656; --white:#FFFDF8;
+    --wrong:#C97B6B;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:"PingFang TC","Microsoft JhengHei","Noto Sans TC",sans-serif;
+    background:var(--beige);color:var(--ink);line-height:1.9;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:640px;margin:0 auto;padding:0 18px 60px;}
+  header{text-align:center;padding:44px 20px 26px;}
+  header .kicker{font-size:13px;letter-spacing:1.5px;color:var(--green-deep);margin-bottom:10px;}
+  header h1{font-size:24px;font-weight:700;letter-spacing:1px;}
+  header .day-no{display:inline-block;background:var(--gold);color:var(--white);
+    font-size:14px;padding:4px 16px;border-radius:20px;margin-bottom:14px;letter-spacing:1px;}
+  header .line{width:52px;height:3px;background:var(--gold);margin:18px auto 0;border-radius:2px;}
+  .card{background:var(--white);border-radius:16px;padding:26px 24px;margin-bottom:20px;
+    box-shadow:0 2px 12px rgba(160,140,90,.08);border:1px solid var(--beige-deep);}
+  .card h2{font-size:19px;color:var(--ink);margin-bottom:6px;}
+  .card .topic-tag{display:inline-block;font-size:12px;padding:3px 12px;border-radius:20px;
+    background:var(--gold);color:var(--white);margin-bottom:14px;}
+  .card .topic-tag.fun{background:var(--green-deep);}
+  .card p{font-size:15.5px;margin-bottom:12px;}
+  .card p:last-child{margin-bottom:0;}
+  .key{background:var(--beige);border-left:4px solid var(--green);border-radius:8px;
+    padding:12px 16px;margin-top:14px;font-size:14.5px;color:var(--ink-soft);}
+  .key b{color:var(--green-deep);}
+  .comic-img{width:100%;border-radius:12px;margin:16px 0 4px;display:block;
+    box-shadow:0 2px 10px rgba(160,140,90,.15);}
+  .qa{background:#F5F0E4;border-radius:10px;padding:14px 16px;margin-top:14px;font-size:14.5px;}
+  .qa .qq{font-weight:700;color:var(--gold);margin-bottom:4px;}
+  .quiz-intro{text-align:center;margin:36px 0 18px;}
+  .quiz-intro .t{font-size:20px;font-weight:700;color:var(--green-deep);}
+  .quiz-intro .s{font-size:14px;color:var(--ink-soft);margin-top:6px;}
+  .namebox{background:var(--white);border-radius:14px;padding:18px 20px;margin-bottom:16px;border:1px solid var(--beige-deep);}
+  .namebox label{font-size:14px;color:var(--ink-soft);display:block;margin-bottom:8px;}
+  .namebox input{width:100%;padding:12px 14px;border:2px solid var(--beige-deep);border-radius:10px;font-size:16px;font-family:inherit;color:var(--ink);}
+  .namebox input:focus{outline:none;border-color:var(--gold);}
+  .q{background:var(--white);border-radius:14px;padding:22px 20px;margin-bottom:16px;border:1px solid var(--beige-deep);}
+  .q .qnum{font-size:13px;color:var(--gold);font-weight:700;margin-bottom:6px;}
+  .q .qtext{font-size:16px;font-weight:600;margin-bottom:14px;}
+  .opt{display:block;background:var(--beige);border:2px solid transparent;border-radius:10px;padding:12px 15px;margin-bottom:10px;font-size:15px;cursor:pointer;transition:.15s;}
+  .opt:hover{border-color:var(--gold-soft);}
+  .opt.selected{border-color:var(--gold);background:var(--beige-deep);}
+  .opt.correct{border-color:var(--green-deep);background:#EAF3E6;}
+  .opt.wrong{border-color:var(--wrong);background:#F7E9E5;}
+  .explain{font-size:14px;color:var(--ink-soft);margin-top:8px;padding:10px 14px;background:var(--beige);border-radius:8px;display:none;}
+  .explain.show{display:block;}
+  .explain b{color:var(--green-deep);}
+  .btn{display:block;width:100%;background:var(--green-deep);color:var(--white);border:none;font-size:17px;font-weight:700;padding:16px;border-radius:12px;cursor:pointer;margin-top:8px;font-family:inherit;letter-spacing:1px;}
+  .btn:hover{background:#6f9265;}
+  .btn.gold{background:var(--gold);}
+  .btn.gold:hover{background:#b8923f;}
+  .result{display:none;background:var(--white);border-radius:16px;padding:28px 24px;margin-top:24px;border:2px solid var(--gold);text-align:center;}
+  .result.show{display:block;}
+  .result .score-big{font-size:44px;font-weight:800;color:var(--gold);line-height:1;}
+  .result .score-sub{font-size:15px;color:var(--ink-soft);margin-top:8px;}
+  .result .comment{font-size:16px;margin-top:16px;color:var(--ink);}
+  .copybox{background:var(--beige);border:1px dashed var(--gold-soft);border-radius:10px;padding:14px;margin-top:18px;font-size:14px;text-align:left;white-space:pre-line;color:var(--ink);}
+  .hint{font-size:13px;color:var(--ink-soft);margin-top:10px;}
+  footer{text-align:center;margin-top:30px;color:var(--ink-soft);font-size:14px;}
+  footer .sign{color:var(--green-deep);font-weight:700;margin-top:6px;font-size:16px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="kicker">好好吃飯也能瘦・第一階段・正確觀念</div>
+    <div class="day-no">Day 4 / 21</div>
+    <h1>小盤子的魔法，是真的嗎？</h1>
+    <div class="line"></div>
+  </header>
+
+  <!-- ★漫畫提示(給ChatGPT生圖用):畫面左邊一個大盤子上放著一小份食物(看起來很空、很少),右邊一個小盤子放著同樣份量的食物(看起來滿滿的),女生看著兩盤驚訝地說「一樣多?!」,小貓咪歪頭。有趣、對比感、金米綠配色、圓潤可愛畫風、標語「好好吃飯也能瘦」。 -->
+  <div class="card">
+    <span class="topic-tag fun">趣味知識・視覺錯覺</span>
+    <h2>同樣份量，換個盤子就「看起來」不一樣</h2>
+    <img class="comic-img" src="https://rachelfu728.github.io/fit21-home/day04-a.png" alt="大盤小盤視覺錯覺插畫">
+    <p>先跟你玩個有趣的：同樣一份食物，放在<b>大盤子</b>上看起來稀稀落落、好像沒多少；放在<b>小盤子</b>上卻顯得滿滿一盤、很豐盛。明明份量一模一樣，感覺卻差很多——這叫做「<b>德勃夫錯覺</b>」，是我們大腦judge大小時會被周圍環境影響的一種視覺錯覺。</p>
+    <p>所以就有了那個很流行的減肥建議：「用小盤子吃飯，騙大腦以為吃很多，就會瘦！」聽起來很聰明對吧？</p>
+    <div class="key"><b>有趣的原理：</b>同樣的食物，盤子越大看起來越少、盤子越小看起來越多。這是大腦的錯覺。</div>
+  </div>
+
+  <div class="card">
+    <span class="topic-tag">觀念・老實說</span>
+    <h2>但……光靠「騙大腦」其實沒那麼神</h2>
+    <p>我必須老實跟你說：這個「小盤子騙大腦」的說法很流行，但科學上其實沒有那麼神奇。研究發現，<b>當你真的餓的時候，大腦其實騙不了</b>——肚子餓會讓大腦變得特別精準，一眼就看穿「這其實沒多少」。所以光想靠換個盤子來欺騙食慾，效果很有限。</p>
+    <p>那小盤子到底有沒有用？<b>有，但重點不是「騙大腦」，而是它幫你「踩剎車」。</b>盤子小，你一次能裝的份量本來就比較少；要再吃就得起身、再去盛一次——這個小小的麻煩，會讓你在動手之前多想一下「我真的還餓嗎？」。真正幫到你的，是這個<b>行為上的控制</b>，不是什麼神奇的錯覺。</p>
+    <div class="key"><b>老實的結論：</b>小盤子有用，但不是因為騙了大腦，而是它幫你自然裝得少、吃之前多想一下。</div>
+  </div>
+
+  <div class="card">
+    <span class="topic-tag">實用・怎麼做</span>
+    <h2>那我可以怎麼運用？</h2>
+    <p>與其執著「騙大腦」，不如把小盤子當成一個<b>幫你控制份量的小工具</b>，搭配這幾個真正有效的習慣：</p>
+    <p>✦ <b>用小一點的碗盤</b>盛裝，自然少裝一點，吃完覺得不夠再決定要不要添。<br>
+    ✦ <b>先裝好一份、坐下來吃</b>，不要端著整鍋、整包邊做事邊吃，那最容易不知不覺吃過量。<br>
+    ✦ <b>吃慢一點</b>，給身體 20 分鐘去感覺飽（這點我們之前聊過）。<br>
+    ✦ 想再添的時候，先<b>喝口水、等一下</b>，問自己是真餓還是嘴饞。</p>
+    <div class="key"><b>記住：</b>工具（小盤子）＋習慣（裝一份、坐下吃、吃慢、想一下）一起用，才是真正幫你控制份量的方法。</div>
+
+    <div class="qa">
+      <div class="qq">Q：所以我到底要不要換小盤子？</div>
+      <div>可以換，它是個無害又方便的小幫手——但別把它當成魔法，以為換了就會自動瘦。把它當成「幫你少裝一點、多想一下」的工具，再配合坐下來好好吃、吃慢一點，這樣才會真的有幫助。減重沒有魔法，但有很多像這樣的小習慣，累積起來就很有力量。</div>
+    </div>
+  </div>
+
+  <div class="quiz-intro">
+    <div class="t">來做個小測驗 ✏️</div>
+    <div class="s">看完今天的內容，試試看你懂了多少<br>共 5 題，全部選擇題</div>
+  </div>
+
+  <div class="namebox">
+    <label>先填上你的名字（讓教練知道是誰交的功課）</label>
+    <input type="text" id="studentName" placeholder="請輸入你的名字">
+  </div>
+
+  <div id="quiz"></div>
+  <button class="btn gold" id="submitBtn" onclick="grade()">交卷看分數</button>
+
+  <div class="result" id="result">
+    <div class="score-big" id="scoreBig">0 分</div>
+    <div class="score-sub" id="scoreSub"></div>
+    <div class="comment" id="comment"></div>
+    <div class="copybox" id="copybox"></div>
+    <button class="btn" style="margin-top:16px;" onclick="copyResult()">📋 複製成績</button>
+    <div class="hint">複製後，貼到 LINE 傳給教練就完成囉！</div>
+  </div>
+
+  <footer>
+    Day 4・小盤子的魔法是真的嗎<br>
+    <span class="sign">OK，我們一起努力！</span>
+  </footer>
+</div>
+
+<script>
+const questions = [
+  {q:"「德勃夫錯覺」講的是什麼？",opts:["食物越貴越好吃","同樣的食物，盤子大看起來少、盤子小看起來多","小盤子裝不下食物","大腦不會被騙"],ans:1,exp:"德勃夫錯覺是一種視覺錯覺——同樣份量的食物，放大盤看起來少、放小盤看起來多。"},
+  {q:"關於「用小盤子騙大腦就會瘦」，正確的理解是？",opts:["百分之百有效，換盤子就會瘦","效果有限，尤其餓的時候大腦騙不了","完全沒有任何幫助","只對瘦的人有用"],ans:1,exp:"研究發現，人真的餓的時候大腦會變得精準、騙不了。光靠騙大腦效果有限。"},
+  {q:"那小盤子真正有用的地方是什麼？",opts:["它會施展魔法","它幫你自然裝得少、要再吃得多一道手續，讓你多想一下","它讓食物變好吃","它能加快代謝"],ans:1,exp:"小盤子的價值在於行為控制——自然裝得少、想再添要多一道手續，讓你在吃之前多想一下。"},
+  {q:"下列哪個是真正有效的份量控制習慣？",opts:["端著整鍋邊做事邊吃","先裝好一份、坐下來慢慢吃","餓了就一直添到飽","只在大盤子吃"],ans:1,exp:"先裝一份、坐下來慢慢吃，才不會邊做事邊不知不覺吃過量。"},
+  {q:"這一課最重要的態度是？",opts:["減重有神奇捷徑","減重沒有魔法，但很多小習慣累積起來就有力量","盤子最重要","只要換盤子什麼都不用做"],ans:1,exp:"減重沒有魔法，但像小盤子＋好習慣這樣的小改變，累積起來就很有力量。"}
+];
+let selected = Array(questions.length).fill(null);
+let graded = false;
+const quizEl = document.getElementById('quiz');
+questions.forEach((item, qi) => {
+  const qDiv = document.createElement('div');
+  qDiv.className = 'q';
+  let html = `<div class="qnum">第 ${qi+1} 題</div><div class="qtext">${item.q}</div>`;
+  item.opts.forEach((opt, oi) => {
+    html += `<label class="opt" id="opt-${qi}-${oi}" onclick="pick(${qi},${oi})">${opt}</label>`;
+  });
+  html += `<div class="explain" id="exp-${qi}"></div>`;
+  qDiv.innerHTML = html;
+  quizEl.appendChild(qDiv);
+});
+function pick(qi, oi){
+  if(graded) return;
+  selected[qi] = oi;
+  for(let o=0;o<questions[qi].opts.length;o++){
+    document.getElementById(`opt-${qi}-${o}`).classList.remove('selected');
+  }
+  document.getElementById(`opt-${qi}-${oi}`).classList.add('selected');
+}
+function grade(){
+  const name = document.getElementById('studentName').value.trim();
+  if(!name){ alert("請先填上你的名字喔！"); document.getElementById('studentName').focus(); return; }
+  for(let i=0;i<questions.length;i++){
+    if(selected[i]===null){ alert(`第 ${i+1} 題還沒作答喔！`);
+      document.getElementById(`opt-${i}-0`).scrollIntoView({behavior:'smooth',block:'center'}); return; }
+  }
+  graded = true;
+  let correct = 0;
+  questions.forEach((item, qi) => {
+    const chosen = selected[qi];
+    if(chosen === item.ans){ correct++; document.getElementById(`opt-${qi}-${chosen}`).classList.add('correct'); }
+    else { document.getElementById(`opt-${qi}-${chosen}`).classList.add('wrong');
+      document.getElementById(`opt-${qi}-${item.ans}`).classList.add('correct'); }
+    const exp = document.getElementById(`exp-${qi}`);
+    exp.innerHTML = `<b>解說：</b>${item.exp}`; exp.classList.add('show');
+  });
+  const studentScore = Math.round(correct / questions.length * 100);
+  document.getElementById('submitBtn').style.display = 'none';
+  document.getElementById('scoreBig').textContent = studentScore + " 分";
+  document.getElementById('scoreSub').textContent = `答對 ${correct} / ${questions.length} 題`;
+  let comment = "";
+  if(studentScore === 100) comment = "太棒了！這一課的重點你完全抓到了 👏";
+  else if(studentScore >= 80) comment = "很好！大部分都懂了，錯的地方看一下解說就更完整囉。";
+  else if(studentScore >= 60) comment = "不錯的開始～有幾題再回去看看，觀念會更清楚。";
+  else comment = "沒關係！把上面的解說再看一次，教練會陪你一起弄懂。";
+  document.getElementById('comment').textContent = comment;
+  const today = new Date();
+  const dateStr = `${today.getFullYear()}/${today.getMonth()+1}/${today.getDate()}`;
+  const copyText =
+`【好好吃飯也能瘦・Day 4 測驗成績】
+姓名：${name}
+日期：${dateStr}
+主題：小盤子的魔法是真的嗎
+分數：${studentScore} 分（答對 ${correct}/${questions.length} 題）
+—— 我完成今天的功課囉！`;
+  document.getElementById('copybox').textContent = copyText;
+  window._copyText = copyText;
+  document.getElementById('result').classList.add('show');
+  document.getElementById('result').scrollIntoView({behavior:'smooth', block:'start'});
+}
+function copyResult(){
+  const text = window._copyText || "";
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(()=>{ alert("成績已複製！貼到 LINE 傳給教練就完成囉 😊"); }).catch(()=>fallbackCopy(text));
+  } else { fallbackCopy(text); }
+}
+function fallbackCopy(text){
+  const ta = document.createElement('textarea');
+  ta.value = text; document.body.appendChild(ta); ta.select();
+  try{ document.execCommand('copy'); alert("成績已複製！貼到 LINE 傳給教練就完成囉 😊"); }
+  catch(e){ alert("請長按上方成績文字手動複製~"); }
+  document.body.removeChild(ta);
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>減重陪伴・Day 9</title>
+<meta property="og:title" content="減重陪伴・Day 9｜體脂、出油、掉髮，有關係嗎？">
+<meta property="og:description" content="為什麼體脂較高的人，常覺得頭髮比較油、毛孔比較大？聊聊背後可能的共同原因。">
+<meta property="og:image" content="https://rachelfu728.github.io/fit21-home/day09-a.png">
+<meta property="og:type" content="article">
+<style>
+  :root{
+    --gold:#C9A24B; --gold-soft:#E4CE9A;
+    --beige:#FBF6EC; --beige-deep:#F3EAD6;
+    --green:#A9C6A0; --green-deep:#7FA574;
+    --ink:#4A4438; --ink-soft:#6E6656; --white:#FFFDF8;
+    --wrong:#C97B6B;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:"PingFang TC","Microsoft JhengHei","Noto Sans TC",sans-serif;
+    background:var(--beige);color:var(--ink);line-height:1.9;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:640px;margin:0 auto;padding:0 18px 60px;}
+  header{text-align:center;padding:44px 20px 26px;}
+  header .kicker{font-size:13px;letter-spacing:1.5px;color:var(--green-deep);margin-bottom:10px;}
+  header h1{font-size:24px;font-weight:700;letter-spacing:1px;}
+  header .day-no{display:inline-block;background:var(--gold);color:var(--white);
+    font-size:14px;padding:4px 16px;border-radius:20px;margin-bottom:14px;letter-spacing:1px;}
+  header .line{width:52px;height:3px;background:var(--gold);margin:18px auto 0;border-radius:2px;}
+  .card{background:var(--white);border-radius:16px;padding:26px 24px;margin-bottom:20px;
+    box-shadow:0 2px 12px rgba(160,140,90,.08);border:1px solid var(--beige-deep);}
+  .card h2{font-size:19px;color:var(--ink);margin-bottom:6px;}
+  .card .topic-tag{display:inline-block;font-size:12px;padding:3px 12px;border-radius:20px;
+    background:var(--gold);color:var(--white);margin-bottom:14px;}
+  .card .topic-tag.fun{background:var(--green-deep);}
+  .card p{font-size:15.5px;margin-bottom:12px;}
+  .card p:last-child{margin-bottom:0;}
+  .key{background:var(--beige);border-left:4px solid var(--green);border-radius:8px;
+    padding:12px 16px;margin-top:14px;font-size:14.5px;color:var(--ink-soft);}
+  .key b{color:var(--green-deep);}
+  .comic-img{width:100%;border-radius:12px;margin:16px 0 4px;display:block;
+    box-shadow:0 2px 10px rgba(160,140,90,.15);}
+  .flow{background:var(--beige);border-radius:12px;padding:18px;margin-top:14px;text-align:center;font-size:14.5px;color:var(--ink);}
+  .flow .step{display:inline-block;background:var(--white);border:1px solid var(--gold-soft);border-radius:20px;padding:6px 14px;margin:4px;font-weight:600;}
+  .flow .arr{color:var(--gold);font-weight:700;margin:0 2px;}
+  .qa{background:#F5F0E4;border-radius:10px;padding:14px 16px;margin-top:14px;font-size:14.5px;}
+  .qa .qq{font-weight:700;color:var(--gold);margin-bottom:4px;}
+  .quiz-intro{text-align:center;margin:36px 0 18px;}
+  .quiz-intro .t{font-size:20px;font-weight:700;color:var(--green-deep);}
+  .quiz-intro .s{font-size:14px;color:var(--ink-soft);margin-top:6px;}
+  .namebox{background:var(--white);border-radius:14px;padding:18px 20px;margin-bottom:16px;border:1px solid var(--beige-deep);}
+  .namebox label{font-size:14px;color:var(--ink-soft);display:block;margin-bottom:8px;}
+  .namebox input{width:100%;padding:12px 14px;border:2px solid var(--beige-deep);border-radius:10px;font-size:16px;font-family:inherit;color:var(--ink);}
+  .namebox input:focus{outline:none;border-color:var(--gold);}
+  .q{background:var(--white);border-radius:14px;padding:22px 20px;margin-bottom:16px;border:1px solid var(--beige-deep);}
+  .q .qnum{font-size:13px;color:var(--gold);font-weight:700;margin-bottom:6px;}
+  .q .qtext{font-size:16px;font-weight:600;margin-bottom:14px;}
+  .opt{display:block;background:var(--beige);border:2px solid transparent;border-radius:10px;padding:12px 15px;margin-bottom:10px;font-size:15px;cursor:pointer;transition:.15s;}
+  .opt:hover{border-color:var(--gold-soft);}
+  .opt.selected{border-color:var(--gold);background:var(--beige-deep);}
+  .opt.correct{border-color:var(--green-deep);background:#EAF3E6;}
+  .opt.wrong{border-color:var(--wrong);background:#F7E9E5;}
+  .explain{font-size:14px;color:var(--ink-soft);margin-top:8px;padding:10px 14px;background:var(--beige);border-radius:8px;display:none;}
+  .explain.show{display:block;}
+  .explain b{color:var(--green-deep);}
+  .btn{display:block;width:100%;background:var(--green-deep);color:var(--white);border:none;font-size:17px;font-weight:700;padding:16px;border-radius:12px;cursor:pointer;margin-top:8px;font-family:inherit;letter-spacing:1px;}
+  .btn:hover{background:#6f9265;}
+  .btn.gold{background:var(--gold);}
+  .btn.gold:hover{background:#b8923f;}
+  .result{display:none;background:var(--white);border-radius:16px;padding:28px 24px;margin-top:24px;border:2px solid var(--gold);text-align:center;}
+  .result.show{display:block;}
+  .result .score-big{font-size:44px;font-weight:800;color:var(--gold);line-height:1;}
+  .result .score-sub{font-size:15px;color:var(--ink-soft);margin-top:8px;}
+  .result .comment{font-size:16px;margin-top:16px;color:var(--ink);}
+  .copybox{background:var(--beige);border:1px dashed var(--gold-soft);border-radius:10px;padding:14px;margin-top:18px;font-size:14px;text-align:left;white-space:pre-line;color:var(--ink);}
+  .hint{font-size:13px;color:var(--ink-soft);margin-top:10px;}
+  footer{text-align:center;margin-top:30px;color:var(--ink-soft);font-size:14px;}
+  footer .sign{color:var(--green-deep);font-weight:700;margin-top:6px;font-size:16px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="kicker">好好吃飯也能瘦・第二階段・正確觀念</div>
+    <div class="day-no">Day 9 / 21</div>
+    <h1>體脂、出油、掉髮，有關係嗎？</h1>
+    <div class="line"></div>
+  </header>
+
+  <!-- ★漫畫提示(給ChatGPT生圖用):女生對著鏡子,有點困擾地摸摸自己有點油的頭髮和臉,旁邊有可愛的小問號漂浮,小貓咪歪頭陪著。表情是好奇疑問、不焦慮、不醜化,溫暖友善。金米綠配色、圓潤可愛畫風、標語「好好吃飯也能瘦」。 -->
+  <div class="card">
+    <span class="topic-tag fun">趣味知識・身體的訊號</span>
+    <h2>你有沒有發現這個現象？</h2>
+    <img class="comic-img" src="https://rachelfu728.github.io/fit21-home/day09-a.png" alt="體脂與出油掉髮插畫">
+    <p>不少人會觀察到一個現象：<b>體脂比較高的時候，好像頭髮比較容易出油、臉的毛孔看起來比較明顯、有些人也覺得掉髮變多</b>。這是巧合嗎？其實，這些現象背後，<b>可能</b>有一些共同的關聯。</p>
+    <p>先講清楚——這些狀況的成因<b>非常多元</b>（遺傳、年齡、清潔習慣、壓力、環境都有關），所以<b>不能說「體脂高就一定會掉髮或出油」</b>。但體脂、飲食習慣，確實<b>可能是其中一個相關的因素</b>。我們今天就來認識這個「可能的關聯」。</p>
+    <div class="key"><b>先說清楚：</b>出油、毛孔、掉髮成因很多，體脂只是「可能相關的因素之一」，不是唯一原因。</div>
+  </div>
+
+  <div class="card">
+    <span class="topic-tag">觀念・可能的關聯</span>
+    <h2>背後可能的橋樑：胰島素與荷爾蒙</h2>
+    <p>為什麼體脂、飲食可能跟出油、毛孔有關？關鍵可能在<b>胰島素</b>和<b>荷爾蒙</b>。</p>
+    <p>當我們常吃高糖、高精緻澱粉，血糖和胰島素容易長期偏高。而<b>胰島素偏高，可能會影響體內的荷爾蒙平衡，讓「雄性激素」的作用比較活躍</b>。雄性激素跟皮脂（油脂）的分泌有關——它比較旺盛時，皮脂腺會分泌較多油脂，這也是為什麼一般男性比女性更容易出油、毛孔較明顯。</p>
+    <p>簡單畫成一條「可能的」關聯：</p>
+    <div class="flow">
+      <span class="step">高糖高油飲食</span><span class="arr">→</span><span class="step">胰島素偏高</span><span class="arr">→</span><span class="step">荷爾蒙受影響</span><span class="arr">→</span><span class="step">皮脂分泌較多</span>
+    </div>
+    <p style="margin-top:14px;">所以你會發現，改善飲食、把體脂降下來的人，<b>有些</b>會覺得出油狀況、皮膚好像也跟著改善了一些——這不是保證，但確實有人有這樣的體會。因為你在改善的，是背後那個「胰島素、荷爾蒙」的大環境。</p>
+    <div class="key"><b>記住：</b>可能的關聯是「高糖高油→胰島素偏高→影響荷爾蒙→皮脂較多」。改善飲食和體脂，可能連帶對膚況有一點幫助。</div>
+  </div>
+
+  <div class="card">
+    <span class="topic-tag">正向・營養怎麼幫忙</span>
+    <h2>好消息：對的營養，是頭髮和皮膚的原料</h2>
+    <p>講完可能的原因，來講你「可以做的」——這才是重點。其實我們的<b>頭髮和皮膚，都是身體用營養「蓋」出來的</b>。原料好、原料夠，蓋出來的成品自然比較好。</p>
+    <p>兩個方向特別重要：</p>
+    <p>✦ <b>吃夠優質蛋白質：</b>頭髮的主要成分就是蛋白質（角蛋白），皮膚的修復更新也需要蛋白質。如果長期節食、蛋白質吃不夠，身體會優先把有限的營養留給更重要的器官，頭髮、皮膚這些「非緊急」的地方就容易被犧牲——這也是為什麼<b>過度節食的人反而容易掉髮、氣色差</b>。</p>
+    <p>✦ <b>營養均衡、少精緻糖油：</b>均衡的飲食（蔬菜、蛋白質、好的澱粉）能提供皮膚頭髮需要的各種維生素礦物質；同時少吃高糖高油，也能讓前面說的胰島素、荷爾蒙比較平穩。</p>
+    <p>所以你會發現——<b>當一個人開始「吃對、吃夠」，不只體重改善，氣色、皮膚、頭髮有時也會跟著變好</b>。因為你給了身體足夠的好原料。這就是均衡營養最迷人的地方：它照顧的是整個你。</p>
+    <div class="key"><b>記住：</b>頭髮皮膚是身體用營養蓋出來的。吃夠優質蛋白＋營養均衡＋少糖油，等於給它們好原料。過度節食反而傷氣色和頭髮。</div>
+  </div>
+
+  <div class="card">
+    <span class="topic-tag">誠實・重要提醒</span>
+    <h2>但有明顯困擾，還是要看皮膚科</h2>
+    <p>要誠實提醒你：如果你有<b>明顯的掉髮、嚴重出油或毛孔困擾</b>，正確的做法還是<b>看皮膚科</b>。營養和減重是從「整體健康」的角度打底、可能有幫助，但它<b>不是治療</b>，也不能取代專業。</p>
+    <p>特別是<b>掉髮</b>，原因很多（雄性禿、壓力、疾病、營養不良等），需要專業判斷。有明顯困擾別自己猜，看醫生最實在。我們能做的，是把「營養」這塊基礎顧好，讓身體在最好的狀態。</p>
+    <div class="key"><b>記住：</b>營養是打底、可能有幫助，但不是治療。明顯的膚況、掉髮困擾請看皮膚科。</div>
+
+    <div class="qa">
+      <div class="qq">Q：那我改善飲食，多久會看到氣色變化？</div>
+      <div>這個因人而異，也不保證每個人都有感——畢竟膚況受很多因素影響。與其執著「多久見效」，不如把重點放在「把飲食顧好、吃夠優質蛋白」這件事本身。身體是一個整體，你好好餵養它，它常常會在你沒預期的地方回報你。有具體的膚況或掉髮困擾，仍建議諮詢皮膚科醫生。</div>
+    </div>
+  </div>
+
+  <div class="quiz-intro">
+    <div class="t">來做個小測驗 ✏️</div>
+    <div class="s">看完今天的內容，試試看你懂了多少<br>共 5 題，全部選擇題</div>
+  </div>
+
+  <div class="namebox">
+    <label>先填上你的名字（讓教練知道是誰交的功課）</label>
+    <input type="text" id="studentName" placeholder="請輸入你的名字">
+  </div>
+
+  <div id="quiz"></div>
+  <button class="btn gold" id="submitBtn" onclick="grade()">交卷看分數</button>
+
+  <div class="result" id="result">
+    <div class="score-big" id="scoreBig">0 分</div>
+    <div class="score-sub" id="scoreSub"></div>
+    <div class="comment" id="comment"></div>
+    <div class="copybox" id="copybox"></div>
+    <button class="btn" style="margin-top:16px;" onclick="copyResult()">📋 複製成績</button>
+    <div class="hint">複製後，貼到 LINE 傳給教練就完成囉！</div>
+  </div>
+
+  <footer>
+    Day 9・體脂與出油、掉髮的關係<br>
+    <span class="sign">OK，我們一起努力！</span>
+  </footer>
+</div>
+
+<script>
+const questions = [
+  {q:"關於「體脂高和出油、掉髮」的關係，正確的理解是？",opts:["體脂高一定會掉髮","體脂可能是相關因素之一，但成因很多、不是唯一原因","兩者完全無關","減肥就能治好掉髮"],ans:1,exp:"出油、毛孔、掉髮成因非常多（遺傳、年齡、清潔、壓力等），體脂只是可能相關的因素之一，不能說一定。"},
+  {q:"背後「可能的」共同橋樑是什麼？",opts:["喝水太少","胰島素與荷爾蒙","睡太多","運動太多"],ans:1,exp:"高糖高油飲食可能讓胰島素長期偏高，進而影響荷爾蒙平衡，讓雄性激素作用較活躍、皮脂分泌較多。"},
+  {q:"雄性激素比較活躍時，對皮膚的影響是？",opts:["皮膚變乾","皮脂腺分泌較多油脂、毛孔較明顯","完全沒影響","毛孔變小"],ans:1,exp:"雄性激素跟皮脂分泌有關，較活躍時皮脂腺分泌較多，這也是一般男性比女性容易出油、毛孔明顯的原因。"},
+  {q:"為什麼「過度節食」反而容易掉髮、氣色差？",opts:["節食跟頭髮無關","蛋白質等營養不夠，身體會優先供給重要器官，頭髮皮膚被犧牲","節食會變美","頭髮不需要營養"],ans:1,exp:"頭髮主成分是蛋白質，皮膚更新也需要營養。長期節食營養不夠時，身體會犧牲頭髮、皮膚這些非緊急部位。"},
+  {q:"想從營養面照顧頭髮和皮膚，重點是？",opts:["完全不吃東西","吃夠優質蛋白＋營養均衡＋少精緻糖油","只吃水果","狂吃保健品"],ans:1,exp:"頭髮皮膚是身體用營養蓋出來的。吃夠優質蛋白（原料）、營養均衡、少糖油，就是給它們好原料。"}
+];
+let selected = Array(questions.length).fill(null);
+let graded = false;
+const quizEl = document.getElementById('quiz');
+questions.forEach((item, qi) => {
+  const qDiv = document.createElement('div');
+  qDiv.className = 'q';
+  let html = `<div class="qnum">第 ${qi+1} 題</div><div class="qtext">${item.q}</div>`;
+  item.opts.forEach((opt, oi) => {
+    html += `<label class="opt" id="opt-${qi}-${oi}" onclick="pick(${qi},${oi})">${opt}</label>`;
+  });
+  html += `<div class="explain" id="exp-${qi}"></div>`;
+  qDiv.innerHTML = html;
+  quizEl.appendChild(qDiv);
+});
+function pick(qi, oi){
+  if(graded) return;
+  selected[qi] = oi;
+  for(let o=0;o<questions[qi].opts.length;o++){
+    document.getElementById(`opt-${qi}-${o}`).classList.remove('selected');
+  }
+  document.getElementById(`opt-${qi}-${oi}`).classList.add('selected');
+}
+function grade(){
+  const name = document.getElementById('studentName').value.trim();
+  if(!name){ alert("請先填上你的名字喔！"); document.getElementById('studentName').focus(); return; }
+  for(let i=0;i<questions.length;i++){
+    if(selected[i]===null){ alert(`第 ${i+1} 題還沒作答喔！`);
+      document.getElementById(`opt-${i}-0`).scrollIntoView({behavior:'smooth',block:'center'}); return; }
+  }
+  graded = true;
+  let correct = 0;
+  questions.forEach((item, qi) => {
+    const chosen = selected[qi];
+    if(chosen === item.ans){ correct++; document.getElementById(`opt-${qi}-${chosen}`).classList.add('correct'); }
+    else { document.getElementById(`opt-${qi}-${chosen}`).classList.add('wrong');
+      document.getElementById(`opt-${qi}-${item.ans}`).classList.add('correct'); }
+    const exp = document.getElementById(`exp-${qi}`);
+    exp.innerHTML = `<b>解說：</b>${item.exp}`; exp.classList.add('show');
+  });
+  const studentScore = Math.round(correct / questions.length * 100);
+  document.getElementById('submitBtn').style.display = 'none';
+  document.getElementById('scoreBig').textContent = studentScore + " 分";
+  document.getElementById('scoreSub').textContent = `答對 ${correct} / ${questions.length} 題`;
+  let comment = "";
+  if(studentScore === 100) comment = "太棒了！這一課的重點你完全抓到了 👏";
+  else if(studentScore >= 80) comment = "很好！大部分都懂了，錯的地方看一下解說就更完整囉。";
+  else if(studentScore >= 60) comment = "不錯～有幾題再回去看看，觀念會更清楚。";
+  else comment = "沒關係！把上面的解說再看一次，教練會陪你一起弄懂。";
+  document.getElementById('comment').textContent = comment;
+  const today = new Date();
+  const dateStr = `${today.getFullYear()}/${today.getMonth()+1}/${today.getDate()}`;
+  const copyText =
+`【好好吃飯也能瘦・Day 9 測驗成績】
+姓名：${name}
+日期：${dateStr}
+主題：體脂與出油、掉髮的關係
+分數：${studentScore} 分（答對 ${correct}/${questions.length} 題）
+—— 我完成今天的功課囉！`;
+  document.getElementById('copybox').textContent = copyText;
+  window._copyText = copyText;
+  document.getElementById('result').classList.add('show');
+  document.getElementById('result').scrollIntoView({behavior:'smooth', block:'start'});
+}
+function copyResult(){
+  const text = window._copyText || "";
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(()=>{ alert("成績已複製！貼到 LINE 傳給教練就完成囉 😊"); }).catch(()=>fallbackCopy(text));
+  } else { fallbackCopy(text); }
+}
+function fallbackCopy(text){
+  const ta = document.createElement('textarea');
+  ta.value = text; document.body.appendChild(ta); ta.select();
+  try{ document.execCommand('copy'); alert("成績已複製！貼到 LINE 傳給教練就完成囉 😊"); }
+  catch(e){ alert("請長按上方成績文字手動複製~"); }
+  document.body.removeChild(ta);
+}
+</script>
+</body>
+</html>

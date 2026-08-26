@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>減重陪伴・Day 3</title>
+<style>
+  :root{
+    --gold:#C9A24B; --gold-soft:#E4CE9A;
+    --beige:#FBF6EC; --beige-deep:#F3EAD6;
+    --green:#A9C6A0; --green-deep:#7FA574;
+    --ink:#4A4438; --ink-soft:#6E6656; --white:#FFFDF8;
+    --wrong:#C97B6B; --blue:#8FB8C9;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:"PingFang TC","Microsoft JhengHei","Noto Sans TC",sans-serif;
+    background:var(--beige);color:var(--ink);line-height:1.9;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:640px;margin:0 auto;padding:0 18px 60px;}
+  header{text-align:center;padding:44px 20px 26px;}
+  header .kicker{font-size:13px;letter-spacing:1.5px;color:var(--green-deep);margin-bottom:10px;}
+  header h1{font-size:24px;font-weight:700;letter-spacing:1px;}
+  header .day-no{display:inline-block;background:var(--gold);color:var(--white);
+    font-size:14px;padding:4px 16px;border-radius:20px;margin-bottom:14px;letter-spacing:1px;}
+  header .line{width:52px;height:3px;background:var(--gold);margin:18px auto 0;border-radius:2px;}
+  .card{background:var(--white);border-radius:16px;padding:26px 24px;margin-bottom:20px;
+    box-shadow:0 2px 12px rgba(160,140,90,.08);border:1px solid var(--beige-deep);}
+  .card h2{font-size:19px;color:var(--ink);margin-bottom:6px;}
+  .card .topic-tag{display:inline-block;font-size:12px;padding:3px 12px;border-radius:20px;
+    background:var(--gold);color:var(--white);margin-bottom:14px;}
+  .card p{font-size:15.5px;margin-bottom:12px;}
+  .card p:last-child{margin-bottom:0;}
+  .key{background:var(--beige);border-left:4px solid var(--green);border-radius:8px;
+    padding:12px 16px;margin-top:14px;font-size:14.5px;color:var(--ink-soft);}
+  .key b{color:var(--green-deep);}
+  .comic-img{width:100%;border-radius:12px;margin:16px 0 4px;display:block;
+    box-shadow:0 2px 10px rgba(160,140,90,.15);}
+  .qa{background:#F5F0E4;border-radius:10px;padding:14px 16px;margin-top:14px;font-size:14.5px;}
+  .qa .qq{font-weight:700;color:var(--gold);margin-bottom:4px;}
+
+  /* 產品區 */
+  .section-title{text-align:center;margin:44px 0 6px;font-size:21px;font-weight:700;color:var(--green-deep);}
+  .section-sub{text-align:center;font-size:14px;color:var(--ink-soft);margin-bottom:22px;}
+  .prod{background:var(--white);border-radius:16px;padding:24px 22px;margin-bottom:18px;
+    box-shadow:0 2px 12px rgba(160,140,90,.08);border:1px solid var(--beige-deep);}
+  .prod .pname{font-size:18px;font-weight:700;color:var(--ink);margin-bottom:4px;}
+  .prod .ptag{display:inline-block;font-size:11px;padding:2px 10px;border-radius:16px;
+    background:var(--green-deep);color:var(--white);margin-bottom:12px;}
+  .prod .story{font-size:14.5px;color:var(--ink-soft);font-style:italic;
+    background:var(--beige);border-radius:8px;padding:11px 14px;margin-bottom:12px;}
+  .prod p{font-size:15px;margin-bottom:10px;}
+  .prod ul{list-style:none;margin:8px 0 4px;}
+  .prod li{font-size:14.5px;color:var(--ink);padding:5px 0 5px 22px;position:relative;}
+  .prod li::before{content:"🌿";position:absolute;left:0;font-size:13px;}
+  .prod .snq{display:inline-block;font-size:12px;color:var(--gold);font-weight:700;
+    margin-top:8px;border:1px solid var(--gold-soft);border-radius:16px;padding:3px 12px;}
+
+  .disclaimer{font-size:12px;color:var(--ink-soft);text-align:center;
+    background:var(--beige-deep);border-radius:10px;padding:14px 16px;margin-top:10px;line-height:1.7;}
+
+  /* 測驗 */
+  .quiz-intro{text-align:center;margin:36px 0 18px;}
+  .quiz-intro .t{font-size:20px;font-weight:700;color:var(--green-deep);}
+  .quiz-intro .s{font-size:14px;color:var(--ink-soft);margin-top:6px;}
+  .namebox{background:var(--white);border-radius:14px;padding:18px 20px;margin-bottom:16px;border:1px solid var(--beige-deep);}
+  .namebox label{font-size:14px;color:var(--ink-soft);display:block;margin-bottom:8px;}
+  .namebox input{width:100%;padding:12px 14px;border:2px solid var(--beige-deep);border-radius:10px;font-size:16px;font-family:inherit;color:var(--ink);}
+  .namebox input:focus{outline:none;border-color:var(--gold);}
+  .q{background:var(--white);border-radius:14px;padding:22px 20px;margin-bottom:16px;border:1px solid var(--beige-deep);}
+  .q .qnum{font-size:13px;color:var(--gold);font-weight:700;margin-bottom:6px;}
+  .q .qtext{font-size:16px;font-weight:600;margin-bottom:14px;}
+  .opt{display:block;background:var(--beige);border:2px solid transparent;border-radius:10px;padding:12px 15px;margin-bottom:10px;font-size:15px;cursor:pointer;transition:.15s;}
+  .opt:hover{border-color:var(--gold-soft);}
+  .opt.selected{border-color:var(--gold);background:var(--beige-deep);}
+  .opt.correct{border-color:var(--green-deep);background:#EAF3E6;}
+  .opt.wrong{border-color:var(--wrong);background:#F7E9E5;}
+  .explain{font-size:14px;color:var(--ink-soft);margin-top:8px;padding:10px 14px;background:var(--beige);border-radius:8px;display:none;}
+  .explain.show{display:block;}
+  .explain b{color:var(--green-deep);}
+  .btn{display:block;width:100%;background:var(--green-deep);color:var(--white);border:none;font-size:17px;font-weight:700;padding:16px;border-radius:12px;cursor:pointer;margin-top:8px;font-family:inherit;letter-spacing:1px;}
+  .btn:hover{background:#6f9265;}
+  .btn.gold{background:var(--gold);}
+  .btn.gold:hover{background:#b8923f;}
+  .result{display:none;background:var(--white);border-radius:16px;padding:28px 24px;margin-top:24px;border:2px solid var(--gold);text-align:center;}
+  .result.show{display:block;}
+  .result .score-big{font-size:44px;font-weight:800;color:var(--gold);line-height:1;}
+  .result .score-sub{font-size:15px;color:var(--ink-soft);margin-top:8px;}
+  .result .comment{font-size:16px;margin-top:16px;color:var(--ink);}
+  .copybox{background:var(--beige);border:1px dashed var(--gold-soft);border-radius:10px;padding:14px;margin-top:18px;font-size:14px;text-align:left;white-space:pre-line;color:var(--ink);}
+  .hint{font-size:13px;color:var(--ink-soft);margin-top:10px;}
+  footer{text-align:center;margin-top:30px;color:var(--ink-soft);font-size:14px;}
+  footer .sign{color:var(--green-deep);font-weight:700;margin-top:6px;font-size:16px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="kicker">好好吃飯也能瘦・第一階段・正確觀念</div>
+    <div class="day-no">Day 3 / 21</div>
+    <h1>喝夠水，最容易被忽略的一步</h1>
+    <div class="line"></div>
+  </header>
+
+  <!-- ★漫畫提示(給ChatGPT生圖用,客戶看不到):女生開心拿著大水杯喝水,身體裡的小細胞們拿著水滴、開心地活力充沛,身旁一朵代表「餓」的小烏雲被水澆熄變成笑臉,小貓咪在旁邊也舔著小水碗。清爽、金米綠配色、圓潤可愛畫風、標語「好好吃飯也能瘦」。 -->
+  <div class="card">
+    <span class="topic-tag">觀念一・為什麼要喝夠水</span>
+    <h2>身體的每個運作，都需要水</h2>
+    <img class="comic-img" src="https://rachelfu728.github.io/fit21-home/day03-a.png" alt="喝水補水插畫">
+    <p>喝水聽起來很基本，卻是減重路上最容易被忽略、又最有效的一步。我們的身體有很大部分是水組成的，從消化、代謝、到把體內的廢物帶走，每一個環節都需要足夠的水才能順利運作。</p>
+    <p>水喝得夠，身體的代謝才有效率；水不夠，身體很多運作都會打折扣，人也容易覺得疲累、沒精神。減重時，喝夠水幾乎是零成本、又最容易做到的一件事，卻常常被大家跳過。</p>
+    <div class="key"><b>記住：</b>喝水是減重最容易、最零成本、卻最常被忽略的一步。</div>
+  </div>
+
+  <div class="card">
+    <span class="topic-tag">觀念二・別把「渴」當成「餓」</span>
+    <h2>有時候你不是餓，是渴了</h2>
+    <p>這是一個很多人不知道的小知識：身體發出「渴」和「餓」的訊號很接近，我們常常把「渴」誤當成「餓」，結果明明只是需要喝水，卻跑去找東西吃，不知不覺就吃多了。</p>
+    <p>所以下次覺得嘴饞、想吃東西的時候，可以先喝一杯水，等幾分鐘看看——很多時候那個「想吃」的感覺就消失了，因為你需要的其實是水，不是食物。餐前先喝一杯水，也能讓你這一餐比較容易有飽足感、不會吃過量。</p>
+    <div class="key"><b>記住：</b>嘴饞時先喝一杯水、等幾分鐘。你需要的常常是水，不是食物。</div>
+
+    <div class="qa">
+      <div class="qq">Q：那我一天到底要喝多少水？</div>
+      <div>每個人需要的量不太一樣，會受體重、活動量、天氣影響。原則是「一整天分次、慢慢喝，讓身體隨時不缺水」，而不是一次灌一大杯。<br><br>抓基本量可以用這個公式：<b>一般成人約「體重（公斤）× 30 ml」</b>；如果你正在<b>做體重管理、活動量也比較大</b>，可以再往上抓到<b>「體重 × 35～40 ml」</b>。舉例來說，60 公斤的人，一般約 1800 ml，體重管理期間可抓到 <b>2100～2400 ml</b> 左右。你可以隨身帶一個喜歡的水杯，看到就喝一口，慢慢達成。實際最適合你的量，我會依你的狀況陪你調整。</div>
+    </div>
+
+    <div class="qa">
+      <div class="qq">Q：那我喝茶、喝咖啡，算不算今天的水分？</div>
+      <div>算的喔——現代營養學認為，茶和咖啡裡的水分，<b>大部分還是能算進一天的總水量</b>，過去說「咖啡因會利尿、完全不算」的說法已經被修正了。<br><br>但有兩個重點：第一，<b>白開水還是主角</b>，茶和咖啡是輔助，不能整天只喝咖啡不喝水；第二，<b>含糖飲料不算</b>，因為那還有額外的糖和熱量問題。所以想在白開水之外變化口味，選<b>無糖</b>的茶飲會是比較好的方向。</div>
+    </div>
+  </div>
+
+  <!-- ============ 產品介紹區 ============ -->
+  <div class="section-title">🌿 補水，也可以更有樂趣</div>
+  <div class="section-sub">除了白開水，這幾款也是計畫中幫你補充水分的好選擇</div>
+
+  <!-- 草本代謝茶 -->
+  <!-- ★漫畫提示(給ChatGPT生圖用):一個大水壺(透明玻璃水壺),裡面裝著淡淡黃色的茶飲,清澈乾淨、裡面沒有漂浮任何植物或葉子。女生開心地拿著杯子準備倒來喝,神清氣爽,小貓咪好奇圍觀。清新明亮、金米綠色系、標語「好好吃飯也能瘦」。 -->
+  <div class="prod">
+    <div class="pname">草本代謝茶（草本濃縮速溶茶飲）</div>
+    <span class="ptag">清爽補水・提振精神</span>
+    <img class="comic-img" src="https://rachelfu728.github.io/fit21-home/day03-b.png" alt="草本代謝茶插畫">
+    <div class="story">🌏 它結合了綠茶、紅茶、洛神花等多種植物的萃取。這些植物裡的天然多酚，是近年營養學很受關注的成分。</div>
+    <p>這是一款清爽、低熱量的即溶茶，用綠茶、紅茶、洛神花等植物萃取調製而成。它含有天然咖啡因，可以讓你精神煥發，也提供抗氧化成分，最重要的是——為你的身體補充水分。</p>
+    <ul>
+      <li>低熱量、不含糖，冷熱皆宜</li>
+      <li>綠茶採用非基因改造成分，含抗氧化成分</li>
+      <li>濃縮茶粉，比茶包沖泡更方便</li>
+    </ul>
+  </div>
+
+  <!-- 濃縮蘆薈汁 -->
+  <!-- ★漫畫提示(給ChatGPT生圖用):一瓶清澈的蘆薈汁,旁邊有可愛的蘆薈植物小夥伴和洋甘菊小花,女生倒一杯兌水飲用,神情清爽舒暢,小貓咪在旁。清新療癒、金米綠色系。 -->
+  <div class="prod">
+    <div class="pname">濃縮蘆薈汁</div>
+    <span class="ptag">清新順口・補充水分</span>
+    <img class="comic-img" src="https://rachelfu728.github.io/fit21-home/day03-c.png" alt="濃縮蘆薈汁插畫">
+    <div class="story">🌏 蘆薈早在兩千多年前，就被許多古老文化當作珍貴的植物使用，本身富含多種維生素與礦物質。</div>
+    <p>賀寶芙的濃縮蘆薈汁採用優質蘆薈製成。喝法很簡單：把三瓶蓋兌半杯水就好，也可以加進茶或營養蛋白飲裡，順便增加一整天的液體攝取量。想在白開水之外換點清新口感時，它是很好的選擇。</p>
+    <ul>
+      <li>採用優質蘆薈，來自嚴選農場</li>
+      <li>可單獨兌水，也可加入茶或蛋白飲</li>
+      <li>清新順口，幫你多補一點水分</li>
+    </ul>
+    <span class="snq">✓ 獲 SNQ 國家品質標章</span>
+  </div>
+
+  <!-- 瓜拿納豆茶 -->
+  <!-- ★漫畫提示(給ChatGPT生圖用):一杯活力感的茶飲,背景有亞馬遜熱帶植物的氛圍,可愛的瓜拿納紅色果實小夥伴充滿元氣,女生喝了精神抖擻,小貓咪也睜大眼睛。活潑有朝氣、金米綠色系。 -->
+  <div class="prod">
+    <div class="pname">瓜拿納豆速溶茶飲</div>
+    <span class="ptag">恢復活力・提振精神</span>
+    <img class="comic-img" src="https://rachelfu728.github.io/fit21-home/day03-d.png" alt="瓜拿納豆茶插畫">
+    <div class="story">🌏 瓜拿納是原生於亞馬遜河流域的一種植物，當地人自古就用它的果實來幫助自己提振精神、補充能量，是很天然的能量來源。</div>
+    <p>這款茶飲的配方含有瓜拿納與上等紅茶（橙白毫茶）萃取，每份約含 40 毫克咖啡因。當你覺得精神不濟、需要一點元氣的時候，它可以幫你恢復活力、隨時隨地享受充滿精神的感覺，同時也是補水的一種方式。</p>
+    <ul>
+      <li>採高品質草本瓜拿納精華</li>
+      <li>含天然咖啡因，幫助提振精神</li>
+      <li>方便沖泡，隨時補充活力</li>
+    </ul>
+    <span class="snq">✓ 獲 SNQ 國家品質標章</span>
+  </div>
+
+  <!-- 活力飲 -->
+  <!-- ★活力飲使用真實照片 day03-e.png(客戶自己拍的LocknLock搖搖杯,淡橘黃色飲品),不需GPT生圖 -->
+  <div class="prod">
+    <div class="pname">活力飲・啟動一天的能量</div>
+    <span class="ptag">教練特調・早晨活力</span>
+    <img class="comic-img" src="https://rachelfu728.github.io/fit21-home/day03-e.png" alt="活力飲實照">
+    <div class="story">🌅 這是我特別為你調配的一杯「活力飲」，把好幾樣營養集中在一杯裡，讓你在早晨就能簡單地為身體補足能量與水分，神清氣爽地展開一天。</div>
+    <p>這杯活力飲，是由以下幾樣一起調製而成：</p>
+    <ul>
+      <li><b>濃縮蘆薈汁</b>——清新順口，幫助補充水分</li>
+      <li><b>瓜拿納豆速溶茶飲</b>——含天然咖啡因，幫助提振精神</li>
+      <li><b>夜寧新</b>——幫助身心平穩，讓一天有個安定的開始</li>
+      <li><b>膠原蛋白</b>——為每日的營養補充加分</li>
+      <li><b>活力錠</b>——為一天注入元氣</li>
+    </ul>
+    <p>早晨一杯，方便地把多種營養一次補足，也順道增加水分攝取。這是我陪伴客戶時很喜歡用的一個搭配，實際份量與比例，我會依你的狀況陪你調整到最適合你的版本。</p>
+  </div>
+
+  <div class="disclaimer">
+    本頁產品資訊整理自官方公開資料，僅供營養補充參考。<br>
+    產品為食品／營養補充品，非藥品，不具療效，不可作為診斷、治療或預防任何疾病之用途。<br>
+    實際使用方式與份量，請依產品標示並與教練討論後進行。
+  </div>
+
+  <!-- ============ 測驗 ============ -->
+  <div class="quiz-intro">
+    <div class="t">來做個小測驗 ✏️</div>
+    <div class="s">看完今天的內容，試試看你懂了多少<br>共 6 題，全部選擇題</div>
+  </div>
+
+  <div class="namebox">
+    <label>先填上你的名字（讓教練知道是誰交的功課）</label>
+    <input type="text" id="studentName" placeholder="請輸入你的名字">
+  </div>
+
+  <div id="quiz"></div>
+  <button class="btn gold" id="submitBtn" onclick="grade()">交卷看分數</button>
+
+  <div class="result" id="result">
+    <div class="score-big" id="scoreBig">0 分</div>
+    <div class="score-sub" id="scoreSub"></div>
+    <div class="comment" id="comment"></div>
+    <div class="copybox" id="copybox"></div>
+    <button class="btn" style="margin-top:16px;" onclick="copyResult()">📋 複製成績</button>
+    <div class="hint">複製後，貼到 LINE 傳給教練就完成囉！</div>
+  </div>
+
+  <footer>
+    Day 3・喝夠水的重要性 & 補水產品介紹<br>
+    <span class="sign">OK，我們一起努力！</span>
+  </footer>
+</div>
+
+<script>
+const questions = [
+  {q:"為什麼喝水對減重很重要？",opts:["水可以直接減脂","消化、代謝、把廢物帶走都需要足夠的水","喝水會讓肌肉變大","水沒有任何作用"],ans:1,exp:"身體從消化、代謝到把廢物帶走，每個環節都需要足夠的水。水夠，代謝才有效率。"},
+  {q:"為什麼有時候「嘴饞」其實是需要喝水？",opts:["食物比水好","身體的『渴』和『餓』訊號很接近，容易被混淆","喝水會變餓","這是迷思"],ans:1,exp:"身體發出的渴和餓訊號很接近，常被誤當成餓。嘴饞時先喝一杯水，很多時候想吃的感覺就消失了。"},
+  {q:"關於一天喝水量，下列何者較正確？",opts:["每個人都喝一樣多","一般約體重×30ml，體重管理可抓體重×35～40ml","口渴才喝就好","喝越多越好、多多益善"],ans:1,exp:"一般成人約體重×30ml；做體重管理、活動量大的人可抓到體重×35～40ml。一整天分次慢慢喝最好。"},
+  {q:"喝茶、喝咖啡算不算一天的水分？",opts:["完全不算","大部分算，但白開水為主、含糖飲料不算","只有咖啡算","只有茶算"],ans:1,exp:"茶和咖啡的水分大部分能算進總水量，但白開水仍是主角，含糖飲料因有額外糖和熱量則不算。"},
+  {q:"草本代謝茶、蘆薈汁、瓜拿納豆茶這些產品，在計畫中的共同角色是？",opts:["取代正餐","幫助補充水分、增添補水的樂趣","治療疾病","當成藥物"],ans:1,exp:"它們都是白開水之外，幫你補充水分、讓補水更有樂趣的選擇，屬於食品／營養補充品，非藥品。"},
+  {q:"瓜拿納是來自哪裡的植物？",opts:["北極","亞馬遜河流域","沙漠","海底"],ans:1,exp:"瓜拿納原生於亞馬遜河流域，當地人自古用它的果實提振精神、補充能量，是天然的能量來源。"}
+];
+let selected = Array(questions.length).fill(null);
+let graded = false;
+const quizEl = document.getElementById('quiz');
+questions.forEach((item, qi) => {
+  const qDiv = document.createElement('div');
+  qDiv.className = 'q';
+  let html = `<div class="qnum">第 ${qi+1} 題</div><div class="qtext">${item.q}</div>`;
+  item.opts.forEach((opt, oi) => {
+    html += `<label class="opt" id="opt-${qi}-${oi}" onclick="pick(${qi},${oi})">${opt}</label>`;
+  });
+  html += `<div class="explain" id="exp-${qi}"></div>`;
+  qDiv.innerHTML = html;
+  quizEl.appendChild(qDiv);
+});
+function pick(qi, oi){
+  if(graded) return;
+  selected[qi] = oi;
+  for(let o=0;o<questions[qi].opts.length;o++){
+    document.getElementById(`opt-${qi}-${o}`).classList.remove('selected');
+  }
+  document.getElementById(`opt-${qi}-${oi}`).classList.add('selected');
+}
+function grade(){
+  const name = document.getElementById('studentName').value.trim();
+  if(!name){ alert("請先填上你的名字喔！"); document.getElementById('studentName').focus(); return; }
+  for(let i=0;i<questions.length;i++){
+    if(selected[i]===null){ alert(`第 ${i+1} 題還沒作答喔！`);
+      document.getElementById(`opt-${i}-0`).scrollIntoView({behavior:'smooth',block:'center'}); return; }
+  }
+  graded = true;
+  let correct = 0;
+  questions.forEach((item, qi) => {
+    const chosen = selected[qi];
+    if(chosen === item.ans){ correct++; document.getElementById(`opt-${qi}-${chosen}`).classList.add('correct'); }
+    else { document.getElementById(`opt-${qi}-${chosen}`).classList.add('wrong');
+      document.getElementById(`opt-${qi}-${item.ans}`).classList.add('correct'); }
+    const exp = document.getElementById(`exp-${qi}`);
+    exp.innerHTML = `<b>解說：</b>${item.exp}`; exp.classList.add('show');
+  });
+  const studentScore = Math.round(correct / questions.length * 100);
+  document.getElementById('submitBtn').style.display = 'none';
+  document.getElementById('scoreBig').textContent = studentScore + " 分";
+  document.getElementById('scoreSub').textContent = `答對 ${correct} / ${questions.length} 題`;
+  let comment = "";
+  if(studentScore === 100) comment = "太棒了！喝水的觀念你完全掌握了 👏";
+  else if(studentScore >= 80) comment = "很好！大部分都懂了，錯的地方看一下解說就更完整囉。";
+  else if(studentScore >= 60) comment = "不錯的開始～有幾題再回去看看，觀念會更清楚。";
+  else comment = "沒關係！把上面的解說再看一次，教練會陪你一起弄懂。";
+  document.getElementById('comment').textContent = comment;
+  const today = new Date();
+  const dateStr = `${today.getFullYear()}/${today.getMonth()+1}/${today.getDate()}`;
+  const copyText =
+`【好好吃飯也能瘦・Day 3 測驗成績】
+姓名：${name}
+日期：${dateStr}
+主題：喝夠水的重要性 & 補水產品
+分數：${studentScore} 分（答對 ${correct}/${questions.length} 題）
+—— 我完成今天的功課囉！`;
+  document.getElementById('copybox').textContent = copyText;
+  window._copyText = copyText;
+  document.getElementById('result').classList.add('show');
+  document.getElementById('result').scrollIntoView({behavior:'smooth', block:'start'});
+}
+function copyResult(){
+  const text = window._copyText || "";
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(()=>{ alert("成績已複製！貼到 LINE 傳給教練就完成囉 😊"); }).catch(()=>fallbackCopy(text));
+  } else { fallbackCopy(text); }
+}
+function fallbackCopy(text){
+  const ta = document.createElement('textarea');
+  ta.value = text; document.body.appendChild(ta); ta.select();
+  try{ document.execCommand('copy'); alert("成績已複製！貼到 LINE 傳給教練就完成囉 😊"); }
+  catch(e){ alert("請長按上方成績文字手動複製~"); }
+  document.body.removeChild(ta);
+}
+</script>
+</body>
+</html>

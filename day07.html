@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>減重陪伴・Day 7</title>
+<meta property="og:title" content="減重陪伴・Day 7｜體脂肪，比體重更誠實">
+<meta property="og:description" content="為什麼有人體重正常卻看起來胖？認識體脂肪和外型的關係，以及怎麼真正降體脂。第一週收尾！">
+<meta property="og:image" content="https://rachelfu728.github.io/fit21-home/day07-a.png">
+<meta property="og:type" content="article">
+<style>
+  :root{
+    --gold:#C9A24B; --gold-soft:#E4CE9A;
+    --beige:#FBF6EC; --beige-deep:#F3EAD6;
+    --green:#A9C6A0; --green-deep:#7FA574;
+    --ink:#4A4438; --ink-soft:#6E6656; --white:#FFFDF8;
+    --wrong:#C97B6B;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:"PingFang TC","Microsoft JhengHei","Noto Sans TC",sans-serif;
+    background:var(--beige);color:var(--ink);line-height:1.9;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:640px;margin:0 auto;padding:0 18px 60px;}
+  header{text-align:center;padding:44px 20px 26px;}
+  header .kicker{font-size:13px;letter-spacing:1.5px;color:var(--green-deep);margin-bottom:10px;}
+  header h1{font-size:24px;font-weight:700;letter-spacing:1px;}
+  header .day-no{display:inline-block;background:var(--gold);color:var(--white);
+    font-size:14px;padding:4px 16px;border-radius:20px;margin-bottom:14px;letter-spacing:1px;}
+  header .line{width:52px;height:3px;background:var(--gold);margin:18px auto 0;border-radius:2px;}
+  .card{background:var(--white);border-radius:16px;padding:26px 24px;margin-bottom:20px;
+    box-shadow:0 2px 12px rgba(160,140,90,.08);border:1px solid var(--beige-deep);}
+  .card h2{font-size:19px;color:var(--ink);margin-bottom:6px;}
+  .card .topic-tag{display:inline-block;font-size:12px;padding:3px 12px;border-radius:20px;
+    background:var(--gold);color:var(--white);margin-bottom:14px;}
+  .card .topic-tag.week{background:var(--green-deep);}
+  .card p{font-size:15.5px;margin-bottom:12px;}
+  .card p:last-child{margin-bottom:0;}
+  .key{background:var(--beige);border-left:4px solid var(--green);border-radius:8px;
+    padding:12px 16px;margin-top:14px;font-size:14.5px;color:var(--ink-soft);}
+  .key b{color:var(--green-deep);}
+  .comic-img{width:100%;border-radius:12px;margin:16px 0 4px;display:block;
+    box-shadow:0 2px 10px rgba(160,140,90,.15);}
+  .table{width:100%;border-collapse:collapse;margin-top:14px;font-size:14.5px;}
+  .table th{background:var(--green-deep);color:var(--white);padding:10px;font-weight:700;}
+  .table td{padding:10px;border-bottom:1px solid var(--beige-deep);text-align:center;}
+  .table tr:nth-child(even){background:var(--beige);}
+  .steps{margin-top:8px;}
+  .steps .s{display:flex;gap:12px;margin-bottom:12px;align-items:flex-start;}
+  .steps .s .n{flex:0 0 auto;width:28px;height:28px;border-radius:50%;background:var(--gold);
+    color:var(--white);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;}
+  .steps .s .txt{font-size:15px;}
+  .steps .s .txt b{color:var(--green-deep);}
+  .qa{background:#F5F0E4;border-radius:10px;padding:14px 16px;margin-top:14px;font-size:14.5px;}
+  .qa .qq{font-weight:700;color:var(--gold);margin-bottom:4px;}
+  .weekend{background:linear-gradient(145deg,#7FA574,#6b8f61);color:var(--white);
+    border-radius:16px;padding:24px;margin-bottom:20px;text-align:center;}
+  .weekend .t{font-size:18px;font-weight:700;margin-bottom:8px;}
+  .weekend .d{font-size:14.5px;opacity:.95;}
+  .quiz-intro{text-align:center;margin:36px 0 18px;}
+  .quiz-intro .t{font-size:20px;font-weight:700;color:var(--green-deep);}
+  .quiz-intro .s{font-size:14px;color:var(--ink-soft);margin-top:6px;}
+  .namebox{background:var(--white);border-radius:14px;padding:18px 20px;margin-bottom:16px;border:1px solid var(--beige-deep);}
+  .namebox label{font-size:14px;color:var(--ink-soft);display:block;margin-bottom:8px;}
+  .namebox input{width:100%;padding:12px 14px;border:2px solid var(--beige-deep);border-radius:10px;font-size:16px;font-family:inherit;color:var(--ink);}
+  .namebox input:focus{outline:none;border-color:var(--gold);}
+  .q{background:var(--white);border-radius:14px;padding:22px 20px;margin-bottom:16px;border:1px solid var(--beige-deep);}
+  .q .qnum{font-size:13px;color:var(--gold);font-weight:700;margin-bottom:6px;}
+  .q .qtext{font-size:16px;font-weight:600;margin-bottom:14px;}
+  .opt{display:block;background:var(--beige);border:2px solid transparent;border-radius:10px;padding:12px 15px;margin-bottom:10px;font-size:15px;cursor:pointer;transition:.15s;}
+  .opt:hover{border-color:var(--gold-soft);}
+  .opt.selected{border-color:var(--gold);background:var(--beige-deep);}
+  .opt.correct{border-color:var(--green-deep);background:#EAF3E6;}
+  .opt.wrong{border-color:var(--wrong);background:#F7E9E5;}
+  .explain{font-size:14px;color:var(--ink-soft);margin-top:8px;padding:10px 14px;background:var(--beige);border-radius:8px;display:none;}
+  .explain.show{display:block;}
+  .explain b{color:var(--green-deep);}
+  .btn{display:block;width:100%;background:var(--green-deep);color:var(--white);border:none;font-size:17px;font-weight:700;padding:16px;border-radius:12px;cursor:pointer;margin-top:8px;font-family:inherit;letter-spacing:1px;}
+  .btn:hover{background:#6f9265;}
+  .btn.gold{background:var(--gold);}
+  .btn.gold:hover{background:#b8923f;}
+  .result{display:none;background:var(--white);border-radius:16px;padding:28px 24px;margin-top:24px;border:2px solid var(--gold);text-align:center;}
+  .result.show{display:block;}
+  .result .score-big{font-size:44px;font-weight:800;color:var(--gold);line-height:1;}
+  .result .score-sub{font-size:15px;color:var(--ink-soft);margin-top:8px;}
+  .result .comment{font-size:16px;margin-top:16px;color:var(--ink);}
+  .copybox{background:var(--beige);border:1px dashed var(--gold-soft);border-radius:10px;padding:14px;margin-top:18px;font-size:14px;text-align:left;white-space:pre-line;color:var(--ink);}
+  .hint{font-size:13px;color:var(--ink-soft);margin-top:10px;}
+  footer{text-align:center;margin-top:30px;color:var(--ink-soft);font-size:14px;}
+  footer .sign{color:var(--green-deep);font-weight:700;margin-top:6px;font-size:16px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="kicker">好好吃飯也能瘦・第一階段・正確觀念</div>
+    <div class="day-no">Day 7 / 21</div>
+    <h1>體脂肪，比體重更誠實</h1>
+    <div class="line"></div>
+  </header>
+
+  <!-- ★漫畫提示(給ChatGPT生圖用):兩個體重一樣的女生並排站,左邊體脂較高、線條較鬆軟,右邊體脂較低、線條較緊實勻稱,中間一個大大的等號和問號,表達「一樣重但外型差很多」。女生表情友善、不批判身材,小貓咪在旁邊。溫暖、不冒犯、金米綠配色、圓潤可愛畫風、標語「好好吃飯也能瘦」。 -->
+  <div class="card">
+    <span class="topic-tag">觀念一・體重的盲點</span>
+    <h2>為什麼有人體重正常，看起來卻胖？</h2>
+    <img class="comic-img" src="https://rachelfu728.github.io/fit21-home/day07-a.png" alt="體脂與外型關係插畫">
+    <p>你有沒有遇過這種情況：兩個人體重一樣，但一個看起來精實、一個看起來鬆軟？關鍵就在<b>體脂肪</b>。體重只告訴你「有多重」，卻沒告訴你這些重量裡，有多少是脂肪、多少是肌肉。</p>
+    <p>有一種人叫「<b>泡芙人</b>」——體重明明正常，體脂率卻偏高，看起來還是鬆鬆胖胖的，這其實是一種隱性肥胖。反過來，運動員體重很重，但體脂低、肌肉多，身材反而緊實好看又健康。所以真正影響你「外型」和「健康」的，是體脂肪，不是體重計上那個數字。</p>
+    <div class="key"><b>記住：</b>體重看「多重」，體脂看「胖不胖」。外型和健康，體脂肪比體重更誠實。</div>
+  </div>
+
+  <div class="card" style="background:linear-gradient(145deg,#FFFDF8,#FBF0E0);">
+    <span class="topic-tag">🍮 小測驗・你是泡芙人嗎</span>
+    <h2>中了幾點？來對照看看</h2>
+    <!-- ★漫畫提示(給ChatGPT生圖用):一個可愛的泡芙甜點擬人化角色,圓圓軟軟、表情呆萌,女生笑著指指自己又指指泡芙、一臉「說的是我?」的表情,小貓咪歪頭在旁邊。輕鬆逗趣、不冒犯身材、金米綠配色、圓潤可愛畫風、標語「好好吃飯也能瘦」。 -->
+    <img class="comic-img" src="https://rachelfu728.github.io/fit21-home/day07-b.png" alt="泡芙人插畫">
+    <p>「泡芙人」就是外表看起來瘦、體重也還好，但體脂偏高、身體鬆軟的類型（外瘦內肥）。快來對照一下：</p>
+    <div style="background:var(--white);border-radius:10px;padding:16px 18px;margin-top:8px;font-size:15px;line-height:2.1;">
+      ☐ 體重正常，但肚子、手臂、大腿<b>鬆鬆軟軟</b><br>
+      ☐ 看起來不胖，但<b>沒什麼線條</b><br>
+      ☐ 明明不重，<b>衣服卻越穿越沒型</b><br>
+      ☐ 很少運動，<b>肌肉比較少</b><br>
+      ☐ 常靠節食減重，<b>不太吃蛋白質</b>
+    </div>
+    <p style="margin-top:14px;">👉 <b>中了 2 點以上</b>，你可能就是泡芙人喔！別擔心，這不是壞消息——知道自己是泡芙人，反而找到了方向：<b>重點不是減重，而是降體脂、養一點肌肉</b>。接下來這一段就告訴你怎麼做。</p>
+    <div class="key"><b>記住：</b>泡芙人的解方不是「吃更少」，而是「吃對蛋白＋動一動」，把鬆軟換成緊實。</div>
+  </div>
+
+  <div class="card">
+    <span class="topic-tag">觀念二・你的體脂正常嗎</span>
+    <h2>體脂率，多少才算健康？</h2>
+    <p>體脂率的健康範圍，男女不同，也會隨年齡增加。這是一般的參考範圍：</p>
+    <table class="table">
+      <tr><th>　</th><th>正常範圍</th><th>偏高（肥胖）</th></tr>
+      <tr><td><b>成年男性</b></td><td>約 15–25%</td><td>超過 25%</td></tr>
+      <tr><td><b>成年女性</b></td><td>約 20–30%</td><td>超過 30%</td></tr>
+    </table>
+    <p style="margin-top:14px;">另外，<b>腰圍</b>也是很好判斷的指標，因為它反映的是最危險的「內臟脂肪」——一般建議<b>男性腰圍小於 90 公分、女性小於 80 公分</b>。腰圍超標，代表內臟脂肪偏多，要積極調整。</p>
+    <p>不過也要提醒：<b>體脂不是越低越好</b>。脂肪太低，身體很多荷爾蒙合成會出問題，反而不健康。我們的目標是「健康的範圍」，不是無止盡地低。</p>
+    <div class="key"><b>記住：</b>男性體脂約15–25%、女性約20–30%為正常。腰圍也是好指標。體脂不是越低越好，健康範圍才對。</div>
+  </div>
+
+  <div class="card">
+    <span class="topic-tag">重點・怎麼降體脂</span>
+    <h2>怎麼真正降低體脂肪？</h2>
+    <p>降體脂沒有捷徑，但方向很清楚——其實就是把我們這一週聊過的觀念，一起做起來：</p>
+    <div class="steps">
+      <div class="s"><div class="n">1</div><div class="txt"><b>吃對、吃夠好蛋白質：</b>保住肌肉這台燃脂引擎，別用極端節食把肌肉也減掉。</div></div>
+      <div class="s"><div class="n">2</div><div class="txt"><b>控制精緻糖和油炸：</b>減少多餘熱量的來源，菜肉飯順序、份量控制都有幫助。</div></div>
+      <div class="s"><div class="n">3</div><div class="txt"><b>規律動一動：</b>不用激烈，能持續最重要。有肌力活動更能幫忙保住、長肌肉。</div></div>
+      <div class="s"><div class="n">4</div><div class="txt"><b>喝夠水、睡飽：</b>代謝順暢、荷爾蒙穩定，身體才願意好好燃脂。</div></div>
+      <div class="s"><div class="n">5</div><div class="txt"><b>給它時間：</b>體脂是慢慢降的，看「一段時間的趨勢」，別被單日數字影響心情。</div></div>
+    </div>
+    <div class="key"><b>記住：</b>降體脂＝吃對蛋白＋少精緻糖油＋規律運動＋喝水睡飽＋耐心。這一週學的，全用上了！</div>
+
+    <div class="qa">
+      <div class="qq">Q：那我怎麼知道自己的體脂是多少？</div>
+      <div>最方便的是用「體脂計」或有測體脂的體重計，在家就能量。不過家用體脂計會受身體水分影響、有誤差，所以別太糾結單次數字，一樣看「一段時間的趨勢」。也可以搭配腰圍、以及衣服穿起來的鬆緊來感受。想更準確，健身房或健康檢查有更精密的儀器。要怎麼量、怎麼看，我都可以陪你一起。</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <span class="topic-tag">延伸・血糖與體脂</span>
+    <h2>穩定血糖，對降體脂有幫助嗎？</h2>
+    <p>有的，但要正確理解。當我們吃下大量精緻糖、精緻澱粉，血糖會快速飆高，身體就得分泌大量胰島素來處理。<b>血糖忽高忽低（波動大）時，容易讓人很快又餓、特別想吃甜食，也和脂肪的囤積有關</b>。所以把血糖穩住，確實能幫助你比較不容易餓、比較好控制食慾。</p>
+    <p>但我要老實提醒你——<b>穩定血糖是幫手，不是魔法</b>。網路上有人說「只要血糖不升高，吃再多都不會胖」，這是不對的：像堅果、酒是低升糖的，但熱量很高，吃多一樣會胖。所以到最後，還是要回到<b>「吃對、控制總熱量」</b>這個根本。</p>
+    <p>好消息是——<b>穩血糖的方法，其實你第一天就學過了</b>：<b>先吃菜、再吃肉、最後才吃飯</b>，纖維和蛋白質先進肚子，飯就吃得少、血糖上升也比較平緩。多吃原型食物、少吃精緻糖，血糖自然就穩了。是不是全部串起來了？😊</p>
+    <div class="key"><b>記住：</b>穩血糖能幫你少餓、好控制食慾，但不是魔法，最終仍要吃對、控制熱量。菜→肉→飯的順序，就是穩血糖的好方法。</div>
+  </div>
+
+  <div class="weekend">
+    <div class="t">🎉 恭喜你，完成第一週了！</div>
+    <div class="d">七天下來，你已經學會：菜肉飯順序、蛋白質、喝水、睡眠、還有今天的體脂觀念。<br>這些都是會陪你一輩子、讓你不復胖的底子。你做得很好，我們繼續！</div>
+  </div>
+
+  <div class="quiz-intro">
+    <div class="t">來做個小測驗 ✏️</div>
+    <div class="s">看完今天的內容，試試看你懂了多少<br>共 8 題，全部選擇題</div>
+  </div>
+
+  <div class="namebox">
+    <label>先填上你的名字（讓教練知道是誰交的功課）</label>
+    <input type="text" id="studentName" placeholder="請輸入你的名字">
+  </div>
+
+  <div id="quiz"></div>
+  <button class="btn gold" id="submitBtn" onclick="grade()">交卷看分數</button>
+
+  <div class="result" id="result">
+    <div class="score-big" id="scoreBig">0 分</div>
+    <div class="score-sub" id="scoreSub"></div>
+    <div class="comment" id="comment"></div>
+    <div class="copybox" id="copybox"></div>
+    <button class="btn" style="margin-top:16px;" onclick="copyResult()">📋 複製成績</button>
+    <div class="hint">複製後，貼到 LINE 傳給教練就完成囉！</div>
+  </div>
+
+  <footer>
+    Day 7・體脂肪與外型的關係<br>
+    <span class="sign">OK，我們一起努力！</span>
+  </footer>
+</div>
+
+<script>
+const questions = [
+  {q:"為什麼有人體重正常，看起來卻胖？",opts:["量錯體重","體脂率偏高，也就是俗稱的『泡芙人』","衣服問題","體重計壞了"],ans:1,exp:"體重正常但體脂率偏高，就是俗稱的泡芙人，屬於隱性肥胖。真正影響外型的是體脂，不是體重。"},
+  {q:"體重和體脂的差別是？",opts:["完全一樣","體重看『多重』，體脂看『有多少是脂肪』","體脂比較不重要","體重比較準"],ans:1,exp:"體重只告訴你多重，體脂告訴你這些重量裡有多少是脂肪、多少是肌肉。外型和健康看體脂更準。"},
+  {q:"成年女性的體脂率，大約多少算正常？",opts:["約5–10%","約20–30%","約40–50%","越低越好"],ans:1,exp:"成年女性體脂率約20–30%為正常，超過30%為偏高。（男性約15–25%）"},
+  {q:"關於體脂，下列何者正確？",opts:["越低越好，零脂肪最健康","不是越低越好，太低反而不健康","脂肪完全沒用","體脂跟健康無關"],ans:1,exp:"體脂不是越低越好，脂肪太低會影響荷爾蒙合成、反而不健康。目標是健康範圍。"},
+  {q:"下列哪個「不是」降體脂的正確方向？",opts:["吃夠好蛋白質、保住肌肉","極端節食、什麼都不吃","規律運動","喝夠水、睡飽"],ans:1,exp:"極端節食會連肌肉一起減掉、代謝變差，反而越減越難。降體脂要吃對、運動、喝水睡飽、有耐心。"},
+  {q:"要看體脂有沒有進步，應該？",opts:["只看單次數字","看一段時間的趨勢，搭配腰圍和衣服鬆緊","每天量十次","完全不用量"],ans:1,exp:"家用體脂計會受水分影響有誤差，看一段時間的趨勢比較準，也可搭配腰圍和衣服穿起來的感覺。"},
+  {q:"「泡芙人」的解方是什麼？",opts:["吃更少、更嚴格節食","吃對蛋白＋動一動，降體脂、養肌肉，把鬆軟換緊實","完全不吃澱粉","只量體重就好"],ans:1,exp:"泡芙人是外瘦內肥、體脂偏高。解方不是吃更少（那會更掉肌肉），而是吃對蛋白＋規律運動，降體脂、養一點肌肉。"},
+  {q:"關於血糖和減脂，正確的說法是？",opts:["血糖不升高就吃再多都不會胖","穩定血糖有幫助（少餓、好控制食慾），但最終仍要吃對、控制熱量","血糖跟體脂完全無關","只要吃甜的就好"],ans:1,exp:"穩血糖能減少飢餓、幫助控制食慾，但不是魔法（堅果、酒低升糖卻高熱量），最終還是要回到吃對和熱量控制。菜→肉→飯的順序就是穩血糖好方法。"}
+];
+let selected = Array(questions.length).fill(null);
+let graded = false;
+const quizEl = document.getElementById('quiz');
+questions.forEach((item, qi) => {
+  const qDiv = document.createElement('div');
+  qDiv.className = 'q';
+  let html = `<div class="qnum">第 ${qi+1} 題</div><div class="qtext">${item.q}</div>`;
+  item.opts.forEach((opt, oi) => {
+    html += `<label class="opt" id="opt-${qi}-${oi}" onclick="pick(${qi},${oi})">${opt}</label>`;
+  });
+  html += `<div class="explain" id="exp-${qi}"></div>`;
+  qDiv.innerHTML = html;
+  quizEl.appendChild(qDiv);
+});
+function pick(qi, oi){
+  if(graded) return;
+  selected[qi] = oi;
+  for(let o=0;o<questions[qi].opts.length;o++){
+    document.getElementById(`opt-${qi}-${o}`).classList.remove('selected');
+  }
+  document.getElementById(`opt-${qi}-${oi}`).classList.add('selected');
+}
+function grade(){
+  const name = document.getElementById('studentName').value.trim();
+  if(!name){ alert("請先填上你的名字喔！"); document.getElementById('studentName').focus(); return; }
+  for(let i=0;i<questions.length;i++){
+    if(selected[i]===null){ alert(`第 ${i+1} 題還沒作答喔！`);
+      document.getElementById(`opt-${i}-0`).scrollIntoView({behavior:'smooth',block:'center'}); return; }
+  }
+  graded = true;
+  let correct = 0;
+  questions.forEach((item, qi) => {
+    const chosen = selected[qi];
+    if(chosen === item.ans){ correct++; document.getElementById(`opt-${qi}-${chosen}`).classList.add('correct'); }
+    else { document.getElementById(`opt-${qi}-${chosen}`).classList.add('wrong');
+      document.getElementById(`opt-${qi}-${item.ans}`).classList.add('correct'); }
+    const exp = document.getElementById(`exp-${qi}`);
+    exp.innerHTML = `<b>解說：</b>${item.exp}`; exp.classList.add('show');
+  });
+  const studentScore = Math.round(correct / questions.length * 100);
+  document.getElementById('submitBtn').style.display = 'none';
+  document.getElementById('scoreBig').textContent = studentScore + " 分";
+  document.getElementById('scoreSub').textContent = `答對 ${correct} / ${questions.length} 題`;
+  let comment = "";
+  if(studentScore === 100) comment = "太棒了！第一週的知識你完全掌握了 👏";
+  else if(studentScore >= 80) comment = "很好！大部分都懂了，錯的地方看一下解說就更完整囉。";
+  else if(studentScore >= 60) comment = "不錯～有幾題再回去看看，觀念會更清楚。";
+  else comment = "沒關係！把上面的解說再看一次，教練會陪你一起弄懂。";
+  document.getElementById('comment').textContent = comment;
+  const today = new Date();
+  const dateStr = `${today.getFullYear()}/${today.getMonth()+1}/${today.getDate()}`;
+  const copyText =
+`【好好吃飯也能瘦・Day 7 測驗成績】
+姓名：${name}
+日期：${dateStr}
+主題：體脂肪與外型的關係
+分數：${studentScore} 分（答對 ${correct}/${questions.length} 題）
+—— 我完成第一週的功課囉！`;
+  document.getElementById('copybox').textContent = copyText;
+  window._copyText = copyText;
+  document.getElementById('result').classList.add('show');
+  document.getElementById('result').scrollIntoView({behavior:'smooth', block:'start'});
+}
+function copyResult(){
+  const text = window._copyText || "";
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(()=>{ alert("成績已複製！貼到 LINE 傳給教練就完成囉 😊"); }).catch(()=>fallbackCopy(text));
+  } else { fallbackCopy(text); }
+}
+function fallbackCopy(text){
+  const ta = document.createElement('textarea');
+  ta.value = text; document.body.appendChild(ta); ta.select();
+  try{ document.execCommand('copy'); alert("成績已複製！貼到 LINE 傳給教練就完成囉 😊"); }
+  catch(e){ alert("請長按上方成績文字手動複製~"); }
+  document.body.removeChild(ta);
+}
+</script>
+</body>
+</html>

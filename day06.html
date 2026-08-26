@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>減重陪伴・Day 6</title>
+<meta property="og:title" content="減重陪伴・Day 6｜睡不夠，竟然會變胖？">
+<meta property="og:description" content="熬夜不只累，還會讓你更容易餓、更想吃！聊聊睡眠和減重之間，那個很多人不知道的祕密。">
+<meta property="og:image" content="https://rachelfu728.github.io/fit21-home/day06-a.png">
+<meta property="og:type" content="article">
+<style>
+  :root{
+    --gold:#C9A24B; --gold-soft:#E4CE9A;
+    --beige:#FBF6EC; --beige-deep:#F3EAD6;
+    --green:#A9C6A0; --green-deep:#7FA574;
+    --ink:#4A4438; --ink-soft:#6E6656; --white:#FFFDF8;
+    --wrong:#C97B6B;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:"PingFang TC","Microsoft JhengHei","Noto Sans TC",sans-serif;
+    background:var(--beige);color:var(--ink);line-height:1.9;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:640px;margin:0 auto;padding:0 18px 60px;}
+  header{text-align:center;padding:44px 20px 26px;}
+  header .kicker{font-size:13px;letter-spacing:1.5px;color:var(--green-deep);margin-bottom:10px;}
+  header h1{font-size:24px;font-weight:700;letter-spacing:1px;}
+  header .day-no{display:inline-block;background:var(--gold);color:var(--white);
+    font-size:14px;padding:4px 16px;border-radius:20px;margin-bottom:14px;letter-spacing:1px;}
+  header .line{width:52px;height:3px;background:var(--gold);margin:18px auto 0;border-radius:2px;}
+  .card{background:var(--white);border-radius:16px;padding:26px 24px;margin-bottom:20px;
+    box-shadow:0 2px 12px rgba(160,140,90,.08);border:1px solid var(--beige-deep);}
+  .card h2{font-size:19px;color:var(--ink);margin-bottom:6px;}
+  .card .topic-tag{display:inline-block;font-size:12px;padding:3px 12px;border-radius:20px;
+    background:var(--gold);color:var(--white);margin-bottom:14px;}
+  .card .topic-tag.fun{background:var(--green-deep);}
+  .card p{font-size:15.5px;margin-bottom:12px;}
+  .card p:last-child{margin-bottom:0;}
+  .key{background:var(--beige);border-left:4px solid var(--green);border-radius:8px;
+    padding:12px 16px;margin-top:14px;font-size:14.5px;color:var(--ink-soft);}
+  .key b{color:var(--green-deep);}
+  .comic-img{width:100%;border-radius:12px;margin:16px 0 4px;display:block;
+    box-shadow:0 2px 10px rgba(160,140,90,.15);}
+  .duo{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap;}
+  .duo .h{flex:1;min-width:140px;background:var(--beige);border-radius:10px;padding:14px;}
+  .duo .h .t{font-weight:700;margin-bottom:4px;}
+  .duo .h.up .t{color:var(--wrong);}
+  .duo .h.down .t{color:var(--green-deep);}
+  .duo .h .d{font-size:13.5px;color:var(--ink-soft);}
+  .qa{background:#F5F0E4;border-radius:10px;padding:14px 16px;margin-top:14px;font-size:14.5px;}
+  .qa .qq{font-weight:700;color:var(--gold);margin-bottom:4px;}
+  .quiz-intro{text-align:center;margin:36px 0 18px;}
+  .quiz-intro .t{font-size:20px;font-weight:700;color:var(--green-deep);}
+  .quiz-intro .s{font-size:14px;color:var(--ink-soft);margin-top:6px;}
+  .namebox{background:var(--white);border-radius:14px;padding:18px 20px;margin-bottom:16px;border:1px solid var(--beige-deep);}
+  .namebox label{font-size:14px;color:var(--ink-soft);display:block;margin-bottom:8px;}
+  .namebox input{width:100%;padding:12px 14px;border:2px solid var(--beige-deep);border-radius:10px;font-size:16px;font-family:inherit;color:var(--ink);}
+  .namebox input:focus{outline:none;border-color:var(--gold);}
+  .q{background:var(--white);border-radius:14px;padding:22px 20px;margin-bottom:16px;border:1px solid var(--beige-deep);}
+  .q .qnum{font-size:13px;color:var(--gold);font-weight:700;margin-bottom:6px;}
+  .q .qtext{font-size:16px;font-weight:600;margin-bottom:14px;}
+  .opt{display:block;background:var(--beige);border:2px solid transparent;border-radius:10px;padding:12px 15px;margin-bottom:10px;font-size:15px;cursor:pointer;transition:.15s;}
+  .opt:hover{border-color:var(--gold-soft);}
+  .opt.selected{border-color:var(--gold);background:var(--beige-deep);}
+  .opt.correct{border-color:var(--green-deep);background:#EAF3E6;}
+  .opt.wrong{border-color:var(--wrong);background:#F7E9E5;}
+  .explain{font-size:14px;color:var(--ink-soft);margin-top:8px;padding:10px 14px;background:var(--beige);border-radius:8px;display:none;}
+  .explain.show{display:block;}
+  .explain b{color:var(--green-deep);}
+  .btn{display:block;width:100%;background:var(--green-deep);color:var(--white);border:none;font-size:17px;font-weight:700;padding:16px;border-radius:12px;cursor:pointer;margin-top:8px;font-family:inherit;letter-spacing:1px;}
+  .btn:hover{background:#6f9265;}
+  .btn.gold{background:var(--gold);}
+  .btn.gold:hover{background:#b8923f;}
+  .result{display:none;background:var(--white);border-radius:16px;padding:28px 24px;margin-top:24px;border:2px solid var(--gold);text-align:center;}
+  .result.show{display:block;}
+  .result .score-big{font-size:44px;font-weight:800;color:var(--gold);line-height:1;}
+  .result .score-sub{font-size:15px;color:var(--ink-soft);margin-top:8px;}
+  .result .comment{font-size:16px;margin-top:16px;color:var(--ink);}
+  .copybox{background:var(--beige);border:1px dashed var(--gold-soft);border-radius:10px;padding:14px;margin-top:18px;font-size:14px;text-align:left;white-space:pre-line;color:var(--ink);}
+  .hint{font-size:13px;color:var(--ink-soft);margin-top:10px;}
+  footer{text-align:center;margin-top:30px;color:var(--ink-soft);font-size:14px;}
+  footer .sign{color:var(--green-deep);font-weight:700;margin-top:6px;font-size:16px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="kicker">好好吃飯也能瘦・第一階段・正確觀念</div>
+    <div class="day-no">Day 6 / 21</div>
+    <h1>睡不夠，竟然會變胖？</h1>
+    <div class="line"></div>
+  </header>
+
+  <!-- ★漫畫提示(給ChatGPT生圖用):分成兩種對比感,一邊是女生熬夜沒睡、黑眼圈、手裡拿著宵夜(炸雞、鹽酥雞)一臉想吃;另一邊是女生睡飽起床、精神好、笑咪咪。小貓咪在旁邊。可愛、有對比、金米綠配色、圓潤可愛畫風、標語「好好吃飯也能瘦」。 -->
+  <div class="card">
+    <span class="topic-tag fun">趣味知識・睡眠與減重</span>
+    <h2>熬夜的人，為什麼特別想吃宵夜？</h2>
+    <img class="comic-img" src="https://rachelfu728.github.io/fit21-home/day06-a.png" alt="睡眠與變胖對比插畫">
+    <p>你有沒有發現——<b>熬夜的晚上，特別容易嘴饞</b>，想吃鹽酥雞、想吃甜的？這不是你意志力差，而是身體的荷爾蒙在作祟。</p>
+    <p>我們體內有兩個管食慾的荷爾蒙：一個叫「<b>飢餓素</b>」（讓你想吃），一個叫「<b>瘦體素</b>」（讓你有飽足感、踩剎車）。研究發現，當你<b>睡眠不足</b>時，這兩個會失衡——想吃的那個上升、踩剎車的那個下降。於是你變得特別容易餓、特別想吃高油高糖的東西。</p>
+    <div class="key"><b>記住：</b>熬夜想吃宵夜，不是你不夠自律，是睡不夠讓食慾荷爾蒙失衡了。</div>
+  </div>
+
+  <div class="card">
+    <span class="topic-tag">觀念・兩個荷爾蒙</span>
+    <h2>睡不夠，身體發生了什麼事</h2>
+    <p>簡單來說，睡眠不足時，你的身體會變成這樣：</p>
+    <div class="duo">
+      <div class="h up">
+        <div class="t">↑ 飢餓素 上升</div>
+        <div class="d">讓你飢餓感增加、食慾大開，特別想吃高熱量的食物。</div>
+      </div>
+      <div class="h down">
+        <div class="t">↓ 瘦體素 下降</div>
+        <div class="d">負責「喊停」的荷爾蒙變少，讓你比較不容易感覺飽。</div>
+      </div>
+    </div>
+    <p style="margin-top:14px;">研究發現，睡眠不足會讓飢餓感增加，讓人每天不知不覺多吃進一些熱量，而且多半是高油、高糖的食物。加上熬夜很累、白天活動量又變少，熱量消耗不掉，就容易囤積成脂肪。</p>
+    <div class="key"><b>記住：</b>睡不夠 ＝ 想吃的變多 ＋ 喊停的變少 ＋ 消耗變少，難怪容易變胖。</div>
+  </div>
+
+  <div class="card">
+    <span class="topic-tag">重要・別減錯了</span>
+    <h2>睡不夠，減掉的可能是肌肉</h2>
+    <p>還有一個很多人不知道的重點：研究顯示，<b>睡眠不足的人在減重時，減掉的比較多是「肌肉」，脂肪反而留著</b>。而我們前面聊過——肌肉是幫你燃燒熱量的引擎，肌肉一少，代謝就變差，越減越難。</p>
+    <p>反過來說，<b>睡得夠的人減重，才比較能真正減到脂肪、保住肌肉</b>。所以「睡飽」不是減重的配角，它其實是很重要的一環。有時候你需要的不是更多意志力，而是好好睡一覺。</p>
+    <div class="key"><b>記住：</b>睡飽，才能減到脂肪、保住肌肉。好好睡覺，也是在幫自己瘦。</div>
+
+    <div class="qa">
+      <div class="qq">Q：那我到底該睡多久？</div>
+      <div>一般建議成人一天睡 7–9 小時。但比「時數」更實際的第一步是：<b>今晚比平常早一點睡</b>。不用一次到位，先從「早 30 分鐘放下手機」開始。如果你常失眠或睡不好，那是另一個要處理的問題，可以告訴我，我陪你想辦法、必要時也建議你尋求專業協助。</div>
+    </div>
+  </div>
+
+  <!-- ============ 夜寧新產品介紹 ============ -->
+  <div class="section-title" style="text-align:center;margin:44px 0 6px;font-size:21px;font-weight:700;color:var(--green-deep);">🌙 給夜晚的一份保養</div>
+  <div class="section-sub" style="text-align:center;font-size:14px;color:var(--ink-soft);margin-bottom:22px;">說到睡眠，跟你分享一款專為夜晚設計的產品，還有它背後的故事</div>
+
+  <!-- ★夜寧新產品圖 day06-b(可用GPT參考實際罐子生的擬真圖,或真實產品照) -->
+  <div class="card">
+    <span class="topic-tag">產品故事・諾貝爾獎的淵源</span>
+    <h2>夜寧新 Niteworks，一個諾貝爾獎的故事</h2>
+    <img class="comic-img" src="https://rachelfu728.github.io/fit21-home/day06-b.png" alt="夜寧新產品">
+    <div style="background:#F5F0E4;border-radius:10px;padding:14px 16px;margin-bottom:14px;font-size:14.5px;color:var(--ink-soft);font-style:italic;">
+      🏅 說個故事：有位科學家 Louis Ignarro（伊格納羅）博士，因為研究「一氧化氮」對人體的作用，在 1998 年獲得了諾貝爾醫學獎。後來他擔任賀寶芙科學諮詢委員會委員，和賀寶芙團隊共同研發了這款夜間飲品——夜寧新。
+    </div>
+    <p>夜寧新是一款<b>睡前飲用的清爽檸檬口味飲品</b>，結合了 <b>L-精胺酸、牛磺酸</b>，並添加維生素C、維生素E、葉酸、香蜂草等成分，是為身體在夜間所設計的一份保養。</p>
+    <p>對正在做體重管理、又在意熱量的人來說，它還有一個貼心的地方：<b>無糖、低熱量</b>，睡前喝一杯不會造成負擔。用開水、氣泡水或果汁調勻，就能在睡前享受一杯清爽好入口的飲料。</p>
+    <ul style="list-style:none;margin:8px 0 4px;">
+      <li style="font-size:14.5px;padding:5px 0 5px 22px;position:relative;">🌿 L-精胺酸、牛磺酸為主的獨特配方</li>
+      <li style="font-size:14.5px;padding:5px 0 5px 22px;position:relative;">🌿 無糖、低熱量，睡前喝無負擔</li>
+      <li style="font-size:14.5px;padding:5px 0 5px 22px;position:relative;">🌿 清爽檸檬口味，好入口</li>
+      <li style="font-size:14.5px;padding:5px 0 5px 22px;position:relative;">🌿 獲 SNQ 國家品質標章</li>
+    </ul>
+    <div class="key"><b>記住：</b>夜寧新是由諾貝爾獎得主 Ignarro 博士與賀寶芙共同研發的睡前飲品，無糖低熱量、清爽好入口，是給夜晚的一份保養。</div>
+  </div>
+
+  <div style="font-size:12px;color:var(--ink-soft);text-align:center;background:var(--beige-deep);border-radius:10px;padding:14px 16px;margin-top:10px;line-height:1.7;">
+    本頁產品資訊整理自官方公開資料與產品標示，僅供營養補充參考。<br>
+    產品為營養補充食品，非藥品，不具療效，不可作為診斷、治療或預防任何疾病之用途。<br>
+    實際使用方式與份量，請依產品標示並與教練討論後進行。
+  </div>
+
+  <div class="quiz-intro">
+    <div class="t">來做個小測驗 ✏️</div>
+    <div class="s">看完今天的內容，試試看你懂了多少<br>共 7 題，全部選擇題</div>
+  </div>
+
+  <div class="namebox">
+    <label>先填上你的名字（讓教練知道是誰交的功課）</label>
+    <input type="text" id="studentName" placeholder="請輸入你的名字">
+  </div>
+
+  <div id="quiz"></div>
+  <button class="btn gold" id="submitBtn" onclick="grade()">交卷看分數</button>
+
+  <div class="result" id="result">
+    <div class="score-big" id="scoreBig">0 分</div>
+    <div class="score-sub" id="scoreSub"></div>
+    <div class="comment" id="comment"></div>
+    <div class="copybox" id="copybox"></div>
+    <button class="btn" style="margin-top:16px;" onclick="copyResult()">📋 複製成績</button>
+    <div class="hint">複製後，貼到 LINE 傳給教練就完成囉！</div>
+  </div>
+
+  <footer>
+    Day 6・睡不夠竟然會變胖<br>
+    <span class="sign">OK，我們一起努力！</span>
+  </footer>
+</div>
+
+<script>
+const questions = [
+  {q:"熬夜特別想吃宵夜，主要原因是？",opts:["意志力太差","睡眠不足讓食慾荷爾蒙失衡","宵夜比較好吃","習慣問題"],ans:1,exp:"熬夜想吃不是自律問題，是睡不夠讓飢餓素上升、瘦體素下降，食慾荷爾蒙失衡了。"},
+  {q:"睡眠不足時，「飢餓素」會怎樣？",opts:["下降，讓人不餓","上升，讓人食慾大開、特別想吃","完全沒變化","變成瘦體素"],ans:1,exp:"飢餓素是讓你想吃的荷爾蒙，睡不夠時它會上升，讓你飢餓感增加、特別想吃高熱量食物。"},
+  {q:"「瘦體素」的作用是什麼？",opts:["讓人一直想吃","讓人有飽足感、幫忙踩剎車","讓人失眠","增加脂肪"],ans:1,exp:"瘦體素負責讓你有飽足感、喊停。睡眠不足時它會下降，讓你比較不容易感覺飽。"},
+  {q:"睡眠不足的人減重，容易減掉什麼？",opts:["純脂肪","比較多是肌肉，脂肪反而留著","水分而已","什麼都減不掉"],ans:1,exp:"研究顯示睡不夠的人減重，減掉的多是肌肉、脂肪留著。肌肉少了代謝變差，越減越難。"},
+  {q:"關於睡眠和減重，正確的態度是？",opts:["睡覺是浪費時間","睡飽是減重重要的一環，先從早點睡開始","少睡才會瘦","睡多睡少都一樣"],ans:1,exp:"睡飽才能減到脂肪、保住肌肉。有時需要的不是更多意志力，而是好好睡一覺，先從早點睡開始。"},
+  {q:"夜寧新 Niteworks 背後的研發淵源是？",opts:["一般食品廠開發","由諾貝爾獎得主 Ignarro 博士與賀寶芙共同研發","路邊配方","沒有來歷"],ans:1,exp:"夜寧新是由 1998 年諾貝爾醫學獎得主 Louis Ignarro 博士（賀寶芙科學諮詢委員）與賀寶芙團隊共同研發的睡前飲品。"},
+  {q:"對做體重管理的人，夜寧新有什麼貼心之處？",opts:["熱量很高","無糖、低熱量，睡前喝不造成負擔","含大量糖分","不能睡前喝"],ans:1,exp:"夜寧新是無糖、低熱量的清爽檸檬口味飲品，睡前喝一杯不會造成熱量或糖分負擔。"}
+];
+let selected = Array(questions.length).fill(null);
+let graded = false;
+const quizEl = document.getElementById('quiz');
+questions.forEach((item, qi) => {
+  const qDiv = document.createElement('div');
+  qDiv.className = 'q';
+  let html = `<div class="qnum">第 ${qi+1} 題</div><div class="qtext">${item.q}</div>`;
+  item.opts.forEach((opt, oi) => {
+    html += `<label class="opt" id="opt-${qi}-${oi}" onclick="pick(${qi},${oi})">${opt}</label>`;
+  });
+  html += `<div class="explain" id="exp-${qi}"></div>`;
+  qDiv.innerHTML = html;
+  quizEl.appendChild(qDiv);
+});
+function pick(qi, oi){
+  if(graded) return;
+  selected[qi] = oi;
+  for(let o=0;o<questions[qi].opts.length;o++){
+    document.getElementById(`opt-${qi}-${o}`).classList.remove('selected');
+  }
+  document.getElementById(`opt-${qi}-${oi}`).classList.add('selected');
+}
+function grade(){
+  const name = document.getElementById('studentName').value.trim();
+  if(!name){ alert("請先填上你的名字喔！"); document.getElementById('studentName').focus(); return; }
+  for(let i=0;i<questions.length;i++){
+    if(selected[i]===null){ alert(`第 ${i+1} 題還沒作答喔！`);
+      document.getElementById(`opt-${i}-0`).scrollIntoView({behavior:'smooth',block:'center'}); return; }
+  }
+  graded = true;
+  let correct = 0;
+  questions.forEach((item, qi) => {
+    const chosen = selected[qi];
+    if(chosen === item.ans){ correct++; document.getElementById(`opt-${qi}-${chosen}`).classList.add('correct'); }
+    else { document.getElementById(`opt-${qi}-${chosen}`).classList.add('wrong');
+      document.getElementById(`opt-${qi}-${item.ans}`).classList.add('correct'); }
+    const exp = document.getElementById(`exp-${qi}`);
+    exp.innerHTML = `<b>解說：</b>${item.exp}`; exp.classList.add('show');
+  });
+  const studentScore = Math.round(correct / questions.length * 100);
+  document.getElementById('submitBtn').style.display = 'none';
+  document.getElementById('scoreBig').textContent = studentScore + " 分";
+  document.getElementById('scoreSub').textContent = `答對 ${correct} / ${questions.length} 題`;
+  let comment = "";
+  if(studentScore === 100) comment = "太棒了！睡眠和減重的關係你完全懂了 👏";
+  else if(studentScore >= 80) comment = "很好！大部分都懂了，錯的地方看一下解說就更完整囉。";
+  else if(studentScore >= 60) comment = "不錯～有幾題再回去看看，觀念會更清楚。";
+  else comment = "沒關係！把上面的解說再看一次，教練會陪你一起弄懂。";
+  document.getElementById('comment').textContent = comment;
+  const today = new Date();
+  const dateStr = `${today.getFullYear()}/${today.getMonth()+1}/${today.getDate()}`;
+  const copyText =
+`【好好吃飯也能瘦・Day 6 測驗成績】
+姓名：${name}
+日期：${dateStr}
+主題：睡不夠竟然會變胖
+分數：${studentScore} 分（答對 ${correct}/${questions.length} 題）
+—— 我完成今天的功課囉！`;
+  document.getElementById('copybox').textContent = copyText;
+  window._copyText = copyText;
+  document.getElementById('result').classList.add('show');
+  document.getElementById('result').scrollIntoView({behavior:'smooth', block:'start'});
+}
+function copyResult(){
+  const text = window._copyText || "";
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(()=>{ alert("成績已複製！貼到 LINE 傳給教練就完成囉 😊"); }).catch(()=>fallbackCopy(text));
+  } else { fallbackCopy(text); }
+}
+function fallbackCopy(text){
+  const ta = document.createElement('textarea');
+  ta.value = text; document.body.appendChild(ta); ta.select();
+  try{ document.execCommand('copy'); alert("成績已複製！貼到 LINE 傳給教練就完成囉 😊"); }
+  catch(e){ alert("請長按上方成績文字手動複製~"); }
+  document.body.removeChild(ta);
+}
+</script>
+</body>
+</html>

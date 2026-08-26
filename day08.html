@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>減重陪伴・Day 8</title>
+<meta property="og:title" content="減重陪伴・Day 8｜減重，也是在保養你的膝蓋">
+<meta property="og:description" content="體重每多一點，膝蓋就多扛一份。認識體重和關節的關係，還有怎麼保養它。第二週開始！">
+<meta property="og:image" content="https://rachelfu728.github.io/fit21-home/day08-a.png">
+<meta property="og:type" content="article">
+<style>
+  :root{
+    --gold:#C9A24B; --gold-soft:#E4CE9A;
+    --beige:#FBF6EC; --beige-deep:#F3EAD6;
+    --green:#A9C6A0; --green-deep:#7FA574;
+    --ink:#4A4438; --ink-soft:#6E6656; --white:#FFFDF8;
+    --wrong:#C97B6B;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:"PingFang TC","Microsoft JhengHei","Noto Sans TC",sans-serif;
+    background:var(--beige);color:var(--ink);line-height:1.9;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:640px;margin:0 auto;padding:0 18px 60px;}
+  header{text-align:center;padding:44px 20px 26px;}
+  header .kicker{font-size:13px;letter-spacing:1.5px;color:var(--green-deep);margin-bottom:10px;}
+  header h1{font-size:24px;font-weight:700;letter-spacing:1px;}
+  header .day-no{display:inline-block;background:var(--gold);color:var(--white);
+    font-size:14px;padding:4px 16px;border-radius:20px;margin-bottom:14px;letter-spacing:1px;}
+  header .line{width:52px;height:3px;background:var(--gold);margin:18px auto 0;border-radius:2px;}
+  .card{background:var(--white);border-radius:16px;padding:26px 24px;margin-bottom:20px;
+    box-shadow:0 2px 12px rgba(160,140,90,.08);border:1px solid var(--beige-deep);}
+  .card h2{font-size:19px;color:var(--ink);margin-bottom:6px;}
+  .card .topic-tag{display:inline-block;font-size:12px;padding:3px 12px;border-radius:20px;
+    background:var(--gold);color:var(--white);margin-bottom:14px;}
+  .card .topic-tag.week{background:var(--green-deep);}
+  .card p{font-size:15.5px;margin-bottom:12px;}
+  .card p:last-child{margin-bottom:0;}
+  .key{background:var(--beige);border-left:4px solid var(--green);border-radius:8px;
+    padding:12px 16px;margin-top:14px;font-size:14.5px;color:var(--ink-soft);}
+  .key b{color:var(--green-deep);}
+  .comic-img{width:100%;border-radius:12px;margin:16px 0 4px;display:block;
+    box-shadow:0 2px 10px rgba(160,140,90,.15);}
+  .highlight{background:linear-gradient(145deg,#EAF3E6,#DDEBD6);border-radius:12px;padding:18px 20px;margin-top:14px;text-align:center;}
+  .highlight .big{font-size:26px;font-weight:800;color:var(--green-deep);}
+  .highlight .t{font-size:14.5px;color:var(--ink);margin-top:4px;}
+  .steps{margin-top:8px;}
+  .steps .s{display:flex;gap:12px;margin-bottom:12px;align-items:flex-start;}
+  .steps .s .n{flex:0 0 auto;width:28px;height:28px;border-radius:50%;background:var(--gold);
+    color:var(--white);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;}
+  .steps .s .txt{font-size:15px;}
+  .steps .s .txt b{color:var(--green-deep);}
+  .qa{background:#F5F0E4;border-radius:10px;padding:14px 16px;margin-top:14px;font-size:14.5px;}
+  .qa .qq{font-weight:700;color:var(--gold);margin-bottom:4px;}
+  .quiz-intro{text-align:center;margin:36px 0 18px;}
+  .quiz-intro .t{font-size:20px;font-weight:700;color:var(--green-deep);}
+  .quiz-intro .s{font-size:14px;color:var(--ink-soft);margin-top:6px;}
+  .namebox{background:var(--white);border-radius:14px;padding:18px 20px;margin-bottom:16px;border:1px solid var(--beige-deep);}
+  .namebox label{font-size:14px;color:var(--ink-soft);display:block;margin-bottom:8px;}
+  .namebox input{width:100%;padding:12px 14px;border:2px solid var(--beige-deep);border-radius:10px;font-size:16px;font-family:inherit;color:var(--ink);}
+  .namebox input:focus{outline:none;border-color:var(--gold);}
+  .q{background:var(--white);border-radius:14px;padding:22px 20px;margin-bottom:16px;border:1px solid var(--beige-deep);}
+  .q .qnum{font-size:13px;color:var(--gold);font-weight:700;margin-bottom:6px;}
+  .q .qtext{font-size:16px;font-weight:600;margin-bottom:14px;}
+  .opt{display:block;background:var(--beige);border:2px solid transparent;border-radius:10px;padding:12px 15px;margin-bottom:10px;font-size:15px;cursor:pointer;transition:.15s;}
+  .opt:hover{border-color:var(--gold-soft);}
+  .opt.selected{border-color:var(--gold);background:var(--beige-deep);}
+  .opt.correct{border-color:var(--green-deep);background:#EAF3E6;}
+  .opt.wrong{border-color:var(--wrong);background:#F7E9E5;}
+  .explain{font-size:14px;color:var(--ink-soft);margin-top:8px;padding:10px 14px;background:var(--beige);border-radius:8px;display:none;}
+  .explain.show{display:block;}
+  .explain b{color:var(--green-deep);}
+  .btn{display:block;width:100%;background:var(--green-deep);color:var(--white);border:none;font-size:17px;font-weight:700;padding:16px;border-radius:12px;cursor:pointer;margin-top:8px;font-family:inherit;letter-spacing:1px;}
+  .btn:hover{background:#6f9265;}
+  .btn.gold{background:var(--gold);}
+  .btn.gold:hover{background:#b8923f;}
+  .result{display:none;background:var(--white);border-radius:16px;padding:28px 24px;margin-top:24px;border:2px solid var(--gold);text-align:center;}
+  .result.show{display:block;}
+  .result .score-big{font-size:44px;font-weight:800;color:var(--gold);line-height:1;}
+  .result .score-sub{font-size:15px;color:var(--ink-soft);margin-top:8px;}
+  .result .comment{font-size:16px;margin-top:16px;color:var(--ink);}
+  .copybox{background:var(--beige);border:1px dashed var(--gold-soft);border-radius:10px;padding:14px;margin-top:18px;font-size:14px;text-align:left;white-space:pre-line;color:var(--ink);}
+  .hint{font-size:13px;color:var(--ink-soft);margin-top:10px;}
+  footer{text-align:center;margin-top:30px;color:var(--ink-soft);font-size:14px;}
+  footer .sign{color:var(--green-deep);font-weight:700;margin-top:6px;font-size:16px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="kicker">好好吃飯也能瘦・第二階段・正確觀念</div>
+    <div class="day-no">Day 8 / 21</div>
+    <h1>減重，也是在保養你的膝蓋</h1>
+    <div class="line"></div>
+  </header>
+
+  <!-- ★漫畫提示(給ChatGPT生圖用):一個可愛擬人化的膝蓋角色(圓圓的、有表情),背上扛著重物(代表體重),有點吃力的表情;旁邊女生體貼地幫它減輕負擔、拿掉一些重物,膝蓋角色露出輕鬆的笑容,小貓咪在旁關心。溫暖、有故事感、金米綠配色、圓潤可愛畫風、標語「好好吃飯也能瘦」。 -->
+  <div class="card">
+    <span class="topic-tag week">第二週開始・關節保養</span>
+    <h2>你的膝蓋，每天都在扛你的體重</h2>
+    <img class="comic-img" src="https://rachelfu728.github.io/fit21-home/day08-a.png" alt="膝蓋與體重關係插畫">
+    <p>減重不只是為了好看，也是在<b>保護你的關節，尤其是膝蓋</b>。你想想——不管你走路、爬樓梯、站著，膝蓋每一步都要承受你全身的重量。體重越重，膝蓋扛的負擔就越大，磨損、退化的速度也就越快。</p>
+    <p>而且膝蓋承受的力量，其實是「放大」的——走路時膝蓋承受的壓力大約是體重的好幾倍，上下樓梯時更多。所以身上每多一點重量，膝蓋感受到的其實不只多一點。這也是為什麼很多體重偏重的人，會覺得膝蓋、關節容易痠、容易不舒服。</p>
+    <div class="key"><b>記住：</b>膝蓋每天扛著你的體重。減重，其實也是在幫膝蓋減輕負擔。</div>
+  </div>
+
+  <div class="card">
+    <span class="topic-tag">好消息・數字會說話</span>
+    <h2>減一點，膝蓋就輕鬆很多</h2>
+    <p>好消息是——你不用瘦很多，膝蓋就能有感地輕鬆。研究發現：</p>
+    <div class="highlight">
+      <div class="big">減重 5 公斤</div>
+      <div class="t">能降低約一半的關節炎罹病風險</div>
+    </div>
+    <p style="margin-top:14px;">是不是很驚人？也就是說，減重對膝蓋的保護，是「立竿見影、投資報酬率很高」的一件事。你為了身材努力的同時，其實也在為未來的膝蓋健康存本錢。年紀慢慢增長，一雙好膝蓋，會讓你走得更遠、更自在。</p>
+    <div class="key"><b>記住：</b>不用瘦很多，減重約 5 公斤就能明顯降低關節炎風險。減重是對膝蓋最划算的保養。</div>
+  </div>
+
+  <div class="card">
+    <span class="topic-tag">怎麼做・保養膝蓋</span>
+    <h2>邊減重、邊保養膝蓋的方法</h2>
+    <p>減重的同時，選對運動和習慣，能讓膝蓋更輕鬆：</p>
+    <div class="steps">
+      <div class="s"><div class="n">1</div><div class="txt"><b>選「不傷膝」的運動：</b>快走、游泳、騎室內腳踏車，都有減重效果，又不像跑步、跳躍那樣衝擊膝蓋。</div></div>
+      <div class="s"><div class="n">2</div><div class="txt"><b>養一點大腿肌肉：</b>大腿前側的肌肉像膝蓋的「護膝」，肌肉夠力，能幫膝蓋分擔壓力。</div></div>
+      <div class="s"><div class="n">3</div><div class="txt"><b>先從減重開始：</b>如果現在膝蓋已經不太舒服，減輕體重本身就是最直接的減壓。</div></div>
+      <div class="s"><div class="n">4</div><div class="txt"><b>循序漸進：</b>別一下做太激烈，從能持續的強度開始，讓膝蓋慢慢適應。</div></div>
+    </div>
+    <div class="key"><b>記住：</b>快走、游泳、騎車不傷膝又能瘦；養大腿肌肉當「天然護膝」；循序漸進最安全。</div>
+
+    <div class="qa">
+      <div class="qq">Q：我膝蓋已經會痛了，還能運動嗎？</div>
+      <div>可以，但要挑對方式、也要小心。像游泳、水中走路這類「不需要膝蓋承重」的運動最適合，能動又不增加負擔。不過如果你的膝蓋已經明顯疼痛、腫脹，這已經超出減重陪伴的範圍了——請先讓<b>醫師或物理治療師</b>評估，確認怎麼動才安全，再開始。健康第一，我會陪你用最不傷身的方式進行。</div>
+    </div>
+  </div>
+
+  <!-- ============ 關捷寶產品介紹 ============ -->
+  <div style="text-align:center;margin:44px 0 6px;font-size:21px;font-weight:700;color:var(--green-deep);">🦴 給關節的一份營養</div>
+  <div style="text-align:center;font-size:14px;color:var(--ink-soft);margin-bottom:22px;">除了減重和運動，也可以從營養面照顧你的關節</div>
+
+  <!-- ★關捷寶產品圖 day08-b(請GPT參考官方照片生精緻擬真產品圖,或直接用官方正面照) -->
+  <div class="card">
+    <span class="topic-tag">產品介紹・關節營養</span>
+    <h2>關捷寶營養錠 Joint Support</h2>
+    <img class="comic-img" src="https://rachelfu728.github.io/fit21-home/day08-b.png" alt="關捷寶營養錠">
+    <p>隨著年齡增加，身體維護關節所需的關鍵營養也需要適時補充。關捷寶是賀寶芙針對<b>關節保養</b>設計的營養補充食品，結合了四大活躍成分：</p>
+    <ul style="list-style:none;margin:8px 0 4px;">
+      <li style="font-size:14.5px;padding:6px 0 6px 24px;position:relative;">🌿 <b>軟骨素</b>：輔助關鍵元素的形成</li>
+      <li style="font-size:14.5px;padding:6px 0 6px 24px;position:relative;">🌿 <b>葡萄糖胺</b>：鹽酸鹽形式，低鈉、好吸收</li>
+      <li style="font-size:14.5px;padding:6px 0 6px 24px;position:relative;">🌿 <b>MSM（有機硫）</b>：體內硫的主要來源，協助膠質形成</li>
+      <li style="font-size:14.5px;padding:6px 0 6px 24px;position:relative;">🌿 <b>薑黃</b>：傳統珍貴的保健食材</li>
+    </ul>
+    <p style="margin-top:12px;">它特別適合這些人補充：<b>年齡超過 35 歲、體重較重、經常久站、常上下樓梯或坡道、常背抱提重物、常運動、常穿高跟鞋</b>的人——是不是很多都說中了？這些人的關節，平常都特別辛苦。</p>
+    <div class="key"><b>記住：</b>關捷寶結合軟骨素、葡萄糖胺、MSM、薑黃四大成分，是為關節保養設計的營養補充食品，獲 SNQ 國家品質標章。</div>
+  </div>
+
+  <div style="font-size:12px;color:var(--ink-soft);text-align:center;background:var(--beige-deep);border-radius:10px;padding:14px 16px;margin-top:10px;line-height:1.7;">
+    本頁產品資訊整理自官方公開資料，僅供營養補充參考。<br>
+    產品為營養補充食品，非藥品，不具療效，不可作為診斷、治療或預防任何疾病之用途。<br>
+    實際使用方式與份量，請依產品標示並與教練討論後進行。
+  </div>
+
+  <div class="quiz-intro">
+    <div class="t">來做個小測驗 ✏️</div>
+    <div class="s">看完今天的內容，試試看你懂了多少<br>共 7 題，全部選擇題</div>
+  </div>
+
+  <div class="namebox">
+    <label>先填上你的名字（讓教練知道是誰交的功課）</label>
+    <input type="text" id="studentName" placeholder="請輸入你的名字">
+  </div>
+
+  <div id="quiz"></div>
+  <button class="btn gold" id="submitBtn" onclick="grade()">交卷看分數</button>
+
+  <div class="result" id="result">
+    <div class="score-big" id="scoreBig">0 分</div>
+    <div class="score-sub" id="scoreSub"></div>
+    <div class="comment" id="comment"></div>
+    <div class="copybox" id="copybox"></div>
+    <button class="btn" style="margin-top:16px;" onclick="copyResult()">📋 複製成績</button>
+    <div class="hint">複製後，貼到 LINE 傳給教練就完成囉！</div>
+  </div>
+
+  <footer>
+    Day 8・減重與關節保養的關係<br>
+    <span class="sign">OK，我們一起努力！</span>
+  </footer>
+</div>
+
+<script>
+const questions = [
+  {q:"為什麼減重也是在保養膝蓋？",opts:["減重跟膝蓋無關","膝蓋每天承受體重，體重越重負擔越大、磨損越快","膝蓋不會累","瘦了膝蓋會變大"],ans:1,exp:"膝蓋每一步都要承受全身重量，體重越重負擔越大，磨損、退化越快。減重能幫膝蓋減輕負擔。"},
+  {q:"走路時，膝蓋承受的壓力大約是？",opts:["比體重輕","是體重的好幾倍","跟體重一樣","沒有壓力"],ans:1,exp:"走路時膝蓋承受的壓力大約是體重的好幾倍，上下樓梯更多。所以多一點體重，膝蓋感受到的不只多一點。"},
+  {q:"研究發現，減重約幾公斤就能明顯降低關節炎風險？",opts:["要瘦20公斤以上","約5公斤就能降低一半風險","完全沒幫助","要瘦到過瘦"],ans:1,exp:"研究發現，減重約5公斤就能降低約一半的關節炎罹病風險。不用瘦很多，膝蓋就有感輕鬆。"},
+  {q:"下列哪種運動「比較不傷膝蓋」又能減重？",opts:["長時間跑步","快走、游泳、騎室內腳踏車","跳躍運動","完全不動"],ans:1,exp:"快走、游泳、騎室內腳踏車都有減重效果，又不像跑步、跳躍那樣衝擊膝蓋。"},
+  {q:"如果膝蓋已經明顯疼痛、腫脹，應該？",opts:["忍痛繼續激烈運動","先讓醫師或物理治療師評估再開始","完全不管它","自己亂吃止痛藥"],ans:1,exp:"膝蓋已明顯疼痛腫脹超出減重陪伴範圍，應先讓醫師或物理治療師評估，確認怎麼動才安全。健康第一。"},
+  {q:"關捷寶營養錠主要是為了什麼設計的？",opts:["減肥","關節保養的營養補充","幫助睡眠","補充水分"],ans:1,exp:"關捷寶是針對關節保養設計的營養補充食品，結合軟骨素、葡萄糖胺、MSM、薑黃四大成分。"},
+  {q:"下列哪類人特別適合補充關捷寶？",opts:["完全不動的人","年齡超過35歲、體重較重、常久站或上下樓梯的人","只有小孩","不需要的人"],ans:1,exp:"年齡超過35歲、體重較重、久站、常上下樓梯坡道、常背抱提重物、常運動的人，關節特別辛苦，適合補充。"}
+];
+let selected = Array(questions.length).fill(null);
+let graded = false;
+const quizEl = document.getElementById('quiz');
+questions.forEach((item, qi) => {
+  const qDiv = document.createElement('div');
+  qDiv.className = 'q';
+  let html = `<div class="qnum">第 ${qi+1} 題</div><div class="qtext">${item.q}</div>`;
+  item.opts.forEach((opt, oi) => {
+    html += `<label class="opt" id="opt-${qi}-${oi}" onclick="pick(${qi},${oi})">${opt}</label>`;
+  });
+  html += `<div class="explain" id="exp-${qi}"></div>`;
+  qDiv.innerHTML = html;
+  quizEl.appendChild(qDiv);
+});
+function pick(qi, oi){
+  if(graded) return;
+  selected[qi] = oi;
+  for(let o=0;o<questions[qi].opts.length;o++){
+    document.getElementById(`opt-${qi}-${o}`).classList.remove('selected');
+  }
+  document.getElementById(`opt-${qi}-${oi}`).classList.add('selected');
+}
+function grade(){
+  const name = document.getElementById('studentName').value.trim();
+  if(!name){ alert("請先填上你的名字喔！"); document.getElementById('studentName').focus(); return; }
+  for(let i=0;i<questions.length;i++){
+    if(selected[i]===null){ alert(`第 ${i+1} 題還沒作答喔！`);
+      document.getElementById(`opt-${i}-0`).scrollIntoView({behavior:'smooth',block:'center'}); return; }
+  }
+  graded = true;
+  let correct = 0;
+  questions.forEach((item, qi) => {
+    const chosen = selected[qi];
+    if(chosen === item.ans){ correct++; document.getElementById(`opt-${qi}-${chosen}`).classList.add('correct'); }
+    else { document.getElementById(`opt-${qi}-${chosen}`).classList.add('wrong');
+      document.getElementById(`opt-${qi}-${item.ans}`).classList.add('correct'); }
+    const exp = document.getElementById(`exp-${qi}`);
+    exp.innerHTML = `<b>解說：</b>${item.exp}`; exp.classList.add('show');
+  });
+  const studentScore = Math.round(correct / questions.length * 100);
+  document.getElementById('submitBtn').style.display = 'none';
+  document.getElementById('scoreBig').textContent = studentScore + " 分";
+  document.getElementById('scoreSub').textContent = `答對 ${correct} / ${questions.length} 題`;
+  let comment = "";
+  if(studentScore === 100) comment = "太棒了！關節保養的觀念你完全懂了 👏";
+  else if(studentScore >= 80) comment = "很好！大部分都懂了，錯的地方看一下解說就更完整囉。";
+  else if(studentScore >= 60) comment = "不錯～有幾題再回去看看，觀念會更清楚。";
+  else comment = "沒關係！把上面的解說再看一次，教練會陪你一起弄懂。";
+  document.getElementById('comment').textContent = comment;
+  const today = new Date();
+  const dateStr = `${today.getFullYear()}/${today.getMonth()+1}/${today.getDate()}`;
+  const copyText =
+`【好好吃飯也能瘦・Day 8 測驗成績】
+姓名：${name}
+日期：${dateStr}
+主題：減重與關節保養的關係
+分數：${studentScore} 分（答對 ${correct}/${questions.length} 題）
+—— 我完成今天的功課囉！`;
+  document.getElementById('copybox').textContent = copyText;
+  window._copyText = copyText;
+  document.getElementById('result').classList.add('show');
+  document.getElementById('result').scrollIntoView({behavior:'smooth', block:'start'});
+}
+function copyResult(){
+  const text = window._copyText || "";
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(()=>{ alert("成績已複製！貼到 LINE 傳給教練就完成囉 😊"); }).catch(()=>fallbackCopy(text));
+  } else { fallbackCopy(text); }
+}
+function fallbackCopy(text){
+  const ta = document.createElement('textarea');
+  ta.value = text; document.body.appendChild(ta); ta.select();
+  try{ document.execCommand('copy'); alert("成績已複製！貼到 LINE 傳給教練就完成囉 😊"); }
+  catch(e){ alert("請長按上方成績文字手動複製~"); }
+  document.body.removeChild(ta);
+}
+</script>
+</body>
+</html>

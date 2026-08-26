@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>減重陪伴・Day 5</title>
+<meta property="og:title" content="減重陪伴・Day 5｜今日減重塔羅">
+<meta property="og:description" content="抽一張專屬你的今日減重牌，翻開看看宇宙today想提醒你的減重小知識！">
+<meta property="og:image" content="https://rachelfu728.github.io/fit21-home/day05-a.png">
+<meta property="og:type" content="article">
+<style>
+  :root{
+    --gold:#C9A24B; --gold-soft:#E4CE9A;
+    --beige:#FBF6EC; --beige-deep:#F3EAD6;
+    --green:#A9C6A0; --green-deep:#7FA574;
+    --ink:#4A4438; --ink-soft:#6E6656; --white:#FFFDF8;
+    --wrong:#C97B6B;
+    --purple:#8B7BA8; --purple-soft:#D8CEE8;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:"PingFang TC","Microsoft JhengHei","Noto Sans TC",sans-serif;
+    background:var(--beige);color:var(--ink);line-height:1.9;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:640px;margin:0 auto;padding:0 18px 60px;}
+  header{text-align:center;padding:44px 20px 26px;}
+  header .kicker{font-size:13px;letter-spacing:1.5px;color:var(--green-deep);margin-bottom:10px;}
+  header h1{font-size:24px;font-weight:700;letter-spacing:1px;}
+  header .day-no{display:inline-block;background:var(--gold);color:var(--white);
+    font-size:14px;padding:4px 16px;border-radius:20px;margin-bottom:14px;letter-spacing:1px;}
+  header .line{width:52px;height:3px;background:var(--gold);margin:18px auto 0;border-radius:2px;}
+
+  .intro-card{background:var(--white);border-radius:16px;padding:24px;margin-bottom:22px;
+    box-shadow:0 2px 12px rgba(160,140,90,.08);border:1px solid var(--beige-deep);text-align:center;}
+  .intro-card p{font-size:15.5px;margin-bottom:8px;}
+  .intro-card .sparkle{font-size:15px;color:var(--purple);}
+
+  /* 塔羅抽卡區 */
+  .tarot-zone{text-align:center;margin-bottom:26px;}
+  .deck{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:18px 0;}
+  .tcard{width:90px;height:140px;border-radius:12px;cursor:pointer;position:relative;
+    background:linear-gradient(145deg,#8B7BA8,#6E5F8A);
+    border:2px solid var(--gold-soft);box-shadow:0 3px 10px rgba(110,95,138,.3);
+    display:flex;align-items:center;justify-content:center;transition:transform .2s, box-shadow .2s;}
+  .tcard:hover{transform:translateY(-8px);box-shadow:0 8px 18px rgba(110,95,138,.45);}
+  .tcard .back-deco{color:var(--gold-soft);font-size:34px;opacity:.9;}
+  .tcard.picked{pointer-events:none;opacity:.35;transform:scale(.9);}
+  .tarot-hint{font-size:14px;color:var(--ink-soft);margin-top:4px;}
+
+  /* 翻開的牌 */
+  .revealed{display:none;background:var(--white);border-radius:18px;padding:28px 24px;margin:10px 0 4px;
+    border:2px solid var(--purple-soft);box-shadow:0 4px 16px rgba(139,123,168,.2);text-align:center;}
+  .revealed.show{display:block;animation:fadeUp .5s ease;}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:translateY(0);}}
+  .revealed .card-emoji{font-size:52px;margin-bottom:6px;}
+  .revealed .card-name{font-size:22px;font-weight:800;color:var(--purple);margin-bottom:4px;}
+  .revealed .card-title{font-size:15px;color:var(--gold);font-weight:700;margin-bottom:14px;letter-spacing:1px;}
+  .revealed .card-meaning{font-size:15.5px;color:var(--ink);margin-bottom:14px;}
+  .revealed .card-know{background:var(--beige);border-radius:10px;padding:14px 16px;
+    font-size:14.5px;color:var(--ink-soft);text-align:left;}
+  .revealed .card-know b{color:var(--green-deep);}
+  .again-btn{display:inline-block;margin-top:16px;background:var(--purple);color:var(--white);
+    border:none;font-size:15px;font-weight:700;padding:11px 26px;border-radius:22px;cursor:pointer;font-family:inherit;}
+  .again-btn:hover{background:#75669a;}
+
+  .comic-img{width:100%;border-radius:12px;margin:6px 0 20px;display:block;
+    box-shadow:0 2px 10px rgba(160,140,90,.15);}
+
+  /* 測驗 */
+  .quiz-intro{text-align:center;margin:40px 0 18px;}
+  .quiz-intro .t{font-size:20px;font-weight:700;color:var(--green-deep);}
+  .quiz-intro .s{font-size:14px;color:var(--ink-soft);margin-top:6px;}
+  .namebox{background:var(--white);border-radius:14px;padding:18px 20px;margin-bottom:16px;border:1px solid var(--beige-deep);}
+  .namebox label{font-size:14px;color:var(--ink-soft);display:block;margin-bottom:8px;}
+  .namebox input{width:100%;padding:12px 14px;border:2px solid var(--beige-deep);border-radius:10px;font-size:16px;font-family:inherit;color:var(--ink);}
+  .namebox input:focus{outline:none;border-color:var(--gold);}
+  .q{background:var(--white);border-radius:14px;padding:22px 20px;margin-bottom:16px;border:1px solid var(--beige-deep);}
+  .q .qnum{font-size:13px;color:var(--gold);font-weight:700;margin-bottom:6px;}
+  .q .qtext{font-size:16px;font-weight:600;margin-bottom:14px;}
+  .opt{display:block;background:var(--beige);border:2px solid transparent;border-radius:10px;padding:12px 15px;margin-bottom:10px;font-size:15px;cursor:pointer;transition:.15s;}
+  .opt:hover{border-color:var(--gold-soft);}
+  .opt.selected{border-color:var(--gold);background:var(--beige-deep);}
+  .opt.correct{border-color:var(--green-deep);background:#EAF3E6;}
+  .opt.wrong{border-color:var(--wrong);background:#F7E9E5;}
+  .explain{font-size:14px;color:var(--ink-soft);margin-top:8px;padding:10px 14px;background:var(--beige);border-radius:8px;display:none;}
+  .explain.show{display:block;}
+  .explain b{color:var(--green-deep);}
+  .btn{display:block;width:100%;background:var(--green-deep);color:var(--white);border:none;font-size:17px;font-weight:700;padding:16px;border-radius:12px;cursor:pointer;margin-top:8px;font-family:inherit;letter-spacing:1px;}
+  .btn:hover{background:#6f9265;}
+  .btn.gold{background:var(--gold);}
+  .btn.gold:hover{background:#b8923f;}
+  .result{display:none;background:var(--white);border-radius:16px;padding:28px 24px;margin-top:24px;border:2px solid var(--gold);text-align:center;}
+  .result.show{display:block;}
+  .result .score-big{font-size:44px;font-weight:800;color:var(--gold);line-height:1;}
+  .result .score-sub{font-size:15px;color:var(--ink-soft);margin-top:8px;}
+  .result .comment{font-size:16px;margin-top:16px;color:var(--ink);}
+  .copybox{background:var(--beige);border:1px dashed var(--gold-soft);border-radius:10px;padding:14px;margin-top:18px;font-size:14px;text-align:left;white-space:pre-line;color:var(--ink);}
+  .hint{font-size:13px;color:var(--ink-soft);margin-top:10px;}
+  footer{text-align:center;margin-top:30px;color:var(--ink-soft);font-size:14px;}
+  footer .sign{color:var(--green-deep);font-weight:700;margin-top:6px;font-size:16px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="kicker">好好吃飯也能瘦・第一階段・正確觀念</div>
+    <div class="day-no">Day 5 / 21</div>
+    <h1>🔮 今日減重塔羅</h1>
+    <div class="line"></div>
+  </header>
+
+  <!-- ★漫畫提示(給ChatGPT生圖用):女生像溫柔的占卜師,面前一張小桌鋪著布,上面攤開幾張發光的塔羅牌,牌上有可愛的蔬菜、水滴、啞鈴等減重相關小圖案,水晶球裡透出溫暖光芒,小貓咪戴著小巫師帽在旁邊。神秘又可愛、帶點魔法感、金色米色淺綠加一點柔紫色、圓潤可愛畫風、標語「好好吃飯也能瘦」。 -->
+  <img class="comic-img" src="https://rachelfu728.github.io/fit21-home/day05-a.png" alt="減重塔羅插畫">
+
+  <div class="intro-card">
+    <p class="sparkle">✨ 今天不上課，我們來玩點特別的 ✨</p>
+    <p>靜下心，想著你的減重目標，然後<b>憑直覺選一張牌</b>。</p>
+    <p>看看今天，宇宙想提醒你的減重小訊息是什麼～</p>
+  </div>
+
+  <div class="tarot-zone">
+    <div class="deck" id="deck">
+      <div class="tcard" onclick="drawCard(this)"><span class="back-deco">✦</span></div>
+      <div class="tcard" onclick="drawCard(this)"><span class="back-deco">✦</span></div>
+      <div class="tcard" onclick="drawCard(this)"><span class="back-deco">✦</span></div>
+      <div class="tcard" onclick="drawCard(this)"><span class="back-deco">✦</span></div>
+      <div class="tcard" onclick="drawCard(this)"><span class="back-deco">✦</span></div>
+      <div class="tcard" onclick="drawCard(this)"><span class="back-deco">✦</span></div>
+    </div>
+    <div class="tarot-hint" id="tarotHint">👆 點一張牌，翻開你的今日訊息</div>
+
+    <div class="revealed" id="revealed">
+      <div class="card-emoji" id="cEmoji"></div>
+      <div class="card-name" id="cName"></div>
+      <div class="card-title" id="cTitle"></div>
+      <div class="card-meaning" id="cMeaning"></div>
+      <div class="card-know" id="cKnow"></div>
+      <button class="again-btn" onclick="resetDeck()">🔄 重新抽一張</button>
+    </div>
+  </div>
+
+  <!-- 測驗 -->
+  <div class="quiz-intro">
+    <div class="t">來做個小測驗 ✏️</div>
+    <div class="s">牌裡藏著減重小知識，試試你記住了多少<br>共 5 題，全部選擇題</div>
+  </div>
+
+  <div class="namebox">
+    <label>先填上你的名字（讓教練知道是誰交的功課）</label>
+    <input type="text" id="studentName" placeholder="請輸入你的名字">
+  </div>
+
+  <div id="quiz"></div>
+  <button class="btn gold" id="submitBtn" onclick="grade()">交卷看分數</button>
+
+  <div class="result" id="result">
+    <div class="score-big" id="scoreBig">0 分</div>
+    <div class="score-sub" id="scoreSub"></div>
+    <div class="comment" id="comment"></div>
+    <div class="copybox" id="copybox"></div>
+    <button class="btn" style="margin-top:16px;" onclick="copyResult()">📋 複製成績</button>
+    <div class="hint">複製後，貼到 LINE 傳給教練就完成囉！</div>
+  </div>
+
+  <footer>
+    Day 5・今日減重塔羅<br>
+    <span class="sign">OK，我們一起努力！</span>
+  </footer>
+</div>
+
+<script>
+// 六張減重塔羅牌
+const cards = [
+  { emoji:"💧", name:"水之牌", title:"THE WATER",
+    meaning:"今天，身體在跟你要水。別把「渴」誤當成「餓」了！",
+    know:"<b>小知識：</b>身體的渴和餓訊號很接近，嘴饞時先喝一杯水、等幾分鐘，很多時候那個想吃的感覺就消失了。" },
+  { emoji:"🥬", name:"綠意之牌", title:"THE GREEN",
+    meaning:"抽到這張，是提醒你今天多給自己一點蔬菜的祝福。",
+    know:"<b>小知識：</b>蔬菜的纖維能帶來飽足感、幫助腸道順暢，熱量又低，是減重時可以放心多吃的好朋友。" },
+  { emoji:"💪", name:"力量之牌", title:"THE STRENGTH",
+    meaning:"你的肌肉是燃脂引擎。今天，記得補充蛋白質、動一動。",
+    know:"<b>小知識：</b>蛋白質能保住肌肉，肌肉是幫你燃燒熱量的引擎。減重不是把蛋白質省掉，而是要吃夠好的蛋白質。" },
+  { emoji:"🌙", name:"月亮之牌", title:"THE MOON",
+    meaning:"月亮提醒你：今晚早點休息。好好睡，也是減重的一環。",
+    know:"<b>小知識：</b>睡眠不足會讓控制食慾的荷爾蒙失調，隔天特別容易嘴饞、想吃甜的。睡飽，其實在幫你瘦。" },
+  { emoji:"⏳", name:"耐心之牌", title:"THE PATIENCE",
+    meaning:"別急著看數字。真正的改變，是慢慢累積出來的。",
+    know:"<b>小知識：</b>體重每天上下浮動很正常（受水分、鹽分影響）。看「一週的趨勢」比看某一天的數字誠實多了。" },
+  { emoji:"💛", name:"溫柔之牌", title:"THE KINDNESS",
+    meaning:"今天，對自己溫柔一點。就算破功一餐，也不是世界末日。",
+    know:"<b>小知識：</b>減重路上偶爾破功很正常，重點是別因為一餐就全盤放棄。下一餐回到正軌就好，身體不會因一頓飯前功盡棄。" }
+];
+
+function drawCard(el){
+  // 隨機抽一張
+  const card = cards[Math.floor(Math.random()*cards.length)];
+  // 標記所有牌為已選、當前這張淡出
+  document.querySelectorAll('.tcard').forEach(c=>c.classList.add('picked'));
+  document.getElementById('tarotHint').style.display='none';
+  // 填內容
+  document.getElementById('cEmoji').textContent = card.emoji;
+  document.getElementById('cName').textContent = card.name;
+  document.getElementById('cTitle').textContent = card.title;
+  document.getElementById('cMeaning').textContent = card.meaning;
+  document.getElementById('cKnow').innerHTML = card.know;
+  const rev = document.getElementById('revealed');
+  rev.classList.add('show');
+  rev.scrollIntoView({behavior:'smooth', block:'center'});
+}
+function resetDeck(){
+  document.querySelectorAll('.tcard').forEach(c=>c.classList.remove('picked'));
+  document.getElementById('tarotHint').style.display='block';
+  document.getElementById('revealed').classList.remove('show');
+  document.getElementById('deck').scrollIntoView({behavior:'smooth', block:'center'});
+}
+
+// 測驗(題目來自牌裡的知識)
+const questions = [
+  {q:"嘴饞、想吃東西時，先做什麼比較好？",opts:["馬上吃","先喝一杯水、等幾分鐘看看","忍到下一餐","多吃甜的"],ans:1,exp:"渴和餓的訊號很接近，先喝水等幾分鐘，很多時候想吃的感覺就消失了。"},
+  {q:"為什麼減重時不該把蛋白質也省掉？",opts:["蛋白質很貴","它能保住肌肉，而肌肉是燃脂引擎","它沒有熱量","它會讓人變胖"],ans:1,exp:"蛋白質保住肌肉，肌肉是燃燒熱量的引擎。省掉蛋白質會掉肌肉、代謝變慢。"},
+  {q:"睡眠不足對減重的影響是？",opts:["完全沒影響","會讓食慾荷爾蒙失調，隔天更容易嘴饞","會讓人變瘦","只影響精神"],ans:1,exp:"睡不夠會讓控制食慾的荷爾蒙失調，隔天特別容易想吃甜的、炸的。睡飽也是在幫你瘦。"},
+  {q:"看體重，哪種方式比較準？",opts:["每天緊盯單日數字","看一週、一段時間的趨勢","只在心情好時量","完全不用管"],ans:1,exp:"體重每天受水分、鹽分影響而浮動，看一段時間的趨勢比某一天的數字誠實。"},
+  {q:"不小心破功大吃了一餐，該怎麼辦？",opts:["乾脆放棄算了","下一餐回到正軌就好，別因一餐全盤放棄","從此不再減重","懲罰自己完全不吃"],ans:1,exp:"一餐吃多不會前功盡棄，重點是別因一餐就放棄，下一餐回到正軌即可。對自己溫柔一點。"}
+];
+let selected = Array(questions.length).fill(null);
+let graded = false;
+const quizEl = document.getElementById('quiz');
+questions.forEach((item, qi) => {
+  const qDiv = document.createElement('div');
+  qDiv.className = 'q';
+  let html = `<div class="qnum">第 ${qi+1} 題</div><div class="qtext">${item.q}</div>`;
+  item.opts.forEach((opt, oi) => {
+    html += `<label class="opt" id="opt-${qi}-${oi}" onclick="pick(${qi},${oi})">${opt}</label>`;
+  });
+  html += `<div class="explain" id="exp-${qi}"></div>`;
+  qDiv.innerHTML = html;
+  quizEl.appendChild(qDiv);
+});
+function pick(qi, oi){
+  if(graded) return;
+  selected[qi] = oi;
+  for(let o=0;o<questions[qi].opts.length;o++){
+    document.getElementById(`opt-${qi}-${o}`).classList.remove('selected');
+  }
+  document.getElementById(`opt-${qi}-${oi}`).classList.add('selected');
+}
+function grade(){
+  const name = document.getElementById('studentName').value.trim();
+  if(!name){ alert("請先填上你的名字喔！"); document.getElementById('studentName').focus(); return; }
+  for(let i=0;i<questions.length;i++){
+    if(selected[i]===null){ alert(`第 ${i+1} 題還沒作答喔！`);
+      document.getElementById(`opt-${i}-0`).scrollIntoView({behavior:'smooth',block:'center'}); return; }
+  }
+  graded = true;
+  let correct = 0;
+  questions.forEach((item, qi) => {
+    const chosen = selected[qi];
+    if(chosen === item.ans){ correct++; document.getElementById(`opt-${qi}-${chosen}`).classList.add('correct'); }
+    else { document.getElementById(`opt-${qi}-${chosen}`).classList.add('wrong');
+      document.getElementById(`opt-${qi}-${item.ans}`).classList.add('correct'); }
+    const exp = document.getElementById(`exp-${qi}`);
+    exp.innerHTML = `<b>解說：</b>${item.exp}`; exp.classList.add('show');
+  });
+  const studentScore = Math.round(correct / questions.length * 100);
+  document.getElementById('submitBtn').style.display = 'none';
+  document.getElementById('scoreBig').textContent = studentScore + " 分";
+  document.getElementById('scoreSub').textContent = `答對 ${correct} / ${questions.length} 題`;
+  let comment = "";
+  if(studentScore === 100) comment = "太棒了！牌裡的小知識你全記住了 👏";
+  else if(studentScore >= 80) comment = "很好！大部分都懂了，錯的地方看一下解說就更完整囉。";
+  else if(studentScore >= 60) comment = "不錯～有幾題再回去看看，觀念會更清楚。";
+  else comment = "沒關係！把上面的解說再看一次，教練會陪你一起弄懂。";
+  document.getElementById('comment').textContent = comment;
+  const today = new Date();
+  const dateStr = `${today.getFullYear()}/${today.getMonth()+1}/${today.getDate()}`;
+  const copyText =
+`【好好吃飯也能瘦・Day 5 測驗成績】
+姓名：${name}
+日期：${dateStr}
+主題：今日減重塔羅
+分數：${studentScore} 分（答對 ${correct}/${questions.length} 題）
+—— 我完成今天的功課囉！`;
+  document.getElementById('copybox').textContent = copyText;
+  window._copyText = copyText;
+  document.getElementById('result').classList.add('show');
+  document.getElementById('result').scrollIntoView({behavior:'smooth', block:'start'});
+}
+function copyResult(){
+  const text = window._copyText || "";
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(()=>{ alert("成績已複製！貼到 LINE 傳給教練就完成囉 😊"); }).catch(()=>fallbackCopy(text));
+  } else { fallbackCopy(text); }
+}
+function fallbackCopy(text){
+  const ta = document.createElement('textarea');
+  ta.value = text; document.body.appendChild(ta); ta.select();
+  try{ document.execCommand('copy'); alert("成績已複製！貼到 LINE 傳給教練就完成囉 😊"); }
+  catch(e){ alert("請長按上方成績文字手動複製~"); }
+  document.body.removeChild(ta);
+}
+</script>
+</body>
+</html>

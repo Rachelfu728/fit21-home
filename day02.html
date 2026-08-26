@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>減重陪伴・Day 2</title>
+<style>
+  :root{
+    --gold:#C9A24B; --gold-soft:#E4CE9A;
+    --beige:#FBF6EC; --beige-deep:#F3EAD6;
+    --green:#A9C6A0; --green-deep:#7FA574;
+    --ink:#4A4438; --ink-soft:#6E6656; --white:#FFFDF8;
+    --wrong:#C97B6B;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:"PingFang TC","Microsoft JhengHei","Noto Sans TC",sans-serif;
+    background:var(--beige);color:var(--ink);line-height:1.9;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:640px;margin:0 auto;padding:0 18px 60px;}
+  header{text-align:center;padding:44px 20px 26px;}
+  header .kicker{font-size:13px;letter-spacing:1.5px;color:var(--green-deep);margin-bottom:10px;}
+  header h1{font-size:24px;font-weight:700;letter-spacing:1px;}
+  header .day-no{display:inline-block;background:var(--gold);color:var(--white);
+    font-size:14px;padding:4px 16px;border-radius:20px;margin-bottom:14px;letter-spacing:1px;}
+  header .line{width:52px;height:3px;background:var(--gold);margin:18px auto 0;border-radius:2px;}
+  .card{background:var(--white);border-radius:16px;padding:26px 24px;margin-bottom:20px;
+    box-shadow:0 2px 12px rgba(160,140,90,.08);border:1px solid var(--beige-deep);}
+  .card h2{font-size:19px;color:var(--ink);margin-bottom:6px;}
+  .card .topic-tag{display:inline-block;font-size:12px;padding:3px 12px;border-radius:20px;
+    background:var(--gold);color:var(--white);margin-bottom:14px;}
+  .card p{font-size:15.5px;margin-bottom:12px;}
+  .card p:last-child{margin-bottom:0;}
+  .key{background:var(--beige);border-left:4px solid var(--green);border-radius:8px;
+    padding:12px 16px;margin-top:14px;font-size:14.5px;color:var(--ink-soft);}
+  .key b{color:var(--green-deep);}
+  .comic-img{width:100%;border-radius:12px;margin:16px 0 4px;display:block;
+    box-shadow:0 2px 10px rgba(160,140,90,.15);}
+  .qa{background:#F5F0E4;border-radius:10px;padding:14px 16px;margin-top:14px;font-size:14.5px;}
+  .qa .qq{font-weight:700;color:var(--gold);margin-bottom:4px;}
+  .quiz-intro{text-align:center;margin:36px 0 18px;}
+  .quiz-intro .t{font-size:20px;font-weight:700;color:var(--green-deep);}
+  .quiz-intro .s{font-size:14px;color:var(--ink-soft);margin-top:6px;}
+  .namebox{background:var(--white);border-radius:14px;padding:18px 20px;margin-bottom:16px;
+    border:1px solid var(--beige-deep);}
+  .namebox label{font-size:14px;color:var(--ink-soft);display:block;margin-bottom:8px;}
+  .namebox input{width:100%;padding:12px 14px;border:2px solid var(--beige-deep);border-radius:10px;
+    font-size:16px;font-family:inherit;color:var(--ink);}
+  .namebox input:focus{outline:none;border-color:var(--gold);}
+  .q{background:var(--white);border-radius:14px;padding:22px 20px;margin-bottom:16px;
+    border:1px solid var(--beige-deep);}
+  .q .qnum{font-size:13px;color:var(--gold);font-weight:700;margin-bottom:6px;}
+  .q .qtext{font-size:16px;font-weight:600;margin-bottom:14px;}
+  .opt{display:block;background:var(--beige);border:2px solid transparent;border-radius:10px;
+    padding:12px 15px;margin-bottom:10px;font-size:15px;cursor:pointer;transition:.15s;}
+  .opt:hover{border-color:var(--gold-soft);}
+  .opt.selected{border-color:var(--gold);background:var(--beige-deep);}
+  .opt.correct{border-color:var(--green-deep);background:#EAF3E6;}
+  .opt.wrong{border-color:var(--wrong);background:#F7E9E5;}
+  .explain{font-size:14px;color:var(--ink-soft);margin-top:8px;padding:10px 14px;
+    background:var(--beige);border-radius:8px;display:none;}
+  .explain.show{display:block;}
+  .explain b{color:var(--green-deep);}
+  .btn{display:block;width:100%;background:var(--green-deep);color:var(--white);border:none;
+    font-size:17px;font-weight:700;padding:16px;border-radius:12px;cursor:pointer;margin-top:8px;
+    font-family:inherit;letter-spacing:1px;}
+  .btn:hover{background:#6f9265;}
+  .btn.gold{background:var(--gold);}
+  .btn.gold:hover{background:#b8923f;}
+  .result{display:none;background:var(--white);border-radius:16px;padding:28px 24px;margin-top:24px;
+    border:2px solid var(--gold);text-align:center;}
+  .result.show{display:block;}
+  .result .score-big{font-size:44px;font-weight:800;color:var(--gold);line-height:1;}
+  .result .score-sub{font-size:15px;color:var(--ink-soft);margin-top:8px;}
+  .result .comment{font-size:16px;margin-top:16px;color:var(--ink);}
+  .copybox{background:var(--beige);border:1px dashed var(--gold-soft);border-radius:10px;
+    padding:14px;margin-top:18px;font-size:14px;text-align:left;white-space:pre-line;color:var(--ink);}
+  .hint{font-size:13px;color:var(--ink-soft);margin-top:10px;}
+  footer{text-align:center;margin-top:30px;color:var(--ink-soft);font-size:14px;}
+  footer .sign{color:var(--green-deep);font-weight:700;margin-top:6px;font-size:16px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="kicker">好好吃飯也能瘦・第一階段・正確觀念</div>
+    <div class="day-no">Day 2 / 21</div>
+    <h1>蛋白質，減重的關鍵夥伴</h1>
+    <div class="line"></div>
+  </header>
+
+  <!-- ★漫畫提示(給ChatGPT生圖用,客戶看不到):女生手臂用力、精神飽滿地展現活力,手邊放著一杯裝好的奶昔(奶昔搖搖杯,米色奶昔),旁邊有可愛的蛋白質小夥伴(擬人化的雞蛋和豆腐)幫她加油打氣,小貓咪在旁邊比讚。溫暖有活力、金米綠配色、圓潤可愛畫風、標語「好好吃飯也能瘦」。 -->
+  <div class="card">
+    <span class="topic-tag">觀念一・為什麼要吃夠蛋白質</span>
+    <h2>減重時，蛋白質不能少</h2>
+    <img class="comic-img" src="https://rachelfu728.github.io/fit21-home/day02-a.png" alt="蛋白質幫你加油插畫">
+    <p>很多人一減肥就什麼都不敢吃，連蛋白質也一起省掉——這其實是吃虧的。蛋白質是身體的「建材」，它負責維持你的肌肉，而<b>肌肉正是幫你燃燒熱量的引擎</b>。</p>
+    <p>如果你只靠節食、把蛋白質也減掉，掉的往往不只是脂肪，還有寶貴的肌肉。肌肉一少，代謝就變慢，於是越減越難、還特別容易復胖。相反地，吃夠蛋白質，能<b>保住肌肉、讓你比較有飽足感、不容易嘴饞</b>，減重才會走得穩、走得長久。</p>
+    <div class="key"><b>記住：</b>減重不是把蛋白質省掉，而是要「吃夠好的蛋白質」，保住肌肉這台燃脂引擎。</div>
+  </div>
+
+  <!-- ★漫畫提示(給ChatGPT生圖用,客戶看不到):畫面中央是一個裝著米色奶昔的搖搖杯,散發柔和光暈,杯子旁邊圍著幾顆可愛的黃豆寶寶手牽手,還有小小的葉子代表膳食纖維。女生開心地捧著奶昔杯,小貓咪好奇地聞香。溫馨療癒、金米綠色系、標語「好好吃飯也能瘦」。 -->
+  <div class="card">
+    <span class="topic-tag">觀念二・什麼是「好的蛋白質」</span>
+    <h2>優質完整蛋白質＋均衡代餐的觀念</h2>
+    <img class="comic-img" src="https://rachelfu728.github.io/fit21-home/day02-b.png" alt="大豆奶昔優質蛋白插畫">
+    <p>蛋白質也有分「好不好」。所謂<b>優質、完整的蛋白質</b>，指的是它含有身體需要的各種胺基酸、而且比例均衡，這樣身體才容易利用、吸收得好，不會浪費。</p>
+    <p>以植物性來說，<b>大豆蛋白</b>就是很受推崇的一種——它是少數「完整」的植物蛋白，<b>吸收率好</b>，又沒有動物性蛋白常伴隨的過多油脂負擔。而且大豆蛋白不只給你蛋白質，還<b>帶有多種微量元素和膳食纖維</b>，等於一次幫你補到好幾樣身體需要的營養。</p>
+    <p>這也是為什麼我會推薦<b>以大豆蛋白為基底的奶昔</b>：它的設計是一種<b>「代餐」的觀念</b>——把身體一餐需要的<b>均衡營養（優質蛋白、微量元素、礦物質、膳食纖維）</b>集中在一杯裡，而且<b>熱量低（約 88 卡，依實際產品標示為準）、屬於低 GI</b>，不會讓血糖大起大落。</p>
+    <p>對現代人來說，它有兩個實用價值：平常三餐營養難免不均衡，一杯奶昔可以幫你<b>補足平日缺少的營養</b>；而正在做<b>體重管理</b>的人，忙碌或需要控制熱量時，它可以<b>作為正餐的替代選擇之一</b>，搭配均衡飲食一起進行。這樣你既補到優質營養、又把熱量顧好，不用餓肚子。</p>
+    <div class="key"><b>記住：</b>大豆奶昔＝一杯裡有均衡營養、低熱量（約88卡）、低GI。日常可補營養不均，體重管理時可作正餐替代選擇之一，搭配均衡飲食。</div>
+
+    <div class="qa">
+      <div class="qq">Q：那我是不是不用吃正餐，三餐都喝奶昔就好？</div>
+      <div>不是喔。奶昔是幫你「方便補充優質蛋白」的好幫手，尤其在忙碌、來不及好好準備的時候特別實用。但均衡飲食還是根本——蔬菜、原型食物一樣重要。我們的做法是讓奶昔和正餐互相搭配，而不是完全取代所有食物。怎麼搭配最適合你，我會依你的情況陪你調整。</div>
+    </div>
+  </div>
+
+  <div class="quiz-intro">
+    <div class="t">來做個小測驗 ✏️</div>
+    <div class="s">看完今天的兩個觀念，試試看你懂了多少<br>共 7 題，全部選擇題</div>
+  </div>
+
+  <div class="namebox">
+    <label>先填上你的名字（讓教練知道是誰交的功課）</label>
+    <input type="text" id="studentName" placeholder="請輸入你的名字">
+  </div>
+
+  <div id="quiz"></div>
+  <button class="btn gold" id="submitBtn" onclick="grade()">交卷看分數</button>
+
+  <div class="result" id="result">
+    <div class="score-big" id="scoreBig">0 分</div>
+    <div class="score-sub" id="scoreSub"></div>
+    <div class="comment" id="comment"></div>
+    <div class="copybox" id="copybox"></div>
+    <button class="btn" style="margin-top:16px;" onclick="copyResult()">📋 複製成績</button>
+    <div class="hint">複製後，貼到 LINE 傳給教練就完成囉！</div>
+  </div>
+
+  <footer>
+    Day 2・蛋白質的重要性 & 優質蛋白補充<br>
+    <span class="sign">OK，我們一起努力！</span>
+  </footer>
+</div>
+
+<script>
+const questions = [
+  {q:"減重時為什麼不該把蛋白質也省掉？",opts:["蛋白質很貴","蛋白質能保住肌肉，而肌肉是燃燒熱量的引擎","蛋白質可以無限量吃","蛋白質沒有熱量"],ans:1,exp:"蛋白質幫你維持肌肉，肌肉是燃脂引擎。只節食把蛋白質也減掉，會掉肌肉、代謝變慢，越減越難。"},
+  {q:"吃夠蛋白質對減重的好處是？",opts:["讓你更想吃甜食","保住肌肉、比較有飽足感、不容易嘴饞","讓體重馬上下降","可以不用運動"],ans:1,exp:"吃夠蛋白質能保住肌肉、增加飽足感、減少嘴饞，讓減重走得穩、不易復胖。"},
+  {q:"什麼叫「優質、完整的蛋白質」？",opts:["越貴越好","含有身體需要的各種胺基酸、比例均衡、好吸收","只有肉類才算","吃越多越完整"],ans:1,exp:"優質完整蛋白質含有均衡的各種胺基酸，身體容易利用、吸收得好，不會浪費。"},
+  {q:"關於大豆蛋白，下列何者正確？",opts:["它不是完整蛋白質","它是完整植物蛋白、吸收率好，還含微量元素和膳食纖維","它只能給素食者吃","它沒有營養"],ans:1,exp:"大豆蛋白是少數「完整」的植物蛋白，吸收率好，負擔較小，而且還帶有多種微量元素和膳食纖維，一次補到好幾樣營養。"},
+  {q:"奶昔在減重中扮演的角色是？",opts:["完全取代所有正餐","方便、穩定地補充優質蛋白，搭配均衡飲食","只有嘴饞才喝","想喝多少就喝多少"],ans:1,exp:"奶昔是方便補充優質蛋白的好幫手，尤其忙碌時實用，但要和正餐、均衡飲食互相搭配。"},
+  {q:"以大豆蛋白為基底的奶昔，設計上是什麼觀念？",opts:["零食","把一餐需要的均衡營養集中在一杯的『代餐』觀念","飲料","藥品"],ans:1,exp:"它是一種代餐觀念——把一餐需要的均衡營養（優質蛋白、微量元素、礦物質、膳食纖維）集中在一杯裡，熱量低、屬低GI。"},
+  {q:"對正在做體重管理的人，這杯奶昔可以怎麼用？",opts:["餐餐都只喝它、完全不吃別的","忙碌或控制熱量時，作為正餐的替代選擇之一，搭配均衡飲食","當宵夜多喝幾杯","想瘦就整天只喝它"],ans:1,exp:"體重管理時，它可作為正餐的替代選擇之一，重點是搭配均衡飲食一起進行，而不是完全取代所有食物。"}
+];
+let selected = Array(questions.length).fill(null);
+let graded = false;
+const quizEl = document.getElementById('quiz');
+questions.forEach((item, qi) => {
+  const qDiv = document.createElement('div');
+  qDiv.className = 'q';
+  let html = `<div class="qnum">第 ${qi+1} 題</div><div class="qtext">${item.q}</div>`;
+  item.opts.forEach((opt, oi) => {
+    html += `<label class="opt" id="opt-${qi}-${oi}" onclick="pick(${qi},${oi})">${opt}</label>`;
+  });
+  html += `<div class="explain" id="exp-${qi}"></div>`;
+  qDiv.innerHTML = html;
+  quizEl.appendChild(qDiv);
+});
+function pick(qi, oi){
+  if(graded) return;
+  selected[qi] = oi;
+  for(let o=0;o<questions[qi].opts.length;o++){
+    document.getElementById(`opt-${qi}-${o}`).classList.remove('selected');
+  }
+  document.getElementById(`opt-${qi}-${oi}`).classList.add('selected');
+}
+function grade(){
+  const name = document.getElementById('studentName').value.trim();
+  if(!name){ alert("請先填上你的名字喔！"); document.getElementById('studentName').focus(); return; }
+  for(let i=0;i<questions.length;i++){
+    if(selected[i]===null){ alert(`第 ${i+1} 題還沒作答喔！`);
+      document.getElementById(`opt-${i}-0`).scrollIntoView({behavior:'smooth',block:'center'}); return; }
+  }
+  graded = true;
+  let correct = 0;
+  questions.forEach((item, qi) => {
+    const chosen = selected[qi];
+    if(chosen === item.ans){ correct++; document.getElementById(`opt-${qi}-${chosen}`).classList.add('correct'); }
+    else { document.getElementById(`opt-${qi}-${chosen}`).classList.add('wrong');
+      document.getElementById(`opt-${qi}-${item.ans}`).classList.add('correct'); }
+    const exp = document.getElementById(`exp-${qi}`);
+    exp.innerHTML = `<b>解說：</b>${item.exp}`; exp.classList.add('show');
+  });
+  const studentScore = Math.round(correct / questions.length * 100);
+  document.getElementById('submitBtn').style.display = 'none';
+  document.getElementById('scoreBig').textContent = studentScore + " 分";
+  document.getElementById('scoreSub').textContent = `答對 ${correct} / ${questions.length} 題`;
+  let comment = "";
+  if(studentScore === 100) comment = "太棒了！蛋白質的觀念你完全掌握了 👏";
+  else if(studentScore >= 80) comment = "很好！大部分都懂了，錯的地方看一下解說就更完整囉。";
+  else if(studentScore >= 60) comment = "不錯的開始～有幾題再回去看看，觀念會更清楚。";
+  else comment = "沒關係！把上面的解說再看一次，教練會陪你一起弄懂。";
+  document.getElementById('comment').textContent = comment;
+  const today = new Date();
+  const dateStr = `${today.getFullYear()}/${today.getMonth()+1}/${today.getDate()}`;
+  const copyText =
+`【好好吃飯也能瘦・Day 2 測驗成績】
+姓名：${name}
+日期：${dateStr}
+主題：蛋白質的重要性 & 優質蛋白補充
+分數：${studentScore} 分（答對 ${correct}/${questions.length} 題）
+—— 我完成今天的功課囉！`;
+  document.getElementById('copybox').textContent = copyText;
+  window._copyText = copyText;
+  document.getElementById('result').classList.add('show');
+  document.getElementById('result').scrollIntoView({behavior:'smooth', block:'start'});
+}
+function copyResult(){
+  const text = window._copyText || "";
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(()=>{ alert("成績已複製！貼到 LINE 傳給教練就完成囉 😊"); }).catch(()=>fallbackCopy(text));
+  } else { fallbackCopy(text); }
+}
+function fallbackCopy(text){
+  const ta = document.createElement('textarea');
+  ta.value = text; document.body.appendChild(ta); ta.select();
+  try{ document.execCommand('copy'); alert("成績已複製！貼到 LINE 傳給教練就完成囉 😊"); }
+  catch(e){ alert("請長按上方成績文字手動複製~"); }
+  document.body.removeChild(ta);
+}
+</script>
+</body>
+</html>

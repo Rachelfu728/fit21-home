@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>減重陪伴・Day 11</title>
+<meta property="og:title" content="減重陪伴・Day 11｜聚餐不怕胖！聚餐生存術">
+<meta property="og:description" content="聚餐、喜宴、朋友約吃飯，怎麼吃才能開心又不破功？教你幾個聚餐不怕胖的小撇步。">
+<meta property="og:image" content="https://rachelfu728.github.io/fit21-home/day11-a.png">
+<meta property="og:type" content="article">
+<style>
+  :root{
+    --gold:#C9A24B; --gold-soft:#E4CE9A;
+    --beige:#FBF6EC; --beige-deep:#F3EAD6;
+    --green:#A9C6A0; --green-deep:#7FA574;
+    --ink:#4A4438; --ink-soft:#6E6656; --white:#FFFDF8;
+    --wrong:#C97B6B;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:"PingFang TC","Microsoft JhengHei","Noto Sans TC",sans-serif;
+    background:var(--beige);color:var(--ink);line-height:1.9;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:640px;margin:0 auto;padding:0 18px 60px;}
+  header{text-align:center;padding:44px 20px 22px;}
+  header .kicker{font-size:13px;letter-spacing:1.5px;color:var(--green-deep);margin-bottom:10px;}
+  header h1{font-size:24px;font-weight:700;letter-spacing:1px;}
+  header .day-no{display:inline-block;background:var(--gold);color:var(--white);
+    font-size:14px;padding:4px 16px;border-radius:20px;margin-bottom:14px;letter-spacing:1px;}
+  header .addr{font-size:12.5px;color:var(--ink-soft);margin-top:12px;line-height:1.6;}
+  header .line{width:52px;height:3px;background:var(--gold);margin:16px auto 0;border-radius:2px;}
+  .card{background:var(--white);border-radius:16px;padding:26px 24px;margin-bottom:20px;
+    box-shadow:0 2px 12px rgba(160,140,90,.08);border:1px solid var(--beige-deep);}
+  .card h2{font-size:19px;color:var(--ink);margin-bottom:6px;}
+  .card .topic-tag{display:inline-block;font-size:12px;padding:3px 12px;border-radius:20px;
+    background:var(--gold);color:var(--white);margin-bottom:14px;}
+  .card .topic-tag.fun{background:var(--green-deep);}
+  .card p{font-size:15.5px;margin-bottom:12px;}
+  .card p:last-child{margin-bottom:0;}
+  .key{background:var(--beige);border-left:4px solid var(--green);border-radius:8px;
+    padding:12px 16px;margin-top:14px;font-size:14.5px;color:var(--ink-soft);}
+  .key b{color:var(--green-deep);}
+  .comic-img{width:100%;border-radius:12px;margin:16px 0 4px;display:block;
+    box-shadow:0 2px 10px rgba(160,140,90,.15);}
+  .tips{margin-top:8px;}
+  .tips .s{display:flex;gap:12px;margin-bottom:14px;align-items:flex-start;}
+  .tips .s .n{flex:0 0 auto;width:30px;height:30px;border-radius:50%;background:var(--gold);
+    color:var(--white);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px;}
+  .tips .s .txt{font-size:15px;}
+  .tips .s .txt b{color:var(--green-deep);}
+  .qa{background:#F5F0E4;border-radius:10px;padding:14px 16px;margin-top:14px;font-size:14.5px;}
+  .qa .qq{font-weight:700;color:var(--gold);margin-bottom:4px;}
+  .quiz-intro{text-align:center;margin:36px 0 18px;}
+  .quiz-intro .t{font-size:20px;font-weight:700;color:var(--green-deep);}
+  .quiz-intro .s{font-size:14px;color:var(--ink-soft);margin-top:6px;}
+  .namebox{background:var(--white);border-radius:14px;padding:18px 20px;margin-bottom:16px;border:1px solid var(--beige-deep);}
+  .namebox label{font-size:14px;color:var(--ink-soft);display:block;margin-bottom:8px;}
+  .namebox input{width:100%;padding:12px 14px;border:2px solid var(--beige-deep);border-radius:10px;font-size:16px;font-family:inherit;color:var(--ink);}
+  .namebox input:focus{outline:none;border-color:var(--gold);}
+  .q{background:var(--white);border-radius:14px;padding:22px 20px;margin-bottom:16px;border:1px solid var(--beige-deep);}
+  .q .qnum{font-size:13px;color:var(--gold);font-weight:700;margin-bottom:6px;}
+  .q .qtext{font-size:16px;font-weight:600;margin-bottom:14px;}
+  .opt{display:block;background:var(--beige);border:2px solid transparent;border-radius:10px;padding:12px 15px;margin-bottom:10px;font-size:15px;cursor:pointer;transition:.15s;}
+  .opt:hover{border-color:var(--gold-soft);}
+  .opt.selected{border-color:var(--gold);background:var(--beige-deep);}
+  .opt.correct{border-color:var(--green-deep);background:#EAF3E6;}
+  .opt.wrong{border-color:var(--wrong);background:#F7E9E5;}
+  .explain{font-size:14px;color:var(--ink-soft);margin-top:8px;padding:10px 14px;background:var(--beige);border-radius:8px;display:none;}
+  .explain.show{display:block;}
+  .explain b{color:var(--green-deep);}
+  .btn{display:block;width:100%;background:var(--green-deep);color:var(--white);border:none;font-size:17px;font-weight:700;padding:16px;border-radius:12px;cursor:pointer;margin-top:8px;font-family:inherit;letter-spacing:1px;}
+  .btn:hover{background:#6f9265;}
+  .btn.gold{background:var(--gold);}
+  .btn.gold:hover{background:#b8923f;}
+  .result{display:none;background:var(--white);border-radius:16px;padding:28px 24px;margin-top:24px;border:2px solid var(--gold);text-align:center;}
+  .result.show{display:block;}
+  .result .score-big{font-size:44px;font-weight:800;color:var(--gold);line-height:1;}
+  .result .score-sub{font-size:15px;color:var(--ink-soft);margin-top:8px;}
+  .result .comment{font-size:16px;margin-top:16px;color:var(--ink);}
+  .copybox{background:var(--beige);border:1px dashed var(--gold-soft);border-radius:10px;padding:14px;margin-top:18px;font-size:14px;text-align:left;white-space:pre-line;color:var(--ink);}
+  .hint{font-size:13px;color:var(--ink-soft);margin-top:10px;}
+  footer{text-align:center;margin-top:30px;color:var(--ink-soft);font-size:14px;}
+  footer .sign{color:var(--green-deep);font-weight:700;margin-top:6px;font-size:16px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="kicker">好好吃飯也能瘦・第二階段・正確觀念</div>
+    <div class="day-no">Day 11 / 21</div>
+    <h1>聚餐不怕胖！聚餐生存術</h1>
+    <div class="addr">🏠 遇見喜樂營養俱樂部<br>台中市北區進化北路367-6號　大衛營商場一樓</div>
+    <div class="line"></div>
+  </header>
+
+  <!-- ★漫畫提示(給ChatGPT生圖用):女生開心地坐在聚餐桌前,桌上有一桌豐盛的菜,她笑著、氣色好、從容地夾菜(先夾蔬菜),不焦慮、很享受;小貓咪也在旁邊乖乖看著。溫暖、歡樂、不焦慮的聚餐氛圍。金米綠配色、圓潤可愛畫風、標語「好好吃飯也能瘦」。 -->
+  <div class="card">
+    <span class="topic-tag fun">實用生活・聚餐怎麼吃</span>
+    <h2>聚餐，不是減重的敵人</h2>
+    <img class="comic-img" src="https://rachelfu728.github.io/fit21-home/day11-a.png" alt="聚餐怎麼吃插畫">
+    <p>聚餐、喜宴、朋友約吃飯——這是減重路上最讓人緊張的時刻，對吧？很多人會想「完了，一定破功」，然後乾脆放棄、大吃一頓，或是焦慮到整場都吃得很痛苦。</p>
+    <p>其實都不用。聚餐是生活的一部分，是開心的事，<b>你不需要為了減重而不去、或吃得很委屈</b>。只要掌握幾個小撇步，你可以<b>開開心心地吃、又不太破功</b>。今天就教你「聚餐生存術」。</p>
+    <div class="key"><b>先放輕鬆：</b>聚餐不是敵人。你可以享受聚餐，又不太破功——關鍵在「怎麼吃」，不是「不吃」。</div>
+  </div>
+
+  <div class="card">
+    <span class="topic-tag">重點・聚餐 5 招</span>
+    <h2>聚餐生存 5 招</h2>
+    <div class="tips">
+      <div class="s"><div class="n">1</div><div class="txt"><b>去之前，別餓肚子：</b>很多人想說「等一下要大吃，先餓著」——這反而最危險！空腹赴宴會餓過頭、失控狂吃。出門前先喝杯水、或吃點蛋白質（像一杯奶昔），到現場才不會像餓狼。</div></div>
+      <div class="s"><div class="n">2</div><div class="txt"><b>順序還是老規矩：</b>先夾蔬菜、再吃蛋白質（肉、海鮮、豆腐），最後才碰飯、麵、勾芡的東西。這樣既有飽足感，血糖也比較穩。（還記得 Day 1 教的嗎？聚餐一樣適用！）</div></div>
+      <div class="s"><div class="n">3</div><div class="txt"><b>挑「原型」的吃：</b>同一桌菜，優先夾看得出原本樣子的（清蒸魚、白切肉、燙青菜），少碰油炸、糖醋、勾芡濃湯這類「加工加料」的。想吃的都吃，但比例上多夾清爽的。</div></div>
+      <div class="s"><div class="n">4</div><div class="txt"><b>湯和飲料要留意：</b>濃湯、羹湯熱量常常很高；含糖飲料、酒更是隱藏地雷。多喝白開水或無糖茶，想喝酒、喝飲料就淺嚐、別當水喝。</div></div>
+      <div class="s"><div class="n">5</div><div class="txt"><b>慢慢吃、多聊天：</b>聚餐重點是「相聚」，不是比賽吃飯。放慢速度、多跟朋友聊天，給身體時間感覺飽，自然就不會吃過量。</div></div>
+    </div>
+    <div class="key"><b>記住：</b>別空腹赴宴、菜肉飯順序、多挑原型、留意湯和飲料、慢慢吃多聊天。五招在手，聚餐不怕。</div>
+  </div>
+
+  <div class="card">
+    <span class="topic-tag">心態・最重要的一課</span>
+    <h2>就算吃多了，也別自責</h2>
+    <p>最後這點最重要：<b>如果這場聚餐你還是吃多了，沒關係，真的沒關係。</b>還記得我們 Day 10 說的嗎？一餐不會毀掉你的努力，別因為一場聚餐就否定自己、甚至放棄。</p>
+    <p>聚餐隔天，回到平常的飲食節奏就好——正常吃、多喝水、多動一點。身體很聰明，不會因為一頓大餐就前功盡棄。<b>減重是看長期的，偶爾的聚餐，本來就是生活的一部分。</b>開心地參與、盡量聰明地吃、吃多了就笑笑地回到正軌——這才是能走一輩子的健康方式。</p>
+    <div class="key"><b>記住：</b>吃多了不自責，隔天回到正軌就好。減重看長期，聚餐是生活的一部分，開心參與最重要。</div>
+
+    <div class="qa">
+      <div class="qq">Q：那如果是「吃到飽」怎麼辦？最容易破功了…</div>
+      <div>吃到飽確實最有挑戰！給你三個重點：一是<b>先攻蛋白質和蔬菜</b>（生魚片、燙青菜、蝦、肉），把肚子先填一些好的；二是<b>甜點、炸物淺嚐就好</b>，選你「最想吃的那幾樣」，而不是每樣都拿；三是<b>吃飽就停、別為了「回本」硬撐</b>——為了值回票價把自己吃撐，其實最傷身也最傷努力。開心吃、聰明選就好。</div>
+    </div>
+  </div>
+
+  <div class="quiz-intro">
+    <div class="t">來做個小測驗 ✏️</div>
+    <div class="s">看完今天的內容，試試看你懂了多少<br>共 5 題，全部選擇題</div>
+  </div>
+
+  <div class="namebox">
+    <label>先填上你的名字（讓教練知道是誰交的功課）</label>
+    <input type="text" id="studentName" placeholder="請輸入你的名字">
+  </div>
+
+  <div id="quiz"></div>
+  <button class="btn gold" id="submitBtn" onclick="grade()">交卷看分數</button>
+
+  <div class="result" id="result">
+    <div class="score-big" id="scoreBig">0 分</div>
+    <div class="score-sub" id="scoreSub"></div>
+    <div class="comment" id="comment"></div>
+    <div class="copybox" id="copybox"></div>
+    <button class="btn" style="margin-top:16px;" onclick="copyResult()">📋 複製成績</button>
+    <div class="hint">複製後，貼到 LINE 傳給教練就完成囉！</div>
+  </div>
+
+  <footer>
+    Day 11・聚餐生存術<br>
+    <span class="sign">OK，我們一起努力！</span>
+  </footer>
+</div>
+
+<script>
+const questions = [
+  {q:"聚餐前，下列哪個做法比較好？",opts:["先餓一整天，等聚餐大吃","出門前先喝水或吃點蛋白質，別空腹赴宴","完全不去聚餐","中午就開始不吃"],ans:1,exp:"空腹赴宴會餓過頭、容易失控狂吃。出門前先喝水或吃點蛋白質，到現場才不會像餓狼。"},
+  {q:"聚餐時的進食順序，最好是？",opts:["先吃飯麵墊底","先蔬菜、再蛋白質、最後才碰飯麵勾芡","先吃甜點","隨便吃"],ans:1,exp:"跟Day1一樣：先夾蔬菜、再吃蛋白質、最後才碰飯麵勾芡，有飽足感、血糖也穩。聚餐一樣適用。"},
+  {q:"同一桌菜，優先夾哪種比較好？",opts:["油炸、糖醋、勾芡的","看得出原本樣子的原型食物（清蒸、白切、燙青菜）","濃湯羹湯","只吃甜點"],ans:1,exp:"優先夾原型食物（清蒸魚、白切肉、燙青菜），少碰油炸、糖醋、勾芡這類加工加料的。想吃的都能吃，比例上多夾清爽的。"},
+  {q:"聚餐時哪個是「隱藏地雷」要留意？",opts:["白開水","濃湯、含糖飲料、酒","燙青菜","清蒸魚"],ans:1,exp:"濃湯羹湯熱量常很高，含糖飲料和酒更是隱藏熱量。多喝白開水或無糖茶，酒和飲料淺嚐就好。"},
+  {q:"如果聚餐還是吃多了，正確的心態是？",opts:["乾脆放棄減重","隔天回到正軌就好，一餐不會前功盡棄","懲罰自己不吃","從此不參加聚餐"],ans:1,exp:"一餐不會毀掉努力。隔天回到平常節奏、多喝水多動就好。減重看長期，聚餐是生活的一部分，開心參與最重要。"}
+];
+let selected = Array(questions.length).fill(null);
+let graded = false;
+const quizEl = document.getElementById('quiz');
+questions.forEach((item, qi) => {
+  const qDiv = document.createElement('div');
+  qDiv.className = 'q';
+  let html = '<div class="qnum">第 ' + (qi+1) + ' 題</div><div class="qtext">' + item.q + '</div>';
+  item.opts.forEach((opt, oi) => {
+    html += '<label class="opt" id="opt-' + qi + '-' + oi + '" onclick="pick(' + qi + ',' + oi + ')">' + opt + '</label>';
+  });
+  html += '<div class="explain" id="exp-' + qi + '"></div>';
+  qDiv.innerHTML = html;
+  quizEl.appendChild(qDiv);
+});
+function pick(qi, oi){
+  if(graded) return;
+  selected[qi] = oi;
+  for(let o=0;o<questions[qi].opts.length;o++){
+    document.getElementById('opt-' + qi + '-' + o).classList.remove('selected');
+  }
+  document.getElementById('opt-' + qi + '-' + oi).classList.add('selected');
+}
+function grade(){
+  const name = document.getElementById('studentName').value.trim();
+  if(!name){ alert("請先填上你的名字喔！"); document.getElementById('studentName').focus(); return; }
+  for(let i=0;i<questions.length;i++){
+    if(selected[i]===null){ alert('第 ' + (i+1) + ' 題還沒作答喔！');
+      document.getElementById('opt-' + i + '-0').scrollIntoView({behavior:'smooth',block:'center'}); return; }
+  }
+  graded = true;
+  let correct = 0;
+  questions.forEach((item, qi) => {
+    const chosen = selected[qi];
+    if(chosen === item.ans){ correct++; document.getElementById('opt-' + qi + '-' + chosen).classList.add('correct'); }
+    else { document.getElementById('opt-' + qi + '-' + chosen).classList.add('wrong');
+      document.getElementById('opt-' + qi + '-' + item.ans).classList.add('correct'); }
+    const exp = document.getElementById('exp-' + qi);
+    exp.innerHTML = '<b>解說：</b>' + item.exp; exp.classList.add('show');
+  });
+  const studentScore = Math.round(correct / questions.length * 100);
+  document.getElementById('submitBtn').style.display = 'none';
+  document.getElementById('scoreBig').textContent = studentScore + " 分";
+  document.getElementById('scoreSub').textContent = '答對 ' + correct + ' / ' + questions.length + ' 題';
+  let comment = "";
+  if(studentScore === 100) comment = "太棒了！以後聚餐你完全罩得住 👏";
+  else if(studentScore >= 80) comment = "很好！大部分都懂了，錯的地方看一下解說就更完整囉。";
+  else if(studentScore >= 60) comment = "不錯～有幾題再回去看看，聚餐就更有把握了。";
+  else comment = "沒關係！把上面的解說再看一次，下次聚餐就不怕囉。";
+  document.getElementById('comment').textContent = comment;
+  const today = new Date();
+  const dateStr = today.getFullYear() + '/' + (today.getMonth()+1) + '/' + today.getDate();
+  const copyText =
+'【好好吃飯也能瘦・Day 11 測驗成績】\n' +
+'姓名：' + name + '\n' +
+'日期：' + dateStr + '\n' +
+'主題：聚餐生存術\n' +
+'分數：' + studentScore + ' 分（答對 ' + correct + '/' + questions.length + ' 題）\n' +
+'—— 我完成今天的功課囉！';
+  document.getElementById('copybox').textContent = copyText;
+  window._copyText = copyText;
+  document.getElementById('result').classList.add('show');
+  document.getElementById('result').scrollIntoView({behavior:'smooth', block:'start'});
+}
+function copyResult(){
+  const text = window._copyText || "";
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(function(){ alert("成績已複製！貼到 LINE 傳給教練就完成囉 😊"); }).catch(function(){fallbackCopy(text);});
+  } else { fallbackCopy(text); }
+}
+function fallbackCopy(text){
+  const ta = document.createElement('textarea');
+  ta.value = text; document.body.appendChild(ta); ta.select();
+  try{ document.execCommand('copy'); alert("成績已複製！貼到 LINE 傳給教練就完成囉 😊"); }
+  catch(e){ alert("請長按上方成績文字手動複製~"); }
+  document.body.removeChild(ta);
+}
+</script>
+</body>
+</html>

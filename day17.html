@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>減重陪伴・Day 17</title>
+<meta property="og:title" content="減重陪伴・Day 17｜減重的三個關鍵，缺一不可">
+<meta property="og:description" content="減重不是只靠少吃！熱量差、荷爾蒙、均衡營養，三個面向一起顧，才能瘦得健康又持久。">
+<meta property="og:image" content="https://rachelfu728.github.io/fit21-home/day17-a.png">
+<meta property="og:type" content="article">
+<style>
+  :root{
+    --gold:#C9A24B; --gold-soft:#E4CE9A;
+    --beige:#FBF6EC; --beige-deep:#F3EAD6;
+    --green:#A9C6A0; --green-deep:#7FA574;
+    --ink:#4A4438; --ink-soft:#6E6656; --white:#FFFDF8;
+    --wrong:#C97B6B; --blue:#8FB8C9; --warm:#E0A96D;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:"PingFang TC","Microsoft JhengHei","Noto Sans TC",sans-serif;
+    background:var(--beige);color:var(--ink);line-height:1.9;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:640px;margin:0 auto;padding:0 18px 60px;}
+  header{text-align:center;padding:44px 20px 22px;}
+  header .kicker{font-size:13px;letter-spacing:1.5px;color:var(--green-deep);margin-bottom:10px;}
+  header h1{font-size:24px;font-weight:700;letter-spacing:1px;}
+  header .day-no{display:inline-block;background:var(--gold);color:var(--white);
+    font-size:14px;padding:4px 16px;border-radius:20px;margin-bottom:14px;letter-spacing:1px;}
+  header .addr{font-size:12.5px;color:var(--ink-soft);margin-top:12px;line-height:1.6;}
+  header .line{width:52px;height:3px;background:var(--gold);margin:16px auto 0;border-radius:2px;}
+  .card{background:var(--white);border-radius:16px;padding:26px 24px;margin-bottom:20px;
+    box-shadow:0 2px 12px rgba(160,140,90,.08);border:1px solid var(--beige-deep);}
+  .card h2{font-size:19px;color:var(--ink);margin-bottom:6px;}
+  .card .topic-tag{display:inline-block;font-size:12px;padding:3px 12px;border-radius:20px;
+    background:var(--gold);color:var(--white);margin-bottom:14px;}
+  .card p{font-size:15.5px;margin-bottom:12px;}
+  .card p:last-child{margin-bottom:0;}
+  .key{background:var(--beige);border-left:4px solid var(--green);border-radius:8px;
+    padding:12px 16px;margin-top:14px;font-size:14.5px;color:var(--ink-soft);}
+  .key b{color:var(--green-deep);}
+  .comic-img{width:100%;border-radius:12px;margin:16px 0 4px;display:block;
+    box-shadow:0 2px 10px rgba(160,140,90,.15);}
+  .pillar{border-radius:14px;padding:20px 22px;margin-bottom:16px;}
+  .pillar.p1{background:linear-gradient(145deg,#EAF3E6,#DDEBD6);}
+  .pillar.p2{background:linear-gradient(145deg,#E6EEF3,#D6E4EC);}
+  .pillar.p3{background:linear-gradient(145deg,#FBF0E0,#F5E4CC);}
+  .pillar .num{font-size:13px;font-weight:700;letter-spacing:1px;}
+  .pillar.p1 .num{color:var(--green-deep);}
+  .pillar.p2 .num{color:var(--blue);}
+  .pillar.p3 .num{color:var(--warm);}
+  .pillar h3{font-size:18px;color:var(--ink);margin:2px 0 8px;}
+  .pillar p{font-size:15px;margin-bottom:8px;}
+  .pillar .link{font-size:13.5px;color:var(--ink-soft);font-style:italic;}
+  .qa{background:#F5F0E4;border-radius:10px;padding:14px 16px;margin-top:14px;font-size:14.5px;}
+  .qa .qq{font-weight:700;color:var(--gold);margin-bottom:4px;}
+  .quiz-intro{text-align:center;margin:36px 0 18px;}
+  .quiz-intro .t{font-size:20px;font-weight:700;color:var(--green-deep);}
+  .quiz-intro .s{font-size:14px;color:var(--ink-soft);margin-top:6px;}
+  .namebox{background:var(--white);border-radius:14px;padding:18px 20px;margin-bottom:16px;border:1px solid var(--beige-deep);}
+  .namebox label{font-size:14px;color:var(--ink-soft);display:block;margin-bottom:8px;}
+  .namebox input{width:100%;padding:12px 14px;border:2px solid var(--beige-deep);border-radius:10px;font-size:16px;font-family:inherit;color:var(--ink);}
+  .namebox input:focus{outline:none;border-color:var(--gold);}
+  .q{background:var(--white);border-radius:14px;padding:22px 20px;margin-bottom:16px;border:1px solid var(--beige-deep);}
+  .q .qnum{font-size:13px;color:var(--gold);font-weight:700;margin-bottom:6px;}
+  .q .qtext{font-size:16px;font-weight:600;margin-bottom:14px;}
+  .opt{display:block;background:var(--beige);border:2px solid transparent;border-radius:10px;padding:12px 15px;margin-bottom:10px;font-size:15px;cursor:pointer;transition:.15s;}
+  .opt:hover{border-color:var(--gold-soft);}
+  .opt.selected{border-color:var(--gold);background:var(--beige-deep);}
+  .opt.correct{border-color:var(--green-deep);background:#EAF3E6;}
+  .opt.wrong{border-color:var(--wrong);background:#F7E9E5;}
+  .explain{font-size:14px;color:var(--ink-soft);margin-top:8px;padding:10px 14px;background:var(--beige);border-radius:8px;display:none;}
+  .explain.show{display:block;}
+  .explain b{color:var(--green-deep);}
+  .btn{display:block;width:100%;background:var(--green-deep);color:var(--white);border:none;font-size:17px;font-weight:700;padding:16px;border-radius:12px;cursor:pointer;margin-top:8px;font-family:inherit;letter-spacing:1px;}
+  .btn:hover{background:#6f9265;}
+  .btn.gold{background:var(--gold);}
+  .btn.gold:hover{background:#b8923f;}
+  .result{display:none;background:var(--white);border-radius:16px;padding:28px 24px;margin-top:24px;border:2px solid var(--gold);text-align:center;}
+  .result.show{display:block;}
+  .result .score-big{font-size:44px;font-weight:800;color:var(--gold);line-height:1;}
+  .result .score-sub{font-size:15px;color:var(--ink-soft);margin-top:8px;}
+  .result .comment{font-size:16px;margin-top:16px;color:var(--ink);}
+  .copybox{background:var(--beige);border:1px dashed var(--gold-soft);border-radius:10px;padding:14px;margin-top:18px;font-size:14px;text-align:left;white-space:pre-line;color:var(--ink);}
+  .hint{font-size:13px;color:var(--ink-soft);margin-top:10px;}
+  footer{text-align:center;margin-top:30px;color:var(--ink-soft);font-size:14px;}
+  footer .sign{color:var(--green-deep);font-weight:700;margin-top:6px;font-size:16px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="kicker">好好吃飯也能瘦・第三階段・正確觀念</div>
+    <div class="day-no">Day 17 / 21</div>
+    <h1>減重的三個關鍵，缺一不可</h1>
+    <div class="addr">🏠 遇見喜樂營養俱樂部<br>台中市北區進化北路367-6號　大衛營商場一樓</div>
+    <div class="line"></div>
+  </header>
+
+  <!-- ★漫畫提示(給ChatGPT生圖用):畫面中央一個穩固的三腳凳(或三根柱子撐起一個平台),三隻腳分別標示著「熱量差」「荷爾蒙」「均衡營養」,女生站在上面很穩、很開心,強調「三個一起才穩」;小貓咪在旁。清楚、有結構感、正向。金米綠配色、圓潤可愛畫風、標語「好好吃飯也能瘦」。 -->
+  <div class="card">
+    <span class="topic-tag">總整合・觀念升級</span>
+    <h2>減重，不是只靠「少吃」</h2>
+    <img class="comic-img" src="https://rachelfu728.github.io/fit21-home/day17-a.png" alt="減重三關鍵插畫">
+    <p>我們一起走過這麼多天，今天來做一個重要的「總整合」。很多人以為減重就是「少吃」兩個字，但真相是——<b>健康的減重，靠的是三個面向一起運作，缺一不可。</b></p>
+    <p>就像一張三腳凳，少了任何一隻腳都會倒。這三隻腳是：<b>①熱量差 ②荷爾蒙 ③均衡營養</b>。我們一個一個來看，你會發現，這正是我們前面所有內容的總結。</p>
+    <div class="key"><b>核心觀念：</b>健康減重＝熱量差＋荷爾蒙＋均衡營養，三個一起顧，缺一不可。像三腳凳，少一隻腳就倒。</div>
+  </div>
+
+  <div class="pillar p1">
+    <div class="num">關鍵 1</div>
+    <h3>⚖️ 熱量差（吃進的 < 消耗的）</h3>
+    <p>這是減重的基本原理：<b>消耗的熱量要大於吃進的熱量</b>，身體才會動用脂肪。但重點是——要「健康的熱量差」，不是拼命餓。吃太少，身體會以為鬧飢荒、自動降低代謝，反而越減越難、還容易暴食反彈。</p>
+    <p class="link">💡 一般建議：在每日消耗上減少約 300～500 大卡，就是溫和有效的熱量差。</p>
+  </div>
+
+  <div class="pillar p2">
+    <div class="num">關鍵 2</div>
+    <h3>🌙 荷爾蒙（身體的調節開關）</h3>
+    <p>就算熱量算得再準，<b>荷爾蒙失衡一樣會卡住你</b>。有三個跟減重最相關的荷爾蒙要認識：</p>
+    <p style="background:var(--white);border-radius:8px;padding:12px 14px;margin-bottom:10px;font-size:14.5px;line-height:2;">
+      🔺 <b>飢餓素</b>：讓你「想吃」的荷爾蒙<br>
+      🔻 <b>瘦體素（瘦素）</b>：讓你「有飽足感、踩剎車」的荷爾蒙<br>
+      🩸 <b>胰島素</b>：處理血糖的荷爾蒙，長期偏高和脂肪囤積有關<br>
+      ⚡ <b>皮質醇</b>：壓力大時分泌的「壓力荷爾蒙」
+    </p>
+    <p>睡不夠時，<b>飢餓素會上升、瘦體素會下降</b>（Day 6 講過），於是你想吃的變多、喊停的變少。常吃高糖高油讓<b>血糖忽高忽低、胰島素長期偏高</b>，脂肪就容易囤積（Day 13 低GI講過）。而長期壓力大、<b>皮質醇一直偏高</b>，會讓你特別想吃高糖高油、脂肪還容易<b>囤積在肚子</b>（很多人一忙、一累肚子就變大，跟它有關）。所以<b>睡飽、紓壓、穩定血糖</b>，都是在幫這些荷爾蒙正常運作。</p>
+    <p class="link">💡 對應我們聊過的：睡眠、喝水、低GI穩血糖、情緒管理、呼吸練習——都是在幫你穩住這些荷爾蒙。</p>
+  </div>
+
+  <div class="pillar p3">
+    <div class="num">關鍵 3</div>
+    <h3>🥗 均衡營養（給身體對的原料）</h3>
+    <p>減重不是「吃越少越好」，而是<b>「吃對」</b>。身體需要足夠的優質蛋白、好的碳水、好油、蔬菜纖維、維生素礦物質，缺一不可。營養夠，代謝才正常、才能減脂不掉肌肉、氣色也好。這就是為什麼我們一直強調菜肉飯順序、優質蛋白、代餐概念。</p>
+    <p class="link">💡 每餐原則：1/2 蔬菜、1/4 蛋白質、1/4 全穀澱粉。</p>
+  </div>
+
+  <div class="card">
+    <span class="topic-tag">重點・為什麼缺一不可</span>
+    <h2>三個一起，才能瘦得健康又持久</h2>
+    <p>你有沒有發現，很多人減重失敗，就是<b>只顧一個、忽略其他兩個</b>：</p>
+    <p>❌ 只拼命<b>算熱量、餓肚子</b>→ 荷爾蒙亂掉、營養不良、掉肌肉，越減越難。<br>
+    ❌ 只吃<b>健康食物</b>但份量沒控制 → 沒有熱量差，還是瘦不下來。<br>
+    ❌ 熱量和營養都顧了，但<b>天天熬夜、壓力爆表</b> → 荷爾蒙扯後腿，卡關。</p>
+    <p>真正健康、持久的減重，是<b>三個面向一起顧</b>：吃對的量（熱量差）、吃對的食物（均衡營養）、把身體照顧好（荷爾蒙）。這也是我們這一路以來，一點一滴在做的事。</p>
+    <div class="key"><b>記住：</b>只顧一個會失敗。熱量差＋荷爾蒙＋均衡營養，三個一起顧，才能瘦得健康又不復胖。</div>
+
+    <div class="qa">
+      <div class="qq">Q：這三個聽起來好複雜，我記不住怎麼辦？</div>
+      <div>別擔心，你不用全部自己扛！其實你這 17 天做的每一件事，都已經在顧這三個面向了——好好吃飯（營養）、控制份量（熱量差）、睡飽紓壓喝水（荷爾蒙）。你不需要當營養專家，只要跟著我們的節奏、把每天的小事做好，這三隻腳自然就穩了。有任何卡關，就是我這個教練該上場的時候，我會陪你一起調整。</div>
+    </div>
+  </div>
+
+  <div class="quiz-intro">
+    <div class="t">來做個小測驗 ✏️</div>
+    <div class="s">看完今天的內容，試試看你懂了多少<br>共 7 題，全部選擇題</div>
+  </div>
+
+  <div class="namebox">
+    <label>先填上你的名字（讓教練知道是誰交的功課）</label>
+    <input type="text" id="studentName" placeholder="請輸入你的名字">
+  </div>
+
+  <div id="quiz"></div>
+  <button class="btn gold" id="submitBtn" onclick="grade()">交卷看分數</button>
+
+  <div class="result" id="result">
+    <div class="score-big" id="scoreBig">0 分</div>
+    <div class="score-sub" id="scoreSub"></div>
+    <div class="comment" id="comment"></div>
+    <div class="copybox" id="copybox"></div>
+    <button class="btn" style="margin-top:16px;" onclick="copyResult()">📋 複製成績</button>
+    <div class="hint">複製後，貼到 LINE 傳給教練就完成囉！</div>
+  </div>
+
+  <footer>
+    Day 17・減重三關鍵缺一不可<br>
+    <span class="sign">OK，我們一起努力！</span>
+  </footer>
+</div>
+
+<script>
+const questions = [
+  {q:"健康減重的三個關鍵是？",opts:["只有少吃","熱量差、荷爾蒙、均衡營養","只靠運動","只吃保健品"],ans:1,exp:"健康減重靠三個面向一起：熱量差、荷爾蒙、均衡營養，缺一不可，像三腳凳少一隻就倒。"},
+  {q:"關於「熱量差」，正確的是？",opts:["吃越少越好","要健康的熱量差（消耗>攝取），但不能拼命餓","完全不用管熱量","餓到頭暈才有效"],ans:1,exp:"消耗要大於攝取才會減脂，但吃太少身體會降代謝、易暴食反彈。建議每日消耗減300-500大卡的溫和熱量差。"},
+  {q:"為什麼荷爾蒙也很重要？",opts:["跟減重無關","睡不夠、壓力大、血糖亂會讓荷爾蒙失衡，卡住減重","只有生病才要管","荷爾蒙不影響食慾"],ans:1,exp:"睡不夠會讓飢餓素升、瘦體素降；壓力和血糖波動影響胰島素和食慾。睡飽紓壓穩血糖幫荷爾蒙正常運作。"},
+  {q:"關於「皮質醇」（壓力荷爾蒙），正確的是？",opts:["跟吃東西無關","長期壓力大、皮質醇偏高，會讓人想吃高糖高油、脂肪易囤積在肚子","越高越好","只有運動員才有"],ans:1,exp:"皮質醇是壓力大時分泌的荷爾蒙。長期偏高會讓人特別想吃、脂肪容易囤積在腹部。所以紓壓、睡飽、深呼吸很重要。"},
+  {q:"「均衡營養」的意思是？",opts:["吃越少越好","吃對——優質蛋白、好碳水、好油、蔬菜纖維都要夠","只吃蛋白質","只吃蔬菜"],ans:1,exp:"減重不是吃越少，是吃對。營養夠代謝才正常、減脂不掉肌肉、氣色也好。每餐1/2蔬菜、1/4蛋白質、1/4澱粉。"},
+  {q:"只顧一個面向會怎樣？",opts:["一樣會成功","容易失敗，例如只算熱量餓肚子會掉肌肉、荷爾蒙亂","變更快瘦","沒有差別"],ans:1,exp:"只拼命餓會掉肌肉荷爾蒙亂；只吃健康但份量沒控沒有熱量差；顧了吃卻熬夜壓力大也會卡關。三個要一起。"},
+  {q:"面對這三個關鍵，最好的心態是？",opts:["壓力很大要當專家","不用全自己扛，跟著節奏把每天小事做好，卡關有教練陪","放棄算了","只挑一個做"],ans:1,exp:"你不用當營養專家。跟著節奏把好好吃飯、控份量、睡飽紓壓喝水做好，三隻腳自然穩，卡關有教練陪你調整。"}
+];
+let selected = Array(questions.length).fill(null);
+let graded = false;
+const quizEl = document.getElementById('quiz');
+questions.forEach(function(item, qi){
+  const qDiv = document.createElement('div');
+  qDiv.className = 'q';
+  let html = '<div class="qnum">第 ' + (qi+1) + ' 題</div><div class="qtext">' + item.q + '</div>';
+  item.opts.forEach(function(opt, oi){
+    html += '<label class="opt" id="opt-' + qi + '-' + oi + '" onclick="pick(' + qi + ',' + oi + ')">' + opt + '</label>';
+  });
+  html += '<div class="explain" id="exp-' + qi + '"></div>';
+  qDiv.innerHTML = html;
+  quizEl.appendChild(qDiv);
+});
+function pick(qi, oi){
+  if(graded) return;
+  selected[qi] = oi;
+  for(let o=0;o<questions[qi].opts.length;o++){
+    document.getElementById('opt-' + qi + '-' + o).classList.remove('selected');
+  }
+  document.getElementById('opt-' + qi + '-' + oi).classList.add('selected');
+}
+function grade(){
+  const name = document.getElementById('studentName').value.trim();
+  if(!name){ alert("請先填上你的名字喔！"); document.getElementById('studentName').focus(); return; }
+  for(let i=0;i<questions.length;i++){
+    if(selected[i]===null){ alert('第 ' + (i+1) + ' 題還沒作答喔！');
+      document.getElementById('opt-' + i + '-0').scrollIntoView({behavior:'smooth',block:'center'}); return; }
+  }
+  graded = true;
+  let correct = 0;
+  questions.forEach(function(item, qi){
+    const chosen = selected[qi];
+    if(chosen === item.ans){ correct++; document.getElementById('opt-' + qi + '-' + chosen).classList.add('correct'); }
+    else { document.getElementById('opt-' + qi + '-' + chosen).classList.add('wrong');
+      document.getElementById('opt-' + qi + '-' + item.ans).classList.add('correct'); }
+    const exp = document.getElementById('exp-' + qi);
+    exp.innerHTML = '<b>解說：</b>' + item.exp; exp.classList.add('show');
+  });
+  const studentScore = Math.round(correct / questions.length * 100);
+  document.getElementById('submitBtn').style.display = 'none';
+  document.getElementById('scoreBig').textContent = studentScore + " 分";
+  document.getElementById('scoreSub').textContent = '答對 ' + correct + ' / ' + questions.length + ' 題';
+  let comment = "";
+  if(studentScore === 100) comment = "太棒了！減重的整體觀念你完全掌握了 👏";
+  else if(studentScore >= 80) comment = "很好！大部分都懂了，錯的地方看一下解說就更完整囉。";
+  else if(studentScore >= 60) comment = "不錯～有幾題再回去看看，觀念會更清楚。";
+  else comment = "沒關係！把上面的內容再看一次，教練會陪你一起弄懂。";
+  document.getElementById('comment').textContent = comment;
+  const today = new Date();
+  const dateStr = today.getFullYear() + '/' + (today.getMonth()+1) + '/' + today.getDate();
+  const copyText =
+'【好好吃飯也能瘦・Day 17 測驗成績】\n' +
+'姓名：' + name + '\n' +
+'日期：' + dateStr + '\n' +
+'主題：減重三關鍵缺一不可\n' +
+'分數：' + studentScore + ' 分（答對 ' + correct + '/' + questions.length + ' 題）\n' +
+'—— 我完成今天的功課囉！';
+  document.getElementById('copybox').textContent = copyText;
+  window._copyText = copyText;
+  document.getElementById('result').classList.add('show');
+  document.getElementById('result').scrollIntoView({behavior:'smooth', block:'start'});
+}
+function copyResult(){
+  const text = window._copyText || "";
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(function(){ alert("成績已複製！貼到 LINE 傳給教練就完成囉 😊"); }).catch(function(){fallbackCopy(text);});
+  } else { fallbackCopy(text); }
+}
+function fallbackCopy(text){
+  const ta = document.createElement('textarea');
+  ta.value = text; document.body.appendChild(ta); ta.select();
+  try{ document.execCommand('copy'); alert("成績已複製！貼到 LINE 傳給教練就完成囉 😊"); }
+  catch(e){ alert("請長按上方成績文字手動複製~"); }
+  document.body.removeChild(ta);
+}
+</script>
+</body>
+</html>

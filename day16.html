@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>減重陪伴・Day 16</title>
+<meta property="og:title" content="減重陪伴・Day 16｜減肥，其實是一種微整形">
+<meta property="og:description" content="不用動刀，減脂就能讓臉型、身形、氣色都變好。看看減重帶來的『微整形』效果。">
+<meta property="og:image" content="https://rachelfu728.github.io/fit21-home/day16-a.png">
+<meta property="og:type" content="article">
+<style>
+  :root{
+    --gold:#C9A24B; --gold-soft:#E4CE9A;
+    --beige:#FBF6EC; --beige-deep:#F3EAD6;
+    --green:#A9C6A0; --green-deep:#7FA574;
+    --ink:#4A4438; --ink-soft:#6E6656; --white:#FFFDF8;
+    --wrong:#C97B6B; --pink:#D99BA5;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:"PingFang TC","Microsoft JhengHei","Noto Sans TC",sans-serif;
+    background:var(--beige);color:var(--ink);line-height:1.9;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:640px;margin:0 auto;padding:0 18px 60px;}
+  header{text-align:center;padding:44px 20px 22px;}
+  header .kicker{font-size:13px;letter-spacing:1.5px;color:var(--green-deep);margin-bottom:10px;}
+  header h1{font-size:24px;font-weight:700;letter-spacing:1px;}
+  header .day-no{display:inline-block;background:var(--gold);color:var(--white);
+    font-size:14px;padding:4px 16px;border-radius:20px;margin-bottom:14px;letter-spacing:1px;}
+  header .addr{font-size:12.5px;color:var(--ink-soft);margin-top:12px;line-height:1.6;}
+  header .line{width:52px;height:3px;background:var(--gold);margin:16px auto 0;border-radius:2px;}
+  .card{background:var(--white);border-radius:16px;padding:26px 24px;margin-bottom:20px;
+    box-shadow:0 2px 12px rgba(160,140,90,.08);border:1px solid var(--beige-deep);}
+  .card h2{font-size:19px;color:var(--ink);margin-bottom:6px;}
+  .card .topic-tag{display:inline-block;font-size:12px;padding:3px 12px;border-radius:20px;
+    background:var(--gold);color:var(--white);margin-bottom:14px;}
+  .card .topic-tag.beauty{background:var(--pink);}
+  .card p{font-size:15.5px;margin-bottom:12px;}
+  .card p:last-child{margin-bottom:0;}
+  .key{background:var(--beige);border-left:4px solid var(--green);border-radius:8px;
+    padding:12px 16px;margin-top:14px;font-size:14.5px;color:var(--ink-soft);}
+  .key b{color:var(--green-deep);}
+  .comic-img{width:100%;border-radius:12px;margin:16px 0 4px;display:block;
+    box-shadow:0 2px 10px rgba(160,140,90,.15);}
+  .benefit{margin-top:8px;}
+  .benefit .b{display:flex;gap:12px;margin-bottom:14px;align-items:flex-start;}
+  .benefit .b .ic{flex:0 0 auto;font-size:26px;}
+  .benefit .b .txt{font-size:15px;}
+  .benefit .b .txt .t{font-weight:700;color:var(--pink);margin-bottom:2px;}
+  .qa{background:#F5F0E4;border-radius:10px;padding:14px 16px;margin-top:14px;font-size:14.5px;}
+  .qa .qq{font-weight:700;color:var(--gold);margin-bottom:4px;}
+  .quiz-intro{text-align:center;margin:36px 0 18px;}
+  .quiz-intro .t{font-size:20px;font-weight:700;color:var(--green-deep);}
+  .quiz-intro .s{font-size:14px;color:var(--ink-soft);margin-top:6px;}
+  .namebox{background:var(--white);border-radius:14px;padding:18px 20px;margin-bottom:16px;border:1px solid var(--beige-deep);}
+  .namebox label{font-size:14px;color:var(--ink-soft);display:block;margin-bottom:8px;}
+  .namebox input{width:100%;padding:12px 14px;border:2px solid var(--beige-deep);border-radius:10px;font-size:16px;font-family:inherit;color:var(--ink);}
+  .namebox input:focus{outline:none;border-color:var(--gold);}
+  .q{background:var(--white);border-radius:14px;padding:22px 20px;margin-bottom:16px;border:1px solid var(--beige-deep);}
+  .q .qnum{font-size:13px;color:var(--gold);font-weight:700;margin-bottom:6px;}
+  .q .qtext{font-size:16px;font-weight:600;margin-bottom:14px;}
+  .opt{display:block;background:var(--beige);border:2px solid transparent;border-radius:10px;padding:12px 15px;margin-bottom:10px;font-size:15px;cursor:pointer;transition:.15s;}
+  .opt:hover{border-color:var(--gold-soft);}
+  .opt.selected{border-color:var(--gold);background:var(--beige-deep);}
+  .opt.correct{border-color:var(--green-deep);background:#EAF3E6;}
+  .opt.wrong{border-color:var(--wrong);background:#F7E9E5;}
+  .explain{font-size:14px;color:var(--ink-soft);margin-top:8px;padding:10px 14px;background:var(--beige);border-radius:8px;display:none;}
+  .explain.show{display:block;}
+  .explain b{color:var(--green-deep);}
+  .btn{display:block;width:100%;background:var(--green-deep);color:var(--white);border:none;font-size:17px;font-weight:700;padding:16px;border-radius:12px;cursor:pointer;margin-top:8px;font-family:inherit;letter-spacing:1px;}
+  .btn:hover{background:#6f9265;}
+  .btn.gold{background:var(--gold);}
+  .btn.gold:hover{background:#b8923f;}
+  .result{display:none;background:var(--white);border-radius:16px;padding:28px 24px;margin-top:24px;border:2px solid var(--gold);text-align:center;}
+  .result.show{display:block;}
+  .result .score-big{font-size:44px;font-weight:800;color:var(--gold);line-height:1;}
+  .result .score-sub{font-size:15px;color:var(--ink-soft);margin-top:8px;}
+  .result .comment{font-size:16px;margin-top:16px;color:var(--ink);}
+  .copybox{background:var(--beige);border:1px dashed var(--gold-soft);border-radius:10px;padding:14px;margin-top:18px;font-size:14px;text-align:left;white-space:pre-line;color:var(--ink);}
+  .hint{font-size:13px;color:var(--ink-soft);margin-top:10px;}
+  footer{text-align:center;margin-top:30px;color:var(--ink-soft);font-size:14px;}
+  footer .sign{color:var(--green-deep);font-weight:700;margin-top:6px;font-size:16px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="kicker">好好吃飯也能瘦・第三階段・正確觀念</div>
+    <div class="day-no">Day 16 / 21</div>
+    <h1>減肥，其實是一種微整形</h1>
+    <div class="addr">🏠 遇見喜樂營養俱樂部<br>台中市北區進化北路367-6號　大衛營商場一樓</div>
+    <div class="line"></div>
+  </header>
+
+  <!-- ★漫畫提示(給ChatGPT生圖用):一位女生開心自信地照鏡子,鏡中的自己臉部線條清爽、氣色紅潤有光澤、身形勻稱、笑容燦爛,整個人散發健康自信的光芒;小貓咪在旁邊比讚。正向、美麗、有自信、療癒。柔和的金米綠加一點粉色調、圓潤可愛畫風、標語「好好吃飯也能瘦」。 -->
+  <div class="card">
+    <span class="topic-tag beauty">變美知識・減脂的紅利</span>
+    <h2>不用動刀的「微整形」</h2>
+    <img class="comic-img" src="https://rachelfu728.github.io/fit21-home/day16-a.png" alt="減肥微整形插畫">
+    <p>你有沒有發現，有些人瘦下來之後，整個人像「換了一張臉」——臉變小了、線條變清爽了、氣色也變好了？其實，<b>減脂就是一種不用動刀、不用花大錢的「微整形」。</b></p>
+    <p>當我們減掉多餘的脂肪，改變的不只是體重數字，還有臉型、身形、甚至氣色和自信。今天就來聊聊，減重會帶給你哪些「變美的紅利」。</p>
+    <div class="key"><b>換個角度：</b>減脂就是不動刀的微整形。改變的不只是體重，還有臉型、身形、氣色和自信。</div>
+  </div>
+
+  <div class="card">
+    <span class="topic-tag">臉部・線條變清爽</span>
+    <h2>減脂，臉會「變小」</h2>
+    <p>臉也是會囤積脂肪的地方。當體脂降下來，臉部的變化常常最明顯：</p>
+    <div class="benefit">
+      <div class="b"><div class="ic">😊</div><div class="txt"><div class="t">臉變小、變立體</div>減掉臉頰、下巴的脂肪，五官會更立體、臉看起來更小。</div></div>
+      <div class="b"><div class="ic">💧</div><div class="txt"><div class="t">雙下巴改善</div>下巴的脂肪減少，惱人的雙下巴會跟著變不明顯。</div></div>
+      <div class="b"><div class="ic">✨</div><div class="txt"><div class="t">臉部浮腫消退</div>少吃重鹹、少精緻糖，加上多喝水，臉的水腫感也會改善、變得清爽。</div></div>
+    </div>
+    <div class="key"><b>記住：</b>臉也會囤脂肪。減脂後臉變小變立體、雙下巴改善、浮腫消退——這是最有感的變化之一。</div>
+  </div>
+
+  <div class="card">
+    <span class="topic-tag">身形・線條更好看</span>
+    <h2>身形，會更勻稱有線條</h2>
+    <p>減重不只是「變小一號」，更重要的是<b>線條變好看</b>——尤其如果搭配一點運動、保住肌肉：</p>
+    <div class="benefit">
+      <div class="b"><div class="ic">👗</div><div class="txt"><div class="t">衣服變好穿</div>身形勻稱了，同一件衣服穿起來更有型、更有自信。</div></div>
+      <div class="b"><div class="ic">💪</div><div class="txt"><div class="t">曲線更緊實</div>減脂＋保住肌肉，身體線條會比單純變瘦更緊實、好看（還記得泡芙人那課嗎？）。</div></div>
+      <div class="b"><div class="ic">🎈</div><div class="txt"><div class="t">體態變輕盈</div>身體變輕、動起來更靈活，走路、站姿都更挺拔有精神。</div></div>
+    </div>
+    <div class="key"><b>記住：</b>減重不只變小一號，重點是線條變好看。減脂＋保肌肉，身形更緊實勻稱、衣服更好穿。</div>
+  </div>
+
+  <div class="card">
+    <span class="topic-tag">氣色・由內而外的光采</span>
+    <h2>氣色與自信，由內而外發光</h2>
+    <p>最迷人的變化，其實是「氣色」和「自信」——這是化妝、動刀都給不了的：</p>
+    <div class="benefit">
+      <div class="b"><div class="ic">🌸</div><div class="txt"><div class="t">氣色變好</div>當你吃得均衡、營養夠、身體健康，膚色、精神都會跟著好起來，整個人有光采。</div></div>
+      <div class="b"><div class="ic">😌</div><div class="txt"><div class="t">精神變好</div>身體輕盈、代謝順暢，人不容易累，眼神都更有神。</div></div>
+      <div class="b"><div class="ic">💖</div><div class="txt"><div class="t">自信回來了</div>當你看著鏡子裡越來越好的自己，那份「我做到了」的自信，會讓你整個人發光。</div></div>
+    </div>
+    <div class="key"><b>記住：</b>氣色和自信，是化妝動刀給不了的。吃得均衡、身體健康，由內而外的光采才是真的美。</div>
+  </div>
+
+  <div class="card">
+    <span class="topic-tag">誠實・合理期待</span>
+    <h2>一句誠實的提醒</h2>
+    <p>當然，我要老實跟你說：<b>每個人的體質、骨架、脂肪分布都不一樣，變化的程度也會因人而異</b>，不是像整形那樣可以「指定」哪裡變、變多少。有些人臉先瘦、有些人身形先變，這都很正常。</p>
+    <p>但可以確定的是——<b>把身體照顧好、把多餘脂肪減下來，你一定會比現在更清爽、更有精神、更有自信。</b>這是最自然、最健康、也最持久的變美方式。而且它的「副作用」是更健康的身體，多好？</p>
+    <div class="key"><b>記住：</b>變化因人而異、不像整形能指定，但把身體照顧好，你一定會更清爽、有精神、有自信。這是最自然持久的變美。</div>
+
+    <div class="qa">
+      <div class="qq">Q：那要瘦多少，才會看到「變臉」的效果？</div>
+      <div>沒有標準答案，因為每個人脂肪分布不同。但很多人在減掉體重的前幾公斤、體脂開始下降時，就會先感覺到臉變清爽、衣服變鬆。與其緊盯數字，不如多拍照記錄——過一陣子回頭看，那個「微整形」的變化會讓你很驚喜。這條路我會陪你一起走、一起見證你的改變。</div>
+    </div>
+  </div>
+
+  <div class="quiz-intro">
+    <div class="t">來做個小測驗 ✏️</div>
+    <div class="s">看完今天的內容，試試看你懂了多少<br>共 5 題，全部選擇題</div>
+  </div>
+
+  <div class="namebox">
+    <label>先填上你的名字（讓教練知道是誰交的功課）</label>
+    <input type="text" id="studentName" placeholder="請輸入你的名字">
+  </div>
+
+  <div id="quiz"></div>
+  <button class="btn gold" id="submitBtn" onclick="grade()">交卷看分數</button>
+
+  <div class="result" id="result">
+    <div class="score-big" id="scoreBig">0 分</div>
+    <div class="score-sub" id="scoreSub"></div>
+    <div class="comment" id="comment"></div>
+    <div class="copybox" id="copybox"></div>
+    <button class="btn" style="margin-top:16px;" onclick="copyResult()">📋 複製成績</button>
+    <div class="hint">複製後，貼到 LINE 傳給教練就完成囉！</div>
+  </div>
+
+  <footer>
+    Day 16・減肥是一種微整形<br>
+    <span class="sign">OK，我們一起努力！</span>
+  </footer>
+</div>
+
+<script>
+const questions = [
+  {q:"為什麼說減脂像一種「微整形」？",opts:["因為要動刀","因為減掉脂肪能改變臉型、身形、氣色，不用動刀","因為很貴","因為要打針"],ans:1,exp:"減脂能自然改變臉型、身形、氣色和自信，不用動刀、不用花大錢，所以像一種微整形。"},
+  {q:"減脂後，臉部常見的變化是？",opts:["臉變大","臉變小變立體、雙下巴改善、浮腫消退","五官消失","沒有變化"],ans:1,exp:"臉也會囤脂肪，減脂後臉頰下巴脂肪減少，臉變小變立體、雙下巴改善，加上少重鹹多喝水，浮腫也消退。"},
+  {q:"想讓身形線條更好看，除了減脂還要？",opts:["完全不運動","搭配運動、保住肌肉","只看體重","狂節食"],ans:1,exp:"減脂＋保住肌肉，身體線條會比單純變瘦更緊實好看。（呼應泡芙人那課）"},
+  {q:"化妝和動刀給不了的變化是？",opts:["體重數字","由內而外的氣色和自信","衣服尺寸","身高"],ans:1,exp:"吃得均衡、身體健康帶來的氣色、精神和自信，是化妝動刀給不了的，由內而外的光采才是真的美。"},
+  {q:"關於減脂的變美效果，正確的期待是？",opts:["像整形一樣可以指定哪裡變","因人而異，但一定會更清爽、有精神、有自信","每個人變化都一樣","完全沒效果"],ans:1,exp:"每個人體質脂肪分布不同，變化因人而異、不像整形能指定，但把身體照顧好一定會更清爽有自信，最自然持久。"}
+];
+let selected = Array(questions.length).fill(null);
+let graded = false;
+const quizEl = document.getElementById('quiz');
+questions.forEach(function(item, qi){
+  const qDiv = document.createElement('div');
+  qDiv.className = 'q';
+  let html = '<div class="qnum">第 ' + (qi+1) + ' 題</div><div class="qtext">' + item.q + '</div>';
+  item.opts.forEach(function(opt, oi){
+    html += '<label class="opt" id="opt-' + qi + '-' + oi + '" onclick="pick(' + qi + ',' + oi + ')">' + opt + '</label>';
+  });
+  html += '<div class="explain" id="exp-' + qi + '"></div>';
+  qDiv.innerHTML = html;
+  quizEl.appendChild(qDiv);
+});
+function pick(qi, oi){
+  if(graded) return;
+  selected[qi] = oi;
+  for(let o=0;o<questions[qi].opts.length;o++){
+    document.getElementById('opt-' + qi + '-' + o).classList.remove('selected');
+  }
+  document.getElementById('opt-' + qi + '-' + oi).classList.add('selected');
+}
+function grade(){
+  const name = document.getElementById('studentName').value.trim();
+  if(!name){ alert("請先填上你的名字喔！"); document.getElementById('studentName').focus(); return; }
+  for(let i=0;i<questions.length;i++){
+    if(selected[i]===null){ alert('第 ' + (i+1) + ' 題還沒作答喔！');
+      document.getElementById('opt-' + i + '-0').scrollIntoView({behavior:'smooth',block:'center'}); return; }
+  }
+  graded = true;
+  let correct = 0;
+  questions.forEach(function(item, qi){
+    const chosen = selected[qi];
+    if(chosen === item.ans){ correct++; document.getElementById('opt-' + qi + '-' + chosen).classList.add('correct'); }
+    else { document.getElementById('opt-' + qi + '-' + chosen).classList.add('wrong');
+      document.getElementById('opt-' + qi + '-' + item.ans).classList.add('correct'); }
+    const exp = document.getElementById('exp-' + qi);
+    exp.innerHTML = '<b>解說：</b>' + item.exp; exp.classList.add('show');
+  });
+  const studentScore = Math.round(correct / questions.length * 100);
+  document.getElementById('submitBtn').style.display = 'none';
+  document.getElementById('scoreBig').textContent = studentScore + " 分";
+  document.getElementById('scoreSub').textContent = '答對 ' + correct + ' / ' + questions.length + ' 題';
+  let comment = "";
+  if(studentScore === 100) comment = "太棒了！好好減脂，期待你越來越美 👏";
+  else if(studentScore >= 80) comment = "很好！大部分都懂了，錯的地方看一下解說就更完整囉。";
+  else if(studentScore >= 60) comment = "不錯～有幾題再回去看看，觀念會更清楚。";
+  else comment = "沒關係！把上面的內容再看一次，一起變得更美更健康。";
+  document.getElementById('comment').textContent = comment;
+  const today = new Date();
+  const dateStr = today.getFullYear() + '/' + (today.getMonth()+1) + '/' + today.getDate();
+  const copyText =
+'【好好吃飯也能瘦・Day 16 測驗成績】\n' +
+'姓名：' + name + '\n' +
+'日期：' + dateStr + '\n' +
+'主題：減肥是一種微整形\n' +
+'分數：' + studentScore + ' 分（答對 ' + correct + '/' + questions.length + ' 題）\n' +
+'—— 我完成今天的功課囉！';
+  document.getElementById('copybox').textContent = copyText;
+  window._copyText = copyText;
+  document.getElementById('result').classList.add('show');
+  document.getElementById('result').scrollIntoView({behavior:'smooth', block:'start'});
+}
+function copyResult(){
+  const text = window._copyText || "";
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(function(){ alert("成績已複製！貼到 LINE 傳給教練就完成囉 😊"); }).catch(function(){fallbackCopy(text);});
+  } else { fallbackCopy(text); }
+}
+function fallbackCopy(text){
+  const ta = document.createElement('textarea');
+  ta.value = text; document.body.appendChild(ta); ta.select();
+  try{ document.execCommand('copy'); alert("成績已複製！貼到 LINE 傳給教練就完成囉 😊"); }
+  catch(e){ alert("請長按上方成績文字手動複製~"); }
+  document.body.removeChild(ta);
+}
+</script>
+</body>
+</html>

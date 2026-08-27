@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>減重陪伴・Day 14</title>
+<meta property="og:title" content="減重陪伴・Day 14｜你是哪種食物人格？">
+<meta property="og:description" content="趣味心理測驗！5題測出你的『食物人格』，還有專屬你的減重小建議。來玩玩看～">
+<meta property="og:image" content="https://rachelfu728.github.io/fit21-home/day14-a.png">
+<meta property="og:type" content="article">
+<style>
+  :root{
+    --gold:#C9A24B; --gold-soft:#E4CE9A;
+    --beige:#FBF6EC; --beige-deep:#F3EAD6;
+    --green:#A9C6A0; --green-deep:#7FA574;
+    --ink:#4A4438; --ink-soft:#6E6656; --white:#FFFDF8;
+    --wrong:#C97B6B;
+    --purple:#8B7BA8;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:"PingFang TC","Microsoft JhengHei","Noto Sans TC",sans-serif;
+    background:var(--beige);color:var(--ink);line-height:1.9;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:640px;margin:0 auto;padding:0 18px 60px;}
+  header{text-align:center;padding:44px 20px 22px;}
+  header .kicker{font-size:13px;letter-spacing:1.5px;color:var(--green-deep);margin-bottom:10px;}
+  header h1{font-size:24px;font-weight:700;letter-spacing:1px;}
+  header .day-no{display:inline-block;background:var(--gold);color:var(--white);
+    font-size:14px;padding:4px 16px;border-radius:20px;margin-bottom:14px;letter-spacing:1px;}
+  header .addr{font-size:12.5px;color:var(--ink-soft);margin-top:12px;line-height:1.6;}
+  header .line{width:52px;height:3px;background:var(--gold);margin:16px auto 0;border-radius:2px;}
+  .comic-img{width:100%;border-radius:12px;margin:6px 0 20px;display:block;
+    box-shadow:0 2px 10px rgba(160,140,90,.15);}
+  .intro-card{background:var(--white);border-radius:16px;padding:24px;margin-bottom:22px;
+    box-shadow:0 2px 12px rgba(160,140,90,.08);border:1px solid var(--beige-deep);text-align:center;}
+  .intro-card p{font-size:15.5px;margin-bottom:8px;}
+  .intro-card p:last-child{margin-bottom:0;}
+
+  .namebox{background:var(--white);border-radius:14px;padding:18px 20px;margin-bottom:16px;border:1px solid var(--beige-deep);}
+  .namebox label{font-size:14px;color:var(--ink-soft);display:block;margin-bottom:8px;}
+  .namebox input{width:100%;padding:12px 14px;border:2px solid var(--beige-deep);border-radius:10px;font-size:16px;font-family:inherit;color:var(--ink);}
+  .namebox input:focus{outline:none;border-color:var(--gold);}
+
+  .q{background:var(--white);border-radius:14px;padding:22px 20px;margin-bottom:16px;border:1px solid var(--beige-deep);}
+  .q .qnum{font-size:13px;color:var(--purple);font-weight:700;margin-bottom:6px;}
+  .q .qtext{font-size:16px;font-weight:600;margin-bottom:14px;}
+  .opt{display:block;background:var(--beige);border:2px solid transparent;border-radius:10px;padding:12px 15px;margin-bottom:10px;font-size:15px;cursor:pointer;transition:.15s;}
+  .opt:hover{border-color:var(--gold-soft);}
+  .opt.selected{border-color:var(--purple);background:#EFEAF6;}
+
+  .btn{display:block;width:100%;background:var(--purple);color:var(--white);border:none;font-size:17px;font-weight:700;padding:16px;border-radius:12px;cursor:pointer;margin-top:8px;font-family:inherit;letter-spacing:1px;}
+  .btn:hover{background:#75669a;}
+
+  .result{display:none;background:var(--white);border-radius:16px;padding:30px 24px;margin-top:24px;border:2px solid var(--purple);text-align:center;}
+  .result.show{display:block;animation:fadeUp .5s ease;}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:translateY(0);}}
+  .result .emoji{font-size:56px;margin-bottom:6px;}
+  .result .rtype{font-size:23px;font-weight:800;color:var(--purple);margin-bottom:4px;}
+  .result .rsub{font-size:14px;color:var(--gold);font-weight:700;margin-bottom:14px;}
+  .result .rdesc{font-size:15.5px;color:var(--ink);margin-bottom:16px;text-align:left;}
+  .result .radvice{background:var(--beige);border-radius:10px;padding:14px 16px;font-size:14.5px;color:var(--ink-soft);text-align:left;}
+  .result .radvice b{color:var(--green-deep);}
+  .copybox{background:var(--beige);border:1px dashed var(--gold-soft);border-radius:10px;padding:14px;margin-top:18px;font-size:14px;text-align:left;white-space:pre-line;color:var(--ink);}
+  .hint{font-size:13px;color:var(--ink-soft);margin-top:10px;}
+  .again-btn{display:inline-block;margin-top:16px;background:var(--gold);color:var(--white);
+    border:none;font-size:15px;font-weight:700;padding:11px 26px;border-radius:22px;cursor:pointer;font-family:inherit;}
+
+  footer{text-align:center;margin-top:30px;color:var(--ink-soft);font-size:14px;}
+  footer .sign{color:var(--green-deep);font-weight:700;margin-top:6px;font-size:16px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="kicker">好好吃飯也能瘦・第二階段・正確觀念</div>
+    <div class="day-no">Day 14 / 21</div>
+    <h1>🍽️ 你是哪種食物人格？</h1>
+    <div class="addr">🏠 遇見喜樂營養俱樂部<br>台中市北區進化北路367-6號　大衛營商場一樓</div>
+    <div class="line"></div>
+  </header>
+
+  <!-- ★漫畫提示(給ChatGPT生圖用):女生開心地站在四種擬人化的可愛食物角色中間(例如:一個急性子的漢堡、一個優雅的沙拉、一個療癒的甜點、一個穩重的糙米飯糰),每個食物都有可愛表情;小貓咪在旁邊。趣味、繽紛、歡樂。金米綠加一點柔紫色、圓潤可愛畫風、標語「好好吃飯也能瘦」。 -->
+  <img class="comic-img" src="https://rachelfu728.github.io/fit21-home/day14-a.png" alt="食物人格測驗插畫">
+
+  <div class="intro-card">
+    <p>✨ 今天不上課，來玩個小測驗 ✨</p>
+    <p>每個人跟食物的相處方式都不一樣。<br>憑<b>直覺</b>回答 5 題，看看你是哪種「食物人格」，<br>還有專屬你的減重小建議喔！</p>
+  </div>
+
+  <div class="namebox">
+    <label>先填上你的名字（讓教練知道是誰玩的）</label>
+    <input type="text" id="studentName" placeholder="請輸入你的名字">
+  </div>
+
+  <div id="quiz"></div>
+  <button class="btn" id="submitBtn" onclick="showResult()">看看我是哪種人格 →</button>
+
+  <div class="result" id="result">
+    <div class="emoji" id="rEmoji"></div>
+    <div class="rtype" id="rType"></div>
+    <div class="rsub" id="rSub"></div>
+    <div class="rdesc" id="rDesc"></div>
+    <div class="radvice" id="rAdvice"></div>
+    <div class="copybox" id="copybox"></div>
+    <button class="btn" style="margin-top:16px;" onclick="copyResult()">📋 複製結果分享給教練</button>
+    <div class="hint">複製後貼到 LINE 傳給教練，讓教練更懂你 😊</div>
+    <br>
+    <button class="again-btn" onclick="location.reload()">🔄 重新測一次</button>
+  </div>
+
+  <footer>
+    Day 14・你是哪種食物人格<br>
+    <span class="sign">OK，我們一起努力！</span>
+  </footer>
+</div>
+
+<script>
+// 4種食物人格: A急性子、B療癒系、C社交花蝴蝶、D穩健派
+const questions = [
+  {q:"肚子餓的時候，你通常會…",opts:[
+    {t:"抓到什麼吃什麼，先解決再說！",type:"A"},
+    {t:"想吃點療癒的、能安慰自己的",type:"B"},
+    {t:"約朋友一起吃、邊吃邊聊",type:"C"},
+    {t:"想想有什麼健康的選擇再吃",type:"D"}
+  ]},
+  {q:"面對一桌好菜，你的反應是…",opts:[
+    {t:"迫不及待，馬上開動！",type:"A"},
+    {t:"先看有沒有我最愛的療癒美食",type:"B"},
+    {t:"開心！重點是氣氛和大家一起",type:"C"},
+    {t:"先觀察哪些比較健康、怎麼搭配",type:"D"}
+  ]},
+  {q:"你最常在什麼情況下吃過量？",opts:[
+    {t:"太餓了，一不小心就吃太快太多",type:"A"},
+    {t:"心情不好、想用食物安慰自己",type:"B"},
+    {t:"聚餐、應酬，跟著大家一直吃",type:"C"},
+    {t:"其實不太會，我算克制的",type:"D"}
+  ]},
+  {q:"對你來說，吃東西最大的意義是…",opts:[
+    {t:"填飽肚子、補充能量",type:"A"},
+    {t:"療癒心情、獎勵自己",type:"B"},
+    {t:"跟人相聚、分享的快樂",type:"C"},
+    {t:"照顧身體、維持健康",type:"D"}
+  ]},
+  {q:"如果要你改變飲食習慣，你最擔心…",opts:[
+    {t:"會不會餓肚子、不夠吃",type:"A"},
+    {t:"不能吃愛吃的，心情會很差",type:"B"},
+    {t:"聚餐社交場合很難配合",type:"C"},
+    {t:"其實我滿樂意嘗試的",type:"D"}
+  ]}
+];
+
+const results = {
+  A: { emoji:"🍔", type:"急性子・大胃王型", sub:"THE HUNGRY ONE",
+    desc:"你是行動派！肚子一餓就想馬上解決，最容易因為「太餓」而吃太快、吃太多。你不是貪吃，只是餓過頭讓大腦踩不了剎車。",
+    advice:"<b>給你的建議：</b>千萬別讓自己餓過頭！三餐定時，隨身準備健康小點心（茶葉蛋、無糖豆漿、一份奶昔）。吃飯時放慢速度、先吃菜和蛋白質，給身體20分鐘感覺飽，就不會失控了。" },
+  B: { emoji:"🍰", type:"療癒系・情緒美食型", sub:"THE COMFORT EATER",
+    desc:"食物對你來說是溫暖的安慰。心情好或不好，都想用美食療癒自己。這很正常，但要小心「用吃來處理情緒」變成習慣。",
+    advice:"<b>給你的建議：</b>下次想吃東西時，先問自己「我是餓，還是心情需要安慰？」如果是情緒，試試別的方式——散步、聽音樂、深呼吸（可以用我們的呼吸練習）。真的想吃，就選聰明一點的療癒零食、淺嚐即止，別自責。" },
+  C: { emoji:"🥗", type:"社交花蝴蝶・歡樂型", sub:"THE SOCIAL BUTTERFLY",
+    desc:"你享受跟人相聚、一起吃飯的快樂！食物是你和朋友連結的橋樑。你最大的挑戰，是在聚餐、應酬時容易跟著大家一直吃。",
+    advice:"<b>給你的建議：</b>你不用為了減重推掉聚會！記得聚餐生存術——別空腹赴宴、先夾蔬菜和蛋白質、多喝水、慢慢吃多聊天。把重點放在「相聚」而不是「吃」，就能開心又不太破功。" },
+  D: { emoji:"🍚", type:"穩健派・自律型", sub:"THE STEADY ONE",
+    desc:"你對食物有很好的自覺，會思考怎麼吃比較健康。你的基礎很好！要注意的反而是別對自己太嚴格，或偶爾破功時過度自責。",
+    advice:"<b>給你的建議：</b>你已經做得很好了，繼續保持！記得減重要能「長久」，偶爾放鬆、享受美食也是可以的。對自己溫柔一點，允許不完美，你會走得更輕鬆、更遠。" }
+};
+
+let selected = Array(questions.length).fill(null);
+const quizEl = document.getElementById('quiz');
+questions.forEach(function(item, qi){
+  const qDiv = document.createElement('div');
+  qDiv.className = 'q';
+  let html = '<div class="qnum">第 ' + (qi+1) + ' 題</div><div class="qtext">' + item.q + '</div>';
+  item.opts.forEach(function(opt, oi){
+    html += '<label class="opt" id="opt-' + qi + '-' + oi + '" onclick="pick(' + qi + ',' + oi + ',\'' + opt.type + '\')">' + opt.t + '</label>';
+  });
+  qDiv.innerHTML = html;
+  quizEl.appendChild(qDiv);
+});
+function pick(qi, oi, type){
+  selected[qi] = type;
+  for(let o=0;o<questions[qi].opts.length;o++){
+    document.getElementById('opt-' + qi + '-' + o).classList.remove('selected');
+  }
+  document.getElementById('opt-' + qi + '-' + oi).classList.add('selected');
+}
+function showResult(){
+  const name = document.getElementById('studentName').value.trim();
+  if(!name){ alert("請先填上你的名字喔！"); document.getElementById('studentName').focus(); return; }
+  for(let i=0;i<questions.length;i++){
+    if(selected[i]===null){ alert('第 ' + (i+1) + ' 題還沒選喔！');
+      document.getElementById('opt-' + i + '-0').scrollIntoView({behavior:'smooth',block:'center'}); return; }
+  }
+  // 算出最多的類型
+  const count = {A:0,B:0,C:0,D:0};
+  selected.forEach(function(t){ count[t]++; });
+  let best = 'A', max = -1;
+  ['A','B','C','D'].forEach(function(k){ if(count[k] > max){ max = count[k]; best = k; } });
+  const r = results[best];
+  document.getElementById('submitBtn').style.display = 'none';
+  document.getElementById('rEmoji').textContent = r.emoji;
+  document.getElementById('rType').textContent = r.type;
+  document.getElementById('rSub').textContent = r.sub;
+  document.getElementById('rDesc').textContent = r.desc;
+  document.getElementById('rAdvice').innerHTML = r.advice;
+  const copyText =
+'【好好吃飯也能瘦・Day 14 食物人格測驗】\n' +
+'姓名：' + name + '\n' +
+'我的食物人格：' + r.emoji + ' ' + r.type + '\n' +
+'—— 教練，這是我的測驗結果！';
+  document.getElementById('copybox').textContent = copyText;
+  window._copyText = copyText;
+  const res = document.getElementById('result');
+  res.classList.add('show');
+  res.scrollIntoView({behavior:'smooth', block:'start'});
+}
+function copyResult(){
+  const text = window._copyText || "";
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(function(){ alert("結果已複製！貼到 LINE 傳給教練吧 😊"); }).catch(function(){fallbackCopy(text);});
+  } else { fallbackCopy(text); }
+}
+function fallbackCopy(text){
+  const ta = document.createElement('textarea');
+  ta.value = text; document.body.appendChild(ta); ta.select();
+  try{ document.execCommand('copy'); alert("結果已複製！貼到 LINE 傳給教練吧 😊"); }
+  catch(e){ alert("請長按上方文字手動複製~"); }
+  document.body.removeChild(ta);
+}
+</script>
+</body>
+</html>

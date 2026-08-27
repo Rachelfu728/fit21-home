@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>遇見喜樂・呼吸練習</title>
+<meta property="og:title" content="遇見喜樂・跟著圓圈好好呼吸">
+<meta property="og:description" content="給自己兩分鐘，跟著教練的聲音和圓圈深呼吸，放鬆一下、安定心情。">
+<meta property="og:image" content="https://rachelfu728.github.io/fit21-home/breathing-a.png">
+<meta property="og:type" content="article">
+<style>
+  :root{
+    --gold:#C9A24B; --gold-soft:#E4CE9A;
+    --beige:#FBF6EC; --beige-deep:#F3EAD6;
+    --green:#A9C6A0; --green-deep:#7FA574;
+    --ink:#4A4438; --ink-soft:#6E6656; --white:#FFFDF8;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:"PingFang TC","Microsoft JhengHei","Noto Sans TC",sans-serif;
+    background:var(--beige);color:var(--ink);line-height:1.9;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:640px;margin:0 auto;padding:0 18px 60px;}
+  header{text-align:center;padding:44px 20px 22px;}
+  header .kicker{font-size:13px;letter-spacing:1.5px;color:var(--green-deep);margin-bottom:10px;}
+  header h1{font-size:24px;font-weight:700;letter-spacing:1px;}
+  header .day-no{display:inline-block;background:var(--gold);color:var(--white);
+    font-size:14px;padding:4px 16px;border-radius:20px;margin-bottom:14px;letter-spacing:1px;}
+  header .addr{font-size:12.5px;color:var(--ink-soft);margin-top:12px;line-height:1.6;}
+  header .line{width:52px;height:3px;background:var(--gold);margin:16px auto 0;border-radius:2px;}
+  .intro{background:var(--white);border-radius:16px;padding:24px;margin-bottom:22px;
+    box-shadow:0 2px 12px rgba(160,140,90,.08);border:1px solid var(--beige-deep);text-align:center;}
+  .intro p{font-size:15.5px;margin-bottom:8px;}
+  .intro p:last-child{margin-bottom:0;}
+  .breath-zone{background:linear-gradient(160deg,#EAF3EE,#DCEAE2);border-radius:20px;
+    padding:36px 20px 40px;margin-bottom:22px;text-align:center;min-height:440px;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;}
+  .circle-wrap{position:relative;width:240px;height:240px;display:flex;align-items:center;justify-content:center;margin-bottom:8px;}
+  .circle{width:110px;height:110px;border-radius:50%;
+    background:radial-gradient(circle at 40% 35%, #A8CFC0, #7FA891);
+    box-shadow:0 0 40px rgba(143,184,168,.5);
+    display:flex;align-items:center;justify-content:center;}
+  .circle .ctxt{color:var(--white);font-size:19px;font-weight:700;text-shadow:0 1px 3px rgba(0,0,0,.15);}
+  .breath-tip{font-size:15px;color:var(--green-deep);font-weight:700;margin-top:16px;min-height:24px;}
+  .start-btn{background:var(--green-deep);color:var(--white);border:none;font-size:17px;font-weight:700;
+    padding:14px 40px;border-radius:26px;cursor:pointer;font-family:inherit;letter-spacing:1px;margin-top:20px;}
+  .start-btn:hover{background:#6f9265;}
+  .card{background:var(--white);border-radius:16px;padding:24px;margin-bottom:20px;
+    box-shadow:0 2px 12px rgba(160,140,90,.08);border:1px solid var(--beige-deep);}
+  .card h2{font-size:18px;color:var(--ink);margin-bottom:8px;}
+  .card p{font-size:15px;margin-bottom:10px;}
+  .card p:last-child{margin-bottom:0;}
+  .key{background:var(--beige);border-left:4px solid var(--green);border-radius:8px;
+    padding:12px 16px;margin-top:8px;font-size:14.5px;color:var(--ink-soft);}
+  .key b{color:var(--green-deep);}
+  footer{text-align:center;margin-top:30px;color:var(--ink-soft);font-size:14px;}
+  footer .sign{color:var(--green-deep);font-weight:700;margin-top:6px;font-size:16px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="kicker">遇見喜樂・放鬆小角落</div>
+    <div class="day-no">呼吸練習</div>
+    <h1>🌿 跟著圓圈，好好呼吸</h1>
+    <div class="addr">🏠 遇見喜樂營養俱樂部<br>台中市北區進化北路367-6號　大衛營商場一樓</div>
+    <div class="line"></div>
+  </header>
+
+  <div class="intro">
+    <p>給自己<b>兩分鐘</b>。</p>
+    <p>戴上耳機效果更好。按下開始，跟著教練的聲音和圓圈，一起好好呼吸。</p>
+  </div>
+
+  <div class="breath-zone">
+    <div class="circle-wrap">
+      <div class="circle" id="circle">
+        <span class="ctxt" id="ctxt">準備好了嗎</span>
+      </div>
+    </div>
+    <div class="breath-tip" id="bTip">找個舒服的姿勢，準備好就開始</div>
+    <button class="start-btn" id="startBtn" onclick="startBreathing()">▶ 開始呼吸練習</button>
+    <audio id="audio" src="breathing-audio.mp3" preload="auto"></audio>
+  </div>
+
+  <div class="card">
+    <h2>為什麼呼吸對減重也有幫助？</h2>
+    <p>當我們壓力大、焦慮的時候，身體會進入「緊繃」狀態，這時候特別容易想吃東西——尤其是甜的、鹹的、油的（這就是「壓力性進食」）。</p>
+    <p>深呼吸，尤其是<b>把吐氣拉長</b>，能幫助身體從緊繃切換到放鬆，讓那股「想亂吃」的衝動慢慢平息。下次感覺壓力上來、很想衝去找零食時，先做幾次深呼吸，很多時候那個衝動就過去了。</p>
+    <div class="key"><b>記住：</b>壓力大容易想亂吃。深呼吸（吐氣拉長）能幫身體放鬆、平息衝動。這是隨時隨地、免費的好工具。</div>
+  </div>
+
+  <div class="card">
+    <h2>什麼時候可以做？</h2>
+    <p>任何時候都可以——想吃零食前、心情煩躁時、睡前想放鬆時，或只是想給自己一點喘息的空間。</p>
+    <p>把這一頁<b>加到手機書籤</b>，需要的時候隨時打開，跟著呼吸幾次。這是你隨身的小小放鬆角落。💛</p>
+  </div>
+
+  <footer>
+    遇見喜樂・放鬆小角落<br>
+    <span class="sign">好好呼吸，好好照顧自己 🌿</span>
+  </footer>
+</div>
+
+<script>
+const circle = document.getElementById('circle');
+const ctxt = document.getElementById('ctxt');
+const bTip = document.getElementById('bTip');
+const startBtn = document.getElementById('startBtn');
+const audio = document.getElementById('audio');
+
+const SMALL = 110, BIG = 220;
+
+// 依你的錄音實際節奏抓的時間點(秒)
+const cycles = [
+  { inhale: 20.3, exhale: 28.1, end: 39.9 },
+  { inhale: 39.9, exhale: 48.0, end: 56.8 },
+  { inhale: 56.8, exhale: 68.2, end: 77.1 },
+  { inhale: 77.1, exhale: 85.8, end: 94.6 },
+  { inhale: 94.6, exhale: 101.9, end: 110.8 },
+  { inhale: 110.8, exhale: 118.8, end: 136.1 }
+];
+const OPENING_END = 20.3;
+const ENDING_START = 136.1;
+
+let raf = null;
+
+function setCircleRatio(r){
+  const size = SMALL + (BIG - SMALL) * r;
+  circle.style.width = size + 'px';
+  circle.style.height = size + 'px';
+}
+
+function update(){
+  const t = audio.currentTime;
+  if(t < OPENING_END){
+    ctxt.textContent = '放鬆';
+    bTip.textContent = '跟著聲音，慢慢放鬆…';
+    setCircleRatio(0);
+  } else if(t >= ENDING_START){
+    ctxt.textContent = '完成 🌿';
+    bTip.textContent = '做得很好，好好感受這份平靜';
+    setCircleRatio(0);
+  } else {
+    for(let i=0;i<cycles.length;i++){
+      const c = cycles[i];
+      if(t >= c.inhale && t < c.end){
+        if(t < c.exhale){
+          const r = (t - c.inhale) / (c.exhale - c.inhale);
+          ctxt.textContent = '吸氣';
+          bTip.textContent = `慢慢吸氣…（第 ${i+1} / 6 次）`;
+          setCircleRatio(Math.min(r,1));
+        } else {
+          const r = (t - c.exhale) / (c.end - c.exhale);
+          ctxt.textContent = '吐氣';
+          bTip.textContent = `慢慢吐氣…（第 ${i+1} / 6 次）`;
+          setCircleRatio(Math.max(1 - r,0));
+        }
+        break;
+      }
+    }
+  }
+  if(!audio.paused && !audio.ended){
+    raf = requestAnimationFrame(update);
+  }
+}
+
+function startBreathing(){
+  audio.currentTime = 0;
+  audio.play();
+  startBtn.style.display = 'none';
+  raf = requestAnimationFrame(update);
+}
+
+audio.addEventListener('ended', ()=>{
+  ctxt.textContent = '完成 🌿';
+  bTip.textContent = '做得很好，任何時候都可以再回來 💛';
+  setCircleRatio(0);
+  startBtn.textContent = '🔄 再做一次';
+  startBtn.style.display = 'inline-block';
+  if(raf) cancelAnimationFrame(raf);
+});
+
+setCircleRatio(0);
+</script>
+</body>
+</html>

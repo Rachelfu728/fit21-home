@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>減重陪伴・Day 13</title>
+<meta property="og:title" content="減重陪伴・Day 13｜低GI，為什麼對減重這麼重要？">
+<meta property="og:description" content="常聽到「低GI」，它到底是什麼？為什麼對體重管理這麼重要？一次搞懂，還有低GI食物清單。">
+<meta property="og:image" content="https://rachelfu728.github.io/fit21-home/day13-a.png">
+<meta property="og:type" content="article">
+<style>
+  :root{
+    --gold:#C9A24B; --gold-soft:#E4CE9A;
+    --beige:#FBF6EC; --beige-deep:#F3EAD6;
+    --green:#A9C6A0; --green-deep:#7FA574;
+    --ink:#4A4438; --ink-soft:#6E6656; --white:#FFFDF8;
+    --wrong:#C97B6B;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:"PingFang TC","Microsoft JhengHei","Noto Sans TC",sans-serif;
+    background:var(--beige);color:var(--ink);line-height:1.9;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:640px;margin:0 auto;padding:0 18px 60px;}
+  header{text-align:center;padding:44px 20px 22px;}
+  header .kicker{font-size:13px;letter-spacing:1.5px;color:var(--green-deep);margin-bottom:10px;}
+  header h1{font-size:24px;font-weight:700;letter-spacing:1px;}
+  header .day-no{display:inline-block;background:var(--gold);color:var(--white);
+    font-size:14px;padding:4px 16px;border-radius:20px;margin-bottom:14px;letter-spacing:1px;}
+  header .addr{font-size:12.5px;color:var(--ink-soft);margin-top:12px;line-height:1.6;}
+  header .line{width:52px;height:3px;background:var(--gold);margin:16px auto 0;border-radius:2px;}
+  .card{background:var(--white);border-radius:16px;padding:26px 24px;margin-bottom:20px;
+    box-shadow:0 2px 12px rgba(160,140,90,.08);border:1px solid var(--beige-deep);}
+  .card h2{font-size:19px;color:var(--ink);margin-bottom:6px;}
+  .card .topic-tag{display:inline-block;font-size:12px;padding:3px 12px;border-radius:20px;
+    background:var(--gold);color:var(--white);margin-bottom:14px;}
+  .card .topic-tag.fun{background:var(--green-deep);}
+  .card p{font-size:15.5px;margin-bottom:12px;}
+  .card p:last-child{margin-bottom:0;}
+  .key{background:var(--beige);border-left:4px solid var(--green);border-radius:8px;
+    padding:12px 16px;margin-top:14px;font-size:14.5px;color:var(--ink-soft);}
+  .key b{color:var(--green-deep);}
+  .comic-img{width:100%;border-radius:12px;margin:16px 0 4px;display:block;
+    box-shadow:0 2px 10px rgba(160,140,90,.15);}
+  .compare{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap;}
+  .compare .col{flex:1;min-width:150px;border-radius:10px;padding:14px;}
+  .compare .col.high{background:#F7E9E5;}
+  .compare .col.low{background:#EAF3E6;}
+  .compare .col .h{font-weight:700;margin-bottom:6px;}
+  .compare .col.high .h{color:var(--wrong);}
+  .compare .col.low .h{color:var(--green-deep);}
+  .compare .col .d{font-size:13.5px;color:var(--ink-soft);}
+  .pick{margin-top:8px;}
+  .pick .cat{font-weight:700;color:var(--gold);font-size:15px;margin:14px 0 4px;}
+  .pick .items{font-size:14.5px;color:var(--ink);background:var(--beige);border-radius:8px;padding:10px 14px;}
+  .qa{background:#F5F0E4;border-radius:10px;padding:14px 16px;margin-top:14px;font-size:14.5px;}
+  .qa .qq{font-weight:700;color:var(--gold);margin-bottom:4px;}
+  .quiz-intro{text-align:center;margin:36px 0 18px;}
+  .quiz-intro .t{font-size:20px;font-weight:700;color:var(--green-deep);}
+  .quiz-intro .s{font-size:14px;color:var(--ink-soft);margin-top:6px;}
+  .namebox{background:var(--white);border-radius:14px;padding:18px 20px;margin-bottom:16px;border:1px solid var(--beige-deep);}
+  .namebox label{font-size:14px;color:var(--ink-soft);display:block;margin-bottom:8px;}
+  .namebox input{width:100%;padding:12px 14px;border:2px solid var(--beige-deep);border-radius:10px;font-size:16px;font-family:inherit;color:var(--ink);}
+  .namebox input:focus{outline:none;border-color:var(--gold);}
+  .q{background:var(--white);border-radius:14px;padding:22px 20px;margin-bottom:16px;border:1px solid var(--beige-deep);}
+  .q .qnum{font-size:13px;color:var(--gold);font-weight:700;margin-bottom:6px;}
+  .q .qtext{font-size:16px;font-weight:600;margin-bottom:14px;}
+  .opt{display:block;background:var(--beige);border:2px solid transparent;border-radius:10px;padding:12px 15px;margin-bottom:10px;font-size:15px;cursor:pointer;transition:.15s;}
+  .opt:hover{border-color:var(--gold-soft);}
+  .opt.selected{border-color:var(--gold);background:var(--beige-deep);}
+  .opt.correct{border-color:var(--green-deep);background:#EAF3E6;}
+  .opt.wrong{border-color:var(--wrong);background:#F7E9E5;}
+  .explain{font-size:14px;color:var(--ink-soft);margin-top:8px;padding:10px 14px;background:var(--beige);border-radius:8px;display:none;}
+  .explain.show{display:block;}
+  .explain b{color:var(--green-deep);}
+  .btn{display:block;width:100%;background:var(--green-deep);color:var(--white);border:none;font-size:17px;font-weight:700;padding:16px;border-radius:12px;cursor:pointer;margin-top:8px;font-family:inherit;letter-spacing:1px;}
+  .btn:hover{background:#6f9265;}
+  .btn.gold{background:var(--gold);}
+  .btn.gold:hover{background:#b8923f;}
+  .result{display:none;background:var(--white);border-radius:16px;padding:28px 24px;margin-top:24px;border:2px solid var(--gold);text-align:center;}
+  .result.show{display:block;}
+  .result .score-big{font-size:44px;font-weight:800;color:var(--gold);line-height:1;}
+  .result .score-sub{font-size:15px;color:var(--ink-soft);margin-top:8px;}
+  .result .comment{font-size:16px;margin-top:16px;color:var(--ink);}
+  .copybox{background:var(--beige);border:1px dashed var(--gold-soft);border-radius:10px;padding:14px;margin-top:18px;font-size:14px;text-align:left;white-space:pre-line;color:var(--ink);}
+  .hint{font-size:13px;color:var(--ink-soft);margin-top:10px;}
+  footer{text-align:center;margin-top:30px;color:var(--ink-soft);font-size:14px;}
+  footer .sign{color:var(--green-deep);font-weight:700;margin-top:6px;font-size:16px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="kicker">好好吃飯也能瘦・第二階段・正確觀念</div>
+    <div class="day-no">Day 13 / 21</div>
+    <h1>低GI，為什麼對減重這麼重要？</h1>
+    <div class="addr">🏠 遇見喜樂營養俱樂部<br>台中市北區進化北路367-6號　大衛營商場一樓</div>
+    <div class="line"></div>
+  </header>
+
+  <!-- ★漫畫提示(給ChatGPT生圖用):用兩條線對比,一邊高GI食物(白飯、麵包、甜點)配一條血糖「暴衝又暴跌」的紅色曲線;另一邊低GI食物(糙米、蔬菜、豆類)配一條血糖「平緩穩定」的綠色曲線。女生指著平緩的那條、露出理解的笑容,小貓咪在旁。清楚、易懂、金米綠配色、圓潤可愛畫風、標語「好好吃飯也能瘦」。 -->
+  <div class="card">
+    <span class="topic-tag fun">營養知識・認識低GI</span>
+    <h2>GI 到底是什麼？</h2>
+    <img class="comic-img" src="https://rachelfu728.github.io/fit21-home/day13-a.png" alt="低GI血糖曲線插畫">
+    <p>你一定常常聽到「低 GI」，但它到底是什麼？<b>GI 是「升糖指數」</b>——簡單說，就是一種食物吃下去之後，<b>讓你血糖上升的「速度」</b>有多快。</p>
+    <p>吃<b>高 GI</b> 的食物（像白飯、白麵包、甜點），血糖會像坐雲霄飛車一樣<b>快速飆高、又快速掉下來</b>；吃<b>低 GI</b> 的食物（像糙米、蔬菜、豆類），血糖則是<b>緩緩上升、平穩下降</b>。這個差別，對減重影響很大。</p>
+    <div class="key"><b>記住：</b>GI＝升糖指數，指食物讓血糖上升的「速度」。高GI血糖暴衝暴跌，低GI血糖平緩穩定。</div>
+  </div>
+
+  <div class="card">
+    <span class="topic-tag">重點・為什麼低GI幫助減重</span>
+    <h2>血糖穩，比較不容易餓、不容易胖</h2>
+    <p>為什麼血糖平穩對減重有幫助？關鍵在兩點：</p>
+    <div class="compare">
+      <div class="col high">
+        <div class="h">😵 高 GI（血糖暴衝暴跌）</div>
+        <div class="d">血糖快速飆高→身體大量分泌胰島素→血糖又快速掉下來→很快又餓、特別想吃東西，容易囤積脂肪。</div>
+      </div>
+      <div class="col low">
+        <div class="h">😊 低 GI（血糖平穩）</div>
+        <div class="d">血糖緩緩上升→胰島素不用暴衝→飽足感維持比較久→比較不會一下就餓、不會亂吃。</div>
+      </div>
+    </div>
+    <p style="margin-top:14px;">所以吃低 GI 的好處是：<b>飽得比較久、比較不容易嘴饞、血糖穩定、脂肪比較不容易囤積</b>。這也是為什麼我們一直強調要少吃精緻糖、精緻澱粉——它們大多是高 GI 的。</p>
+    <div class="key"><b>記住：</b>低GI讓你飽得久、不容易餓、血糖穩、脂肪較不易囤積。高GI則容易讓你很快又餓、想亂吃。</div>
+  </div>
+
+  <div class="card">
+    <span class="topic-tag">清單・低GI食物有哪些</span>
+    <h2>常見的低 GI 食物</h2>
+    <div class="pick">
+      <div class="cat">🍚 主食（用這些換掉白飯白麵）</div>
+      <div class="items">糙米、五穀米、紫米、燕麥、地瓜、全麥麵包、蕎麥麵、義大利麵</div>
+      <div class="cat">🥦 蔬菜（幾乎都是低GI）</div>
+      <div class="items">綠色蔬菜、花椰菜、菇類、番茄、大部分的葉菜類</div>
+      <div class="cat">🫘 蛋白質與豆類</div>
+      <div class="items">豆腐、豆類、雞蛋、魚肉、雞胸肉（蛋白質本身幾乎不升血糖）</div>
+      <div class="cat">🍎 水果（挑不要太甜、太熟的）</div>
+      <div class="items">蘋果、芭樂、奇異果、莓果、小番茄（西瓜、鳳梨等較甜的GI偏高，適量就好）</div>
+    </div>
+    <div class="key"><b>記住：</b>主食把白飯白麵換成糙米五穀地瓜；蔬菜幾乎都低GI；水果挑不太甜的。這就是低GI的方向。</div>
+  </div>
+
+  <div class="card">
+    <span class="topic-tag">誠實・別誤會了</span>
+    <h2>但低 GI 不是「吃越多越好」</h2>
+    <p>這點很重要，我一定要老實跟你說：<b>低 GI ≠ 低熱量，也不代表可以無限吃。</b></p>
+    <p>有些食物雖然是低 GI，但熱量很高——像<b>花生、堅果、培根</b>，因為含油脂、消化慢，所以 GI 低，可是熱量驚人，吃多一樣胖。而且<b>再低 GI 的主食，吃太多份量，總碳水一樣會讓血糖上升、熱量超標</b>。</p>
+    <p>所以正確的觀念是：<b>低 GI 是「選擇的方向」，但份量控制、總熱量還是根本。</b>把「選低 GI」和「控制份量」一起做，才是真的有效。是不是又回到我們一直說的——沒有魔法，但把對的習慣一個一個疊起來，就很有力量。</p>
+    <div class="key"><b>記住：</b>低GI不等於低熱量、不能無限吃（堅果培根就是低GI高熱量）。低GI是方向，份量和總熱量才是根本。</div>
+
+    <div class="qa">
+      <div class="qq">Q：那有沒有簡單的方法，讓一餐變得比較低GI？</div>
+      <div>有幾個小訣竅：一是<b>把白飯換成糙米、地瓜</b>；二是<b>先吃菜和蛋白質、最後才吃飯</b>（還記得Day1嗎？順序能延緩血糖上升）；三是<b>吃原型、少加工</b>，例如吃水果不要打成汁、吃糙米不要煮成粥（煮太爛GI會變高）；四是<b>搭配蛋白質和纖維一起吃</b>，也能延緩血糖波動。這些小動作加起來，效果就很明顯。</div>
+    </div>
+  </div>
+
+  <div class="quiz-intro">
+    <div class="t">來做個小測驗 ✏️</div>
+    <div class="s">看完今天的內容，試試看你懂了多少<br>共 6 題，全部選擇題</div>
+  </div>
+
+  <div class="namebox">
+    <label>先填上你的名字（讓教練知道是誰交的功課）</label>
+    <input type="text" id="studentName" placeholder="請輸入你的名字">
+  </div>
+
+  <div id="quiz"></div>
+  <button class="btn gold" id="submitBtn" onclick="grade()">交卷看分數</button>
+
+  <div class="result" id="result">
+    <div class="score-big" id="scoreBig">0 分</div>
+    <div class="score-sub" id="scoreSub"></div>
+    <div class="comment" id="comment"></div>
+    <div class="copybox" id="copybox"></div>
+    <button class="btn" style="margin-top:16px;" onclick="copyResult()">📋 複製成績</button>
+    <div class="hint">複製後，貼到 LINE 傳給教練就完成囉！</div>
+  </div>
+
+  <footer>
+    Day 13・低GI的重要性<br>
+    <span class="sign">OK，我們一起努力！</span>
+  </footer>
+</div>
+
+<script>
+const questions = [
+  {q:"GI（升糖指數）指的是什麼？",opts:["食物的熱量","食物吃下去讓血糖上升的『速度』","食物的價格","食物的重量"],ans:1,exp:"GI是升糖指數，指一種食物吃下去後讓血糖上升的速度有多快。高GI快、低GI慢。"},
+  {q:"吃「高GI」食物，血糖會如何變化？",opts:["緩緩上升平穩","快速飆高又快速掉下來，很快又餓","完全不變","一直下降"],ans:1,exp:"高GI食物讓血糖像坐雲霄飛車一樣暴衝暴跌，血糖掉下來後很快又餓、特別想吃東西。"},
+  {q:"低GI對減重的好處是？",opts:["可以無限吃","飽得比較久、不容易餓、血糖穩、脂肪較不易囤積","讓人變胖","沒有好處"],ans:1,exp:"低GI血糖平穩，飽足感維持較久，比較不會一下就餓、不會亂吃，脂肪也較不易囤積。"},
+  {q:"下列哪組是低GI主食的好選擇？",opts:["白飯、白麵包、甜點","糙米、五穀米、地瓜、燕麥","蛋糕、披薩","含糖飲料"],ans:1,exp:"把白飯白麵換成糙米、五穀米、紫米、地瓜、燕麥等，就是低GI的方向。"},
+  {q:"關於低GI，下列何者正確？",opts:["低GI就是低熱量，可以無限吃","低GI不等於低熱量，堅果培根就是低GI但高熱量，份量仍要控制","低GI食物沒有熱量","低GI越多越好"],ans:1,exp:"低GI不等於低熱量。花生、堅果、培根是低GI卻高熱量。低GI是方向，份量和總熱量才是根本。"},
+  {q:"讓一餐變得比較低GI的方法，下列何者正確？",opts:["把飯煮成粥比較好","先吃菜和蛋白質、最後吃飯，並選原型少加工","水果打成汁喝","白飯加量"],ans:1,exp:"先吃菜和蛋白質最後吃飯能延緩血糖；吃原型少加工（水果別打汁、糙米別煮太爛）；搭配蛋白質纖維一起吃。"}
+];
+let selected = Array(questions.length).fill(null);
+let graded = false;
+const quizEl = document.getElementById('quiz');
+questions.forEach(function(item, qi){
+  const qDiv = document.createElement('div');
+  qDiv.className = 'q';
+  let html = '<div class="qnum">第 ' + (qi+1) + ' 題</div><div class="qtext">' + item.q + '</div>';
+  item.opts.forEach(function(opt, oi){
+    html += '<label class="opt" id="opt-' + qi + '-' + oi + '" onclick="pick(' + qi + ',' + oi + ')">' + opt + '</label>';
+  });
+  html += '<div class="explain" id="exp-' + qi + '"></div>';
+  qDiv.innerHTML = html;
+  quizEl.appendChild(qDiv);
+});
+function pick(qi, oi){
+  if(graded) return;
+  selected[qi] = oi;
+  for(let o=0;o<questions[qi].opts.length;o++){
+    document.getElementById('opt-' + qi + '-' + o).classList.remove('selected');
+  }
+  document.getElementById('opt-' + qi + '-' + oi).classList.add('selected');
+}
+function grade(){
+  const name = document.getElementById('studentName').value.trim();
+  if(!name){ alert("請先填上你的名字喔！"); document.getElementById('studentName').focus(); return; }
+  for(let i=0;i<questions.length;i++){
+    if(selected[i]===null){ alert('第 ' + (i+1) + ' 題還沒作答喔！');
+      document.getElementById('opt-' + i + '-0').scrollIntoView({behavior:'smooth',block:'center'}); return; }
+  }
+  graded = true;
+  let correct = 0;
+  questions.forEach(function(item, qi){
+    const chosen = selected[qi];
+    if(chosen === item.ans){ correct++; document.getElementById('opt-' + qi + '-' + chosen).classList.add('correct'); }
+    else { document.getElementById('opt-' + qi + '-' + chosen).classList.add('wrong');
+      document.getElementById('opt-' + qi + '-' + item.ans).classList.add('correct'); }
+    const exp = document.getElementById('exp-' + qi);
+    exp.innerHTML = '<b>解說：</b>' + item.exp; exp.classList.add('show');
+  });
+  const studentScore = Math.round(correct / questions.length * 100);
+  document.getElementById('submitBtn').style.display = 'none';
+  document.getElementById('scoreBig').textContent = studentScore + " 分";
+  document.getElementById('scoreSub').textContent = '答對 ' + correct + ' / ' + questions.length + ' 題';
+  let comment = "";
+  if(studentScore === 100) comment = "太棒了！低GI的觀念你完全懂了 👏";
+  else if(studentScore >= 80) comment = "很好！大部分都懂了，錯的地方看一下解說就更完整囉。";
+  else if(studentScore >= 60) comment = "不錯～有幾題再回去看看，觀念會更清楚。";
+  else comment = "沒關係！把上面的解說再看一次，教練會陪你一起弄懂。";
+  document.getElementById('comment').textContent = comment;
+  const today = new Date();
+  const dateStr = today.getFullYear() + '/' + (today.getMonth()+1) + '/' + today.getDate();
+  const copyText =
+'【好好吃飯也能瘦・Day 13 測驗成績】\n' +
+'姓名：' + name + '\n' +
+'日期：' + dateStr + '\n' +
+'主題：低GI的重要性\n' +
+'分數：' + studentScore + ' 分（答對 ' + correct + '/' + questions.length + ' 題）\n' +
+'—— 我完成今天的功課囉！';
+  document.getElementById('copybox').textContent = copyText;
+  window._copyText = copyText;
+  document.getElementById('result').classList.add('show');
+  document.getElementById('result').scrollIntoView({behavior:'smooth', block:'start'});
+}
+function copyResult(){
+  const text = window._copyText || "";
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(function(){ alert("成績已複製！貼到 LINE 傳給教練就完成囉 😊"); }).catch(function(){fallbackCopy(text);});
+  } else { fallbackCopy(text); }
+}
+function fallbackCopy(text){
+  const ta = document.createElement('textarea');
+  ta.value = text; document.body.appendChild(ta); ta.select();
+  try{ document.execCommand('copy'); alert("成績已複製！貼到 LINE 傳給教練就完成囉 😊"); }
+  catch(e){ alert("請長按上方成績文字手動複製~"); }
+  document.body.removeChild(ta);
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>減重陪伴・Day 15</title>
+<meta property="og:title" content="減重陪伴・Day 15｜情緒一來就想爆食，怎麼辦？">
+<meta property="og:description" content="心情不好就想大吃？這不是你不夠自律。認識情緒性進食，學會溫柔地應對它。">
+<meta property="og:image" content="https://rachelfu728.github.io/fit21-home/day15-a.png">
+<meta property="og:type" content="article">
+<style>
+  :root{
+    --gold:#C9A24B; --gold-soft:#E4CE9A;
+    --beige:#FBF6EC; --beige-deep:#F3EAD6;
+    --green:#A9C6A0; --green-deep:#7FA574;
+    --ink:#4A4438; --ink-soft:#6E6656; --white:#FFFDF8;
+    --wrong:#C97B6B; --warm:#E0A96D;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:"PingFang TC","Microsoft JhengHei","Noto Sans TC",sans-serif;
+    background:var(--beige);color:var(--ink);line-height:1.9;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:640px;margin:0 auto;padding:0 18px 60px;}
+  header{text-align:center;padding:44px 20px 22px;}
+  header .kicker{font-size:13px;letter-spacing:1.5px;color:var(--green-deep);margin-bottom:10px;}
+  header h1{font-size:24px;font-weight:700;letter-spacing:1px;}
+  header .day-no{display:inline-block;background:var(--gold);color:var(--white);
+    font-size:14px;padding:4px 16px;border-radius:20px;margin-bottom:14px;letter-spacing:1px;}
+  header .addr{font-size:12.5px;color:var(--ink-soft);margin-top:12px;line-height:1.6;}
+  header .line{width:52px;height:3px;background:var(--gold);margin:16px auto 0;border-radius:2px;}
+  .card{background:var(--white);border-radius:16px;padding:26px 24px;margin-bottom:20px;
+    box-shadow:0 2px 12px rgba(160,140,90,.08);border:1px solid var(--beige-deep);}
+  .card h2{font-size:19px;color:var(--ink);margin-bottom:6px;}
+  .card .topic-tag{display:inline-block;font-size:12px;padding:3px 12px;border-radius:20px;
+    background:var(--gold);color:var(--white);margin-bottom:14px;}
+  .card .topic-tag.heart{background:var(--warm);}
+  .card p{font-size:15.5px;margin-bottom:12px;}
+  .card p:last-child{margin-bottom:0;}
+  .key{background:var(--beige);border-left:4px solid var(--green);border-radius:8px;
+    padding:12px 16px;margin-top:14px;font-size:14.5px;color:var(--ink-soft);}
+  .key b{color:var(--green-deep);}
+  .comic-img{width:100%;border-radius:12px;margin:16px 0 4px;display:block;
+    box-shadow:0 2px 10px rgba(160,140,90,.15);}
+  .compare{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap;}
+  .compare .col{flex:1;min-width:150px;border-radius:10px;padding:14px;}
+  .compare .col.body{background:#EAF3E6;}
+  .compare .col.mind{background:#F5EDE0;}
+  .compare .col .h{font-weight:700;margin-bottom:6px;}
+  .compare .col.body .h{color:var(--green-deep);}
+  .compare .col.mind .h{color:var(--warm);}
+  .compare .col .d{font-size:13.5px;color:var(--ink-soft);}
+  .steps{margin-top:8px;}
+  .steps .s{display:flex;gap:12px;margin-bottom:12px;align-items:flex-start;}
+  .steps .s .n{flex:0 0 auto;width:28px;height:28px;border-radius:50%;background:var(--gold);
+    color:var(--white);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;}
+  .steps .s .txt{font-size:15px;}
+  .steps .s .txt b{color:var(--green-deep);}
+  .qa{background:#F5F0E4;border-radius:10px;padding:14px 16px;margin-top:14px;font-size:14.5px;}
+  .qa .qq{font-weight:700;color:var(--gold);margin-bottom:4px;}
+  .quiz-intro{text-align:center;margin:36px 0 18px;}
+  .quiz-intro .t{font-size:20px;font-weight:700;color:var(--green-deep);}
+  .quiz-intro .s{font-size:14px;color:var(--ink-soft);margin-top:6px;}
+  .namebox{background:var(--white);border-radius:14px;padding:18px 20px;margin-bottom:16px;border:1px solid var(--beige-deep);}
+  .namebox label{font-size:14px;color:var(--ink-soft);display:block;margin-bottom:8px;}
+  .namebox input{width:100%;padding:12px 14px;border:2px solid var(--beige-deep);border-radius:10px;font-size:16px;font-family:inherit;color:var(--ink);}
+  .namebox input:focus{outline:none;border-color:var(--gold);}
+  .q{background:var(--white);border-radius:14px;padding:22px 20px;margin-bottom:16px;border:1px solid var(--beige-deep);}
+  .q .qnum{font-size:13px;color:var(--gold);font-weight:700;margin-bottom:6px;}
+  .q .qtext{font-size:16px;font-weight:600;margin-bottom:14px;}
+  .opt{display:block;background:var(--beige);border:2px solid transparent;border-radius:10px;padding:12px 15px;margin-bottom:10px;font-size:15px;cursor:pointer;transition:.15s;}
+  .opt:hover{border-color:var(--gold-soft);}
+  .opt.selected{border-color:var(--gold);background:var(--beige-deep);}
+  .opt.correct{border-color:var(--green-deep);background:#EAF3E6;}
+  .opt.wrong{border-color:var(--wrong);background:#F7E9E5;}
+  .explain{font-size:14px;color:var(--ink-soft);margin-top:8px;padding:10px 14px;background:var(--beige);border-radius:8px;display:none;}
+  .explain.show{display:block;}
+  .explain b{color:var(--green-deep);}
+  .btn{display:block;width:100%;background:var(--green-deep);color:var(--white);border:none;font-size:17px;font-weight:700;padding:16px;border-radius:12px;cursor:pointer;margin-top:8px;font-family:inherit;letter-spacing:1px;}
+  .btn:hover{background:#6f9265;}
+  .btn.gold{background:var(--gold);}
+  .btn.gold:hover{background:#b8923f;}
+  .result{display:none;background:var(--white);border-radius:16px;padding:28px 24px;margin-top:24px;border:2px solid var(--gold);text-align:center;}
+  .result.show{display:block;}
+  .result .score-big{font-size:44px;font-weight:800;color:var(--gold);line-height:1;}
+  .result .score-sub{font-size:15px;color:var(--ink-soft);margin-top:8px;}
+  .result .comment{font-size:16px;margin-top:16px;color:var(--ink);}
+  .copybox{background:var(--beige);border:1px dashed var(--gold-soft);border-radius:10px;padding:14px;margin-top:18px;font-size:14px;text-align:left;white-space:pre-line;color:var(--ink);}
+  .hint{font-size:13px;color:var(--ink-soft);margin-top:10px;}
+  footer{text-align:center;margin-top:30px;color:var(--ink-soft);font-size:14px;}
+  footer .sign{color:var(--green-deep);font-weight:700;margin-top:6px;font-size:16px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="kicker">好好吃飯也能瘦・第三階段・正確觀念</div>
+    <div class="day-no">Day 15 / 21</div>
+    <h1>情緒一來就想爆食，怎麼辦？</h1>
+    <div class="addr">🏠 遇見喜樂營養俱樂部<br>台中市北區進化北路367-6號　大衛營商場一樓</div>
+    <div class="line"></div>
+  </header>
+
+  <!-- ★漫畫提示(給ChatGPT生圖用):女生坐在沙發上,情緒有點低落地看著一堆零食,表情是「我又想吃了」的無奈但不誇張;旁邊小貓咪溫柔地依偎著她、像在安慰。溫暖、有同理、不批判、不醜化。柔和的金米綠加暖橘色調、圓潤可愛畫風、標語「好好吃飯也能瘦」。 -->
+  <div class="card">
+    <span class="topic-tag heart">心理・你不是不夠自律</span>
+    <h2>心情不好就想大吃，這很正常</h2>
+    <img class="comic-img" src="https://rachelfu728.github.io/fit21-home/day15-a.png" alt="情緒性進食插畫">
+    <p>你有沒有過這種經驗——明明不餓，但心情不好、壓力大、或覺得很累的時候，就是很想吃東西，而且特別想吃甜的、鹹的、炸的？吃的當下好像有被安慰到，吃完卻又懊惱自責…</p>
+    <p>先跟你說一句重要的話：<b>這不是你不夠自律，也不是你意志力差。</b>「用食物安慰情緒」是人類很自然的反應——食物確實會讓大腦短暫地覺得舒服。所以請先別責怪自己。認識它、學會溫柔地應對它，比自責有用一百倍。</p>
+    <div class="key"><b>先放下自責：</b>情緒性進食很正常，不是你的錯。認識它、溫柔應對，比責怪自己有用得多。</div>
+  </div>
+
+  <div class="card">
+    <span class="topic-tag">第一步・辨別</span>
+    <h2>先分清楚：是「身體餓」還是「心在餓」？</h2>
+    <p>應對情緒性進食的第一步，是<b>學會分辨</b>——你現在是真的餓，還是情緒想吃？這兩種「餓」其實不一樣：</p>
+    <div class="compare">
+      <div class="col body">
+        <div class="h">🫃 身體的餓（生理）</div>
+        <div class="d">慢慢出現、肚子會咕嚕叫、吃什麼都可以、吃飽了就會停、吃完覺得滿足。</div>
+      </div>
+      <div class="col mind">
+        <div class="h">💭 心在餓（情緒）</div>
+        <div class="d">突然出現、很急迫、特別想吃某種（甜/炸/鹹）、吃飽了還想吃、吃完常有罪惡感。</div>
+      </div>
+    </div>
+    <p style="margin-top:14px;">下次想吃東西時，先停三秒問自己：「我是肚子餓，還是心情想吃？」光是這個「停下來問一下」的動作，就能幫你把「自動反應」變成「有意識的選擇」。</p>
+    <div class="key"><b>記住：</b>身體的餓是慢慢來、吃飽會停；情緒的餓是突然來、指定想吃某種、吃完會自責。先分清楚，是應對的第一步。</div>
+  </div>
+
+  <div class="card">
+    <span class="topic-tag">第二步・替代</span>
+    <h2>如果是「心在餓」，可以這樣做</h2>
+    <p>如果發現自己是情緒想吃，不是身體餓，試試這些「替代方法」——用別的方式安撫情緒，而不是食物：</p>
+    <div class="steps">
+      <div class="s"><div class="n">1</div><div class="txt"><b>先喝一杯水、等 10 分鐘：</b>給情緒一點時間過去。很多時候那股衝動會自己消退。</div></div>
+      <div class="s"><div class="n">2</div><div class="txt"><b>做幾次深呼吸：</b>還記得我們的呼吸練習嗎？情緒上來時，跟著圓圈深呼吸幾次，能幫身體從緊繃切回平靜。<br><a href="https://rachelfu728.github.io/fit21-home/breathing.html" style="display:inline-block;margin-top:8px;background:#7FA574;color:#fff;text-decoration:none;font-size:14px;font-weight:700;padding:9px 20px;border-radius:20px;">🌿 現在就去做呼吸練習</a></div></div>
+      <div class="s"><div class="n">3</div><div class="txt"><b>換個動作轉移：</b>出去走走、聽首歌、洗個澡、打給朋友聊聊。讓自己離開「食物的場景」。</div></div>
+      <div class="s"><div class="n">4</div><div class="txt"><b>找出情緒的源頭：</b>問自己「我現在是不是累了/煩了/委屈了？」看見情緒本身，比用食物蓋住它更能真正解決。</div></div>
+    </div>
+    <div class="key"><b>記住：</b>心在餓時，用別的方式安撫——喝水等一下、深呼吸、轉移注意力、看見情緒本身。食物填不滿情緒的洞。</div>
+  </div>
+
+  <div class="card">
+    <span class="topic-tag">第三步・溫柔</span>
+    <h2>就算真的吃了，也請溫柔對待自己</h2>
+    <p>最重要的一點：<b>如果你還是吃了，請不要陷入「自責→更難過→又想吃」的惡性循環。</b>那個循環，比吃下去的食物傷害更大。</p>
+    <p>吃了就吃了，深呼吸，告訴自己「沒關係，我只是需要安慰，下次我可以試試別的方式」。然後回到正常的節奏就好。<b>對自己溫柔，不是放縱，而是讓你更有力氣繼續走下去。</b>（還記得你可能是 Day 14 測到的「療癒系人格」嗎？認識自己，就是改變的開始。）</p>
+    <div class="key"><b>記住：</b>吃了別自責，自責的循環比食物更傷。溫柔地告訴自己「下次試試別的方式」，然後回到正軌。</div>
+
+    <div class="qa">
+      <div class="qq">💛 一個溫柔的提醒</div>
+      <div>如果你發現情緒性進食已經很頻繁、很難control，或伴隨著長期的低落、焦慮，甚至有暴食後催吐等狀況——這可能不只是習慣問題，而是需要專業幫忙的訊號。<b>這時候請務必尋求身心科醫師或心理師的協助</b>，那不是軟弱，是很勇敢、很愛自己的決定。我能陪你的是飲食和陪伴，但專業的心理健康，要交給專業的人，我會支持你去。</div>
+    </div>
+  </div>
+
+  <div class="quiz-intro">
+    <div class="t">來做個小測驗 ✏️</div>
+    <div class="s">看完今天的內容，試試看你懂了多少<br>共 5 題，全部選擇題</div>
+  </div>
+
+  <div class="namebox">
+    <label>先填上你的名字（讓教練知道是誰交的功課）</label>
+    <input type="text" id="studentName" placeholder="請輸入你的名字">
+  </div>
+
+  <div id="quiz"></div>
+  <button class="btn gold" id="submitBtn" onclick="grade()">交卷看分數</button>
+
+  <div class="result" id="result">
+    <div class="score-big" id="scoreBig">0 分</div>
+    <div class="score-sub" id="scoreSub"></div>
+    <div class="comment" id="comment"></div>
+    <div class="copybox" id="copybox"></div>
+    <button class="btn" style="margin-top:16px;" onclick="copyResult()">📋 複製成績</button>
+    <div class="hint">複製後，貼到 LINE 傳給教練就完成囉！</div>
+  </div>
+
+  <footer>
+    Day 15・情緒性爆食怎麼辦<br>
+    <span class="sign">OK，我們一起努力！</span>
+  </footer>
+</div>
+
+<script>
+const questions = [
+  {q:"心情不好就想大吃，代表什麼？",opts:["你不夠自律、意志力差","這是人類很自然的反應，不是你的錯","你註定瘦不下來","你很貪吃"],ans:1,exp:"用食物安慰情緒是人類自然的反應，食物會讓大腦短暫覺得舒服。這不是不自律，先別責怪自己。"},
+  {q:"「身體的餓」有什麼特徵？",opts:["突然出現、指定想吃某種","慢慢出現、肚子咕嚕叫、吃飽會停","吃完有罪惡感","越吃越想吃"],ans:1,exp:"身體的餓是慢慢出現、肚子會叫、吃什麼都行、吃飽就停、吃完滿足。這是生理性的餓。"},
+  {q:"「情緒的餓」有什麼特徵？",opts:["慢慢出現、吃飽會停","突然又急迫、特別想吃某種、吃完常自責","吃什麼都可以","很少發生"],ans:1,exp:"情緒的餓是突然、急迫、指定想吃甜炸鹹、吃飽了還想吃、吃完有罪惡感。分清楚是應對第一步。"},
+  {q:"發現是「情緒想吃」時，可以怎麼做？",opts:["馬上大吃","喝水等10分鐘、深呼吸、轉移注意力、看見情緒","強迫自己完全不吃","責怪自己"],ans:1,exp:"用別的方式安撫情緒：喝水等一下、深呼吸（呼吸練習）、出去走走轉移、找出情緒源頭。食物填不滿情緒的洞。"},
+  {q:"如果真的還是吃了，最好的態度是？",opts:["狠狠自責一整天","溫柔告訴自己沒關係、下次試別的方式，回到正軌","從此放棄減重","懲罰自己不吃"],ans:1,exp:"自責→難過→又想吃的循環比食物更傷。溫柔對待自己不是放縱，而是讓你更有力氣走下去。"}
+];
+let selected = Array(questions.length).fill(null);
+let graded = false;
+const quizEl = document.getElementById('quiz');
+questions.forEach(function(item, qi){
+  const qDiv = document.createElement('div');
+  qDiv.className = 'q';
+  let html = '<div class="qnum">第 ' + (qi+1) + ' 題</div><div class="qtext">' + item.q + '</div>';
+  item.opts.forEach(function(opt, oi){
+    html += '<label class="opt" id="opt-' + qi + '-' + oi + '" onclick="pick(' + qi + ',' + oi + ')">' + opt + '</label>';
+  });
+  html += '<div class="explain" id="exp-' + qi + '"></div>';
+  qDiv.innerHTML = html;
+  quizEl.appendChild(qDiv);
+});
+function pick(qi, oi){
+  if(graded) return;
+  selected[qi] = oi;
+  for(let o=0;o<questions[qi].opts.length;o++){
+    document.getElementById('opt-' + qi + '-' + o).classList.remove('selected');
+  }
+  document.getElementById('opt-' + qi + '-' + oi).classList.add('selected');
+}
+function grade(){
+  const name = document.getElementById('studentName').value.trim();
+  if(!name){ alert("請先填上你的名字喔！"); document.getElementById('studentName').focus(); return; }
+  for(let i=0;i<questions.length;i++){
+    if(selected[i]===null){ alert('第 ' + (i+1) + ' 題還沒作答喔！');
+      document.getElementById('opt-' + i + '-0').scrollIntoView({behavior:'smooth',block:'center'}); return; }
+  }
+  graded = true;
+  let correct = 0;
+  questions.forEach(function(item, qi){
+    const chosen = selected[qi];
+    if(chosen === item.ans){ correct++; document.getElementById('opt-' + qi + '-' + chosen).classList.add('correct'); }
+    else { document.getElementById('opt-' + qi + '-' + chosen).classList.add('wrong');
+      document.getElementById('opt-' + qi + '-' + item.ans).classList.add('correct'); }
+    const exp = document.getElementById('exp-' + qi);
+    exp.innerHTML = '<b>解說：</b>' + item.exp; exp.classList.add('show');
+  });
+  const studentScore = Math.round(correct / questions.length * 100);
+  document.getElementById('submitBtn').style.display = 'none';
+  document.getElementById('scoreBig').textContent = studentScore + " 分";
+  document.getElementById('scoreSub').textContent = '答對 ' + correct + ' / ' + questions.length + ' 題';
+  let comment = "";
+  if(studentScore === 100) comment = "太棒了！你已經很懂怎麼溫柔地應對情緒了 👏";
+  else if(studentScore >= 80) comment = "很好！大部分都懂了，錯的地方看一下解說就更完整囉。";
+  else if(studentScore >= 60) comment = "不錯～有幾題再回去看看，記得對自己溫柔。";
+  else comment = "沒關係！把上面的內容再看一次，你正在學著更愛自己。";
+  document.getElementById('comment').textContent = comment;
+  const today = new Date();
+  const dateStr = today.getFullYear() + '/' + (today.getMonth()+1) + '/' + today.getDate();
+  const copyText =
+'【好好吃飯也能瘦・Day 15 測驗成績】\n' +
+'姓名：' + name + '\n' +
+'日期：' + dateStr + '\n' +
+'主題：情緒性爆食怎麼辦\n' +
+'分數：' + studentScore + ' 分（答對 ' + correct + '/' + questions.length + ' 題）\n' +
+'—— 我完成今天的功課囉！';
+  document.getElementById('copybox').textContent = copyText;
+  window._copyText = copyText;
+  document.getElementById('result').classList.add('show');
+  document.getElementById('result').scrollIntoView({behavior:'smooth', block:'start'});
+}
+function copyResult(){
+  const text = window._copyText || "";
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(function(){ alert("成績已複製！貼到 LINE 傳給教練就完成囉 😊"); }).catch(function(){fallbackCopy(text);});
+  } else { fallbackCopy(text); }
+}
+function fallbackCopy(text){
+  const ta = document.createElement('textarea');
+  ta.value = text; document.body.appendChild(ta); ta.select();
+  try{ document.execCommand('copy'); alert("成績已複製！貼到 LINE 傳給教練就完成囉 😊"); }
+  catch(e){ alert("請長按上方成績文字手動複製~"); }
+  document.body.removeChild(ta);
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>減重陪伴・Day 10</title>
+<meta property="og:title" content="減重陪伴・Day 10｜心態決定體態">
+<meta property="og:description" content="減重到最後，拼的其實是心態。三個讓你走得長久的心態，還有一個給自己的小對話。">
+<meta property="og:image" content="https://rachelfu728.github.io/fit21-home/day10-a.png">
+<meta property="og:type" content="article">
+<style>
+  :root{
+    --gold:#C9A24B; --gold-soft:#E4CE9A;
+    --beige:#FBF6EC; --beige-deep:#F3EAD6;
+    --green:#A9C6A0; --green-deep:#7FA574;
+    --ink:#4A4438; --ink-soft:#6E6656; --white:#FFFDF8;
+    --wrong:#C97B6B; --warm:#E0A96D;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:"PingFang TC","Microsoft JhengHei","Noto Sans TC",sans-serif;
+    background:var(--beige);color:var(--ink);line-height:1.9;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:640px;margin:0 auto;padding:0 18px 60px;}
+  header{text-align:center;padding:44px 20px 26px;}
+  header .kicker{font-size:13px;letter-spacing:1.5px;color:var(--green-deep);margin-bottom:10px;}
+  header h1{font-size:24px;font-weight:700;letter-spacing:1px;}
+  header .day-no{display:inline-block;background:var(--gold);color:var(--white);
+    font-size:14px;padding:4px 16px;border-radius:20px;margin-bottom:14px;letter-spacing:1px;}
+  header .line{width:52px;height:3px;background:var(--gold);margin:18px auto 0;border-radius:2px;}
+  .card{background:var(--white);border-radius:16px;padding:26px 24px;margin-bottom:20px;
+    box-shadow:0 2px 12px rgba(160,140,90,.08);border:1px solid var(--beige-deep);}
+  .card h2{font-size:19px;color:var(--ink);margin-bottom:6px;}
+  .card .topic-tag{display:inline-block;font-size:12px;padding:3px 12px;border-radius:20px;
+    background:var(--gold);color:var(--white);margin-bottom:14px;}
+  .card p{font-size:15.5px;margin-bottom:12px;}
+  .card p:last-child{margin-bottom:0;}
+  .key{background:var(--beige);border-left:4px solid var(--green);border-radius:8px;
+    padding:12px 16px;margin-top:14px;font-size:14.5px;color:var(--ink-soft);}
+  .key b{color:var(--green-deep);}
+  .comic-img{width:100%;border-radius:12px;margin:16px 0 4px;display:block;
+    box-shadow:0 2px 10px rgba(160,140,90,.15);}
+  .mind{border-radius:14px;padding:20px 22px;margin-bottom:16px;}
+  .mind.m1{background:linear-gradient(145deg,#FBF0E0,#F5E4CC);}
+  .mind.m2{background:linear-gradient(145deg,#EAF3E6,#DDEBD6);}
+  .mind.m3{background:linear-gradient(145deg,#F3EAD6,#EADCC0);}
+  .mind .num{font-size:13px;color:var(--warm);font-weight:700;letter-spacing:1px;}
+  .mind h3{font-size:17px;color:var(--ink);margin:2px 0 8px;}
+  .mind p{font-size:15px;margin-bottom:8px;}
+  .mind .vs{font-size:14px;color:var(--ink-soft);background:var(--white);border-radius:8px;padding:10px 12px;margin-top:8px;}
+  .mind .vs .bad{color:var(--wrong);}
+  .mind .vs .good{color:var(--green-deep);}
+
+  /* 自我對話互動 */
+  .mirror{background:linear-gradient(145deg,#8B7BA8,#6E5F8A);color:var(--white);border-radius:16px;padding:26px 24px;margin-bottom:20px;text-align:center;}
+  .mirror .t{font-size:18px;font-weight:700;margin-bottom:6px;}
+  .mirror .d{font-size:14px;opacity:.9;margin-bottom:16px;}
+  .mirror-btn{display:block;width:100%;background:var(--white);color:#6E5F8A;border:none;
+    font-size:15px;font-weight:700;padding:13px;border-radius:12px;cursor:pointer;margin-bottom:10px;font-family:inherit;}
+  .mirror-btn:hover{background:#f0ebf7;}
+  .mirror-reply{display:none;background:rgba(255,255,255,.15);border-radius:12px;padding:16px;margin-top:8px;font-size:15px;line-height:1.8;}
+  .mirror-reply.show{display:block;}
+
+  .qa{background:#F5F0E4;border-radius:10px;padding:14px 16px;margin-top:14px;font-size:14.5px;}
+  .qa .qq{font-weight:700;color:var(--gold);margin-bottom:4px;}
+  .quiz-intro{text-align:center;margin:36px 0 18px;}
+  .quiz-intro .t{font-size:20px;font-weight:700;color:var(--green-deep);}
+  .quiz-intro .s{font-size:14px;color:var(--ink-soft);margin-top:6px;}
+  .namebox{background:var(--white);border-radius:14px;padding:18px 20px;margin-bottom:16px;border:1px solid var(--beige-deep);}
+  .namebox label{font-size:14px;color:var(--ink-soft);display:block;margin-bottom:8px;}
+  .namebox input{width:100%;padding:12px 14px;border:2px solid var(--beige-deep);border-radius:10px;font-size:16px;font-family:inherit;color:var(--ink);}
+  .namebox input:focus{outline:none;border-color:var(--gold);}
+  .q{background:var(--white);border-radius:14px;padding:22px 20px;margin-bottom:16px;border:1px solid var(--beige-deep);}
+  .q .qnum{font-size:13px;color:var(--gold);font-weight:700;margin-bottom:6px;}
+  .q .qtext{font-size:16px;font-weight:600;margin-bottom:14px;}
+  .opt{display:block;background:var(--beige);border:2px solid transparent;border-radius:10px;padding:12px 15px;margin-bottom:10px;font-size:15px;cursor:pointer;transition:.15s;}
+  .opt:hover{border-color:var(--gold-soft);}
+  .opt.selected{border-color:var(--gold);background:var(--beige-deep);}
+  .opt.correct{border-color:var(--green-deep);background:#EAF3E6;}
+  .opt.wrong{border-color:var(--wrong);background:#F7E9E5;}
+  .explain{font-size:14px;color:var(--ink-soft);margin-top:8px;padding:10px 14px;background:var(--beige);border-radius:8px;display:none;}
+  .explain.show{display:block;}
+  .explain b{color:var(--green-deep);}
+  .btn{display:block;width:100%;background:var(--green-deep);color:var(--white);border:none;font-size:17px;font-weight:700;padding:16px;border-radius:12px;cursor:pointer;margin-top:8px;font-family:inherit;letter-spacing:1px;}
+  .btn:hover{background:#6f9265;}
+  .btn.gold{background:var(--gold);}
+  .btn.gold:hover{background:#b8923f;}
+  .result{display:none;background:var(--white);border-radius:16px;padding:28px 24px;margin-top:24px;border:2px solid var(--gold);text-align:center;}
+  .result.show{display:block;}
+  .result .score-big{font-size:44px;font-weight:800;color:var(--gold);line-height:1;}
+  .result .score-sub{font-size:15px;color:var(--ink-soft);margin-top:8px;}
+  .result .comment{font-size:16px;margin-top:16px;color:var(--ink);}
+  .copybox{background:var(--beige);border:1px dashed var(--gold-soft);border-radius:10px;padding:14px;margin-top:18px;font-size:14px;text-align:left;white-space:pre-line;color:var(--ink);}
+  .hint{font-size:13px;color:var(--ink-soft);margin-top:10px;}
+  footer{text-align:center;margin-top:30px;color:var(--ink-soft);font-size:14px;}
+  footer .sign{color:var(--green-deep);font-weight:700;margin-top:6px;font-size:16px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="kicker">好好吃飯也能瘦・第二階段・正確觀念</div>
+    <div class="day-no">Day 10 / 21</div>
+    <h1>心態決定體態</h1>
+    <div class="line"></div>
+  </header>
+
+  <!-- ★漫畫提示(給ChatGPT生圖用):女生溫柔地抱抱自己、對著鏡子微笑,鏡子裡的自己也回以溫暖的笑,胸口有一顆柔和發光的小愛心,小貓咪依偎在腳邊。溫暖、療癒、有自我接納的感覺。金米綠加一點柔紫色、圓潤可愛畫風、標語「好好吃飯也能瘦」。 -->
+  <div class="card">
+    <span class="topic-tag">開場・走到一半了</span>
+    <h2>減重到最後，拼的是心態</h2>
+    <img class="comic-img" src="https://rachelfu728.github.io/fit21-home/day10-a.png" alt="心態決定體態插畫">
+    <p>我們已經聊了好多知識——菜肉飯、蛋白質、喝水、睡眠、體脂……。但你知道嗎？走到最後，決定一個人能不能瘦下來、又不復胖的，常常<b>不是知識，而是心態</b>。</p>
+    <p>同樣的方法，有人做三天就放棄，有人能走一輩子，差別就在心裡怎麼想。今天不講知識，我們來聊三個<b>能讓你走得長久</b>的心態。這三個，比任何一個減肥技巧都重要。</p>
+    <div class="key"><b>今天的主題：</b>心態決定體態。三個心態，陪你走得比別人遠。</div>
+  </div>
+
+  <div class="mind m1">
+    <div class="num">心態 1</div>
+    <h3>🌱 不求完美，別因一餐就放棄</h3>
+    <p>減重路上一定會有破功的時候——聚餐、喜宴、心情不好大吃一頓。這很正常。真正讓人失敗的，從來不是那一餐，而是那句「反正都破了，乾脆算了」。</p>
+    <div class="vs">
+      <span class="bad">✗ 完美主義：</span>一破功就自責、就放棄整個計畫<br>
+      <span class="good">✓ 容錯心態：</span>這餐吃多了，下一餐回到正軌就好
+    </div>
+  </div>
+
+  <div class="mind m2">
+    <div class="num">心態 2</div>
+    <h3>💛 把減重當成「愛自己」，不是「懲罰自己」</h3>
+    <p>如果你減重的心情，是「我好糟、我好胖、我要懲罰自己」，那過程會很痛苦、也很難持久。但如果換個角度——「我在照顧自己、我值得更健康、更有活力的身體」，你會發現同樣的努力，心情完全不一樣。</p>
+    <div class="vs">
+      <span class="bad">✗ 懲罰心態：</span>因為討厭自己，所以逼自己瘦<br>
+      <span class="good">✓ 愛自己：</span>因為珍惜自己，所以想對身體更好
+    </div>
+  </div>
+
+  <div class="mind m3">
+    <div class="num">心態 3</div>
+    <h3>🪞 不跟別人比，跟過去的自己比</h3>
+    <p>看別人瘦得快而焦慮，只會消耗自己。每個人的身體、生活、起點都不一樣。真正有意義的比較，是「今天的你」和「一個月前的你」——你比以前更會照顧自己了嗎？更了解自己的身體了嗎？只要方向往前，快一點慢一點都沒關係。</p>
+    <div class="vs">
+      <span class="bad">✗ 跟別人比：</span>為什麼她瘦這麼快、我好失敗<br>
+      <span class="good">✓ 跟自己比：</span>我比上個月的自己，又進步了一點
+    </div>
+  </div>
+
+  <!-- 自我對話互動 -->
+  <div class="mirror">
+    <div class="t">🪞 給自己一句話</div>
+    <div class="d">選一個你最近的心情，看看想對自己說什麼</div>
+    <button class="mirror-btn" onclick="showReply(0)">我這週破功了，好懊惱…</button>
+    <button class="mirror-btn" onclick="showReply(1)">我覺得自己瘦得好慢…</button>
+    <button class="mirror-btn" onclick="showReply(2)">我有點累，想放棄了…</button>
+    <button class="mirror-btn" onclick="showReply(3)">我今天做得不錯！</button>
+    <div class="mirror-reply" id="mReply"></div>
+  </div>
+
+  <div class="card">
+    <span class="topic-tag">小結</span>
+    <h2>你的心，決定你走多遠</h2>
+    <p>身材是結果，心態是根。當你學會<b>對自己溫柔、允許不完美、用愛而不是恨來對待自己</b>，減重就不再是一場跟自己的戰爭，而是一段照顧自己的旅程。這樣的你，才走得長久、也才不容易復胖。</p>
+    <p>而且你並不孤單——這條路上，有我陪著你。走得慢沒關係，我們一起，慢慢走。</p>
+    <div class="key"><b>記住：</b>身材是結果，心態是根。對自己溫柔、允許不完美、用愛對待自己，你就能走得又穩又遠。</div>
+
+    <div class="qa">
+      <div class="qq">Q：道理我都懂，但就是很容易對自己生氣，怎麼辦？</div>
+      <div>先別急，能「察覺」自己在對自己生氣，就已經是改變的開始了。下次發現自己在自責時，試著像對待好朋友那樣對自己說話——你不會罵朋友「你怎麼這麼糟」，你會說「沒關係，明天再來」。對自己，也值得這樣的溫柔。這需要練習，我會陪你慢慢來。</div>
+    </div>
+  </div>
+
+  <div class="quiz-intro">
+    <div class="t">來做個小測驗 ✏️</div>
+    <div class="s">看完今天的內容，試試看你懂了多少<br>共 5 題，全部選擇題</div>
+  </div>
+
+  <div class="namebox">
+    <label>先填上你的名字（讓教練知道是誰交的功課）</label>
+    <input type="text" id="studentName" placeholder="請輸入你的名字">
+  </div>
+
+  <div id="quiz"></div>
+  <button class="btn gold" id="submitBtn" onclick="grade()">交卷看分數</button>
+
+  <div class="result" id="result">
+    <div class="score-big" id="scoreBig">0 分</div>
+    <div class="score-sub" id="scoreSub"></div>
+    <div class="comment" id="comment"></div>
+    <div class="copybox" id="copybox"></div>
+    <button class="btn" style="margin-top:16px;" onclick="copyResult()">📋 複製成績</button>
+    <div class="hint">複製後，貼到 LINE 傳給教練就完成囉！</div>
+  </div>
+
+  <footer>
+    Day 10・心態決定體態<br>
+    <span class="sign">OK，我們一起努力！</span>
+  </footer>
+</div>
+
+<script>
+const replies = [
+  "破功一餐，不會毀掉你的努力。真正重要的是「下一餐」——回到正軌就好。你已經做得很好了，別對自己太嚴厲。💛",
+  "瘦得慢，代表你在用「能長久」的方式，而不是傷身的極端法。慢，才不容易復胖。你走的每一步都算數。🌱",
+  "會累是正常的，代表你一直在努力。累的時候不用逼自己，休息一下沒關係，明天再繼續。我會一直陪著你。🤗",
+  "太棒了！記得這個好心情，也記得誇獎自己。每一個「今天做得不錯」，累積起來就是你的改變。為你開心！🎉"
+];
+function showReply(i){
+  const el = document.getElementById('mReply');
+  el.textContent = replies[i];
+  el.classList.add('show');
+}
+
+const questions = [
+  {q:"減重破功了一餐，最好的心態是？",opts:["乾脆放棄整個計畫","下一餐回到正軌就好，別因一餐否定自己","懲罰自己一整天不吃","從此不再減重"],ans:1,exp:"真正讓人失敗的不是那一餐，而是「反正都破了乾脆算了」。一餐吃多，下一餐回正軌即可。"},
+  {q:"用哪種心態減重比較能持久？",opts:["因為討厭自己所以逼自己瘦","把減重當成愛自己、照顧自己","為了跟別人比","為了懲罰自己"],ans:1,exp:"用「愛自己、珍惜自己」的心態，比用「討厭、懲罰」持久得多，過程也快樂得多。"},
+  {q:"最有意義的比較對象是？",opts:["瘦得比你快的別人","過去的自己","電視上的明星","完全不用比"],ans:1,exp:"每個人起點不同，跟別人比只會消耗自己。跟過去的自己比，只要方向往前就是進步。"},
+  {q:"當你發現自己在自責時，可以怎麼做？",opts:["繼續罵自己","像對待好朋友那樣，溫柔地對自己說話","假裝沒事","放棄"],ans:1,exp:"你不會罵朋友『你怎麼這麼糟』，你會說『沒關係，明天再來』。對自己也值得這樣的溫柔。"},
+  {q:"這一課的核心是？",opts:["心態不重要","身材是結果，心態是根，對自己溫柔才走得遠","越嚴格越好","要跟別人比才有動力"],ans:1,exp:"身材是結果、心態是根。對自己溫柔、允許不完美、用愛對待自己，才能走得又穩又遠、不易復胖。"}
+];
+let selected = Array(questions.length).fill(null);
+let graded = false;
+const quizEl = document.getElementById('quiz');
+questions.forEach((item, qi) => {
+  const qDiv = document.createElement('div');
+  qDiv.className = 'q';
+  let html = `<div class="qnum">第 ${qi+1} 題</div><div class="qtext">${item.q}</div>`;
+  item.opts.forEach((opt, oi) => {
+    html += `<label class="opt" id="opt-${qi}-${oi}" onclick="pick(${qi},${oi})">${opt}</label>`;
+  });
+  html += `<div class="explain" id="exp-${qi}"></div>`;
+  qDiv.innerHTML = html;
+  quizEl.appendChild(qDiv);
+});
+function pick(qi, oi){
+  if(graded) return;
+  selected[qi] = oi;
+  for(let o=0;o<questions[qi].opts.length;o++){
+    document.getElementById(`opt-${qi}-${o}`).classList.remove('selected');
+  }
+  document.getElementById(`opt-${qi}-${oi}`).classList.add('selected');
+}
+function grade(){
+  const name = document.getElementById('studentName').value.trim();
+  if(!name){ alert("請先填上你的名字喔！"); document.getElementById('studentName').focus(); return; }
+  for(let i=0;i<questions.length;i++){
+    if(selected[i]===null){ alert(`第 ${i+1} 題還沒作答喔！`);
+      document.getElementById(`opt-${i}-0`).scrollIntoView({behavior:'smooth',block:'center'}); return; }
+  }
+  graded = true;
+  let correct = 0;
+  questions.forEach((item, qi) => {
+    const chosen = selected[qi];
+    if(chosen === item.ans){ correct++; document.getElementById(`opt-${qi}-${chosen}`).classList.add('correct'); }
+    else { document.getElementById(`opt-${qi}-${chosen}`).classList.add('wrong');
+      document.getElementById(`opt-${qi}-${item.ans}`).classList.add('correct'); }
+    const exp = document.getElementById(`exp-${qi}`);
+    exp.innerHTML = `<b>解說：</b>${item.exp}`; exp.classList.add('show');
+  });
+  const studentScore = Math.round(correct / questions.length * 100);
+  document.getElementById('submitBtn').style.display = 'none';
+  document.getElementById('scoreBig').textContent = studentScore + " 分";
+  document.getElementById('scoreSub').textContent = `答對 ${correct} / ${questions.length} 題`;
+  let comment = "";
+  if(studentScore === 100) comment = "太棒了！你不只懂知識，也懂了最重要的心態 👏";
+  else if(studentScore >= 80) comment = "很好！你抓到了心態的重點，繼續保持這份溫柔。";
+  else if(studentScore >= 60) comment = "不錯～有幾題再回去看看，對自己溫柔一點喔。";
+  else comment = "沒關係！把上面的內容再看一次，記得——對自己溫柔，就是最好的開始。";
+  document.getElementById('comment').textContent = comment;
+  const today = new Date();
+  const dateStr = `${today.getFullYear()}/${today.getMonth()+1}/${today.getDate()}`;
+  const copyText =
+`【好好吃飯也能瘦・Day 10 測驗成績】
+姓名：${name}
+日期：${dateStr}
+主題：心態決定體態
+分數：${studentScore} 分（答對 ${correct}/${questions.length} 題）
+—— 我完成今天的功課囉！`;
+  document.getElementById('copybox').textContent = copyText;
+  window._copyText = copyText;
+  document.getElementById('result').classList.add('show');
+  document.getElementById('result').scrollIntoView({behavior:'smooth', block:'start'});
+}
+function copyResult(){
+  const text = window._copyText || "";
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(()=>{ alert("成績已複製！貼到 LINE 傳給教練就完成囉 😊"); }).catch(()=>fallbackCopy(text));
+  } else { fallbackCopy(text); }
+}
+function fallbackCopy(text){
+  const ta = document.createElement('textarea');
+  ta.value = text; document.body.appendChild(ta); ta.select();
+  try{ document.execCommand('copy'); alert("成績已複製！貼到 LINE 傳給教練就完成囉 😊"); }
+  catch(e){ alert("請長按上方成績文字手動複製~"); }
+  document.body.removeChild(ta);
+}
+</script>
+</body>
+</html>

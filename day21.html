@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>減重陪伴・Day 21</title>
+<meta property="og:title" content="減重陪伴・Day 21｜恭喜你，第一階段畢業了！">
+<meta property="og:description" content="21天，你做到了！來個總複習，還有專屬你的畢業抽獎轉盤，轉出你的小禮物 🎁">
+<meta property="og:image" content="https://rachelfu728.github.io/fit21-home/day21-a.png">
+<meta property="og:type" content="article">
+<style>
+  :root{
+    --gold:#C9A24B; --gold-soft:#E4CE9A;
+    --beige:#FBF6EC; --beige-deep:#F3EAD6;
+    --green:#A9C6A0; --green-deep:#7FA574;
+    --ink:#4A4438; --ink-soft:#6E6656; --white:#FFFDF8;
+    --wrong:#C97B6B; --pink:#D99BA5;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:"PingFang TC","Microsoft JhengHei","Noto Sans TC",sans-serif;
+    background:var(--beige);color:var(--ink);line-height:1.9;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:640px;margin:0 auto;padding:0 18px 60px;}
+  header{text-align:center;padding:44px 20px 22px;}
+  header .kicker{font-size:13px;letter-spacing:1.5px;color:var(--green-deep);margin-bottom:10px;}
+  header h1{font-size:24px;font-weight:700;letter-spacing:1px;}
+  header .day-no{display:inline-block;background:linear-gradient(135deg,var(--gold),#e0b95e);color:var(--white);
+    font-size:14px;padding:4px 16px;border-radius:20px;margin-bottom:14px;letter-spacing:1px;}
+  header .addr{font-size:12.5px;color:var(--ink-soft);margin-top:12px;line-height:1.6;}
+  header .line{width:52px;height:3px;background:var(--gold);margin:16px auto 0;border-radius:2px;}
+  .comic-img{width:100%;border-radius:12px;margin:6px 0 20px;display:block;
+    box-shadow:0 2px 10px rgba(160,140,90,.15);}
+  .celebrate{background:linear-gradient(145deg,#7FA574,#6b8f61);color:var(--white);
+    border-radius:18px;padding:30px 24px;margin-bottom:22px;text-align:center;}
+  .celebrate .big{font-size:26px;font-weight:800;margin-bottom:10px;}
+  .celebrate .d{font-size:15.5px;opacity:.96;line-height:1.9;}
+  .card{background:var(--white);border-radius:16px;padding:26px 24px;margin-bottom:20px;
+    box-shadow:0 2px 12px rgba(160,140,90,.08);border:1px solid var(--beige-deep);}
+  .card h2{font-size:19px;color:var(--ink);margin-bottom:10px;}
+  .card .topic-tag{display:inline-block;font-size:12px;padding:3px 12px;border-radius:20px;
+    background:var(--gold);color:var(--white);margin-bottom:14px;}
+  .card p{font-size:15.5px;margin-bottom:12px;}
+  .card p:last-child{margin-bottom:0;}
+  .key{background:var(--beige);border-left:4px solid var(--green);border-radius:8px;
+    padding:12px 16px;margin-top:14px;font-size:14.5px;color:var(--ink-soft);}
+  .key b{color:var(--green-deep);}
+  .recap{margin-top:8px;}
+  .recap .r{display:flex;gap:10px;margin-bottom:9px;align-items:flex-start;font-size:14.5px;}
+  .recap .r .ic{flex:0 0 auto;}
+  .recap .r b{color:var(--green-deep);}
+
+  /* 測驗 */
+  .quiz-intro{text-align:center;margin:30px 0 18px;}
+  .quiz-intro .t{font-size:20px;font-weight:700;color:var(--green-deep);}
+  .quiz-intro .s{font-size:14px;color:var(--ink-soft);margin-top:6px;}
+  .q{background:var(--white);border-radius:14px;padding:22px 20px;margin-bottom:16px;border:1px solid var(--beige-deep);}
+  .q .qnum{font-size:13px;color:var(--gold);font-weight:700;margin-bottom:6px;}
+  .q .qtext{font-size:16px;font-weight:600;margin-bottom:14px;}
+  .opt{display:block;background:var(--beige);border:2px solid transparent;border-radius:10px;padding:12px 15px;margin-bottom:10px;font-size:15px;cursor:pointer;transition:.15s;}
+  .opt:hover{border-color:var(--gold-soft);}
+  .opt.selected{border-color:var(--gold);background:var(--beige-deep);}
+  .opt.correct{border-color:var(--green-deep);background:#EAF3E6;}
+  .opt.wrong{border-color:var(--wrong);background:#F7E9E5;}
+  .explain{font-size:14px;color:var(--ink-soft);margin-top:8px;padding:10px 14px;background:var(--beige);border-radius:8px;display:none;}
+  .explain.show{display:block;}
+  .explain b{color:var(--green-deep);}
+  .qbtn{display:block;width:100%;background:var(--gold);color:var(--white);border:none;font-size:17px;font-weight:700;padding:16px;border-radius:12px;cursor:pointer;margin-top:8px;font-family:inherit;letter-spacing:1px;}
+  .qbtn:hover{background:#b8923f;}
+  .quiz-result{display:none;background:var(--white);border-radius:16px;padding:24px;margin-top:20px;border:2px solid var(--green);text-align:center;}
+  .quiz-result.show{display:block;}
+  .quiz-result .sc{font-size:38px;font-weight:800;color:var(--green-deep);}
+  .quiz-result .cm{font-size:15px;color:var(--ink);margin-top:8px;}
+
+  /* 畢業證書 */
+  .cert-section{margin-bottom:22px;}
+  .cert-intro{text-align:center;margin-bottom:14px;}
+  .cert-intro .t{font-size:19px;font-weight:800;color:var(--gold);}
+  .cert-intro .s{font-size:14px;color:var(--ink-soft);margin-top:4px;}
+  .cert-namebox{background:var(--white);border-radius:14px;padding:16px 18px;margin:0 auto 16px;border:1px solid var(--beige-deep);max-width:360px;text-align:center;}
+  .cert-namebox label{font-size:14px;color:var(--ink-soft);display:block;margin-bottom:8px;}
+  .cert-namebox input{width:100%;padding:12px 14px;border:2px solid var(--beige-deep);border-radius:10px;font-size:16px;font-family:inherit;color:var(--ink);text-align:center;}
+  .cert-namebox input:focus{outline:none;border-color:var(--gold);}
+  .cert-namebox button{margin-top:12px;background:var(--gold);color:#fff;border:none;font-size:15px;font-weight:700;padding:11px 30px;border-radius:22px;cursor:pointer;font-family:inherit;}
+  .certificate{display:none;background:linear-gradient(160deg,#FFFEFA,#FBF3E2);
+    border:3px double var(--gold);border-radius:14px;padding:34px 26px;text-align:center;position:relative;
+    box-shadow:0 4px 20px rgba(160,140,90,.2);}
+  .certificate.show{display:block;animation:pop .5s ease;}
+  .certificate .corner{position:absolute;font-size:20px;color:var(--gold-soft);}
+  .certificate .c1{top:10px;left:12px;} .certificate .c2{top:10px;right:12px;}
+  .certificate .c3{bottom:10px;left:12px;} .certificate .c4{bottom:10px;right:12px;}
+  .certificate .seal{font-size:34px;margin-bottom:6px;}
+  .certificate .brand{font-size:15px;color:var(--green-deep);font-weight:700;letter-spacing:1px;margin-bottom:4px;}
+  .certificate .cert-title{font-size:26px;font-weight:800;color:var(--gold);letter-spacing:4px;margin:6px 0 4px;}
+  .certificate .cert-en{font-size:12px;color:var(--ink-soft);letter-spacing:2px;margin-bottom:20px;}
+  .certificate .cert-body{font-size:15px;color:var(--ink);line-height:2.2;}
+  .certificate .cert-name{display:inline-block;font-size:26px;font-weight:800;color:var(--green-deep);
+    border-bottom:2px solid var(--gold-soft);padding:0 24px 2px;margin:0 4px;}
+  .certificate .cert-course{font-size:19px;font-weight:800;color:var(--gold);letter-spacing:2px;margin:2px 0;}
+  .certificate .cert-foot{margin-top:22px;padding-top:16px;border-top:1px dashed var(--gold-soft);
+    font-size:13.5px;color:var(--ink-soft);line-height:1.9;}
+  .certificate .cert-foot .issuer{font-weight:700;color:var(--ink);font-size:15px;}
+  .cert-hint{font-size:13px;color:var(--ink-soft);text-align:center;margin-top:12px;}
+
+  /* Step2 預告 */
+  .next-step{background:linear-gradient(135deg,#8B7BA8,#6E5F8A);color:var(--white);
+    border-radius:18px;padding:28px 24px;margin-bottom:22px;text-align:center;}
+  .next-step .badge{display:inline-block;background:rgba(255,255,255,.2);font-size:13px;
+    padding:4px 14px;border-radius:20px;margin-bottom:10px;letter-spacing:1px;}
+  .next-step .t{font-size:22px;font-weight:800;margin-bottom:10px;}
+  .next-step .d{font-size:15px;opacity:.95;line-height:1.9;}
+
+  /* 轉盤 */
+  .wheel-zone{background:linear-gradient(160deg,#FBF0E0,#F5E4CC);border-radius:20px;
+    padding:30px 20px 34px;margin-bottom:22px;text-align:center;}
+  .wheel-title{font-size:20px;font-weight:800;color:var(--gold);margin-bottom:4px;}
+  .wheel-sub{font-size:14px;color:var(--ink-soft);margin-bottom:20px;}
+  .wheel-wrap{position:relative;width:280px;height:280px;margin:0 auto 20px;}
+  .wheel-pointer{position:absolute;top:-6px;left:50%;transform:translateX(-50%);
+    width:0;height:0;border-left:16px solid transparent;border-right:16px solid transparent;
+    border-top:26px solid var(--wrong);z-index:5;filter:drop-shadow(0 2px 2px rgba(0,0,0,.2));}
+  #wheel{width:280px;height:280px;border-radius:50%;border:8px solid var(--white);
+    box-shadow:0 4px 20px rgba(160,140,90,.3);transition:transform 4.5s cubic-bezier(.17,.67,.2,1);}
+  .spin-btn{background:linear-gradient(135deg,var(--gold),#d4a94f);color:var(--white);border:none;
+    font-size:18px;font-weight:800;padding:15px 44px;border-radius:28px;cursor:pointer;font-family:inherit;
+    letter-spacing:2px;box-shadow:0 4px 14px rgba(201,162,75,.4);}
+  .spin-btn:hover{filter:brightness(1.05);}
+  .spin-btn:disabled{background:#C9C4B8;cursor:not-allowed;box-shadow:none;}
+  .prize-result{display:none;background:var(--white);border-radius:16px;padding:26px 22px;margin-top:20px;border:2px solid var(--gold);}
+  .prize-result.show{display:block;animation:pop .5s ease;}
+  @keyframes pop{0%{transform:scale(.8);opacity:0;}100%{transform:scale(1);opacity:1;}}
+  .prize-result .congrats{font-size:16px;color:var(--ink-soft);}
+  .prize-result .prize{font-size:24px;font-weight:800;color:var(--gold);margin:8px 0;}
+  .prize-result .redeem{background:var(--beige);border-radius:10px;padding:14px;margin-top:14px;font-size:14px;color:var(--ink);}
+  .prize-result .redeem b{color:var(--green-deep);}
+  .namebox{background:var(--white);border-radius:14px;padding:18px 20px;margin:0 auto 16px;border:1px solid var(--beige-deep);max-width:360px;}
+  .namebox label{font-size:14px;color:var(--ink-soft);display:block;margin-bottom:8px;}
+  .namebox input{width:100%;padding:12px 14px;border:2px solid var(--beige-deep);border-radius:10px;font-size:16px;font-family:inherit;color:var(--ink);}
+  .namebox input:focus{outline:none;border-color:var(--gold);}
+  .copybox{background:var(--beige);border:1px dashed var(--gold-soft);border-radius:10px;padding:14px;margin-top:14px;font-size:14px;text-align:left;white-space:pre-line;color:var(--ink);}
+  .copy-btn{display:block;width:100%;background:var(--green-deep);color:var(--white);border:none;font-size:16px;font-weight:700;padding:14px;border-radius:12px;cursor:pointer;margin-top:14px;font-family:inherit;}
+  footer{text-align:center;margin-top:30px;color:var(--ink-soft);font-size:14px;}
+  footer .sign{color:var(--green-deep);font-weight:700;margin-top:6px;font-size:16px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="kicker">好好吃飯也能瘦・第一階段・畢業日 🎓</div>
+    <div class="day-no">Day 21 / 21</div>
+    <h1>恭喜你，畢業了！</h1>
+    <div class="addr">🏠 遇見喜樂營養俱樂部<br>台中市北區進化北路367-6號　大衛營商場一樓</div>
+    <div class="line"></div>
+  </header>
+
+  <!-- ★漫畫提示(給ChatGPT生圖用):女生戴著畢業帽、開心地張開雙手慶祝,周圍有彩帶、彩色紙花、星星,散發成就感和喜悅;小貓咪也戴著小畢業帽在旁邊一起慶祝。歡樂、溫暖、有成就感、慶祝氛圍。金米綠加一點喜慶色彩、圓潤可愛畫風、標語「好好吃飯也能瘦」。 -->
+  <img class="comic-img" src="https://rachelfu728.github.io/fit21-home/day21-a.png" alt="21天畢業慶祝插畫">
+
+  <div class="celebrate">
+    <div class="big">🎉 你完成 21 天了！</div>
+    <div class="d">整整三個星期，你沒有放棄，一路走到了這裡。<br>這份堅持與對自己的用心，<br>真的很不容易。為自己好好驕傲一下吧！</div>
+  </div>
+
+  <div class="card">
+    <span class="topic-tag">回顧・這一路你走了多遠</span>
+    <h2>21 天，你已經學會這麼多</h2>
+    <p>還記得剛開始的自己嗎？短短 21 天，你已經把這些變成了自己的知識：</p>
+    <div class="recap">
+      <div class="r"><span class="ic">🍽️</span><div><b>吃的智慧：</b>菜肉飯順序、蛋白質的重要、低GI、抗性澱粉、別空腹吃麵</div></div>
+      <div class="r"><span class="ic">💧</span><div><b>好習慣：</b>喝夠水、睡飽的重要、量腰圍看健康</div></div>
+      <div class="r"><span class="ic">🧠</span><div><b>身體知識：</b>體脂、荷爾蒙、關節保養、減重三關鍵</div></div>
+      <div class="r"><span class="ic">💛</span><div><b>心的力量：</b>心態決定體態、情緒性進食、對自己溫柔</div></div>
+      <div class="r"><span class="ic">🎯</span><div><b>實戰技巧：</b>聚餐生存術、超商攻略、聰明選零食</div></div>
+    </div>
+    <div class="key"><b>看見了嗎？</b>你已經不是 21 天前的你了。這些知識和習慣，會陪你一輩子、讓你不再被體重綁架。</div>
+  </div>
+
+  <div class="card">
+    <span class="topic-tag">最重要的一句話</span>
+    <h2>這不是結束，是新生活的開始</h2>
+    <p>我要告訴你一個重要的觀念：<b>這 21 天不是「一個任務」，而是「一種生活方式的開始」。</b>你學到的這些，不是為了 21 天，而是為了往後的每一天。</p>
+    <p>減重從來不是短跑衝刺，而是一場你和自己的溫柔長跑。會有進步、也會有停滯；會有堅持、偶爾也會破功——這些都很正常。重要的是，你已經有了正確的觀念和方法，剩下的，就是<b>把它們活成習慣</b>。</p>
+    <p>而且別忘了——<b>這條路上，你從來不是一個人。我一直都在，會繼續陪著你走下去。</b>💛</p>
+    <div class="key"><b>記住：</b>21天是開始，不是結束。把學到的活成習慣，溫柔而堅定地走下去。你不孤單，教練一直都在。</div>
+  </div>
+
+  <div class="quiz-intro">
+    <div class="t">📝 21 天總複習測驗</div>
+    <div class="s">來驗收一下這 21 天的成果吧！<br>共 6 題，全部選擇題</div>
+  </div>
+
+  <div id="quiz"></div>
+  <button class="qbtn" id="submitBtn" onclick="grade()">交卷看成果</button>
+
+  <div class="quiz-result" id="quizResult">
+    <div class="sc" id="quizScore">0 分</div>
+    <div class="cm" id="quizComment"></div>
+  </div>
+
+  <div class="cert-section">
+    <div class="cert-intro">
+      <div class="t">🎓 領取你的專屬畢業證書</div>
+      <div class="s">填上你的名字，領取這份紀念，記得截圖保存喔！</div>
+    </div>
+    <div class="cert-namebox">
+      <label>你的名字</label>
+      <input type="text" id="certName" placeholder="請輸入你的名字">
+      <button onclick="makeCert()">✨ 生成我的畢業證書</button>
+    </div>
+    <div class="certificate" id="certificate">
+      <span class="corner c1">❁</span><span class="corner c2">❁</span>
+      <span class="corner c3">❁</span><span class="corner c4">❁</span>
+      <div class="seal">🏅</div>
+      <div class="brand">遇見喜樂營養俱樂部</div>
+      <div class="cert-title">畢業證書</div>
+      <div class="cert-en">CERTIFICATE OF COMPLETION</div>
+      <div class="cert-body">
+        茲證明<br>
+        <span class="cert-name" id="certNameShow">　　　　</span><br>
+        已圓滿完成<br>
+        <span class="cert-course">Fit21 Step 1・二十一天課程</span><br>
+        在健康飲食與體重管理的路上，<br>邁出了紮實而美好的第一步 🌿
+      </div>
+      <div class="cert-foot">
+        <div class="issuer">遇見喜樂營養俱樂部</div>
+        <div id="certDate"></div>
+        <div>台中市北區進化北路367-6號　大衛營商場一樓</div>
+      </div>
+    </div>
+    <div class="cert-hint" id="certHint" style="display:none;">📸 長按或截圖，把這份證書保存下來吧！</div>
+    <div style="display:none;background:linear-gradient(135deg,#C9A24B,#d4a94f);color:#fff;border-radius:14px;padding:20px 22px;margin-top:16px;text-align:center;" id="collectBox">
+      <div style="font-size:17px;font-weight:800;margin-bottom:8px;">🏆 蒐集三張證書，換「蛻變大禮」</div>
+      <div style="font-size:14.5px;line-height:1.9;opacity:.97;">請務必<b>保存好這張畢業證書的截圖</b>！<br>當你集滿 <b>Step 1、Step 2、Step 3</b> 三張畢業證書，<br>就能獲得專屬的「<b>蛻變大禮</b>」🎁<br>這是送給堅持完成蛻變的你，最珍貴的禮物。</div>
+    </div>
+  </div>
+
+  <!-- Fit21 Step 2 預告 -->
+  <div class="next-step">
+    <div class="badge">COMING SOON</div>
+    <div class="t">🚀 敬請期待 Fit21 Step 2</div>
+    <div class="d">第一階段幫你打好了「正確觀念」的地基，<br>接下來的 <b>Fit21 Step 2</b> 會帶你走得更深、更遠——<br>把觀念變成穩穩的生活習慣，讓成果更持久。<br>準備好了嗎？我們下一階段見！💪</div>
+  </div>
+
+  <!-- 抽獎轉盤 -->
+  <div class="wheel-zone">
+    <div class="wheel-title">🎁 畢業禮物抽獎</div>
+    <div class="wheel-sub">完成 21 天的你，值得一份禮物！<br>先填名字，按下轉盤抽出你的專屬好禮（限抽一次）</div>
+
+    <div class="namebox">
+      <label>你的名字</label>
+      <input type="text" id="studentName" placeholder="請輸入你的名字">
+    </div>
+
+    <div class="wheel-wrap">
+      <div class="wheel-pointer"></div>
+      <svg id="wheel" viewBox="0 0 200 200">
+        <!-- 三等分,每份120度。扇形 -->
+        <path d="M100,100 L100,0 A100,100 0 0,1 186.6,150 Z" fill="#D99BA5"/>
+        <path d="M100,100 L186.6,150 A100,100 0 0,1 13.4,150 Z" fill="#A9C6A0"/>
+        <path d="M100,100 L13.4,150 A100,100 0 0,1 100,0 Z" fill="#E4CE9A"/>
+        <!-- 文字 -->
+        <text x="135" y="60" font-size="11" font-weight="bold" fill="#fff" text-anchor="middle" transform="rotate(60 135 60)">保濕面膜</text>
+        <text x="100" y="170" font-size="11" font-weight="bold" fill="#fff" text-anchor="middle">蘆薈凝露</text>
+        <text x="65" y="60" font-size="11" font-weight="bold" fill="#7a6a3a" text-anchor="middle" transform="rotate(-60 65 60)">蘆薈洗髮乳</text>
+        <circle cx="100" cy="100" r="14" fill="#fff" stroke="#C9A24B" stroke-width="3"/>
+      </svg>
+    </div>
+
+    <button class="spin-btn" id="spinBtn" onclick="spin()">🎡 開始抽獎</button>
+
+    <div class="prize-result" id="prizeResult">
+      <div class="congrats">🎊 恭喜你抽中</div>
+      <div class="prize" id="prizeName">—</div>
+      <div class="redeem">
+        <b>怎麼領取：</b>把下面的畫面截圖，或複製這段文字傳給教練，並<b>親自來店裡領取</b>你的畢業禮物！<br>🏠 遇見喜樂營養俱樂部（進化北路367-6號 大衛營商場一樓）
+      </div>
+      <div class="copybox" id="copybox"></div>
+      <button class="copy-btn" onclick="copyResult()">📋 複製兌獎訊息</button>
+    </div>
+  </div>
+
+  <footer>
+    Day 21・第一階段畢業 🎓<br>
+    <span class="sign">謝謝你的堅持，我們繼續一起努力！</span>
+  </footer>
+</div>
+
+<script>
+// ===== 畢業證書 =====
+function makeCert(){
+  const name = document.getElementById('certName').value.trim();
+  if(!name){ alert("先填上你的名字，才能生成證書喔！"); document.getElementById('certName').focus(); return; }
+  document.getElementById('certNameShow').textContent = name;
+  const today = new Date();
+  const dateStr = '中華民國 ' + (today.getFullYear()-1911) + ' 年 ' + (today.getMonth()+1) + ' 月 ' + today.getDate() + ' 日';
+  document.getElementById('certDate').textContent = dateStr;
+  document.getElementById('certificate').classList.add('show');
+  document.getElementById('certHint').style.display = 'block';
+  document.getElementById('collectBox').style.display = 'block';
+  document.getElementById('certificate').scrollIntoView({behavior:'smooth', block:'center'});
+}
+
+// ===== 21天總複習測驗 =====
+const questions = [
+  {q:"吃飯的順序，怎麼吃血糖比較穩、也比較不容易胖？",opts:["先吃飯麵","先蔬菜、再蛋白質、最後才吃飯麵","先吃甜點","隨便吃"],ans:1,exp:"先菜、先肉（蛋白質）、最後才吃飯麵，有飽足感、血糖也平穩。這是Day1的核心。"},
+  {q:"關於體脂和體重，正確的是？",opts:["只看體重就好","體脂比體重更能反映胖不胖和健康，腰圍也是好指標","體脂不重要","越瘦越好"],ans:1,exp:"體重看不出脂肪多少，體脂和腰圍更能反映真正的健康與外型。"},
+  {q:"睡不夠會怎樣影響體重？",opts:["完全沒影響","讓飢餓素上升、瘦體素下降，更容易餓、想吃","會變瘦","只影響精神"],ans:1,exp:"睡眠不足會讓「想吃」的飢餓素上升、「喊停」的瘦體素下降，更容易吃過量。"},
+  {q:"聚餐或吃多了一餐，最好的心態是？",opts:["乾脆放棄減重","隔天回到正軌就好，一餐不會前功盡棄","狠狠自責","從此不聚餐"],ans:1,exp:"一餐不會毀掉努力，別陷入自責循環。隔天回到正常節奏就好，減重看長期。"},
+  {q:"健康減重的三個關鍵是？",opts:["只靠少吃","熱量差、荷爾蒙、均衡營養，缺一不可","只靠運動","只吃保健品"],ans:1,exp:"健康減重靠熱量差、荷爾蒙、均衡營養三個面向一起顧，像三腳凳缺一不可。"},
+  {q:"想讓血糖上升平緩，可以怎麼做？",opts:["空腹先吃麵包","先吃蛋白質蔬菜墊胃、選低GI、把澱粉放涼增加抗性澱粉","多吃精緻糖","只吃白飯"],ans:1,exp:"別空腹吃精緻澱粉，先吃蛋白質蔬菜墊胃、選低GI食物、把澱粉放涼（抗性澱粉），血糖都會更平穩。"}
+];
+let qSelected = Array(questions.length).fill(null);
+let qGraded = false;
+const quizEl = document.getElementById('quiz');
+questions.forEach(function(item, qi){
+  const qDiv = document.createElement('div');
+  qDiv.className = 'q';
+  let html = '<div class="qnum">第 ' + (qi+1) + ' 題</div><div class="qtext">' + item.q + '</div>';
+  item.opts.forEach(function(opt, oi){
+    html += '<label class="opt" id="opt-' + qi + '-' + oi + '" onclick="qpick(' + qi + ',' + oi + ')">' + opt + '</label>';
+  });
+  html += '<div class="explain" id="exp-' + qi + '"></div>';
+  qDiv.innerHTML = html;
+  quizEl.appendChild(qDiv);
+});
+function qpick(qi, oi){
+  if(qGraded) return;
+  qSelected[qi] = oi;
+  for(let o=0;o<questions[qi].opts.length;o++){
+    document.getElementById('opt-' + qi + '-' + o).classList.remove('selected');
+  }
+  document.getElementById('opt-' + qi + '-' + oi).classList.add('selected');
+}
+function grade(){
+  for(let i=0;i<questions.length;i++){
+    if(qSelected[i]===null){ alert('第 ' + (i+1) + ' 題還沒作答喔！');
+      document.getElementById('opt-' + i + '-0').scrollIntoView({behavior:'smooth',block:'center'}); return; }
+  }
+  qGraded = true;
+  let correct = 0;
+  questions.forEach(function(item, qi){
+    const chosen = qSelected[qi];
+    if(chosen === item.ans){ correct++; document.getElementById('opt-' + qi + '-' + chosen).classList.add('correct'); }
+    else { document.getElementById('opt-' + qi + '-' + chosen).classList.add('wrong');
+      document.getElementById('opt-' + qi + '-' + item.ans).classList.add('correct'); }
+    const exp = document.getElementById('exp-' + qi);
+    exp.innerHTML = '<b>解說：</b>' + item.exp; exp.classList.add('show');
+  });
+  const score = Math.round(correct / questions.length * 100);
+  document.getElementById('submitBtn').style.display = 'none';
+  document.getElementById('quizScore').textContent = score + ' 分（答對 ' + correct + '/' + questions.length + '）';
+  let cm = "";
+  if(score === 100) cm = "太完美了！21天的知識你全都掌握了，畢業實至名歸 🎓👏";
+  else if(score >= 80) cm = "很棒！你把大部分觀念都記住了，這些會陪你一輩子 💪";
+  else if(score >= 60) cm = "不錯喔～有幾個地方再複習一下，觀念會更扎實。";
+  else cm = "沒關係！這些內容隨時可以回去看，慢慢就會變成習慣 💛";
+  document.getElementById('quizComment').textContent = cm;
+  document.getElementById('quizResult').classList.add('show');
+  document.getElementById('quizResult').scrollIntoView({behavior:'smooth', block:'center'});
+}
+
+// ===== 抽獎轉盤 =====
+// 面膜扇形中心約60度、凝露約180度、洗髮乳約300度
+// 三個獎項對應轉盤扇形的「中心角度」(從12點鐘方向順時針)
+const prizes = [
+  { name:"保濕面膜一盒", centerDeg:60 },
+  { name:"蘆薈凝露一條", centerDeg:180 },
+  { name:"蘆薈洗髮乳一條", centerDeg:300 }
+];
+let hasSpun = false;
+
+function spin(){
+  const name = document.getElementById('studentName').value.trim();
+  if(!name){ alert("先填上你的名字，才能抽獎喔！"); document.getElementById('studentName').focus(); return; }
+  if(hasSpun) return;
+  hasSpun = true;
+  document.getElementById('spinBtn').disabled = true;
+  document.getElementById('spinBtn').textContent = "抽獎中…";
+
+  // 隨機選一個獎
+  const idx = Math.floor(Math.random() * prizes.length);
+  const prize = prizes[idx];
+
+  // 指針在正上方(12點)。要讓中獎扇形轉到正上方,轉盤要轉的角度 = 360*圈數 + (360 - centerDeg)
+  const spins = 5; // 轉5圈
+  const targetRotation = 360 * spins + (360 - prize.centerDeg);
+
+  const wheel = document.getElementById('wheel');
+  wheel.style.transform = 'rotate(' + targetRotation + 'deg)';
+
+  setTimeout(function(){
+    document.getElementById('prizeName').textContent = prize.name;
+    const today = new Date();
+    const dateStr = today.getFullYear() + '/' + (today.getMonth()+1) + '/' + today.getDate();
+    const copyText =
+'【好好吃飯也能瘦・21天畢業抽獎】\n' +
+'姓名：' + name + '\n' +
+'日期：' + dateStr + '\n' +
+'🎁 抽中獎品：' + prize.name + '\n' +
+'—— 我完成21天了！要來店裡領禮物 😊';
+    document.getElementById('copybox').textContent = copyText;
+    window._copyText = copyText;
+    document.getElementById('prizeResult').classList.add('show');
+    document.getElementById('spinBtn').textContent = "🎉 已完成抽獎";
+    document.getElementById('prizeResult').scrollIntoView({behavior:'smooth', block:'center'});
+  }, 4700);
+}
+function copyResult(){
+  const text = window._copyText || "";
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(function(){ alert("兌獎訊息已複製！貼到 LINE 傳給教練，記得來店裡領獎 😊"); }).catch(function(){fallbackCopy(text);});
+  } else { fallbackCopy(text); }
+}
+function fallbackCopy(text){
+  const ta = document.createElement('textarea');
+  ta.value = text; document.body.appendChild(ta); ta.select();
+  try{ document.execCommand('copy'); alert("兌獎訊息已複製！貼到 LINE 傳給教練 😊"); }
+  catch(e){ alert("請長按上方文字手動複製~"); }
+  document.body.removeChild(ta);
+}
+</script>
+</body>
+</html>

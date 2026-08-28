@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>減重陪伴・Day 20</title>
+<meta property="og:title" content="減重陪伴・Day 20｜GI值進階：抗性澱粉，和為何別空腹吃麵">
+<meta property="og:description" content="同樣是澱粉，吃法不同、血糖差很多！認識抗性澱粉，還有為什麼教練常說『別空腹吃麵包』。">
+<meta property="og:image" content="https://rachelfu728.github.io/fit21-home/day20-a.png">
+<meta property="og:type" content="article">
+<style>
+  :root{
+    --gold:#C9A24B; --gold-soft:#E4CE9A;
+    --beige:#FBF6EC; --beige-deep:#F3EAD6;
+    --green:#A9C6A0; --green-deep:#7FA574;
+    --ink:#4A4438; --ink-soft:#6E6656; --white:#FFFDF8;
+    --wrong:#C97B6B;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:"PingFang TC","Microsoft JhengHei","Noto Sans TC",sans-serif;
+    background:var(--beige);color:var(--ink);line-height:1.9;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:640px;margin:0 auto;padding:0 18px 60px;}
+  header{text-align:center;padding:44px 20px 22px;}
+  header .kicker{font-size:13px;letter-spacing:1.5px;color:var(--green-deep);margin-bottom:10px;}
+  header h1{font-size:22px;font-weight:700;letter-spacing:1px;}
+  header .day-no{display:inline-block;background:var(--gold);color:var(--white);
+    font-size:14px;padding:4px 16px;border-radius:20px;margin-bottom:14px;letter-spacing:1px;}
+  header .addr{font-size:12.5px;color:var(--ink-soft);margin-top:12px;line-height:1.6;}
+  header .line{width:52px;height:3px;background:var(--gold);margin:16px auto 0;border-radius:2px;}
+  .card{background:var(--white);border-radius:16px;padding:26px 24px;margin-bottom:20px;
+    box-shadow:0 2px 12px rgba(160,140,90,.08);border:1px solid var(--beige-deep);}
+  .card h2{font-size:19px;color:var(--ink);margin-bottom:6px;}
+  .card .topic-tag{display:inline-block;font-size:12px;padding:3px 12px;border-radius:20px;
+    background:var(--gold);color:var(--white);margin-bottom:14px;}
+  .card p{font-size:15.5px;margin-bottom:12px;}
+  .card p:last-child{margin-bottom:0;}
+  .key{background:var(--beige);border-left:4px solid var(--green);border-radius:8px;
+    padding:12px 16px;margin-top:14px;font-size:14.5px;color:var(--ink-soft);}
+  .key b{color:var(--green-deep);}
+  .comic-img{width:100%;border-radius:12px;margin:16px 0 4px;display:block;
+    box-shadow:0 2px 10px rgba(160,140,90,.15);}
+  .box{background:linear-gradient(145deg,#EAF3E6,#DDEBD6);border-radius:12px;padding:18px 20px;margin-top:14px;}
+  .box .t{font-weight:700;color:var(--green-deep);margin-bottom:6px;}
+  .box .items{font-size:14.5px;color:var(--ink);}
+  .warnbox{background:#F7E9E5;border-radius:12px;padding:18px 20px;margin-top:14px;}
+  .warnbox .t{font-weight:700;color:var(--wrong);margin-bottom:6px;}
+  .warnbox .d{font-size:14.5px;color:var(--ink);}
+  .steps{margin-top:8px;}
+  .steps .s{display:flex;gap:12px;margin-bottom:12px;align-items:flex-start;}
+  .steps .s .n{flex:0 0 auto;width:28px;height:28px;border-radius:50%;background:var(--gold);
+    color:var(--white);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;}
+  .steps .s .txt{font-size:15px;}
+  .steps .s .txt b{color:var(--green-deep);}
+  .qa{background:#F5F0E4;border-radius:10px;padding:14px 16px;margin-top:14px;font-size:14.5px;}
+  .qa .qq{font-weight:700;color:var(--gold);margin-bottom:4px;}
+  .quiz-intro{text-align:center;margin:36px 0 18px;}
+  .quiz-intro .t{font-size:20px;font-weight:700;color:var(--green-deep);}
+  .quiz-intro .s{font-size:14px;color:var(--ink-soft);margin-top:6px;}
+  .namebox{background:var(--white);border-radius:14px;padding:18px 20px;margin-bottom:16px;border:1px solid var(--beige-deep);}
+  .namebox label{font-size:14px;color:var(--ink-soft);display:block;margin-bottom:8px;}
+  .namebox input{width:100%;padding:12px 14px;border:2px solid var(--beige-deep);border-radius:10px;font-size:16px;font-family:inherit;color:var(--ink);}
+  .namebox input:focus{outline:none;border-color:var(--gold);}
+  .q{background:var(--white);border-radius:14px;padding:22px 20px;margin-bottom:16px;border:1px solid var(--beige-deep);}
+  .q .qnum{font-size:13px;color:var(--gold);font-weight:700;margin-bottom:6px;}
+  .q .qtext{font-size:16px;font-weight:600;margin-bottom:14px;}
+  .opt{display:block;background:var(--beige);border:2px solid transparent;border-radius:10px;padding:12px 15px;margin-bottom:10px;font-size:15px;cursor:pointer;transition:.15s;}
+  .opt:hover{border-color:var(--gold-soft);}
+  .opt.selected{border-color:var(--gold);background:var(--beige-deep);}
+  .opt.correct{border-color:var(--green-deep);background:#EAF3E6;}
+  .opt.wrong{border-color:var(--wrong);background:#F7E9E5;}
+  .explain{font-size:14px;color:var(--ink-soft);margin-top:8px;padding:10px 14px;background:var(--beige);border-radius:8px;display:none;}
+  .explain.show{display:block;}
+  .explain b{color:var(--green-deep);}
+  .btn{display:block;width:100%;background:var(--green-deep);color:var(--white);border:none;font-size:17px;font-weight:700;padding:16px;border-radius:12px;cursor:pointer;margin-top:8px;font-family:inherit;letter-spacing:1px;}
+  .btn:hover{background:#6f9265;}
+  .btn.gold{background:var(--gold);}
+  .btn.gold:hover{background:#b8923f;}
+  .result{display:none;background:var(--white);border-radius:16px;padding:28px 24px;margin-top:24px;border:2px solid var(--gold);text-align:center;}
+  .result.show{display:block;}
+  .result .score-big{font-size:44px;font-weight:800;color:var(--gold);line-height:1;}
+  .result .score-sub{font-size:15px;color:var(--ink-soft);margin-top:8px;}
+  .result .comment{font-size:16px;margin-top:16px;color:var(--ink);}
+  .copybox{background:var(--beige);border:1px dashed var(--gold-soft);border-radius:10px;padding:14px;margin-top:18px;font-size:14px;text-align:left;white-space:pre-line;color:var(--ink);}
+  .hint{font-size:13px;color:var(--ink-soft);margin-top:10px;}
+  footer{text-align:center;margin-top:30px;color:var(--ink-soft);font-size:14px;}
+  footer .sign{color:var(--green-deep);font-weight:700;margin-top:6px;font-size:16px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="kicker">好好吃飯也能瘦・第三階段・正確觀念</div>
+    <div class="day-no">Day 20 / 21</div>
+    <h1>GI值進階：抗性澱粉與空腹別吃麵</h1>
+    <div class="addr">🏠 遇見喜樂營養俱樂部<br>台中市北區進化北路367-6號　大衛營商場一樓</div>
+    <div class="line"></div>
+  </header>
+
+  <!-- ★漫畫提示(給ChatGPT生圖用):女生看著兩碗飯(一碗熱騰騰的白飯、一碗涼的隔夜飯),恍然大悟的表情,旁邊有血糖曲線小圖示意涼飯血糖比較平穩;小貓咪在旁。清楚、有知識感、金米綠配色、圓潤可愛畫風、標語「好好吃飯也能瘦」。 -->
+  <div class="card">
+    <span class="topic-tag">複習・GI值</span>
+    <h2>先快速複習：GI 值</h2>
+    <img class="comic-img" src="https://rachelfu728.github.io/fit21-home/day20-a.png" alt="抗性澱粉插畫">
+    <p>還記得 Day 13 我們聊過的 <b>GI 值（升糖指數）</b>嗎？它代表食物讓<b>血糖上升的速度</b>——高 GI 讓血糖暴衝暴跌、容易餓又容易囤脂肪；低 GI 讓血糖平穩、飽得久。</p>
+    <p>今天我們進階一點，來聊兩個很實用的延伸：一個神奇的東西叫「<b>抗性澱粉</b>」，還有為什麼我常提醒大家「<b>別空腹吃麵包</b>」。這兩個都跟血糖有關，學會了很受用。</p>
+    <div class="key"><b>快速複習：</b>GI＝血糖上升的速度。高GI暴衝暴跌、低GI平穩。今天進階聊「抗性澱粉」和「別空腹吃麵」。</div>
+  </div>
+
+  <div class="card">
+    <span class="topic-tag">重點一・抗性澱粉</span>
+    <h2>神奇的「抗性澱粉」是什麼？</h2>
+    <p>一般澱粉會被小腸消化吸收、變成葡萄糖，讓血糖上升。但有一種特別的澱粉，叫<b>「抗性澱粉」——它不容易被小腸消化吸收</b>，所以：</p>
+    <div class="box">
+      <div class="t">✦ 抗性澱粉的好處</div>
+      <div class="items">① 不會讓血糖大幅上升（GI 低、血糖平穩）<br>② 熱量比較低<br>③ 有飽足感，作用類似膳食纖維<br>④ 是腸道好菌的食物，對腸道健康有幫助</div>
+    </div>
+    <p style="margin-top:14px;">最神奇的是——<b>把一般的澱粉「放涼」，抗性澱粉會增加！</b>因為澱粉煮熟後放涼，會產生「回凝」的變化，變成不易消化的抗性澱粉。</p>
+    <div class="box">
+      <div class="t">✦ 增加抗性澱粉的小技巧</div>
+      <div class="items">• 白飯煮好<b>放涼</b>再吃，或吃隔夜飯（冷飯、飯糰）<br>• <b>沒有很熟的香蕉</b>（帶點綠）比全熟的抗性澱粉多<br>• 放涼的地瓜、馬鈴薯<br>• 糙米、豆類本身就含較多抗性澱粉</div>
+    </div>
+    <div class="key"><b>記住：</b>抗性澱粉不易被吸收、血糖平穩、熱量低、有飽足感。把澱粉放涼（冷飯、涼地瓜）能增加抗性澱粉，是聰明的吃法。</div>
+  </div>
+
+  <div class="card">
+    <span class="topic-tag">重點二・別空腹吃麵</span>
+    <h2>為什麼我常說「別空腹吃麵包」？</h2>
+    <p>這是我很常叮嚀的一句話，背後的原因就是<b>血糖</b>。當你<b>肚子空空、什麼都沒吃</b>就先吃麵包、麵、白飯這類精緻澱粉——</p>
+    <div class="warnbox">
+      <div class="t">⚠️ 空腹吃精緻澱粉會發生什麼？</div>
+      <div>因為肚子裡沒有其他東西「擋一下」，這些高 GI 的精緻澱粉會<b>被快速消化吸收，血糖一下子飆很高</b>；接著身體大量分泌胰島素把血糖壓下來，血糖又<b>快速掉下來</b>——結果你很快又餓、又想吃，還容易囤脂肪。這就是血糖的「雲霄飛車」。</div>
+    </div>
+    <p style="margin-top:14px;">所以與其空腹先嗑麵包，不如<b>先吃點蛋白質或蔬菜「墊胃」</b>，或至少搭配著吃。有了蛋白質和纖維「擋一下」，血糖上升就會平緩很多。這其實就是我們 Day 1 講的「<b>菜肉飯順序</b>」的道理——先菜、先肉，最後才澱粉。</p>
+    <div class="key"><b>記住：</b>空腹吃麵包麵飯，血糖會飆高又暴跌、很快又餓、易囤脂肪。先吃蛋白質或蔬菜墊胃，血糖才平穩——就是菜肉飯順序的道理。</div>
+
+    <div class="qa">
+      <div class="qq">Q：那早餐只有麵包怎麼辦？</div>
+      <div>很簡單——<b>幫麵包「找伴」</b>就好！別只吃一個麵包，搭配一顆蛋、一杯無糖豆漿或鮮奶、或一份生菜，讓蛋白質和纖維陪著澱粉一起下肚，血糖就不會暴衝。或者選全麥、雜糧麵包（比白麵包 GI 低）。一個小調整，早餐就健康很多。當然，一份均衡的代餐奶昔，也是忙碌早晨很方便的選擇。</div>
+    </div>
+  </div>
+
+  <div class="quiz-intro">
+    <div class="t">來做個小測驗 ✏️</div>
+    <div class="s">看完今天的內容，試試看你懂了多少<br>共 6 題，全部選擇題</div>
+  </div>
+
+  <div class="namebox">
+    <label>先填上你的名字（讓教練知道是誰交的功課）</label>
+    <input type="text" id="studentName" placeholder="請輸入你的名字">
+  </div>
+
+  <div id="quiz"></div>
+  <button class="btn gold" id="submitBtn" onclick="grade()">交卷看分數</button>
+
+  <div class="result" id="result">
+    <div class="score-big" id="scoreBig">0 分</div>
+    <div class="score-sub" id="scoreSub"></div>
+    <div class="comment" id="comment"></div>
+    <div class="copybox" id="copybox"></div>
+    <button class="btn" style="margin-top:16px;" onclick="copyResult()">📋 複製成績</button>
+    <div class="hint">複製後，貼到 LINE 傳給教練就完成囉！</div>
+  </div>
+
+  <footer>
+    Day 20・抗性澱粉與空腹別吃麵<br>
+    <span class="sign">OK，我們一起努力！</span>
+  </footer>
+</div>
+
+<script>
+const questions = [
+  {q:"「抗性澱粉」的特點是？",opts:["會讓血糖快速飆高","不易被小腸消化吸收，血糖平穩、熱量低、有飽足感","熱量特別高","跟一般澱粉一樣"],ans:1,exp:"抗性澱粉不易被小腸消化吸收，所以血糖不會大幅上升、熱量較低、有飽足感，作用類似膳食纖維。"},
+  {q:"怎麼增加食物中的抗性澱粉？",opts:["趁熱吃、煮越爛越好","把澱粉放涼再吃（冷飯、涼地瓜），或吃隔夜飯","加很多糖","炸過再吃"],ans:1,exp:"澱粉煮熟後放涼會『回凝』，產生較多抗性澱粉。所以冷飯、放涼的地瓜馬鈴薯、帶點綠的香蕉抗性澱粉較多。"},
+  {q:"為什麼不建議「空腹」吃麵包、麵、白飯？",opts:["因為不好吃","肚子空空沒東西擋，精緻澱粉會讓血糖快速飆高又暴跌","因為太貴","空腹吃比較好"],ans:1,exp:"空腹時沒有其他食物擋一下，高GI精緻澱粉被快速吸收、血糖飆高又暴跌，很快又餓、易囤脂肪。"},
+  {q:"要讓血糖上升平緩，吃澱粉前可以先？",opts:["先喝含糖飲料","先吃點蛋白質或蔬菜墊胃","先吃甜點","什麼都不吃"],ans:1,exp:"先吃蛋白質或蔬菜『墊胃』，有纖維和蛋白質擋一下，澱粉造成的血糖上升就會平緩很多。就是菜肉飯順序的道理。"},
+  {q:"早餐只有麵包時，怎麼吃比較好？",opts:["只吃麵包就好","幫麵包找伴——配蛋、無糖豆漿或生菜，或選全麥雜糧","配含糖飲料","多吃幾個麵包"],ans:1,exp:"幫麵包『找伴』，搭配蛋白質（蛋、豆漿）和纖維（生菜），或選GI較低的全麥雜糧麵包，血糖就不會暴衝。"},
+  {q:"今天的內容和 Day 1 哪個觀念相通？",opts:["多喝水","菜肉飯順序——先菜先肉最後澱粉，血糖較平穩","多睡覺","多運動"],ans:1,exp:"先吃蛋白質蔬菜再吃澱粉，血糖上升平緩，正是Day1『菜肉飯順序』的道理。觀念全部串起來了。"}
+];
+let selected = Array(questions.length).fill(null);
+let graded = false;
+const quizEl = document.getElementById('quiz');
+questions.forEach(function(item, qi){
+  const qDiv = document.createElement('div');
+  qDiv.className = 'q';
+  let html = '<div class="qnum">第 ' + (qi+1) + ' 題</div><div class="qtext">' + item.q + '</div>';
+  item.opts.forEach(function(opt, oi){
+    html += '<label class="opt" id="opt-' + qi + '-' + oi + '" onclick="pick(' + qi + ',' + oi + ')">' + opt + '</label>';
+  });
+  html += '<div class="explain" id="exp-' + qi + '"></div>';
+  qDiv.innerHTML = html;
+  quizEl.appendChild(qDiv);
+});
+function pick(qi, oi){
+  if(graded) return;
+  selected[qi] = oi;
+  for(let o=0;o<questions[qi].opts.length;o++){
+    document.getElementById('opt-' + qi + '-' + o).classList.remove('selected');
+  }
+  document.getElementById('opt-' + qi + '-' + oi).classList.add('selected');
+}
+function grade(){
+  const name = document.getElementById('studentName').value.trim();
+  if(!name){ alert("請先填上你的名字喔！"); document.getElementById('studentName').focus(); return; }
+  for(let i=0;i<questions.length;i++){
+    if(selected[i]===null){ alert('第 ' + (i+1) + ' 題還沒作答喔！');
+      document.getElementById('opt-' + i + '-0').scrollIntoView({behavior:'smooth',block:'center'}); return; }
+  }
+  graded = true;
+  let correct = 0;
+  questions.forEach(function(item, qi){
+    const chosen = selected[qi];
+    if(chosen === item.ans){ correct++; document.getElementById('opt-' + qi + '-' + chosen).classList.add('correct'); }
+    else { document.getElementById('opt-' + qi + '-' + chosen).classList.add('wrong');
+      document.getElementById('opt-' + qi + '-' + item.ans).classList.add('correct'); }
+    const exp = document.getElementById('exp-' + qi);
+    exp.innerHTML = '<b>解說：</b>' + item.exp; exp.classList.add('show');
+  });
+  const studentScore = Math.round(correct / questions.length * 100);
+  document.getElementById('submitBtn').style.display = 'none';
+  document.getElementById('scoreBig').textContent = studentScore + " 分";
+  document.getElementById('scoreSub').textContent = '答對 ' + correct + ' / ' + questions.length + ' 題';
+  let comment = "";
+  if(studentScore === 100) comment = "太棒了！你對血糖和澱粉的掌握越來越專業了 👏";
+  else if(studentScore >= 80) comment = "很好！大部分都懂了，錯的地方看一下解說就更完整囉。";
+  else if(studentScore >= 60) comment = "不錯～有幾題再回去看看，觀念會更清楚。";
+  else comment = "沒關係！把上面的內容再看一次，教練會陪你一起弄懂。";
+  document.getElementById('comment').textContent = comment;
+  const today = new Date();
+  const dateStr = today.getFullYear() + '/' + (today.getMonth()+1) + '/' + today.getDate();
+  const copyText =
+'【好好吃飯也能瘦・Day 20 測驗成績】\n' +
+'姓名：' + name + '\n' +
+'日期：' + dateStr + '\n' +
+'主題：抗性澱粉與空腹別吃麵\n' +
+'分數：' + studentScore + ' 分（答對 ' + correct + '/' + questions.length + ' 題）\n' +
+'—— 我完成今天的功課囉！';
+  document.getElementById('copybox').textContent = copyText;
+  window._copyText = copyText;
+  document.getElementById('result').classList.add('show');
+  document.getElementById('result').scrollIntoView({behavior:'smooth', block:'start'});
+}
+function copyResult(){
+  const text = window._copyText || "";
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(function(){ alert("成績已複製！貼到 LINE 傳給教練就完成囉 😊"); }).catch(function(){fallbackCopy(text);});
+  } else { fallbackCopy(text); }
+}
+function fallbackCopy(text){
+  const ta = document.createElement('textarea');
+  ta.value = text; document.body.appendChild(ta); ta.select();
+  try{ document.execCommand('copy'); alert("成績已複製！貼到 LINE 傳給教練就完成囉 😊"); }
+  catch(e){ alert("請長按上方成績文字手動複製~"); }
+  document.body.removeChild(ta);
+}
+</script>
+</body>
+</html>

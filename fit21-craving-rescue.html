@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>嘴饞自救包 🌿 ｜ 遇見喜樂</title>
+<meta property="og:title" content="嘴饞自救包 🌿">
+<meta property="og:description" content="嘴饞不是你的錯，它只是一陣風。深呼吸，我陪你撐過去 💚">
+<meta property="og:type" content="website">
+<style>
+  :root{
+    --ink:#2f3d2a;--moss:#5a7a3f;--leaf:#7fa653;--leaf-light:#a3c47a;
+    --gold:#c9a24b;--gold-soft:#e8d3a0;--cream:#f6f4ea;--paper:#fffdf7;
+    --clay:#c97b52;--line:#dfe6cf;--mist:rgba(127,166,83,.14);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+  html,body{height:100%;}
+  body{
+    font-family:"PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;
+    color:var(--ink);line-height:1.75;overflow-x:hidden;
+    background:
+      radial-gradient(circle at 20% 12%, #eaf3dd 0%, transparent 42%),
+      radial-gradient(circle at 82% 88%, #dcebc6 0%, transparent 48%),
+      linear-gradient(160deg, #f2f7ea 0%, #e8f1d8 55%, #eef4e2 100%);
+    min-height:100vh;display:flex;flex-direction:column;align-items:center;
+    padding:26px 18px 40px;position:relative;
+  }
+
+  /* 飄浮的葉子背景 */
+  .leaf-bg{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden;}
+  .leaf-bg span{
+    position:absolute;font-size:22px;opacity:.16;animation:drift linear infinite;
+    will-change:transform;
+  }
+  @keyframes drift{
+    0%{transform:translateY(-10vh) rotate(0deg);}
+    100%{transform:translateY(110vh) rotate(360deg);}
+  }
+
+  .wrap{position:relative;z-index:1;width:100%;max-width:440px;display:flex;flex-direction:column;align-items:center;flex:1;}
+
+  .kicker{font-size:12px;letter-spacing:.26em;color:var(--gold);font-weight:700;margin-bottom:8px;}
+  h1{font-size:25px;font-weight:800;color:var(--ink);text-align:center;margin-bottom:8px;letter-spacing:.02em;}
+  .sub{font-size:14.5px;color:var(--moss);text-align:center;margin-bottom:4px;max-width:300px;}
+  .addr{font-size:11px;color:#a59a7e;text-align:center;margin-bottom:30px;margin-top:14px;}
+
+  /* ── 呼吸圓鈕 ── */
+  .breath-zone{
+    position:relative;width:280px;height:280px;display:flex;align-items:center;justify-content:center;
+    margin:8px 0 20px;
+  }
+  .ring{
+    position:absolute;border-radius:50%;border:2px solid var(--leaf-light);opacity:0;
+  }
+  .ring.r1{width:200px;height:200px;animation:pulse 4.5s ease-in-out infinite;}
+  .ring.r2{width:200px;height:200px;animation:pulse 4.5s ease-in-out infinite 1.5s;}
+  .ring.r3{width:200px;height:200px;animation:pulse 4.5s ease-in-out infinite 3s;}
+  @keyframes pulse{
+    0%{transform:scale(1);opacity:.55;}
+    100%{transform:scale(1.9);opacity:0;}
+  }
+  .btn{
+    position:relative;z-index:2;width:186px;height:186px;border-radius:50%;border:none;cursor:pointer;
+    background:radial-gradient(circle at 35% 30%, #8fb85f, #5a7a3f 78%);
+    box-shadow:0 14px 34px rgba(90,122,63,.38), inset 0 3px 12px rgba(255,255,255,.28);
+    color:#fff;font-family:inherit;display:flex;flex-direction:column;align-items:center;justify-content:center;
+    gap:6px;transition:transform .5s cubic-bezier(.34,1.56,.64,1), box-shadow .4s;
+    animation:softbreath 4.5s ease-in-out infinite;
+  }
+  @keyframes softbreath{
+    0%,100%{transform:scale(1);}
+    50%{transform:scale(1.045);}
+  }
+  .btn:active{transform:scale(.94);}
+  .btn .emoji{font-size:34px;line-height:1;}
+  .btn .txt{font-size:19px;font-weight:800;letter-spacing:.04em;}
+  .btn .hint{font-size:12px;opacity:.85;font-weight:400;letter-spacing:.08em;}
+  .btn.spun{animation:none;}
+
+  /* ── 自救卡 ── */
+  .card-stage{width:100%;min-height:20px;display:flex;justify-content:center;perspective:1000px;}
+  .card{
+    width:100%;max-width:400px;background:var(--paper);border:1px solid var(--line);
+    border-radius:22px;padding:30px 26px 28px;box-shadow:0 16px 40px rgba(90,122,63,.2);
+    text-align:center;opacity:0;transform:translateY(24px) rotateX(8deg);
+    transition:opacity .7s ease, transform .7s cubic-bezier(.22,1,.36,1);position:relative;
+  }
+  .card.show{opacity:1;transform:translateY(0) rotateX(0);}
+  .card .leaf-mark{font-size:30px;margin-bottom:12px;display:block;}
+  .card .cat{
+    font-size:12px;letter-spacing:.16em;color:var(--gold);font-weight:800;margin-bottom:14px;
+  }
+  .card .action{font-size:22px;font-weight:800;color:var(--moss);line-height:1.5;margin-bottom:16px;}
+  .card .why{font-size:15px;color:var(--ink);line-height:1.8;margin-bottom:20px;}
+  .card .warm{
+    font-size:14.5px;color:var(--clay);font-weight:700;line-height:1.7;
+    background:linear-gradient(135deg,#fbf3e4,#f6ecd6);border-radius:14px;padding:14px 16px;
+  }
+
+  .again{
+    margin-top:22px;background:transparent;border:1.6px solid var(--leaf);color:var(--moss);
+    font-family:inherit;font-size:15px;font-weight:700;padding:11px 26px;border-radius:30px;cursor:pointer;
+    opacity:0;transition:opacity .5s .3s, background .2s, transform .15s;letter-spacing:.04em;
+  }
+  .again.show{opacity:1;}
+  .again:hover{background:var(--mist);}
+  .again:active{transform:scale(.95);}
+
+  .foot{margin-top:auto;padding-top:30px;text-align:center;}
+  .foot .brand{font-size:12px;color:var(--gold);font-weight:700;letter-spacing:.16em;margin-bottom:3px;}
+  .foot .tag{font-size:11px;color:#a59a7e;letter-spacing:.1em;}
+
+  @media (prefers-reduced-motion: reduce){
+    .btn,.ring,.leaf-bg span{animation:none !important;}
+    .card{transition:opacity .3s;}
+  }
+  @media(max-width:380px){
+    h1{font-size:22px;}
+    .breath-zone{width:250px;height:250px;}
+    .btn{width:170px;height:170px;}
+  }
+</style>
+</head>
+<body>
+
+  <div class="leaf-bg" id="leafBg"></div>
+
+  <div class="wrap">
+    <div class="kicker">FIT21 · 維持期工具</div>
+    <h1>嘴饞自救包 🌿</h1>
+    <div class="sub">嘴饞不是你的錯，它只是一陣風。<br>深呼吸，我陪你撐過去。</div>
+
+    <div class="breath-zone">
+      <div class="ring r1"></div>
+      <div class="ring r2"></div>
+      <div class="ring r3"></div>
+      <button class="btn" id="rescueBtn" aria-label="我嘴饞了，抽一張自救卡">
+        <span class="emoji">🌿</span>
+        <span class="txt">我嘴饞了</span>
+        <span class="hint">點我一下</span>
+      </button>
+    </div>
+
+    <div class="card-stage">
+      <div class="card" id="card" role="status" aria-live="polite">
+        <span class="leaf-mark">🍃</span>
+        <div class="cat" id="cardCat"></div>
+        <div class="action" id="cardAction"></div>
+        <div class="why" id="cardWhy"></div>
+        <div class="warm" id="cardWarm"></div>
+      </div>
+    </div>
+
+    <button class="again" id="againBtn">再抽一張 🍃</button>
+
+    <div class="foot">
+      <div class="brand">遇見喜樂營養俱樂部</div>
+      <div class="tag">好好吃飯也能瘦</div>
+    </div>
+    <div class="addr">台中市北區進化北路367-6號 大衛營商場一樓</div>
+  </div>
+
+<script>
+  // ── 自救卡內容（可自由增減、修改） ──
+  const cards = [
+    {
+      cat:"先喝一杯水",
+      action:"倒一杯溫水，慢慢喝完",
+      why:"我們常常把「口渴」誤認成「肚子餓」。先喝一杯水，等幾分鐘，很多時候那股嘴饞就悄悄退了。",
+      warm:"你不是嘴饞，你只是需要被溫柔對待一下 💚"
+    },
+    {
+      cat:"陪自己 10 分鐘",
+      action:"跟自己說：「等 10 分鐘再決定」",
+      why:"嘴饞的衝動通常像海浪，來得快、退得也快。你不用「忍一輩子」，只要陪自己撐過這一小段。",
+      warm:"10 分鐘後的你，會謝謝現在的你 🌿"
+    },
+    {
+      cat:"問問自己",
+      action:"我是真的餓，還是心裡想被安撫？",
+      why:"如果是嘴巴無聊、心裡有點空，那不是身體要食物，是情緒想找出口。看懂它，你就贏一半了。",
+      warm:"看見自己的情緒，不責怪，這就是進步 💚"
+    },
+    {
+      cat:"換一個動作",
+      action:"起身走動一下，或做三次深呼吸",
+      why:"把注意力從嘴巴移開，身體動一動，血液循環起來，那股「想吃」的訊號常常就淡掉了。",
+      warm:"你已經學會照顧自己了，相信自己 🌿"
+    },
+    {
+      cat:"泡一杯溫暖的",
+      action:"泡杯無糖茶或黑咖啡，慢慢品",
+      why:"溫熱的飲品能帶來飽足與安撫感。用「品味」代替「塞食物」，同樣被滿足，卻輕盈很多。",
+      warm:"善待自己，不一定要靠食物 💚"
+    },
+    {
+      cat:"想想兩個月的你",
+      action:"看看你走過的路，你已經不一樣了",
+      why:"你花了兩個月，學會好好吃飯、好好照顧自己。這一口如果吃了會後悔，那它就配不上你的努力。",
+      warm:"你值得那個越來越好的自己 🌿"
+    },
+    {
+      cat:"如果真的餓了",
+      action:"那就好好吃，選有蛋白質的",
+      why:"嘴饞和真餓不一樣。如果是真的餓，別硬撐——選一份有蛋白質、原型的食物，好好吃、慢慢吃。",
+      warm:"照顧身體不是處罰自己，你懂的 💚"
+    },
+    {
+      cat:"補充你的能量",
+      action:"喝一杯你熟悉的營養補給",
+      why:"與其亂吃零食，不如給身體它真正需要的營養。你手邊的補給品，就是為這種時刻準備的。",
+      warm:"你早就準備好了，用它照顧自己 🌿"
+    }
+  ];
+
+  let lastIndex = -1;
+  const card = document.getElementById('card');
+  const again = document.getElementById('againBtn');
+  const btn = document.getElementById('rescueBtn');
+
+  function pickCard(){
+    let i;
+    do { i = Math.floor(Math.random()*cards.length); }
+    while (i === lastIndex && cards.length > 1);
+    lastIndex = i;
+    const c = cards[i];
+
+    // 先淡出
+    card.classList.remove('show');
+    again.classList.remove('show');
+
+    setTimeout(()=>{
+      document.getElementById('cardCat').textContent = c.cat;
+      document.getElementById('cardAction').textContent = c.action;
+      document.getElementById('cardWhy').textContent = c.why;
+      document.getElementById('cardWarm').textContent = c.warm;
+      card.classList.add('show');
+      again.classList.add('show');
+      // 平滑捲到卡片
+      setTimeout(()=>card.scrollIntoView({behavior:'smooth', block:'center'}), 120);
+    }, 260);
+  }
+
+  btn.addEventListener('click', ()=>{
+    btn.classList.add('spun');
+    pickCard();
+  });
+  again.addEventListener('click', pickCard);
+
+  // ── 生成飄浮葉子 ──
+  const bg = document.getElementById('leafBg');
+  const leaves = ['🍃','🌿','🍃','🌱'];
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!reduce){
+    for(let i=0;i<9;i++){
+      const s = document.createElement('span');
+      s.textContent = leaves[i % leaves.length];
+      s.style.left = Math.random()*100 + '%';
+      s.style.fontSize = (16 + Math.random()*16) + 'px';
+      s.style.animationDuration = (14 + Math.random()*12) + 's';
+      s.style.animationDelay = (-Math.random()*20) + 's';
+      bg.appendChild(s);
+    }
+  }
+</script>
+</body>
+</html>

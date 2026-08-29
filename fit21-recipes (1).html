@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>健康食譜牆 🥗 ｜ 遇見喜樂</title>
+<meta property="og:title" content="健康食譜牆 🥗">
+<meta property="og:description" content="好好吃飯也能瘦。這裡的食譜會一直更新，想煮什麼隨時來逛 💚">
+<meta property="og:type" content="website">
+<style>
+  :root{
+    --ink:#2f3d2a;--moss:#5a7a3f;--leaf:#7fa653;--leaf-light:#a3c47a;
+    --gold:#c9a24b;--gold-soft:#e8d3a0;--cream:#f6f4ea;--paper:#fffdf7;
+    --clay:#c97b52;--line:#dfe6cf;--mist:rgba(127,166,83,.12);
+    --shadow:rgba(90,122,63,.15);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+  body{
+    font-family:"PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;
+    color:var(--ink);line-height:1.75;
+    background:
+      radial-gradient(circle at 12% 5%, #eaf3dd 0%, transparent 38%),
+      radial-gradient(circle at 90% 98%, #dcebc6 0%, transparent 44%),
+      linear-gradient(160deg, #f4f8ec 0%, #eaf2db 100%);
+    min-height:100vh;padding:30px 16px 50px;max-width:560px;margin:0 auto;
+  }
+
+  /* 頁首 */
+  .head{text-align:center;margin-bottom:6px;}
+  .kicker{font-size:12px;letter-spacing:.26em;color:var(--gold);font-weight:700;margin-bottom:10px;}
+  .ico{font-size:48px;line-height:1;margin-bottom:8px;}
+  h1{font-size:26px;font-weight:800;color:var(--ink);margin-bottom:12px;letter-spacing:.02em;}
+  .intro{font-size:14.5px;color:var(--moss);max-width:330px;margin:0 auto;line-height:1.8;}
+  .addr{font-size:11px;color:#a59a7e;margin:16px 0 28px;text-align:center;}
+
+  /* 分類標籤列（可選用，之後食譜多了可分類） */
+  .updated{
+    text-align:center;font-size:12px;color:#a59a7e;margin-bottom:26px;letter-spacing:.05em;
+  }
+  .updated b{color:var(--moss);}
+
+  /* ── 食譜卡 ── */
+  .wall{display:flex;flex-direction:column;gap:22px;}
+  .recipe{
+    background:var(--paper);border:1px solid var(--line);border-radius:22px;
+    box-shadow:0 8px 24px var(--shadow);overflow:hidden;
+  }
+  .recipe .top{
+    padding:20px 22px 16px;background:linear-gradient(135deg,#f0f6e6,#e6f0d5);
+    border-bottom:1px solid var(--line);
+  }
+  .recipe .tags{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:10px;}
+  .recipe .tag{
+    font-size:11px;font-weight:700;color:var(--moss);background:#fff;border:1px solid #d3e0bf;
+    border-radius:20px;padding:3px 11px;letter-spacing:.04em;
+  }
+  .recipe .rname{font-size:21px;font-weight:800;color:var(--ink);line-height:1.4;margin-bottom:6px;}
+  .recipe .rnote{font-size:13.5px;color:#7d8a6c;line-height:1.7;}
+
+  .recipe .body{padding:20px 22px 22px;}
+  .block-title{
+    font-size:14px;font-weight:800;color:var(--moss);margin-bottom:10px;
+    display:flex;align-items:center;gap:7px;
+  }
+  .recipe .ingredients{list-style:none;margin-bottom:20px;}
+  .recipe .ingredients li{
+    font-size:15px;padding:7px 0;border-bottom:1px dashed #e6ecd7;display:flex;justify-content:space-between;gap:12px;
+  }
+  .recipe .ingredients li:last-child{border-bottom:none;}
+  .recipe .ingredients .amt{color:#93a07f;flex-shrink:0;font-size:14px;}
+
+  .recipe .steps{list-style:none;counter-reset:step;margin-bottom:18px;}
+  .recipe .steps li{
+    position:relative;padding:0 0 16px 40px;font-size:15px;line-height:1.75;
+  }
+  .recipe .steps li:last-child{padding-bottom:0;}
+  .recipe .steps li::before{
+    counter-increment:step;content:counter(step);
+    position:absolute;left:0;top:0;width:27px;height:27px;border-radius:50%;
+    background:var(--leaf);color:#fff;font-size:14px;font-weight:800;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .recipe .steps li:not(:last-child)::after{
+    content:"";position:absolute;left:13px;top:29px;bottom:6px;width:1.5px;background:#dbe6c8;
+  }
+
+  /* Rachel 的小叮嚀 */
+  .recipe .kind{
+    background:linear-gradient(135deg,#eaf3dd,#e0edcd);border:1px solid #cfe0b6;
+    border-radius:14px;padding:14px 16px;
+  }
+  .recipe .kind .kt{font-size:13px;font-weight:800;color:var(--moss);margin-bottom:5px;letter-spacing:.06em;}
+  .recipe .kind p{font-size:14px;color:var(--ink);line-height:1.7;}
+
+  .section-label{
+    font-size:12px;letter-spacing:.18em;color:var(--gold);font-weight:800;
+    margin:34px 0 4px;text-align:center;
+  }
+
+  .foot{margin-top:40px;text-align:center;}
+  .foot .line{width:44px;height:2px;background:var(--gold-soft);margin:0 auto 18px;border-radius:2px;}
+  .foot .msg{font-size:14px;color:var(--moss);line-height:1.8;max-width:300px;margin:0 auto 22px;}
+  .foot .brand{font-size:12px;color:var(--gold);font-weight:700;letter-spacing:.16em;margin-bottom:3px;}
+  .foot .tag2{font-size:11px;color:#a59a7e;letter-spacing:.1em;}
+
+  @media(max-width:380px){h1{font-size:23px;}.recipe .rname{font-size:19px;}}
+</style>
+</head>
+<body>
+
+  <div class="head">
+    <div class="kicker">FIT21 · 維持期</div>
+    <div class="ico">🥗</div>
+    <h1>健康食譜牆</h1>
+    <p class="intro">好好吃飯，也能瘦。<br>這裡的食譜會一直更新，<br>想煮什麼，隨時來逛 💚</p>
+  </div>
+  <div class="addr">遇見喜樂營養俱樂部 ｜ 台中市北區進化北路367-6號 大衛營商場一樓</div>
+
+  <div class="updated">最近更新：<b>新食譜會放在最上面 ↑</b></div>
+
+  <div class="wall">
+
+    <!-- ═══════════════════════════════════════════════════════
+         【給 Rachel / 夥伴：怎麼加新食譜】
+         1. 複製下面「一整塊 <article class="recipe"> ... </article>」
+         2. 貼到這行的正下方（最新的放最上面）
+         3. 改：標籤、食譜名、小介紹、材料、步驟、你的小叮嚀
+         4. 不想要的標籤或叮嚀，整行刪掉即可
+         ═══════════════════════════════════════════════════════ -->
+
+    <!-- ▼▼▼ 一則食譜 = 一個 <article>。複製這整塊來新增 ▼▼▼ -->
+    <article class="recipe">
+      <div class="top">
+        <div class="tags">
+          <span class="tag">高蛋白</span>
+          <span class="tag">10分鐘</span>
+          <span class="tag">早餐</span>
+        </div>
+        <div class="rname">高蛋白蔬菜蛋餅</div>
+        <div class="rnote">忙碌早晨的好選擇，蛋白質足夠、有飽足感，讓你一整個上午都有精神。</div>
+      </div>
+      <div class="body">
+
+        <div class="block-title">🥚 材料</div>
+        <ul class="ingredients">
+          <li>雞蛋 <span class="amt">2 顆</span></li>
+          <li>香草口味奶昔粉 <span class="amt">25 克</span></li>
+          <li>菠菜或高麗菜 <span class="amt">一小把</span></li>
+          <li>紅蘿蔔絲 <span class="amt">少許</span></li>
+          <li>鹽、胡椒 <span class="amt">少許</span></li>
+          <li>橄欖油 <span class="amt">少許</span></li>
+        </ul>
+
+        <div class="block-title">👩‍🍳 做法</div>
+        <ol class="steps">
+          <li>蔬菜洗淨切碎，雞蛋打散，加入香草口味奶昔粉、蔬菜、鹽、胡椒拌勻。</li>
+          <li>平底鍋熱油，倒入蛋液，鋪平以中小火煎。</li>
+          <li>底部凝固後翻面，煎到兩面金黃。</li>
+          <li>捲起、切段，就完成了。</li>
+        </ol>
+
+        <div class="kind">
+          <div class="kt">💚 Rachel 的小叮嚀</div>
+          <p>想要更有飽足感，可以配一杯無糖豆漿或你熟悉的營養補給。蔬菜的份量可以多一點，纖維多、更耐餓。</p>
+        </div>
+
+      </div>
+    </article>
+    <!-- ▲▲▲ 一則食譜到這裡結束 ▲▲▲ -->
+
+  </div>
+
+  <div class="foot">
+    <div class="line"></div>
+    <p class="msg">吃得對，比吃得少更重要。<br>這面牆會一直長大，<br>陪你把健康變成日常。</p>
+    <div class="brand">遇見喜樂營養俱樂部</div>
+    <div class="tag2">好好吃飯也能瘦</div>
+  </div>
+
+</body>
+</html>

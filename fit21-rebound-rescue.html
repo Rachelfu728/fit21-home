@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>復胖警報急救包 🚨 ｜ 遇見喜樂</title>
+<meta property="og:title" content="復胖警報急救包 🚨">
+<meta property="og:description" content="別怕，這不是失敗。跟著這 3 天，我們一起穩回來 💪">
+<meta property="og:type" content="website">
+<style>
+  :root{
+    --ink:#2f3d2a;--moss:#5a7a3f;--leaf:#7fa653;--leaf-light:#a3c47a;
+    --gold:#c9a24b;--gold-soft:#e8d3a0;--cream:#f6f4ea;--paper:#fffdf7;
+    --clay:#c97b52;--clay-deep:#b35c34;--line:#dfe6cf;
+    --warm:#f0a35e;--warm-soft:#fbe3c6;--shadow:rgba(90,122,63,.16);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+  body{
+    font-family:"PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;
+    color:var(--ink);line-height:1.75;
+    background:
+      radial-gradient(circle at 15% 5%, #fbe6d0 0%, transparent 40%),
+      radial-gradient(circle at 88% 96%, #dcebc6 0%, transparent 46%),
+      linear-gradient(160deg, #f6f2e8 0%, #eef4e2 100%);
+    min-height:100vh;padding:30px 18px 50px;max-width:520px;margin:0 auto;
+  }
+
+  /* 頁首 */
+  .head{text-align:center;margin-bottom:24px;}
+  .kicker{font-size:12px;letter-spacing:.26em;color:var(--gold);font-weight:700;margin-bottom:12px;}
+  .badge-alert{
+    display:inline-flex;align-items:center;gap:7px;background:linear-gradient(135deg,#f6b26b,#ed914a);
+    color:#fff;font-size:13px;font-weight:800;padding:7px 18px;border-radius:30px;letter-spacing:.06em;
+    box-shadow:0 6px 16px rgba(237,145,74,.32);margin-bottom:16px;
+  }
+  h1{font-size:26px;font-weight:800;color:var(--ink);margin-bottom:14px;letter-spacing:.02em;}
+
+  /* 開場打氣 */
+  .pep{
+    background:var(--paper);border:1px solid var(--line);border-left:5px solid var(--warm);
+    border-radius:16px;padding:20px 20px;margin-bottom:12px;text-align:left;
+  }
+  .pep p{font-size:16px;margin-bottom:10px;}
+  .pep p:last-child{margin-bottom:0;}
+  .pep .strong{font-size:18px;font-weight:800;color:var(--clay-deep);line-height:1.5;}
+  .addr{font-size:11px;color:#a59a7e;margin:14px 0 30px;text-align:center;}
+
+  .lead-in{text-align:center;font-size:15px;color:var(--moss);font-weight:700;margin-bottom:22px;letter-spacing:.03em;}
+
+  /* 3 天步驟 */
+  .days{display:flex;flex-direction:column;gap:18px;}
+  .day{
+    background:var(--paper);border:1px solid var(--line);border-radius:20px;
+    box-shadow:0 8px 22px var(--shadow);overflow:hidden;
+  }
+  .day .dhead{
+    display:flex;align-items:center;gap:14px;padding:16px 20px;
+    background:linear-gradient(135deg,#eef6e2,#e3efd2);border-bottom:1px solid var(--line);
+  }
+  .day .dnum{
+    flex-shrink:0;width:46px;height:46px;border-radius:14px;
+    background:linear-gradient(135deg,var(--leaf),var(--moss));color:#fff;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1;
+  }
+  .day .dnum .d{font-size:10px;font-weight:600;opacity:.9;letter-spacing:.1em;}
+  .day .dnum .n{font-size:22px;font-weight:800;}
+  .day .dtitle{font-size:17px;font-weight:800;color:var(--ink);}
+  .day .dtitle .sub{display:block;font-size:12.5px;color:#93a07f;font-weight:600;margin-top:2px;}
+
+  .day .dbody{padding:16px 20px 20px;}
+  .day ul{list-style:none;}
+  .day li{
+    display:flex;align-items:flex-start;gap:11px;font-size:15px;padding:8px 0;line-height:1.7;
+  }
+  .day li .chk{
+    flex-shrink:0;width:22px;height:22px;border-radius:7px;border:2px solid var(--leaf-light);
+    margin-top:2px;
+  }
+  .day li b{color:var(--moss);}
+
+  /* 收尾信心 */
+  .final{
+    margin-top:26px;background:linear-gradient(135deg,#5a7a3f,#4a6733);color:#fff;
+    border-radius:20px;padding:26px 24px;text-align:center;box-shadow:0 12px 30px rgba(90,122,63,.3);
+  }
+  .final .fi{font-size:34px;margin-bottom:12px;}
+  .final .ft{font-size:19px;font-weight:800;line-height:1.5;margin-bottom:12px;}
+  .final .fp{font-size:15px;line-height:1.8;opacity:.95;}
+
+  .note{
+    margin-top:22px;font-size:12.5px;color:#a59a7e;line-height:1.7;text-align:center;
+    background:#f6f4ea;border:1px dashed #d8d5bf;border-radius:12px;padding:14px 16px;
+  }
+
+  .foot{margin-top:30px;text-align:center;}
+  .foot .line{width:44px;height:2px;background:var(--gold-soft);margin:0 auto 16px;border-radius:2px;}
+  .foot .brand{font-size:12px;color:var(--gold);font-weight:700;letter-spacing:.16em;margin-bottom:3px;}
+  .foot .tag{font-size:11px;color:#a59a7e;letter-spacing:.1em;}
+
+  @media(max-width:380px){h1{font-size:23px;}}
+</style>
+</head>
+<body>
+
+  <div class="head">
+    <div class="kicker">FIT21 · 維持期工具</div>
+    <div class="badge-alert">🚨 復胖警報急救包</div>
+    <h1>別怕，我們一起穩回來</h1>
+    <div class="pep">
+      <p class="strong">體重回升一點點，不代表你失敗了。</p>
+      <p>身體本來就會浮動——水分、鹽分、經期、睡眠，都會讓數字上上下下。這很正常。</p>
+      <p>真正重要的不是「今天多了幾公斤」，而是<b>你現在願意穩住它</b>。來，跟著這 3 天，我們一起把它拉回來。</p>
+    </div>
+  </div>
+  <div class="addr">遇見喜樂營養俱樂部 ｜ 台中市北區進化北路367-6號 大衛營商場一樓</div>
+
+  <div class="lead-in">💪 3 天回穩行動，跟著做就對了</div>
+
+  <div class="days">
+
+    <!-- Day 1 -->
+    <div class="day">
+      <div class="dhead">
+        <div class="dnum"><span class="d">DAY</span><span class="n">1</span></div>
+        <div class="dtitle">先把水喝回來<span class="sub">很多「變重」其實是水腫</span></div>
+      </div>
+      <div class="dbody">
+        <ul>
+          <li><span class="chk"></span><span>今天<b>喝足 2500～3500cc 水</b>（依個人體質調整），分次慢慢喝。水喝夠，身體反而更容易排掉多餘水分。</span></li>
+          <li><span class="chk"></span><span><b>少鹽、少加工食物</b>——重口味最容易讓你水腫，今天清淡吃。</span></li>
+          <li><span class="chk"></span><span>回到你熟悉的<b>進食順序</b>：先吃菜和蛋白質，最後才碰澱粉。</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Day 2 -->
+    <div class="day">
+      <div class="dhead">
+        <div class="dnum"><span class="d">DAY</span><span class="n">2</span></div>
+        <div class="dtitle">找回你的節奏<span class="sub">把學過的習慣重新開機</span></div>
+      </div>
+      <div class="dbody">
+        <ul>
+          <li><span class="chk"></span><span><b>好好吃三餐</b>，別因為怕胖就跳過——跳餐反而更容易失控暴食。</span></li>
+          <li><span class="chk"></span><span>每一餐都有<b>足夠蛋白質</b>，讓你有飽足感、不嘴饞。</span></li>
+          <li><span class="chk"></span><span>動起來：<b>快走 30 分鐘</b>，或做你熟悉的運動，把身體叫醒。</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Day 3 -->
+    <div class="day">
+      <div class="dhead">
+        <div class="dnum"><span class="d">DAY</span><span class="n">3</span></div>
+        <div class="dtitle">穩住，然後放下焦慮<span class="sub">你已經回到正軌了</span></div>
+      </div>
+      <div class="dbody">
+        <ul>
+          <li><span class="chk"></span><span>繼續 Day 1、2 的節奏，<b>你會發現身體輕盈許多</b>。</span></li>
+          <li><span class="chk"></span><span><b>別再一直量體重</b>——一天量好幾次只會增加焦慮。固定早上量一次就好。</span></li>
+          <li><span class="chk"></span><span>對自己說：<b>「我知道怎麼照顧自己，我不會失控。」</b></span></li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="final">
+    <div class="fi">🌱</div>
+    <div class="ft">會復胖的人，是「不知道怎麼辦」的人。<br>而你，知道怎麼辦。</div>
+    <div class="fp">這就是你和兩個月前最大的不同。<br>偶爾的波動不可怕，因為你手上永遠有辦法。<br>我一直在，需要時隨時找我 💚</div>
+  </div>
+
+  <div class="note">
+    溫馨提醒：體重管理因人而異，維持健康的生活型態才是關鍵。<br>如有特殊身體狀況，仍建議諮詢專業醫師或營養師。
+  </div>
+
+  <div class="foot">
+    <div class="line"></div>
+    <div class="brand">遇見喜樂營養俱樂部</div>
+    <div class="tag">好好吃飯也能瘦</div>
+  </div>
+
+</body>
+</html>
